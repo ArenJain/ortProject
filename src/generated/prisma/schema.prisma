@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Users {
+  UserId           String?   @db.UniqueIdentifier
+  UserName         String?   @db.NVarChar(100)
+  OrganisationName String?   @db.NVarChar(100)
+  CreatedDate      DateTime? @db.DateTime
+  Email            String?   @db.NVarChar(100)
+  Password         String?   @db.NVarChar(100)
+
+  @@ignore
+}

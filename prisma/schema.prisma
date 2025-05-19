@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+
+model Users {
+  userId           String   @db.UniqueIdentifier @id
+  userName         String?   @db.NVarChar(100)
+  projectName String?   @db.NVarChar(100)
+  createdDate      DateTime? @db.DateTime
+  email            String?   @db.NVarChar(100)
+  password         String?   @db.NVarChar(100)
+
+}
+
+model Project{
+  id  String @id
+  name String 
+  analyzer  Analyzer?
+}
+
+model Analyzer{
+  id   Int   @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  project Project @relation(fields: [projectId],references: [id])
+  projectId String @unique
+
+  analyzerPackage AnalyzerPackage[]
+
+  
+}
+
+model AnalyzerPackage{
+  id   Int   @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  analyzer Analyzer @relation(fields: [analyzerId],references: [id])
+  analyzerId Int
+
+  packId String
+  purl String
+  description String
+  homepage_url String
+  authors ay_pack_authors[]
+  binary_artifact ay_pack_binary_artifact[]
+  source_artifact ay_pack_source_artifact[]
+  vcs ay_pack_vcs[]
+  vcs_processed ay_pack_vcs_processed[]
+}
+
+model ay_pack_authors {
+  id   Int   @id @default(autoincrement())
+  name String
+  analyzerPackage AnalyzerPackage @relation(fields: [AnalyzerPackageId],references: [id])
+  AnalyzerPackageId Int
+  
+}
+
+model ay_pack_binary_artifact{
+  id   Int   @id @default(autoincrement())
+  url String
+  analyzerPackage AnalyzerPackage @relation(fields: [AnalyzerPackageId],references: [id])
+  AnalyzerPackageId Int
+}
+
+model ay_pack_source_artifact{
+  id   Int   @id @default(autoincrement())
+  url String
+  analyzerPackage AnalyzerPackage @relation(fields: [AnalyzerPackageId],references: [id])
+  AnalyzerPackageId Int
+}
+
+model ay_pack_vcs{
+  id   Int   @id @default(autoincrement())
+  type String
+  url String
+  revision String
+  path String
+  analyzerPackage AnalyzerPackage @relation(fields: [AnalyzerPackageId],references: [id])
+  AnalyzerPackageId Int
+}
+
+model ay_pack_vcs_processed{
+  id   Int   @id @default(autoincrement())
+  type String
+  url String
+  revision String
+  path String
+  analyzerPackage AnalyzerPackage @relation(fields: [AnalyzerPackageId],references: [id])
+  AnalyzerPackageId Int
+}
