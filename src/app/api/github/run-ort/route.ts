@@ -6,6 +6,8 @@ import { authOptions } from "@/lib/auth";
 import JSZip from 'jszip';
 import fs from 'fs';
 import path from 'path';
+import { getUserByEmail } from '@/database/userAccess';
+import { createScanService } from '@/services/mainService';
 
 
 export async function POST(req: NextRequest) {
@@ -14,11 +16,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const { repoUrl } = await req.json();
+  console.log(session);
+
+  const { repoUrl, projectName } = await req.json();
   const octokit = new Octokit({ auth: session.accessToken });
 
-  const [ owner, repo] = ["ArenJain","scc_ui"]
-  const workflowFilePath = '.github/workflows/ort.yml';
   const branch = 'main';
 
   const workflowContent = `name: ORT Analyzer
@@ -47,38 +49,81 @@ jobs:
           ort-cli-scan-args: '--package-types=PROJECT'`;
 
   try {
-    // Step 1: Push workflow file
+    // Step 1: Create a new repository and push the workflow file
+    const repo = `${projectName || 'ort-repo'}-${Date.now()}`; // unique name
+    const owner = session.user?.name || 'your-github-username'; // fallback if needed
 
-    let sha: string | undefined;
-    try {
-      const { data: fileData } = await octokit.repos.getContent({
-        owner,
-        repo,
-        path : workflowFilePath,
-      });
+    // 1.1 Create the repository
+    await octokit.repos.createForAuthenticatedUser({
+      name: repo,
+      auto_init: true,
+      description: `ORT analysis repo for ${repoUrl}`,
+    });
 
-      if (!Array.isArray(fileData) && fileData.sha) {
-        sha = fileData.sha;
+    // 1.2 Push the workflow file into the new repo
+    const workflowFilePath = '.github/workflows/ort.yml';
+
+    // let sha: string | undefined;
+    // try {
+    //   const { data: fileData } = await octokit.repos.getContent({
+    //     owner,
+    //     repo: repo,
+    //     path: workflowFilePath,
+    //   });
+
+    //   if (!Array.isArray(fileData) && fileData.sha) {
+    //     sha = fileData.sha;
+    //   }
+    // } catch (error: any) {
+    //   if (error.status !== 404) throw error; // Ignore if file doesn't exist yet
+    // }
+  
+
+
+    let branchReady = false;
+    for (let i = 0; i < 20; i++) {
+      try {
+        await octokit.repos.getBranch({
+          owner,
+          repo: repo,
+          branch: 'main',
+        });
+        branchReady = true;
+        break;
+      } catch {
+        await new Promise((res) => setTimeout(res, 2000)); // wait 2 seconds
       }
-    } catch (error: any) {
-      // File doesn't exist – that’s okay (create operation doesn't need sha)
-      if (error.status !== 404) throw error;
+    }
+
+    if (!branchReady) {
+      return NextResponse.json({ error: 'Main branch not ready yet' }, { status: 500 });
     }
 
     await octokit.repos.createOrUpdateFileContents({
       owner,
-      repo,
+      repo: repo,
       path: workflowFilePath,
       message: 'Add ORT workflow',
       content: Buffer.from(workflowContent).toString('base64'),
-      branch,
-      sha,
+      branch: 'main',
+      // sha,
     });
+    console.log("workflow is pushed into new repo ");
+    // Wait for GitHub to register the workflow
+    await new Promise(resolve => setTimeout(resolve, 3000));
+
 
     // Step 2: Trigger the workflow
-    await octokit.request(`POST /repos/${owner}/${repo}/actions/workflows/ort.yml/dispatches`, {
+    try{
+      await octokit.request(`POST /repos/${owner}/${repo}/actions/workflows/ort.yml/dispatches`, {
       ref: branch,
     });
+    console.log("workflow triggred sucessfull");
+    }catch(error){
+      console.error(`Error in triggring workflow : ${error}`);
+      throw error;
+    }
+    
 
     // Step 3: Poll for workflow completion
     let runId = null;
@@ -130,6 +175,45 @@ jobs:
       downloadUrl =`/artifacts/${filename}`;
     
       console.log(downloadUrl)
+
+      // Load zip content from buffer
+      const zip = await JSZip.loadAsync(buffer);
+
+      // List all files in the ZIP
+      zip.forEach((relativePath, file) => {
+        console.log('Found file in zip:', relativePath);
+      });
+
+      // Suppose you know the file name you want:
+      const targetFile = 'evaluation-result.json'; // Replace with actual file name
+
+      if (zip.files[targetFile]) {
+        const fileData = await zip.files[targetFile].async('string'); // read as text
+        const jsonData = JSON.parse(fileData); // parse JSON
+        // console.log(jsonData);
+        const user = await getUserByEmail(session.user.email);
+        if (user){
+          await createScanService(user.userId,jsonData,projectName)
+        }
+        
+      } else {
+        console.error(`File ${targetFile} not found in the zip.`);
+      }
+
+      
+
+
+      // try {
+      //   // Delete repo
+      //   await octokit.repos.delete({
+      //     owner,
+      //     repo,
+      //   });
+      //   console.log(`Deleted repository: ${owner}/${repo}`);
+      // } catch (error) {
+      //   console.error('Failed to delete repo:', error);
+      // }
+
 
     return new NextResponse(downloadUrl, {
       headers: {

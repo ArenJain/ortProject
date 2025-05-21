@@ -121,9 +121,101 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Snapshot: 'Snapshot'
 });
 
+exports.Prisma.UserScalarFieldEnum = {
+  userId: 'userId',
+  userName: 'userName',
+  email: 'email',
+  password: 'password',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.ProjectScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdAt: 'createdAt',
+  userId: 'userId'
+};
+
+exports.Prisma.ScanScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  projectId: 'projectId'
+};
+
+exports.Prisma.AnalyzerScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  scanId: 'scanId'
+};
+
+exports.Prisma.AnalyzerPackageScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  packId: 'packId',
+  purl: 'purl',
+  description: 'description',
+  homepageUrl: 'homepageUrl',
+  analyzerId: 'analyzerId'
+};
+
+exports.Prisma.PackageAuthorScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  packageId: 'packageId'
+};
+
+exports.Prisma.BinaryArtifactScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  packageId: 'packageId'
+};
+
+exports.Prisma.SourceArtifactScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  packageId: 'packageId'
+};
+
+exports.Prisma.VcsScalarFieldEnum = {
+  id: 'id',
+  type: 'type',
+  url: 'url',
+  revision: 'revision',
+  path: 'path',
+  packageId: 'packageId'
+};
+
+exports.Prisma.VcsProcessedScalarFieldEnum = {
+  id: 'id',
+  type: 'type',
+  url: 'url',
+  revision: 'revision',
+  path: 'path',
+  packageId: 'packageId'
+};
+
+exports.Prisma.SortOrder = {
+  asc: 'asc',
+  desc: 'desc'
+};
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 
 exports.Prisma.ModelName = {
-
+  User: 'User',
+  Project: 'Project',
+  Scan: 'Scan',
+  Analyzer: 'Analyzer',
+  AnalyzerPackage: 'AnalyzerPackage',
+  PackageAuthor: 'PackageAuthor',
+  BinaryArtifact: 'BinaryArtifact',
+  SourceArtifact: 'SourceArtifact',
+  Vcs: 'Vcs',
+  VcsProcessed: 'VcsProcessed'
 };
 
 /**

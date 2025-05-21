@@ -13,7 +13,56 @@ import $Result = runtime.Types.Result
 export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
-
+/**
+ * Model User
+ * 
+ */
+export type User = $Result.DefaultSelection<Prisma.$UserPayload>
+/**
+ * Model Project
+ * 
+ */
+export type Project = $Result.DefaultSelection<Prisma.$ProjectPayload>
+/**
+ * Model Scan
+ * 
+ */
+export type Scan = $Result.DefaultSelection<Prisma.$ScanPayload>
+/**
+ * Model Analyzer
+ * 
+ */
+export type Analyzer = $Result.DefaultSelection<Prisma.$AnalyzerPayload>
+/**
+ * Model AnalyzerPackage
+ * 
+ */
+export type AnalyzerPackage = $Result.DefaultSelection<Prisma.$AnalyzerPackagePayload>
+/**
+ * Model PackageAuthor
+ * 
+ */
+export type PackageAuthor = $Result.DefaultSelection<Prisma.$PackageAuthorPayload>
+/**
+ * Model BinaryArtifact
+ * 
+ */
+export type BinaryArtifact = $Result.DefaultSelection<Prisma.$BinaryArtifactPayload>
+/**
+ * Model SourceArtifact
+ * 
+ */
+export type SourceArtifact = $Result.DefaultSelection<Prisma.$SourceArtifactPayload>
+/**
+ * Model Vcs
+ * 
+ */
+export type Vcs = $Result.DefaultSelection<Prisma.$VcsPayload>
+/**
+ * Model VcsProcessed
+ * 
+ */
+export type VcsProcessed = $Result.DefaultSelection<Prisma.$VcsProcessedPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -140,7 +189,105 @@ export class PrismaClient<
     extArgs: ExtArgs
   }>>
 
-    
+      /**
+   * `prisma.user`: Exposes CRUD operations for the **User** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Users
+    * const users = await prisma.user.findMany()
+    * ```
+    */
+  get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.project`: Exposes CRUD operations for the **Project** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Projects
+    * const projects = await prisma.project.findMany()
+    * ```
+    */
+  get project(): Prisma.ProjectDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.scan`: Exposes CRUD operations for the **Scan** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Scans
+    * const scans = await prisma.scan.findMany()
+    * ```
+    */
+  get scan(): Prisma.ScanDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.analyzer`: Exposes CRUD operations for the **Analyzer** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Analyzers
+    * const analyzers = await prisma.analyzer.findMany()
+    * ```
+    */
+  get analyzer(): Prisma.AnalyzerDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.analyzerPackage`: Exposes CRUD operations for the **AnalyzerPackage** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AnalyzerPackages
+    * const analyzerPackages = await prisma.analyzerPackage.findMany()
+    * ```
+    */
+  get analyzerPackage(): Prisma.AnalyzerPackageDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.packageAuthor`: Exposes CRUD operations for the **PackageAuthor** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PackageAuthors
+    * const packageAuthors = await prisma.packageAuthor.findMany()
+    * ```
+    */
+  get packageAuthor(): Prisma.PackageAuthorDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.binaryArtifact`: Exposes CRUD operations for the **BinaryArtifact** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BinaryArtifacts
+    * const binaryArtifacts = await prisma.binaryArtifact.findMany()
+    * ```
+    */
+  get binaryArtifact(): Prisma.BinaryArtifactDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.sourceArtifact`: Exposes CRUD operations for the **SourceArtifact** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SourceArtifacts
+    * const sourceArtifacts = await prisma.sourceArtifact.findMany()
+    * ```
+    */
+  get sourceArtifact(): Prisma.SourceArtifactDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.vcs`: Exposes CRUD operations for the **Vcs** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Vcs
+    * const vcs = await prisma.vcs.findMany()
+    * ```
+    */
+  get vcs(): Prisma.VcsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.vcsProcessed`: Exposes CRUD operations for the **VcsProcessed** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more VcsProcesseds
+    * const vcsProcesseds = await prisma.vcsProcessed.findMany()
+    * ```
+    */
+  get vcsProcessed(): Prisma.VcsProcessedDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -581,7 +728,16 @@ export namespace Prisma {
 
 
   export const ModelName: {
-
+    User: 'User',
+    Project: 'Project',
+    Scan: 'Scan',
+    Analyzer: 'Analyzer',
+    AnalyzerPackage: 'AnalyzerPackage',
+    PackageAuthor: 'PackageAuthor',
+    BinaryArtifact: 'BinaryArtifact',
+    SourceArtifact: 'SourceArtifact',
+    Vcs: 'Vcs',
+    VcsProcessed: 'VcsProcessed'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -600,10 +756,671 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: never
+      modelProps: "user" | "project" | "scan" | "analyzer" | "analyzerPackage" | "packageAuthor" | "binaryArtifact" | "sourceArtifact" | "vcs" | "vcsProcessed"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
-    model: {}
+    model: {
+      User: {
+        payload: Prisma.$UserPayload<ExtArgs>
+        fields: Prisma.UserFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          findFirst: {
+            args: Prisma.UserFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          findMany: {
+            args: Prisma.UserFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+          }
+          create: {
+            args: Prisma.UserCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          createMany: {
+            args: Prisma.UserCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.UserDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          update: {
+            args: Prisma.UserUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          deleteMany: {
+            args: Prisma.UserDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.UserUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          aggregate: {
+            args: Prisma.UserAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUser>
+          }
+          groupBy: {
+            args: Prisma.UserGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.UserCountArgs<ExtArgs>
+            result: $Utils.Optional<UserCountAggregateOutputType> | number
+          }
+        }
+      }
+      Project: {
+        payload: Prisma.$ProjectPayload<ExtArgs>
+        fields: Prisma.ProjectFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProjectFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProjectFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          findFirst: {
+            args: Prisma.ProjectFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProjectFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          findMany: {
+            args: Prisma.ProjectFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>[]
+          }
+          create: {
+            args: Prisma.ProjectCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          createMany: {
+            args: Prisma.ProjectCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.ProjectDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          update: {
+            args: Prisma.ProjectUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProjectDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProjectUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ProjectUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          aggregate: {
+            args: Prisma.ProjectAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProject>
+          }
+          groupBy: {
+            args: Prisma.ProjectGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProjectGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProjectCountArgs<ExtArgs>
+            result: $Utils.Optional<ProjectCountAggregateOutputType> | number
+          }
+        }
+      }
+      Scan: {
+        payload: Prisma.$ScanPayload<ExtArgs>
+        fields: Prisma.ScanFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ScanFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScanPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ScanFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScanPayload>
+          }
+          findFirst: {
+            args: Prisma.ScanFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScanPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ScanFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScanPayload>
+          }
+          findMany: {
+            args: Prisma.ScanFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScanPayload>[]
+          }
+          create: {
+            args: Prisma.ScanCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScanPayload>
+          }
+          createMany: {
+            args: Prisma.ScanCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.ScanDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScanPayload>
+          }
+          update: {
+            args: Prisma.ScanUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScanPayload>
+          }
+          deleteMany: {
+            args: Prisma.ScanDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ScanUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ScanUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScanPayload>
+          }
+          aggregate: {
+            args: Prisma.ScanAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateScan>
+          }
+          groupBy: {
+            args: Prisma.ScanGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ScanGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ScanCountArgs<ExtArgs>
+            result: $Utils.Optional<ScanCountAggregateOutputType> | number
+          }
+        }
+      }
+      Analyzer: {
+        payload: Prisma.$AnalyzerPayload<ExtArgs>
+        fields: Prisma.AnalyzerFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AnalyzerFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AnalyzerFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPayload>
+          }
+          findFirst: {
+            args: Prisma.AnalyzerFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AnalyzerFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPayload>
+          }
+          findMany: {
+            args: Prisma.AnalyzerFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPayload>[]
+          }
+          create: {
+            args: Prisma.AnalyzerCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPayload>
+          }
+          createMany: {
+            args: Prisma.AnalyzerCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.AnalyzerDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPayload>
+          }
+          update: {
+            args: Prisma.AnalyzerUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPayload>
+          }
+          deleteMany: {
+            args: Prisma.AnalyzerDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AnalyzerUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.AnalyzerUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPayload>
+          }
+          aggregate: {
+            args: Prisma.AnalyzerAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAnalyzer>
+          }
+          groupBy: {
+            args: Prisma.AnalyzerGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AnalyzerGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AnalyzerCountArgs<ExtArgs>
+            result: $Utils.Optional<AnalyzerCountAggregateOutputType> | number
+          }
+        }
+      }
+      AnalyzerPackage: {
+        payload: Prisma.$AnalyzerPackagePayload<ExtArgs>
+        fields: Prisma.AnalyzerPackageFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AnalyzerPackageFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPackagePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AnalyzerPackageFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPackagePayload>
+          }
+          findFirst: {
+            args: Prisma.AnalyzerPackageFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPackagePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AnalyzerPackageFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPackagePayload>
+          }
+          findMany: {
+            args: Prisma.AnalyzerPackageFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPackagePayload>[]
+          }
+          create: {
+            args: Prisma.AnalyzerPackageCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPackagePayload>
+          }
+          createMany: {
+            args: Prisma.AnalyzerPackageCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.AnalyzerPackageDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPackagePayload>
+          }
+          update: {
+            args: Prisma.AnalyzerPackageUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPackagePayload>
+          }
+          deleteMany: {
+            args: Prisma.AnalyzerPackageDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AnalyzerPackageUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.AnalyzerPackageUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AnalyzerPackagePayload>
+          }
+          aggregate: {
+            args: Prisma.AnalyzerPackageAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAnalyzerPackage>
+          }
+          groupBy: {
+            args: Prisma.AnalyzerPackageGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AnalyzerPackageGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AnalyzerPackageCountArgs<ExtArgs>
+            result: $Utils.Optional<AnalyzerPackageCountAggregateOutputType> | number
+          }
+        }
+      }
+      PackageAuthor: {
+        payload: Prisma.$PackageAuthorPayload<ExtArgs>
+        fields: Prisma.PackageAuthorFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PackageAuthorFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackageAuthorPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PackageAuthorFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackageAuthorPayload>
+          }
+          findFirst: {
+            args: Prisma.PackageAuthorFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackageAuthorPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PackageAuthorFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackageAuthorPayload>
+          }
+          findMany: {
+            args: Prisma.PackageAuthorFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackageAuthorPayload>[]
+          }
+          create: {
+            args: Prisma.PackageAuthorCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackageAuthorPayload>
+          }
+          createMany: {
+            args: Prisma.PackageAuthorCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.PackageAuthorDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackageAuthorPayload>
+          }
+          update: {
+            args: Prisma.PackageAuthorUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackageAuthorPayload>
+          }
+          deleteMany: {
+            args: Prisma.PackageAuthorDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PackageAuthorUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.PackageAuthorUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackageAuthorPayload>
+          }
+          aggregate: {
+            args: Prisma.PackageAuthorAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePackageAuthor>
+          }
+          groupBy: {
+            args: Prisma.PackageAuthorGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PackageAuthorGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PackageAuthorCountArgs<ExtArgs>
+            result: $Utils.Optional<PackageAuthorCountAggregateOutputType> | number
+          }
+        }
+      }
+      BinaryArtifact: {
+        payload: Prisma.$BinaryArtifactPayload<ExtArgs>
+        fields: Prisma.BinaryArtifactFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BinaryArtifactFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BinaryArtifactPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BinaryArtifactFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BinaryArtifactPayload>
+          }
+          findFirst: {
+            args: Prisma.BinaryArtifactFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BinaryArtifactPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BinaryArtifactFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BinaryArtifactPayload>
+          }
+          findMany: {
+            args: Prisma.BinaryArtifactFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BinaryArtifactPayload>[]
+          }
+          create: {
+            args: Prisma.BinaryArtifactCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BinaryArtifactPayload>
+          }
+          createMany: {
+            args: Prisma.BinaryArtifactCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.BinaryArtifactDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BinaryArtifactPayload>
+          }
+          update: {
+            args: Prisma.BinaryArtifactUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BinaryArtifactPayload>
+          }
+          deleteMany: {
+            args: Prisma.BinaryArtifactDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BinaryArtifactUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.BinaryArtifactUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BinaryArtifactPayload>
+          }
+          aggregate: {
+            args: Prisma.BinaryArtifactAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBinaryArtifact>
+          }
+          groupBy: {
+            args: Prisma.BinaryArtifactGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BinaryArtifactGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BinaryArtifactCountArgs<ExtArgs>
+            result: $Utils.Optional<BinaryArtifactCountAggregateOutputType> | number
+          }
+        }
+      }
+      SourceArtifact: {
+        payload: Prisma.$SourceArtifactPayload<ExtArgs>
+        fields: Prisma.SourceArtifactFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SourceArtifactFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SourceArtifactPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SourceArtifactFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SourceArtifactPayload>
+          }
+          findFirst: {
+            args: Prisma.SourceArtifactFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SourceArtifactPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SourceArtifactFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SourceArtifactPayload>
+          }
+          findMany: {
+            args: Prisma.SourceArtifactFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SourceArtifactPayload>[]
+          }
+          create: {
+            args: Prisma.SourceArtifactCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SourceArtifactPayload>
+          }
+          createMany: {
+            args: Prisma.SourceArtifactCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.SourceArtifactDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SourceArtifactPayload>
+          }
+          update: {
+            args: Prisma.SourceArtifactUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SourceArtifactPayload>
+          }
+          deleteMany: {
+            args: Prisma.SourceArtifactDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SourceArtifactUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.SourceArtifactUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SourceArtifactPayload>
+          }
+          aggregate: {
+            args: Prisma.SourceArtifactAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSourceArtifact>
+          }
+          groupBy: {
+            args: Prisma.SourceArtifactGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SourceArtifactGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SourceArtifactCountArgs<ExtArgs>
+            result: $Utils.Optional<SourceArtifactCountAggregateOutputType> | number
+          }
+        }
+      }
+      Vcs: {
+        payload: Prisma.$VcsPayload<ExtArgs>
+        fields: Prisma.VcsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.VcsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.VcsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsPayload>
+          }
+          findFirst: {
+            args: Prisma.VcsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.VcsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsPayload>
+          }
+          findMany: {
+            args: Prisma.VcsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsPayload>[]
+          }
+          create: {
+            args: Prisma.VcsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsPayload>
+          }
+          createMany: {
+            args: Prisma.VcsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.VcsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsPayload>
+          }
+          update: {
+            args: Prisma.VcsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsPayload>
+          }
+          deleteMany: {
+            args: Prisma.VcsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.VcsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.VcsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsPayload>
+          }
+          aggregate: {
+            args: Prisma.VcsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateVcs>
+          }
+          groupBy: {
+            args: Prisma.VcsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<VcsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.VcsCountArgs<ExtArgs>
+            result: $Utils.Optional<VcsCountAggregateOutputType> | number
+          }
+        }
+      }
+      VcsProcessed: {
+        payload: Prisma.$VcsProcessedPayload<ExtArgs>
+        fields: Prisma.VcsProcessedFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.VcsProcessedFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsProcessedPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.VcsProcessedFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsProcessedPayload>
+          }
+          findFirst: {
+            args: Prisma.VcsProcessedFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsProcessedPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.VcsProcessedFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsProcessedPayload>
+          }
+          findMany: {
+            args: Prisma.VcsProcessedFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsProcessedPayload>[]
+          }
+          create: {
+            args: Prisma.VcsProcessedCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsProcessedPayload>
+          }
+          createMany: {
+            args: Prisma.VcsProcessedCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.VcsProcessedDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsProcessedPayload>
+          }
+          update: {
+            args: Prisma.VcsProcessedUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsProcessedPayload>
+          }
+          deleteMany: {
+            args: Prisma.VcsProcessedDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.VcsProcessedUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.VcsProcessedUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VcsProcessedPayload>
+          }
+          aggregate: {
+            args: Prisma.VcsProcessedAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateVcsProcessed>
+          }
+          groupBy: {
+            args: Prisma.VcsProcessedGroupByArgs<ExtArgs>
+            result: $Utils.Optional<VcsProcessedGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.VcsProcessedCountArgs<ExtArgs>
+            result: $Utils.Optional<VcsProcessedCountAggregateOutputType> | number
+          }
+        }
+      }
+    }
   } & {
     other: {
       payload: any
@@ -686,7 +1503,18 @@ export namespace Prisma {
      */
     omit?: Prisma.GlobalOmitConfig
   }
-  export type GlobalOmitConfig = {}
+  export type GlobalOmitConfig = {
+    user?: UserOmit
+    project?: ProjectOmit
+    scan?: ScanOmit
+    analyzer?: AnalyzerOmit
+    analyzerPackage?: AnalyzerPackageOmit
+    packageAuthor?: PackageAuthorOmit
+    binaryArtifact?: BinaryArtifactOmit
+    sourceArtifact?: SourceArtifactOmit
+    vcs?: VcsOmit
+    vcsProcessed?: VcsProcessedOmit
+  }
 
   /* Types for Logging */
   export type LogLevel = 'info' | 'query' | 'warn' | 'error'
@@ -775,10 +1603,9922 @@ export namespace Prisma {
    */
 
 
+  /**
+   * Count Type UserCountOutputType
+   */
+
+  export type UserCountOutputType = {
+    projects: number
+  }
+
+  export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    projects?: boolean | UserCountOutputTypeCountProjectsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserCountOutputType
+     */
+    select?: UserCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectWhereInput
+  }
+
+
+  /**
+   * Count Type ProjectCountOutputType
+   */
+
+  export type ProjectCountOutputType = {
+    scans: number
+  }
+
+  export type ProjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    scans?: boolean | ProjectCountOutputTypeCountScansArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ProjectCountOutputType without action
+   */
+  export type ProjectCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectCountOutputType
+     */
+    select?: ProjectCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ProjectCountOutputType without action
+   */
+  export type ProjectCountOutputTypeCountScansArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ScanWhereInput
+  }
+
+
+  /**
+   * Count Type AnalyzerCountOutputType
+   */
+
+  export type AnalyzerCountOutputType = {
+    packages: number
+  }
+
+  export type AnalyzerCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    packages?: boolean | AnalyzerCountOutputTypeCountPackagesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * AnalyzerCountOutputType without action
+   */
+  export type AnalyzerCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AnalyzerCountOutputType
+     */
+    select?: AnalyzerCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * AnalyzerCountOutputType without action
+   */
+  export type AnalyzerCountOutputTypeCountPackagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AnalyzerPackageWhereInput
+  }
+
+
+  /**
+   * Count Type AnalyzerPackageCountOutputType
+   */
+
+  export type AnalyzerPackageCountOutputType = {
+    authors: number
+    binaries: number
+    sources: number
+    vcsList: number
+    vcsProcessed: number
+  }
+
+  export type AnalyzerPackageCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    authors?: boolean | AnalyzerPackageCountOutputTypeCountAuthorsArgs
+    binaries?: boolean | AnalyzerPackageCountOutputTypeCountBinariesArgs
+    sources?: boolean | AnalyzerPackageCountOutputTypeCountSourcesArgs
+    vcsList?: boolean | AnalyzerPackageCountOutputTypeCountVcsListArgs
+    vcsProcessed?: boolean | AnalyzerPackageCountOutputTypeCountVcsProcessedArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * AnalyzerPackageCountOutputType without action
+   */
+  export type AnalyzerPackageCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AnalyzerPackageCountOutputType
+     */
+    select?: AnalyzerPackageCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * AnalyzerPackageCountOutputType without action
+   */
+  export type AnalyzerPackageCountOutputTypeCountAuthorsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PackageAuthorWhereInput
+  }
+
+  /**
+   * AnalyzerPackageCountOutputType without action
+   */
+  export type AnalyzerPackageCountOutputTypeCountBinariesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BinaryArtifactWhereInput
+  }
+
+  /**
+   * AnalyzerPackageCountOutputType without action
+   */
+  export type AnalyzerPackageCountOutputTypeCountSourcesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SourceArtifactWhereInput
+  }
+
+  /**
+   * AnalyzerPackageCountOutputType without action
+   */
+  export type AnalyzerPackageCountOutputTypeCountVcsListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VcsWhereInput
+  }
+
+  /**
+   * AnalyzerPackageCountOutputType without action
+   */
+  export type AnalyzerPackageCountOutputTypeCountVcsProcessedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VcsProcessedWhereInput
+  }
+
 
   /**
    * Models
    */
+
+  /**
+   * Model User
+   */
+
+  export type AggregateUser = {
+    _count: UserCountAggregateOutputType | null
+    _min: UserMinAggregateOutputType | null
+    _max: UserMaxAggregateOutputType | null
+  }
+
+  export type UserMinAggregateOutputType = {
+    userId: string | null
+    userName: string | null
+    email: string | null
+    password: string | null
+    createdAt: Date | null
+  }
+
+  export type UserMaxAggregateOutputType = {
+    userId: string | null
+    userName: string | null
+    email: string | null
+    password: string | null
+    createdAt: Date | null
+  }
+
+  export type UserCountAggregateOutputType = {
+    userId: number
+    userName: number
+    email: number
+    password: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type UserMinAggregateInputType = {
+    userId?: true
+    userName?: true
+    email?: true
+    password?: true
+    createdAt?: true
+  }
+
+  export type UserMaxAggregateInputType = {
+    userId?: true
+    userName?: true
+    email?: true
+    password?: true
+    createdAt?: true
+  }
+
+  export type UserCountAggregateInputType = {
+    userId?: true
+    userName?: true
+    email?: true
+    password?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type UserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which User to aggregate.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Users
+    **/
+    _count?: true | UserCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserMaxAggregateInputType
+  }
+
+  export type GetUserAggregateType<T extends UserAggregateArgs> = {
+        [P in keyof T & keyof AggregateUser]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUser[P]>
+      : GetScalarType<T[P], AggregateUser[P]>
+  }
+
+
+
+
+  export type UserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWhereInput
+    orderBy?: UserOrderByWithAggregationInput | UserOrderByWithAggregationInput[]
+    by: UserScalarFieldEnum[] | UserScalarFieldEnum
+    having?: UserScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserCountAggregateInputType | true
+    _min?: UserMinAggregateInputType
+    _max?: UserMaxAggregateInputType
+  }
+
+  export type UserGroupByOutputType = {
+    userId: string
+    userName: string | null
+    email: string | null
+    password: string | null
+    createdAt: Date | null
+    _count: UserCountAggregateOutputType | null
+    _min: UserMinAggregateOutputType | null
+    _max: UserMaxAggregateOutputType | null
+  }
+
+  type GetUserGroupByPayload<T extends UserGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserGroupByOutputType[P]>
+            : GetScalarType<T[P], UserGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    userId?: boolean
+    userName?: boolean
+    email?: boolean
+    password?: boolean
+    createdAt?: boolean
+    projects?: boolean | User$projectsArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["user"]>
+
+
+
+  export type UserSelectScalar = {
+    userId?: boolean
+    userName?: boolean
+    email?: boolean
+    password?: boolean
+    createdAt?: boolean
+  }
+
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "userName" | "email" | "password" | "createdAt", ExtArgs["result"]["user"]>
+  export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    projects?: boolean | User$projectsArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "User"
+    objects: {
+      projects: Prisma.$ProjectPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      userId: string
+      userName: string | null
+      email: string | null
+      password: string | null
+      createdAt: Date | null
+    }, ExtArgs["result"]["user"]>
+    composites: {}
+  }
+
+  type UserGetPayload<S extends boolean | null | undefined | UserDefaultArgs> = $Result.GetResult<Prisma.$UserPayload, S>
+
+  type UserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UserFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UserCountAggregateInputType | true
+    }
+
+  export interface UserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['User'], meta: { name: 'User' } }
+    /**
+     * Find zero or one User that matches the filter.
+     * @param {UserFindUniqueArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UserFindUniqueArgs>(args: SelectSubset<T, UserFindUniqueArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one User that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {UserFindUniqueOrThrowArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UserFindUniqueOrThrowArgs>(args: SelectSubset<T, UserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first User that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFindFirstArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UserFindFirstArgs>(args?: SelectSubset<T, UserFindFirstArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first User that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFindFirstOrThrowArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UserFindFirstOrThrowArgs>(args?: SelectSubset<T, UserFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Users that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Users
+     * const users = await prisma.user.findMany()
+     * 
+     * // Get first 10 Users
+     * const users = await prisma.user.findMany({ take: 10 })
+     * 
+     * // Only select the `userId`
+     * const userWithUserIdOnly = await prisma.user.findMany({ select: { userId: true } })
+     * 
+     */
+    findMany<T extends UserFindManyArgs>(args?: SelectSubset<T, UserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a User.
+     * @param {UserCreateArgs} args - Arguments to create a User.
+     * @example
+     * // Create one User
+     * const User = await prisma.user.create({
+     *   data: {
+     *     // ... data to create a User
+     *   }
+     * })
+     * 
+     */
+    create<T extends UserCreateArgs>(args: SelectSubset<T, UserCreateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Users.
+     * @param {UserCreateManyArgs} args - Arguments to create many Users.
+     * @example
+     * // Create many Users
+     * const user = await prisma.user.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UserCreateManyArgs>(args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a User.
+     * @param {UserDeleteArgs} args - Arguments to delete one User.
+     * @example
+     * // Delete one User
+     * const User = await prisma.user.delete({
+     *   where: {
+     *     // ... filter to delete one User
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UserDeleteArgs>(args: SelectSubset<T, UserDeleteArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one User.
+     * @param {UserUpdateArgs} args - Arguments to update one User.
+     * @example
+     * // Update one User
+     * const user = await prisma.user.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UserUpdateArgs>(args: SelectSubset<T, UserUpdateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Users.
+     * @param {UserDeleteManyArgs} args - Arguments to filter Users to delete.
+     * @example
+     * // Delete a few Users
+     * const { count } = await prisma.user.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UserDeleteManyArgs>(args?: SelectSubset<T, UserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Users.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Users
+     * const user = await prisma.user.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UserUpdateManyArgs>(args: SelectSubset<T, UserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one User.
+     * @param {UserUpsertArgs} args - Arguments to update or create a User.
+     * @example
+     * // Update or create a User
+     * const user = await prisma.user.upsert({
+     *   create: {
+     *     // ... data to create a User
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the User we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UserUpsertArgs>(args: SelectSubset<T, UserUpsertArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Users.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserCountArgs} args - Arguments to filter Users to count.
+     * @example
+     * // Count the number of Users
+     * const count = await prisma.user.count({
+     *   where: {
+     *     // ... the filter for the Users we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserCountArgs>(
+      args?: Subset<T, UserCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a User.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserAggregateArgs>(args: Subset<T, UserAggregateArgs>): Prisma.PrismaPromise<GetUserAggregateType<T>>
+
+    /**
+     * Group by User.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserGroupByArgs['orderBy'] }
+        : { orderBy?: UserGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the User model
+   */
+  readonly fields: UserFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for User.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    projects<T extends User$projectsArgs<ExtArgs> = {}>(args?: Subset<T, User$projectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the User model
+   */
+  interface UserFieldRefs {
+    readonly userId: FieldRef<"User", 'String'>
+    readonly userName: FieldRef<"User", 'String'>
+    readonly email: FieldRef<"User", 'String'>
+    readonly password: FieldRef<"User", 'String'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * User findUnique
+   */
+  export type UserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User findUniqueOrThrow
+   */
+  export type UserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User findFirst
+   */
+  export type UserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Users.
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Users.
+     */
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * User findFirstOrThrow
+   */
+  export type UserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Users.
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Users.
+     */
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * User findMany
+   */
+  export type UserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which Users to fetch.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Users.
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * User create
+   */
+  export type UserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The data needed to create a User.
+     */
+    data: XOR<UserCreateInput, UserUncheckedCreateInput>
+  }
+
+  /**
+   * User createMany
+   */
+  export type UserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Users.
+     */
+    data: UserCreateManyInput | UserCreateManyInput[]
+  }
+
+  /**
+   * User update
+   */
+  export type UserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The data needed to update a User.
+     */
+    data: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    /**
+     * Choose, which User to update.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User updateMany
+   */
+  export type UserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Users.
+     */
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    /**
+     * Filter which Users to update
+     */
+    where?: UserWhereInput
+    /**
+     * Limit how many Users to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * User upsert
+   */
+  export type UserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The filter to search for the User to update in case it exists.
+     */
+    where: UserWhereUniqueInput
+    /**
+     * In case the User found by the `where` argument doesn't exist, create a new User with this data.
+     */
+    create: XOR<UserCreateInput, UserUncheckedCreateInput>
+    /**
+     * In case the User was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+  }
+
+  /**
+   * User delete
+   */
+  export type UserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter which User to delete.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User deleteMany
+   */
+  export type UserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Users to delete
+     */
+    where?: UserWhereInput
+    /**
+     * Limit how many Users to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * User.projects
+   */
+  export type User$projectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    where?: ProjectWhereInput
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    cursor?: ProjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * User without action
+   */
+  export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Project
+   */
+
+  export type AggregateProject = {
+    _count: ProjectCountAggregateOutputType | null
+    _min: ProjectMinAggregateOutputType | null
+    _max: ProjectMaxAggregateOutputType | null
+  }
+
+  export type ProjectMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    createdAt: Date | null
+    userId: string | null
+  }
+
+  export type ProjectMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    createdAt: Date | null
+    userId: string | null
+  }
+
+  export type ProjectCountAggregateOutputType = {
+    id: number
+    name: number
+    createdAt: number
+    userId: number
+    _all: number
+  }
+
+
+  export type ProjectMinAggregateInputType = {
+    id?: true
+    name?: true
+    createdAt?: true
+    userId?: true
+  }
+
+  export type ProjectMaxAggregateInputType = {
+    id?: true
+    name?: true
+    createdAt?: true
+    userId?: true
+  }
+
+  export type ProjectCountAggregateInputType = {
+    id?: true
+    name?: true
+    createdAt?: true
+    userId?: true
+    _all?: true
+  }
+
+  export type ProjectAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Project to aggregate.
+     */
+    where?: ProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Projects to fetch.
+     */
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Projects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Projects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Projects
+    **/
+    _count?: true | ProjectCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProjectMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProjectMaxAggregateInputType
+  }
+
+  export type GetProjectAggregateType<T extends ProjectAggregateArgs> = {
+        [P in keyof T & keyof AggregateProject]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProject[P]>
+      : GetScalarType<T[P], AggregateProject[P]>
+  }
+
+
+
+
+  export type ProjectGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectWhereInput
+    orderBy?: ProjectOrderByWithAggregationInput | ProjectOrderByWithAggregationInput[]
+    by: ProjectScalarFieldEnum[] | ProjectScalarFieldEnum
+    having?: ProjectScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProjectCountAggregateInputType | true
+    _min?: ProjectMinAggregateInputType
+    _max?: ProjectMaxAggregateInputType
+  }
+
+  export type ProjectGroupByOutputType = {
+    id: string
+    name: string
+    createdAt: Date
+    userId: string
+    _count: ProjectCountAggregateOutputType | null
+    _min: ProjectMinAggregateOutputType | null
+    _max: ProjectMaxAggregateOutputType | null
+  }
+
+  type GetProjectGroupByPayload<T extends ProjectGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProjectGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProjectGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProjectGroupByOutputType[P]>
+            : GetScalarType<T[P], ProjectGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    userId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    scans?: boolean | Project$scansArgs<ExtArgs>
+    _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["project"]>
+
+
+
+  export type ProjectSelectScalar = {
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    userId?: boolean
+  }
+
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "createdAt" | "userId", ExtArgs["result"]["project"]>
+  export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    scans?: boolean | Project$scansArgs<ExtArgs>
+    _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $ProjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Project"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      scans: Prisma.$ScanPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      createdAt: Date
+      userId: string
+    }, ExtArgs["result"]["project"]>
+    composites: {}
+  }
+
+  type ProjectGetPayload<S extends boolean | null | undefined | ProjectDefaultArgs> = $Result.GetResult<Prisma.$ProjectPayload, S>
+
+  type ProjectCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProjectFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProjectCountAggregateInputType | true
+    }
+
+  export interface ProjectDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Project'], meta: { name: 'Project' } }
+    /**
+     * Find zero or one Project that matches the filter.
+     * @param {ProjectFindUniqueArgs} args - Arguments to find a Project
+     * @example
+     * // Get one Project
+     * const project = await prisma.project.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProjectFindUniqueArgs>(args: SelectSubset<T, ProjectFindUniqueArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Project that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProjectFindUniqueOrThrowArgs} args - Arguments to find a Project
+     * @example
+     * // Get one Project
+     * const project = await prisma.project.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProjectFindUniqueOrThrowArgs>(args: SelectSubset<T, ProjectFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Project that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectFindFirstArgs} args - Arguments to find a Project
+     * @example
+     * // Get one Project
+     * const project = await prisma.project.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProjectFindFirstArgs>(args?: SelectSubset<T, ProjectFindFirstArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Project that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectFindFirstOrThrowArgs} args - Arguments to find a Project
+     * @example
+     * // Get one Project
+     * const project = await prisma.project.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProjectFindFirstOrThrowArgs>(args?: SelectSubset<T, ProjectFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Projects that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Projects
+     * const projects = await prisma.project.findMany()
+     * 
+     * // Get first 10 Projects
+     * const projects = await prisma.project.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const projectWithIdOnly = await prisma.project.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProjectFindManyArgs>(args?: SelectSubset<T, ProjectFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Project.
+     * @param {ProjectCreateArgs} args - Arguments to create a Project.
+     * @example
+     * // Create one Project
+     * const Project = await prisma.project.create({
+     *   data: {
+     *     // ... data to create a Project
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProjectCreateArgs>(args: SelectSubset<T, ProjectCreateArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Projects.
+     * @param {ProjectCreateManyArgs} args - Arguments to create many Projects.
+     * @example
+     * // Create many Projects
+     * const project = await prisma.project.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProjectCreateManyArgs>(args?: SelectSubset<T, ProjectCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Project.
+     * @param {ProjectDeleteArgs} args - Arguments to delete one Project.
+     * @example
+     * // Delete one Project
+     * const Project = await prisma.project.delete({
+     *   where: {
+     *     // ... filter to delete one Project
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProjectDeleteArgs>(args: SelectSubset<T, ProjectDeleteArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Project.
+     * @param {ProjectUpdateArgs} args - Arguments to update one Project.
+     * @example
+     * // Update one Project
+     * const project = await prisma.project.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProjectUpdateArgs>(args: SelectSubset<T, ProjectUpdateArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Projects.
+     * @param {ProjectDeleteManyArgs} args - Arguments to filter Projects to delete.
+     * @example
+     * // Delete a few Projects
+     * const { count } = await prisma.project.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProjectDeleteManyArgs>(args?: SelectSubset<T, ProjectDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Projects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Projects
+     * const project = await prisma.project.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProjectUpdateManyArgs>(args: SelectSubset<T, ProjectUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Project.
+     * @param {ProjectUpsertArgs} args - Arguments to update or create a Project.
+     * @example
+     * // Update or create a Project
+     * const project = await prisma.project.upsert({
+     *   create: {
+     *     // ... data to create a Project
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Project we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProjectUpsertArgs>(args: SelectSubset<T, ProjectUpsertArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Projects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectCountArgs} args - Arguments to filter Projects to count.
+     * @example
+     * // Count the number of Projects
+     * const count = await prisma.project.count({
+     *   where: {
+     *     // ... the filter for the Projects we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProjectCountArgs>(
+      args?: Subset<T, ProjectCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProjectCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Project.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProjectAggregateArgs>(args: Subset<T, ProjectAggregateArgs>): Prisma.PrismaPromise<GetProjectAggregateType<T>>
+
+    /**
+     * Group by Project.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProjectGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProjectGroupByArgs['orderBy'] }
+        : { orderBy?: ProjectGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProjectGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProjectGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Project model
+   */
+  readonly fields: ProjectFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Project.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    scans<T extends Project$scansArgs<ExtArgs> = {}>(args?: Subset<T, Project$scansArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ScanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Project model
+   */
+  interface ProjectFieldRefs {
+    readonly id: FieldRef<"Project", 'String'>
+    readonly name: FieldRef<"Project", 'String'>
+    readonly createdAt: FieldRef<"Project", 'DateTime'>
+    readonly userId: FieldRef<"Project", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Project findUnique
+   */
+  export type ProjectFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Project to fetch.
+     */
+    where: ProjectWhereUniqueInput
+  }
+
+  /**
+   * Project findUniqueOrThrow
+   */
+  export type ProjectFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Project to fetch.
+     */
+    where: ProjectWhereUniqueInput
+  }
+
+  /**
+   * Project findFirst
+   */
+  export type ProjectFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Project to fetch.
+     */
+    where?: ProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Projects to fetch.
+     */
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Projects.
+     */
+    cursor?: ProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Projects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Projects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Projects.
+     */
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Project findFirstOrThrow
+   */
+  export type ProjectFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Project to fetch.
+     */
+    where?: ProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Projects to fetch.
+     */
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Projects.
+     */
+    cursor?: ProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Projects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Projects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Projects.
+     */
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Project findMany
+   */
+  export type ProjectFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Projects to fetch.
+     */
+    where?: ProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Projects to fetch.
+     */
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Projects.
+     */
+    cursor?: ProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Projects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Projects.
+     */
+    skip?: number
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Project create
+   */
+  export type ProjectCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Project.
+     */
+    data: XOR<ProjectCreateInput, ProjectUncheckedCreateInput>
+  }
+
+  /**
+   * Project createMany
+   */
+  export type ProjectCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Projects.
+     */
+    data: ProjectCreateManyInput | ProjectCreateManyInput[]
+  }
+
+  /**
+   * Project update
+   */
+  export type ProjectUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Project.
+     */
+    data: XOR<ProjectUpdateInput, ProjectUncheckedUpdateInput>
+    /**
+     * Choose, which Project to update.
+     */
+    where: ProjectWhereUniqueInput
+  }
+
+  /**
+   * Project updateMany
+   */
+  export type ProjectUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Projects.
+     */
+    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which Projects to update
+     */
+    where?: ProjectWhereInput
+    /**
+     * Limit how many Projects to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Project upsert
+   */
+  export type ProjectUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Project to update in case it exists.
+     */
+    where: ProjectWhereUniqueInput
+    /**
+     * In case the Project found by the `where` argument doesn't exist, create a new Project with this data.
+     */
+    create: XOR<ProjectCreateInput, ProjectUncheckedCreateInput>
+    /**
+     * In case the Project was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProjectUpdateInput, ProjectUncheckedUpdateInput>
+  }
+
+  /**
+   * Project delete
+   */
+  export type ProjectDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter which Project to delete.
+     */
+    where: ProjectWhereUniqueInput
+  }
+
+  /**
+   * Project deleteMany
+   */
+  export type ProjectDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Projects to delete
+     */
+    where?: ProjectWhereInput
+    /**
+     * Limit how many Projects to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Project.scans
+   */
+  export type Project$scansArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scan
+     */
+    select?: ScanSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scan
+     */
+    omit?: ScanOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScanInclude<ExtArgs> | null
+    where?: ScanWhereInput
+    orderBy?: ScanOrderByWithRelationInput | ScanOrderByWithRelationInput[]
+    cursor?: ScanWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ScanScalarFieldEnum | ScanScalarFieldEnum[]
+  }
+
+  /**
+   * Project without action
+   */
+  export type ProjectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Scan
+   */
+
+  export type AggregateScan = {
+    _count: ScanCountAggregateOutputType | null
+    _avg: ScanAvgAggregateOutputType | null
+    _sum: ScanSumAggregateOutputType | null
+    _min: ScanMinAggregateOutputType | null
+    _max: ScanMaxAggregateOutputType | null
+  }
+
+  export type ScanAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ScanSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ScanMinAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    projectId: string | null
+  }
+
+  export type ScanMaxAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    projectId: string | null
+  }
+
+  export type ScanCountAggregateOutputType = {
+    id: number
+    createdAt: number
+    projectId: number
+    _all: number
+  }
+
+
+  export type ScanAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type ScanSumAggregateInputType = {
+    id?: true
+  }
+
+  export type ScanMinAggregateInputType = {
+    id?: true
+    createdAt?: true
+    projectId?: true
+  }
+
+  export type ScanMaxAggregateInputType = {
+    id?: true
+    createdAt?: true
+    projectId?: true
+  }
+
+  export type ScanCountAggregateInputType = {
+    id?: true
+    createdAt?: true
+    projectId?: true
+    _all?: true
+  }
+
+  export type ScanAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Scan to aggregate.
+     */
+    where?: ScanWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Scans to fetch.
+     */
+    orderBy?: ScanOrderByWithRelationInput | ScanOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ScanWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Scans from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Scans.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Scans
+    **/
+    _count?: true | ScanCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ScanAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ScanSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ScanMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ScanMaxAggregateInputType
+  }
+
+  export type GetScanAggregateType<T extends ScanAggregateArgs> = {
+        [P in keyof T & keyof AggregateScan]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateScan[P]>
+      : GetScalarType<T[P], AggregateScan[P]>
+  }
+
+
+
+
+  export type ScanGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ScanWhereInput
+    orderBy?: ScanOrderByWithAggregationInput | ScanOrderByWithAggregationInput[]
+    by: ScanScalarFieldEnum[] | ScanScalarFieldEnum
+    having?: ScanScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ScanCountAggregateInputType | true
+    _avg?: ScanAvgAggregateInputType
+    _sum?: ScanSumAggregateInputType
+    _min?: ScanMinAggregateInputType
+    _max?: ScanMaxAggregateInputType
+  }
+
+  export type ScanGroupByOutputType = {
+    id: number
+    createdAt: Date
+    projectId: string
+    _count: ScanCountAggregateOutputType | null
+    _avg: ScanAvgAggregateOutputType | null
+    _sum: ScanSumAggregateOutputType | null
+    _min: ScanMinAggregateOutputType | null
+    _max: ScanMaxAggregateOutputType | null
+  }
+
+  type GetScanGroupByPayload<T extends ScanGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ScanGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ScanGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ScanGroupByOutputType[P]>
+            : GetScalarType<T[P], ScanGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ScanSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    projectId?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+    analyzer?: boolean | Scan$analyzerArgs<ExtArgs>
+  }, ExtArgs["result"]["scan"]>
+
+
+
+  export type ScanSelectScalar = {
+    id?: boolean
+    createdAt?: boolean
+    projectId?: boolean
+  }
+
+  export type ScanOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "projectId", ExtArgs["result"]["scan"]>
+  export type ScanInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+    analyzer?: boolean | Scan$analyzerArgs<ExtArgs>
+  }
+
+  export type $ScanPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Scan"
+    objects: {
+      project: Prisma.$ProjectPayload<ExtArgs>
+      analyzer: Prisma.$AnalyzerPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      createdAt: Date
+      projectId: string
+    }, ExtArgs["result"]["scan"]>
+    composites: {}
+  }
+
+  type ScanGetPayload<S extends boolean | null | undefined | ScanDefaultArgs> = $Result.GetResult<Prisma.$ScanPayload, S>
+
+  type ScanCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ScanFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ScanCountAggregateInputType | true
+    }
+
+  export interface ScanDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Scan'], meta: { name: 'Scan' } }
+    /**
+     * Find zero or one Scan that matches the filter.
+     * @param {ScanFindUniqueArgs} args - Arguments to find a Scan
+     * @example
+     * // Get one Scan
+     * const scan = await prisma.scan.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ScanFindUniqueArgs>(args: SelectSubset<T, ScanFindUniqueArgs<ExtArgs>>): Prisma__ScanClient<$Result.GetResult<Prisma.$ScanPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Scan that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ScanFindUniqueOrThrowArgs} args - Arguments to find a Scan
+     * @example
+     * // Get one Scan
+     * const scan = await prisma.scan.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ScanFindUniqueOrThrowArgs>(args: SelectSubset<T, ScanFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ScanClient<$Result.GetResult<Prisma.$ScanPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Scan that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScanFindFirstArgs} args - Arguments to find a Scan
+     * @example
+     * // Get one Scan
+     * const scan = await prisma.scan.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ScanFindFirstArgs>(args?: SelectSubset<T, ScanFindFirstArgs<ExtArgs>>): Prisma__ScanClient<$Result.GetResult<Prisma.$ScanPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Scan that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScanFindFirstOrThrowArgs} args - Arguments to find a Scan
+     * @example
+     * // Get one Scan
+     * const scan = await prisma.scan.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ScanFindFirstOrThrowArgs>(args?: SelectSubset<T, ScanFindFirstOrThrowArgs<ExtArgs>>): Prisma__ScanClient<$Result.GetResult<Prisma.$ScanPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Scans that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScanFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Scans
+     * const scans = await prisma.scan.findMany()
+     * 
+     * // Get first 10 Scans
+     * const scans = await prisma.scan.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const scanWithIdOnly = await prisma.scan.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ScanFindManyArgs>(args?: SelectSubset<T, ScanFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ScanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Scan.
+     * @param {ScanCreateArgs} args - Arguments to create a Scan.
+     * @example
+     * // Create one Scan
+     * const Scan = await prisma.scan.create({
+     *   data: {
+     *     // ... data to create a Scan
+     *   }
+     * })
+     * 
+     */
+    create<T extends ScanCreateArgs>(args: SelectSubset<T, ScanCreateArgs<ExtArgs>>): Prisma__ScanClient<$Result.GetResult<Prisma.$ScanPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Scans.
+     * @param {ScanCreateManyArgs} args - Arguments to create many Scans.
+     * @example
+     * // Create many Scans
+     * const scan = await prisma.scan.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ScanCreateManyArgs>(args?: SelectSubset<T, ScanCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Scan.
+     * @param {ScanDeleteArgs} args - Arguments to delete one Scan.
+     * @example
+     * // Delete one Scan
+     * const Scan = await prisma.scan.delete({
+     *   where: {
+     *     // ... filter to delete one Scan
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ScanDeleteArgs>(args: SelectSubset<T, ScanDeleteArgs<ExtArgs>>): Prisma__ScanClient<$Result.GetResult<Prisma.$ScanPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Scan.
+     * @param {ScanUpdateArgs} args - Arguments to update one Scan.
+     * @example
+     * // Update one Scan
+     * const scan = await prisma.scan.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ScanUpdateArgs>(args: SelectSubset<T, ScanUpdateArgs<ExtArgs>>): Prisma__ScanClient<$Result.GetResult<Prisma.$ScanPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Scans.
+     * @param {ScanDeleteManyArgs} args - Arguments to filter Scans to delete.
+     * @example
+     * // Delete a few Scans
+     * const { count } = await prisma.scan.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ScanDeleteManyArgs>(args?: SelectSubset<T, ScanDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Scans.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScanUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Scans
+     * const scan = await prisma.scan.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ScanUpdateManyArgs>(args: SelectSubset<T, ScanUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Scan.
+     * @param {ScanUpsertArgs} args - Arguments to update or create a Scan.
+     * @example
+     * // Update or create a Scan
+     * const scan = await prisma.scan.upsert({
+     *   create: {
+     *     // ... data to create a Scan
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Scan we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ScanUpsertArgs>(args: SelectSubset<T, ScanUpsertArgs<ExtArgs>>): Prisma__ScanClient<$Result.GetResult<Prisma.$ScanPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Scans.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScanCountArgs} args - Arguments to filter Scans to count.
+     * @example
+     * // Count the number of Scans
+     * const count = await prisma.scan.count({
+     *   where: {
+     *     // ... the filter for the Scans we want to count
+     *   }
+     * })
+    **/
+    count<T extends ScanCountArgs>(
+      args?: Subset<T, ScanCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ScanCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Scan.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScanAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ScanAggregateArgs>(args: Subset<T, ScanAggregateArgs>): Prisma.PrismaPromise<GetScanAggregateType<T>>
+
+    /**
+     * Group by Scan.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScanGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ScanGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ScanGroupByArgs['orderBy'] }
+        : { orderBy?: ScanGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ScanGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetScanGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Scan model
+   */
+  readonly fields: ScanFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Scan.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ScanClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    analyzer<T extends Scan$analyzerArgs<ExtArgs> = {}>(args?: Subset<T, Scan$analyzerArgs<ExtArgs>>): Prisma__AnalyzerClient<$Result.GetResult<Prisma.$AnalyzerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Scan model
+   */
+  interface ScanFieldRefs {
+    readonly id: FieldRef<"Scan", 'Int'>
+    readonly createdAt: FieldRef<"Scan", 'DateTime'>
+    readonly projectId: FieldRef<"Scan", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Scan findUnique
+   */
+  export type ScanFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scan
+     */
+    select?: ScanSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scan
+     */
+    omit?: ScanOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScanInclude<ExtArgs> | null
+    /**
+     * Filter, which Scan to fetch.
+     */
+    where: ScanWhereUniqueInput
+  }
+
+  /**
+   * Scan findUniqueOrThrow
+   */
+  export type ScanFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scan
+     */
+    select?: ScanSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scan
+     */
+    omit?: ScanOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScanInclude<ExtArgs> | null
+    /**
+     * Filter, which Scan to fetch.
+     */
+    where: ScanWhereUniqueInput
+  }
+
+  /**
+   * Scan findFirst
+   */
+  export type ScanFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scan
+     */
+    select?: ScanSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scan
+     */
+    omit?: ScanOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScanInclude<ExtArgs> | null
+    /**
+     * Filter, which Scan to fetch.
+     */
+    where?: ScanWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Scans to fetch.
+     */
+    orderBy?: ScanOrderByWithRelationInput | ScanOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Scans.
+     */
+    cursor?: ScanWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Scans from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Scans.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Scans.
+     */
+    distinct?: ScanScalarFieldEnum | ScanScalarFieldEnum[]
+  }
+
+  /**
+   * Scan findFirstOrThrow
+   */
+  export type ScanFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scan
+     */
+    select?: ScanSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scan
+     */
+    omit?: ScanOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScanInclude<ExtArgs> | null
+    /**
+     * Filter, which Scan to fetch.
+     */
+    where?: ScanWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Scans to fetch.
+     */
+    orderBy?: ScanOrderByWithRelationInput | ScanOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Scans.
+     */
+    cursor?: ScanWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Scans from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Scans.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Scans.
+     */
+    distinct?: ScanScalarFieldEnum | ScanScalarFieldEnum[]
+  }
+
+  /**
+   * Scan findMany
+   */
+  export type ScanFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scan
+     */
+    select?: ScanSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scan
+     */
+    omit?: ScanOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScanInclude<ExtArgs> | null
+    /**
+     * Filter, which Scans to fetch.
+     */
+    where?: ScanWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Scans to fetch.
+     */
+    orderBy?: ScanOrderByWithRelationInput | ScanOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Scans.
+     */
+    cursor?: ScanWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Scans from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Scans.
+     */
+    skip?: number
+    distinct?: ScanScalarFieldEnum | ScanScalarFieldEnum[]
+  }
+
+  /**
+   * Scan create
+   */
+  export type ScanCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scan
+     */
+    select?: ScanSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scan
+     */
+    omit?: ScanOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScanInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Scan.
+     */
+    data: XOR<ScanCreateInput, ScanUncheckedCreateInput>
+  }
+
+  /**
+   * Scan createMany
+   */
+  export type ScanCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Scans.
+     */
+    data: ScanCreateManyInput | ScanCreateManyInput[]
+  }
+
+  /**
+   * Scan update
+   */
+  export type ScanUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scan
+     */
+    select?: ScanSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scan
+     */
+    omit?: ScanOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScanInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Scan.
+     */
+    data: XOR<ScanUpdateInput, ScanUncheckedUpdateInput>
+    /**
+     * Choose, which Scan to update.
+     */
+    where: ScanWhereUniqueInput
+  }
+
+  /**
+   * Scan updateMany
+   */
+  export type ScanUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Scans.
+     */
+    data: XOR<ScanUpdateManyMutationInput, ScanUncheckedUpdateManyInput>
+    /**
+     * Filter which Scans to update
+     */
+    where?: ScanWhereInput
+    /**
+     * Limit how many Scans to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Scan upsert
+   */
+  export type ScanUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scan
+     */
+    select?: ScanSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scan
+     */
+    omit?: ScanOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScanInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Scan to update in case it exists.
+     */
+    where: ScanWhereUniqueInput
+    /**
+     * In case the Scan found by the `where` argument doesn't exist, create a new Scan with this data.
+     */
+    create: XOR<ScanCreateInput, ScanUncheckedCreateInput>
+    /**
+     * In case the Scan was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ScanUpdateInput, ScanUncheckedUpdateInput>
+  }
+
+  /**
+   * Scan delete
+   */
+  export type ScanDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scan
+     */
+    select?: ScanSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scan
+     */
+    omit?: ScanOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScanInclude<ExtArgs> | null
+    /**
+     * Filter which Scan to delete.
+     */
+    where: ScanWhereUniqueInput
+  }
+
+  /**
+   * Scan deleteMany
+   */
+  export type ScanDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Scans to delete
+     */
+    where?: ScanWhereInput
+    /**
+     * Limit how many Scans to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Scan.analyzer
+   */
+  export type Scan$analyzerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Analyzer
+     */
+    select?: AnalyzerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Analyzer
+     */
+    omit?: AnalyzerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerInclude<ExtArgs> | null
+    where?: AnalyzerWhereInput
+  }
+
+  /**
+   * Scan without action
+   */
+  export type ScanDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scan
+     */
+    select?: ScanSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scan
+     */
+    omit?: ScanOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScanInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Analyzer
+   */
+
+  export type AggregateAnalyzer = {
+    _count: AnalyzerCountAggregateOutputType | null
+    _avg: AnalyzerAvgAggregateOutputType | null
+    _sum: AnalyzerSumAggregateOutputType | null
+    _min: AnalyzerMinAggregateOutputType | null
+    _max: AnalyzerMaxAggregateOutputType | null
+  }
+
+  export type AnalyzerAvgAggregateOutputType = {
+    id: number | null
+    scanId: number | null
+  }
+
+  export type AnalyzerSumAggregateOutputType = {
+    id: number | null
+    scanId: number | null
+  }
+
+  export type AnalyzerMinAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    scanId: number | null
+  }
+
+  export type AnalyzerMaxAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    scanId: number | null
+  }
+
+  export type AnalyzerCountAggregateOutputType = {
+    id: number
+    createdAt: number
+    scanId: number
+    _all: number
+  }
+
+
+  export type AnalyzerAvgAggregateInputType = {
+    id?: true
+    scanId?: true
+  }
+
+  export type AnalyzerSumAggregateInputType = {
+    id?: true
+    scanId?: true
+  }
+
+  export type AnalyzerMinAggregateInputType = {
+    id?: true
+    createdAt?: true
+    scanId?: true
+  }
+
+  export type AnalyzerMaxAggregateInputType = {
+    id?: true
+    createdAt?: true
+    scanId?: true
+  }
+
+  export type AnalyzerCountAggregateInputType = {
+    id?: true
+    createdAt?: true
+    scanId?: true
+    _all?: true
+  }
+
+  export type AnalyzerAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Analyzer to aggregate.
+     */
+    where?: AnalyzerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Analyzers to fetch.
+     */
+    orderBy?: AnalyzerOrderByWithRelationInput | AnalyzerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AnalyzerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Analyzers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Analyzers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Analyzers
+    **/
+    _count?: true | AnalyzerCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AnalyzerAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AnalyzerSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AnalyzerMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AnalyzerMaxAggregateInputType
+  }
+
+  export type GetAnalyzerAggregateType<T extends AnalyzerAggregateArgs> = {
+        [P in keyof T & keyof AggregateAnalyzer]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAnalyzer[P]>
+      : GetScalarType<T[P], AggregateAnalyzer[P]>
+  }
+
+
+
+
+  export type AnalyzerGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AnalyzerWhereInput
+    orderBy?: AnalyzerOrderByWithAggregationInput | AnalyzerOrderByWithAggregationInput[]
+    by: AnalyzerScalarFieldEnum[] | AnalyzerScalarFieldEnum
+    having?: AnalyzerScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AnalyzerCountAggregateInputType | true
+    _avg?: AnalyzerAvgAggregateInputType
+    _sum?: AnalyzerSumAggregateInputType
+    _min?: AnalyzerMinAggregateInputType
+    _max?: AnalyzerMaxAggregateInputType
+  }
+
+  export type AnalyzerGroupByOutputType = {
+    id: number
+    createdAt: Date
+    scanId: number
+    _count: AnalyzerCountAggregateOutputType | null
+    _avg: AnalyzerAvgAggregateOutputType | null
+    _sum: AnalyzerSumAggregateOutputType | null
+    _min: AnalyzerMinAggregateOutputType | null
+    _max: AnalyzerMaxAggregateOutputType | null
+  }
+
+  type GetAnalyzerGroupByPayload<T extends AnalyzerGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AnalyzerGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AnalyzerGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AnalyzerGroupByOutputType[P]>
+            : GetScalarType<T[P], AnalyzerGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AnalyzerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    scanId?: boolean
+    scan?: boolean | ScanDefaultArgs<ExtArgs>
+    packages?: boolean | Analyzer$packagesArgs<ExtArgs>
+    _count?: boolean | AnalyzerCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["analyzer"]>
+
+
+
+  export type AnalyzerSelectScalar = {
+    id?: boolean
+    createdAt?: boolean
+    scanId?: boolean
+  }
+
+  export type AnalyzerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "scanId", ExtArgs["result"]["analyzer"]>
+  export type AnalyzerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    scan?: boolean | ScanDefaultArgs<ExtArgs>
+    packages?: boolean | Analyzer$packagesArgs<ExtArgs>
+    _count?: boolean | AnalyzerCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $AnalyzerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Analyzer"
+    objects: {
+      scan: Prisma.$ScanPayload<ExtArgs>
+      packages: Prisma.$AnalyzerPackagePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      createdAt: Date
+      scanId: number
+    }, ExtArgs["result"]["analyzer"]>
+    composites: {}
+  }
+
+  type AnalyzerGetPayload<S extends boolean | null | undefined | AnalyzerDefaultArgs> = $Result.GetResult<Prisma.$AnalyzerPayload, S>
+
+  type AnalyzerCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AnalyzerFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AnalyzerCountAggregateInputType | true
+    }
+
+  export interface AnalyzerDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Analyzer'], meta: { name: 'Analyzer' } }
+    /**
+     * Find zero or one Analyzer that matches the filter.
+     * @param {AnalyzerFindUniqueArgs} args - Arguments to find a Analyzer
+     * @example
+     * // Get one Analyzer
+     * const analyzer = await prisma.analyzer.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AnalyzerFindUniqueArgs>(args: SelectSubset<T, AnalyzerFindUniqueArgs<ExtArgs>>): Prisma__AnalyzerClient<$Result.GetResult<Prisma.$AnalyzerPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Analyzer that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AnalyzerFindUniqueOrThrowArgs} args - Arguments to find a Analyzer
+     * @example
+     * // Get one Analyzer
+     * const analyzer = await prisma.analyzer.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AnalyzerFindUniqueOrThrowArgs>(args: SelectSubset<T, AnalyzerFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AnalyzerClient<$Result.GetResult<Prisma.$AnalyzerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Analyzer that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AnalyzerFindFirstArgs} args - Arguments to find a Analyzer
+     * @example
+     * // Get one Analyzer
+     * const analyzer = await prisma.analyzer.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AnalyzerFindFirstArgs>(args?: SelectSubset<T, AnalyzerFindFirstArgs<ExtArgs>>): Prisma__AnalyzerClient<$Result.GetResult<Prisma.$AnalyzerPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Analyzer that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AnalyzerFindFirstOrThrowArgs} args - Arguments to find a Analyzer
+     * @example
+     * // Get one Analyzer
+     * const analyzer = await prisma.analyzer.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AnalyzerFindFirstOrThrowArgs>(args?: SelectSubset<T, AnalyzerFindFirstOrThrowArgs<ExtArgs>>): Prisma__AnalyzerClient<$Result.GetResult<Prisma.$AnalyzerPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Analyzers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AnalyzerFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Analyzers
+     * const analyzers = await prisma.analyzer.findMany()
+     * 
+     * // Get first 10 Analyzers
+     * const analyzers = await prisma.analyzer.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const analyzerWithIdOnly = await prisma.analyzer.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AnalyzerFindManyArgs>(args?: SelectSubset<T, AnalyzerFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnalyzerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Analyzer.
+     * @param {AnalyzerCreateArgs} args - Arguments to create a Analyzer.
+     * @example
+     * // Create one Analyzer
+     * const Analyzer = await prisma.analyzer.create({
+     *   data: {
+     *     // ... data to create a Analyzer
+     *   }
+     * })
+     * 
+     */
+    create<T extends AnalyzerCreateArgs>(args: SelectSubset<T, AnalyzerCreateArgs<ExtArgs>>): Prisma__AnalyzerClient<$Result.GetResult<Prisma.$AnalyzerPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Analyzers.
+     * @param {AnalyzerCreateManyArgs} args - Arguments to create many Analyzers.
+     * @example
+     * // Create many Analyzers
+     * const analyzer = await prisma.analyzer.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AnalyzerCreateManyArgs>(args?: SelectSubset<T, AnalyzerCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Analyzer.
+     * @param {AnalyzerDeleteArgs} args - Arguments to delete one Analyzer.
+     * @example
+     * // Delete one Analyzer
+     * const Analyzer = await prisma.analyzer.delete({
+     *   where: {
+     *     // ... filter to delete one Analyzer
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AnalyzerDeleteArgs>(args: SelectSubset<T, AnalyzerDeleteArgs<ExtArgs>>): Prisma__AnalyzerClient<$Result.GetResult<Prisma.$AnalyzerPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Analyzer.
+     * @param {AnalyzerUpdateArgs} args - Arguments to update one Analyzer.
+     * @example
+     * // Update one Analyzer
+     * const analyzer = await prisma.analyzer.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AnalyzerUpdateArgs>(args: SelectSubset<T, AnalyzerUpdateArgs<ExtArgs>>): Prisma__AnalyzerClient<$Result.GetResult<Prisma.$AnalyzerPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Analyzers.
+     * @param {AnalyzerDeleteManyArgs} args - Arguments to filter Analyzers to delete.
+     * @example
+     * // Delete a few Analyzers
+     * const { count } = await prisma.analyzer.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AnalyzerDeleteManyArgs>(args?: SelectSubset<T, AnalyzerDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Analyzers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AnalyzerUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Analyzers
+     * const analyzer = await prisma.analyzer.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AnalyzerUpdateManyArgs>(args: SelectSubset<T, AnalyzerUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Analyzer.
+     * @param {AnalyzerUpsertArgs} args - Arguments to update or create a Analyzer.
+     * @example
+     * // Update or create a Analyzer
+     * const analyzer = await prisma.analyzer.upsert({
+     *   create: {
+     *     // ... data to create a Analyzer
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Analyzer we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AnalyzerUpsertArgs>(args: SelectSubset<T, AnalyzerUpsertArgs<ExtArgs>>): Prisma__AnalyzerClient<$Result.GetResult<Prisma.$AnalyzerPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Analyzers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AnalyzerCountArgs} args - Arguments to filter Analyzers to count.
+     * @example
+     * // Count the number of Analyzers
+     * const count = await prisma.analyzer.count({
+     *   where: {
+     *     // ... the filter for the Analyzers we want to count
+     *   }
+     * })
+    **/
+    count<T extends AnalyzerCountArgs>(
+      args?: Subset<T, AnalyzerCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AnalyzerCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Analyzer.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AnalyzerAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AnalyzerAggregateArgs>(args: Subset<T, AnalyzerAggregateArgs>): Prisma.PrismaPromise<GetAnalyzerAggregateType<T>>
+
+    /**
+     * Group by Analyzer.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AnalyzerGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AnalyzerGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AnalyzerGroupByArgs['orderBy'] }
+        : { orderBy?: AnalyzerGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AnalyzerGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAnalyzerGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Analyzer model
+   */
+  readonly fields: AnalyzerFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Analyzer.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AnalyzerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    scan<T extends ScanDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ScanDefaultArgs<ExtArgs>>): Prisma__ScanClient<$Result.GetResult<Prisma.$ScanPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    packages<T extends Analyzer$packagesArgs<ExtArgs> = {}>(args?: Subset<T, Analyzer$packagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Analyzer model
+   */
+  interface AnalyzerFieldRefs {
+    readonly id: FieldRef<"Analyzer", 'Int'>
+    readonly createdAt: FieldRef<"Analyzer", 'DateTime'>
+    readonly scanId: FieldRef<"Analyzer", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Analyzer findUnique
+   */
+  export type AnalyzerFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Analyzer
+     */
+    select?: AnalyzerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Analyzer
+     */
+    omit?: AnalyzerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerInclude<ExtArgs> | null
+    /**
+     * Filter, which Analyzer to fetch.
+     */
+    where: AnalyzerWhereUniqueInput
+  }
+
+  /**
+   * Analyzer findUniqueOrThrow
+   */
+  export type AnalyzerFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Analyzer
+     */
+    select?: AnalyzerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Analyzer
+     */
+    omit?: AnalyzerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerInclude<ExtArgs> | null
+    /**
+     * Filter, which Analyzer to fetch.
+     */
+    where: AnalyzerWhereUniqueInput
+  }
+
+  /**
+   * Analyzer findFirst
+   */
+  export type AnalyzerFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Analyzer
+     */
+    select?: AnalyzerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Analyzer
+     */
+    omit?: AnalyzerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerInclude<ExtArgs> | null
+    /**
+     * Filter, which Analyzer to fetch.
+     */
+    where?: AnalyzerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Analyzers to fetch.
+     */
+    orderBy?: AnalyzerOrderByWithRelationInput | AnalyzerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Analyzers.
+     */
+    cursor?: AnalyzerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Analyzers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Analyzers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Analyzers.
+     */
+    distinct?: AnalyzerScalarFieldEnum | AnalyzerScalarFieldEnum[]
+  }
+
+  /**
+   * Analyzer findFirstOrThrow
+   */
+  export type AnalyzerFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Analyzer
+     */
+    select?: AnalyzerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Analyzer
+     */
+    omit?: AnalyzerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerInclude<ExtArgs> | null
+    /**
+     * Filter, which Analyzer to fetch.
+     */
+    where?: AnalyzerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Analyzers to fetch.
+     */
+    orderBy?: AnalyzerOrderByWithRelationInput | AnalyzerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Analyzers.
+     */
+    cursor?: AnalyzerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Analyzers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Analyzers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Analyzers.
+     */
+    distinct?: AnalyzerScalarFieldEnum | AnalyzerScalarFieldEnum[]
+  }
+
+  /**
+   * Analyzer findMany
+   */
+  export type AnalyzerFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Analyzer
+     */
+    select?: AnalyzerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Analyzer
+     */
+    omit?: AnalyzerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerInclude<ExtArgs> | null
+    /**
+     * Filter, which Analyzers to fetch.
+     */
+    where?: AnalyzerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Analyzers to fetch.
+     */
+    orderBy?: AnalyzerOrderByWithRelationInput | AnalyzerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Analyzers.
+     */
+    cursor?: AnalyzerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Analyzers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Analyzers.
+     */
+    skip?: number
+    distinct?: AnalyzerScalarFieldEnum | AnalyzerScalarFieldEnum[]
+  }
+
+  /**
+   * Analyzer create
+   */
+  export type AnalyzerCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Analyzer
+     */
+    select?: AnalyzerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Analyzer
+     */
+    omit?: AnalyzerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Analyzer.
+     */
+    data: XOR<AnalyzerCreateInput, AnalyzerUncheckedCreateInput>
+  }
+
+  /**
+   * Analyzer createMany
+   */
+  export type AnalyzerCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Analyzers.
+     */
+    data: AnalyzerCreateManyInput | AnalyzerCreateManyInput[]
+  }
+
+  /**
+   * Analyzer update
+   */
+  export type AnalyzerUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Analyzer
+     */
+    select?: AnalyzerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Analyzer
+     */
+    omit?: AnalyzerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Analyzer.
+     */
+    data: XOR<AnalyzerUpdateInput, AnalyzerUncheckedUpdateInput>
+    /**
+     * Choose, which Analyzer to update.
+     */
+    where: AnalyzerWhereUniqueInput
+  }
+
+  /**
+   * Analyzer updateMany
+   */
+  export type AnalyzerUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Analyzers.
+     */
+    data: XOR<AnalyzerUpdateManyMutationInput, AnalyzerUncheckedUpdateManyInput>
+    /**
+     * Filter which Analyzers to update
+     */
+    where?: AnalyzerWhereInput
+    /**
+     * Limit how many Analyzers to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Analyzer upsert
+   */
+  export type AnalyzerUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Analyzer
+     */
+    select?: AnalyzerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Analyzer
+     */
+    omit?: AnalyzerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Analyzer to update in case it exists.
+     */
+    where: AnalyzerWhereUniqueInput
+    /**
+     * In case the Analyzer found by the `where` argument doesn't exist, create a new Analyzer with this data.
+     */
+    create: XOR<AnalyzerCreateInput, AnalyzerUncheckedCreateInput>
+    /**
+     * In case the Analyzer was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AnalyzerUpdateInput, AnalyzerUncheckedUpdateInput>
+  }
+
+  /**
+   * Analyzer delete
+   */
+  export type AnalyzerDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Analyzer
+     */
+    select?: AnalyzerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Analyzer
+     */
+    omit?: AnalyzerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerInclude<ExtArgs> | null
+    /**
+     * Filter which Analyzer to delete.
+     */
+    where: AnalyzerWhereUniqueInput
+  }
+
+  /**
+   * Analyzer deleteMany
+   */
+  export type AnalyzerDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Analyzers to delete
+     */
+    where?: AnalyzerWhereInput
+    /**
+     * Limit how many Analyzers to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Analyzer.packages
+   */
+  export type Analyzer$packagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AnalyzerPackage
+     */
+    select?: AnalyzerPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AnalyzerPackage
+     */
+    omit?: AnalyzerPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerPackageInclude<ExtArgs> | null
+    where?: AnalyzerPackageWhereInput
+    orderBy?: AnalyzerPackageOrderByWithRelationInput | AnalyzerPackageOrderByWithRelationInput[]
+    cursor?: AnalyzerPackageWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AnalyzerPackageScalarFieldEnum | AnalyzerPackageScalarFieldEnum[]
+  }
+
+  /**
+   * Analyzer without action
+   */
+  export type AnalyzerDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Analyzer
+     */
+    select?: AnalyzerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Analyzer
+     */
+    omit?: AnalyzerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AnalyzerPackage
+   */
+
+  export type AggregateAnalyzerPackage = {
+    _count: AnalyzerPackageCountAggregateOutputType | null
+    _avg: AnalyzerPackageAvgAggregateOutputType | null
+    _sum: AnalyzerPackageSumAggregateOutputType | null
+    _min: AnalyzerPackageMinAggregateOutputType | null
+    _max: AnalyzerPackageMaxAggregateOutputType | null
+  }
+
+  export type AnalyzerPackageAvgAggregateOutputType = {
+    id: number | null
+    analyzerId: number | null
+  }
+
+  export type AnalyzerPackageSumAggregateOutputType = {
+    id: number | null
+    analyzerId: number | null
+  }
+
+  export type AnalyzerPackageMinAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    packId: string | null
+    purl: string | null
+    description: string | null
+    homepageUrl: string | null
+    analyzerId: number | null
+  }
+
+  export type AnalyzerPackageMaxAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    packId: string | null
+    purl: string | null
+    description: string | null
+    homepageUrl: string | null
+    analyzerId: number | null
+  }
+
+  export type AnalyzerPackageCountAggregateOutputType = {
+    id: number
+    createdAt: number
+    packId: number
+    purl: number
+    description: number
+    homepageUrl: number
+    analyzerId: number
+    _all: number
+  }
+
+
+  export type AnalyzerPackageAvgAggregateInputType = {
+    id?: true
+    analyzerId?: true
+  }
+
+  export type AnalyzerPackageSumAggregateInputType = {
+    id?: true
+    analyzerId?: true
+  }
+
+  export type AnalyzerPackageMinAggregateInputType = {
+    id?: true
+    createdAt?: true
+    packId?: true
+    purl?: true
+    description?: true
+    homepageUrl?: true
+    analyzerId?: true
+  }
+
+  export type AnalyzerPackageMaxAggregateInputType = {
+    id?: true
+    createdAt?: true
+    packId?: true
+    purl?: true
+    description?: true
+    homepageUrl?: true
+    analyzerId?: true
+  }
+
+  export type AnalyzerPackageCountAggregateInputType = {
+    id?: true
+    createdAt?: true
+    packId?: true
+    purl?: true
+    description?: true
+    homepageUrl?: true
+    analyzerId?: true
+    _all?: true
+  }
+
+  export type AnalyzerPackageAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AnalyzerPackage to aggregate.
+     */
+    where?: AnalyzerPackageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AnalyzerPackages to fetch.
+     */
+    orderBy?: AnalyzerPackageOrderByWithRelationInput | AnalyzerPackageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AnalyzerPackageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AnalyzerPackages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AnalyzerPackages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AnalyzerPackages
+    **/
+    _count?: true | AnalyzerPackageCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AnalyzerPackageAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AnalyzerPackageSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AnalyzerPackageMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AnalyzerPackageMaxAggregateInputType
+  }
+
+  export type GetAnalyzerPackageAggregateType<T extends AnalyzerPackageAggregateArgs> = {
+        [P in keyof T & keyof AggregateAnalyzerPackage]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAnalyzerPackage[P]>
+      : GetScalarType<T[P], AggregateAnalyzerPackage[P]>
+  }
+
+
+
+
+  export type AnalyzerPackageGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AnalyzerPackageWhereInput
+    orderBy?: AnalyzerPackageOrderByWithAggregationInput | AnalyzerPackageOrderByWithAggregationInput[]
+    by: AnalyzerPackageScalarFieldEnum[] | AnalyzerPackageScalarFieldEnum
+    having?: AnalyzerPackageScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AnalyzerPackageCountAggregateInputType | true
+    _avg?: AnalyzerPackageAvgAggregateInputType
+    _sum?: AnalyzerPackageSumAggregateInputType
+    _min?: AnalyzerPackageMinAggregateInputType
+    _max?: AnalyzerPackageMaxAggregateInputType
+  }
+
+  export type AnalyzerPackageGroupByOutputType = {
+    id: number
+    createdAt: Date
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzerId: number
+    _count: AnalyzerPackageCountAggregateOutputType | null
+    _avg: AnalyzerPackageAvgAggregateOutputType | null
+    _sum: AnalyzerPackageSumAggregateOutputType | null
+    _min: AnalyzerPackageMinAggregateOutputType | null
+    _max: AnalyzerPackageMaxAggregateOutputType | null
+  }
+
+  type GetAnalyzerPackageGroupByPayload<T extends AnalyzerPackageGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AnalyzerPackageGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AnalyzerPackageGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AnalyzerPackageGroupByOutputType[P]>
+            : GetScalarType<T[P], AnalyzerPackageGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AnalyzerPackageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    packId?: boolean
+    purl?: boolean
+    description?: boolean
+    homepageUrl?: boolean
+    analyzerId?: boolean
+    analyzer?: boolean | AnalyzerDefaultArgs<ExtArgs>
+    authors?: boolean | AnalyzerPackage$authorsArgs<ExtArgs>
+    binaries?: boolean | AnalyzerPackage$binariesArgs<ExtArgs>
+    sources?: boolean | AnalyzerPackage$sourcesArgs<ExtArgs>
+    vcsList?: boolean | AnalyzerPackage$vcsListArgs<ExtArgs>
+    vcsProcessed?: boolean | AnalyzerPackage$vcsProcessedArgs<ExtArgs>
+    _count?: boolean | AnalyzerPackageCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["analyzerPackage"]>
+
+
+
+  export type AnalyzerPackageSelectScalar = {
+    id?: boolean
+    createdAt?: boolean
+    packId?: boolean
+    purl?: boolean
+    description?: boolean
+    homepageUrl?: boolean
+    analyzerId?: boolean
+  }
+
+  export type AnalyzerPackageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "packId" | "purl" | "description" | "homepageUrl" | "analyzerId", ExtArgs["result"]["analyzerPackage"]>
+  export type AnalyzerPackageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    analyzer?: boolean | AnalyzerDefaultArgs<ExtArgs>
+    authors?: boolean | AnalyzerPackage$authorsArgs<ExtArgs>
+    binaries?: boolean | AnalyzerPackage$binariesArgs<ExtArgs>
+    sources?: boolean | AnalyzerPackage$sourcesArgs<ExtArgs>
+    vcsList?: boolean | AnalyzerPackage$vcsListArgs<ExtArgs>
+    vcsProcessed?: boolean | AnalyzerPackage$vcsProcessedArgs<ExtArgs>
+    _count?: boolean | AnalyzerPackageCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $AnalyzerPackagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AnalyzerPackage"
+    objects: {
+      analyzer: Prisma.$AnalyzerPayload<ExtArgs>
+      authors: Prisma.$PackageAuthorPayload<ExtArgs>[]
+      binaries: Prisma.$BinaryArtifactPayload<ExtArgs>[]
+      sources: Prisma.$SourceArtifactPayload<ExtArgs>[]
+      vcsList: Prisma.$VcsPayload<ExtArgs>[]
+      vcsProcessed: Prisma.$VcsProcessedPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      createdAt: Date
+      packId: string
+      purl: string
+      description: string
+      homepageUrl: string
+      analyzerId: number
+    }, ExtArgs["result"]["analyzerPackage"]>
+    composites: {}
+  }
+
+  type AnalyzerPackageGetPayload<S extends boolean | null | undefined | AnalyzerPackageDefaultArgs> = $Result.GetResult<Prisma.$AnalyzerPackagePayload, S>
+
+  type AnalyzerPackageCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AnalyzerPackageFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AnalyzerPackageCountAggregateInputType | true
+    }
+
+  export interface AnalyzerPackageDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AnalyzerPackage'], meta: { name: 'AnalyzerPackage' } }
+    /**
+     * Find zero or one AnalyzerPackage that matches the filter.
+     * @param {AnalyzerPackageFindUniqueArgs} args - Arguments to find a AnalyzerPackage
+     * @example
+     * // Get one AnalyzerPackage
+     * const analyzerPackage = await prisma.analyzerPackage.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AnalyzerPackageFindUniqueArgs>(args: SelectSubset<T, AnalyzerPackageFindUniqueArgs<ExtArgs>>): Prisma__AnalyzerPackageClient<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AnalyzerPackage that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AnalyzerPackageFindUniqueOrThrowArgs} args - Arguments to find a AnalyzerPackage
+     * @example
+     * // Get one AnalyzerPackage
+     * const analyzerPackage = await prisma.analyzerPackage.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AnalyzerPackageFindUniqueOrThrowArgs>(args: SelectSubset<T, AnalyzerPackageFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AnalyzerPackageClient<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AnalyzerPackage that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AnalyzerPackageFindFirstArgs} args - Arguments to find a AnalyzerPackage
+     * @example
+     * // Get one AnalyzerPackage
+     * const analyzerPackage = await prisma.analyzerPackage.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AnalyzerPackageFindFirstArgs>(args?: SelectSubset<T, AnalyzerPackageFindFirstArgs<ExtArgs>>): Prisma__AnalyzerPackageClient<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AnalyzerPackage that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AnalyzerPackageFindFirstOrThrowArgs} args - Arguments to find a AnalyzerPackage
+     * @example
+     * // Get one AnalyzerPackage
+     * const analyzerPackage = await prisma.analyzerPackage.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AnalyzerPackageFindFirstOrThrowArgs>(args?: SelectSubset<T, AnalyzerPackageFindFirstOrThrowArgs<ExtArgs>>): Prisma__AnalyzerPackageClient<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AnalyzerPackages that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AnalyzerPackageFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AnalyzerPackages
+     * const analyzerPackages = await prisma.analyzerPackage.findMany()
+     * 
+     * // Get first 10 AnalyzerPackages
+     * const analyzerPackages = await prisma.analyzerPackage.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const analyzerPackageWithIdOnly = await prisma.analyzerPackage.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AnalyzerPackageFindManyArgs>(args?: SelectSubset<T, AnalyzerPackageFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AnalyzerPackage.
+     * @param {AnalyzerPackageCreateArgs} args - Arguments to create a AnalyzerPackage.
+     * @example
+     * // Create one AnalyzerPackage
+     * const AnalyzerPackage = await prisma.analyzerPackage.create({
+     *   data: {
+     *     // ... data to create a AnalyzerPackage
+     *   }
+     * })
+     * 
+     */
+    create<T extends AnalyzerPackageCreateArgs>(args: SelectSubset<T, AnalyzerPackageCreateArgs<ExtArgs>>): Prisma__AnalyzerPackageClient<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AnalyzerPackages.
+     * @param {AnalyzerPackageCreateManyArgs} args - Arguments to create many AnalyzerPackages.
+     * @example
+     * // Create many AnalyzerPackages
+     * const analyzerPackage = await prisma.analyzerPackage.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AnalyzerPackageCreateManyArgs>(args?: SelectSubset<T, AnalyzerPackageCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a AnalyzerPackage.
+     * @param {AnalyzerPackageDeleteArgs} args - Arguments to delete one AnalyzerPackage.
+     * @example
+     * // Delete one AnalyzerPackage
+     * const AnalyzerPackage = await prisma.analyzerPackage.delete({
+     *   where: {
+     *     // ... filter to delete one AnalyzerPackage
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AnalyzerPackageDeleteArgs>(args: SelectSubset<T, AnalyzerPackageDeleteArgs<ExtArgs>>): Prisma__AnalyzerPackageClient<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AnalyzerPackage.
+     * @param {AnalyzerPackageUpdateArgs} args - Arguments to update one AnalyzerPackage.
+     * @example
+     * // Update one AnalyzerPackage
+     * const analyzerPackage = await prisma.analyzerPackage.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AnalyzerPackageUpdateArgs>(args: SelectSubset<T, AnalyzerPackageUpdateArgs<ExtArgs>>): Prisma__AnalyzerPackageClient<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AnalyzerPackages.
+     * @param {AnalyzerPackageDeleteManyArgs} args - Arguments to filter AnalyzerPackages to delete.
+     * @example
+     * // Delete a few AnalyzerPackages
+     * const { count } = await prisma.analyzerPackage.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AnalyzerPackageDeleteManyArgs>(args?: SelectSubset<T, AnalyzerPackageDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AnalyzerPackages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AnalyzerPackageUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AnalyzerPackages
+     * const analyzerPackage = await prisma.analyzerPackage.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AnalyzerPackageUpdateManyArgs>(args: SelectSubset<T, AnalyzerPackageUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one AnalyzerPackage.
+     * @param {AnalyzerPackageUpsertArgs} args - Arguments to update or create a AnalyzerPackage.
+     * @example
+     * // Update or create a AnalyzerPackage
+     * const analyzerPackage = await prisma.analyzerPackage.upsert({
+     *   create: {
+     *     // ... data to create a AnalyzerPackage
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AnalyzerPackage we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AnalyzerPackageUpsertArgs>(args: SelectSubset<T, AnalyzerPackageUpsertArgs<ExtArgs>>): Prisma__AnalyzerPackageClient<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AnalyzerPackages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AnalyzerPackageCountArgs} args - Arguments to filter AnalyzerPackages to count.
+     * @example
+     * // Count the number of AnalyzerPackages
+     * const count = await prisma.analyzerPackage.count({
+     *   where: {
+     *     // ... the filter for the AnalyzerPackages we want to count
+     *   }
+     * })
+    **/
+    count<T extends AnalyzerPackageCountArgs>(
+      args?: Subset<T, AnalyzerPackageCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AnalyzerPackageCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AnalyzerPackage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AnalyzerPackageAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AnalyzerPackageAggregateArgs>(args: Subset<T, AnalyzerPackageAggregateArgs>): Prisma.PrismaPromise<GetAnalyzerPackageAggregateType<T>>
+
+    /**
+     * Group by AnalyzerPackage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AnalyzerPackageGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AnalyzerPackageGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AnalyzerPackageGroupByArgs['orderBy'] }
+        : { orderBy?: AnalyzerPackageGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AnalyzerPackageGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAnalyzerPackageGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AnalyzerPackage model
+   */
+  readonly fields: AnalyzerPackageFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AnalyzerPackage.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AnalyzerPackageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    analyzer<T extends AnalyzerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerDefaultArgs<ExtArgs>>): Prisma__AnalyzerClient<$Result.GetResult<Prisma.$AnalyzerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    authors<T extends AnalyzerPackage$authorsArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackage$authorsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PackageAuthorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    binaries<T extends AnalyzerPackage$binariesArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackage$binariesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BinaryArtifactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sources<T extends AnalyzerPackage$sourcesArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackage$sourcesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SourceArtifactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    vcsList<T extends AnalyzerPackage$vcsListArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackage$vcsListArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VcsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    vcsProcessed<T extends AnalyzerPackage$vcsProcessedArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackage$vcsProcessedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VcsProcessedPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AnalyzerPackage model
+   */
+  interface AnalyzerPackageFieldRefs {
+    readonly id: FieldRef<"AnalyzerPackage", 'Int'>
+    readonly createdAt: FieldRef<"AnalyzerPackage", 'DateTime'>
+    readonly packId: FieldRef<"AnalyzerPackage", 'String'>
+    readonly purl: FieldRef<"AnalyzerPackage", 'String'>
+    readonly description: FieldRef<"AnalyzerPackage", 'String'>
+    readonly homepageUrl: FieldRef<"AnalyzerPackage", 'String'>
+    readonly analyzerId: FieldRef<"AnalyzerPackage", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AnalyzerPackage findUnique
+   */
+  export type AnalyzerPackageFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AnalyzerPackage
+     */
+    select?: AnalyzerPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AnalyzerPackage
+     */
+    omit?: AnalyzerPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerPackageInclude<ExtArgs> | null
+    /**
+     * Filter, which AnalyzerPackage to fetch.
+     */
+    where: AnalyzerPackageWhereUniqueInput
+  }
+
+  /**
+   * AnalyzerPackage findUniqueOrThrow
+   */
+  export type AnalyzerPackageFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AnalyzerPackage
+     */
+    select?: AnalyzerPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AnalyzerPackage
+     */
+    omit?: AnalyzerPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerPackageInclude<ExtArgs> | null
+    /**
+     * Filter, which AnalyzerPackage to fetch.
+     */
+    where: AnalyzerPackageWhereUniqueInput
+  }
+
+  /**
+   * AnalyzerPackage findFirst
+   */
+  export type AnalyzerPackageFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AnalyzerPackage
+     */
+    select?: AnalyzerPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AnalyzerPackage
+     */
+    omit?: AnalyzerPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerPackageInclude<ExtArgs> | null
+    /**
+     * Filter, which AnalyzerPackage to fetch.
+     */
+    where?: AnalyzerPackageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AnalyzerPackages to fetch.
+     */
+    orderBy?: AnalyzerPackageOrderByWithRelationInput | AnalyzerPackageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AnalyzerPackages.
+     */
+    cursor?: AnalyzerPackageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AnalyzerPackages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AnalyzerPackages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AnalyzerPackages.
+     */
+    distinct?: AnalyzerPackageScalarFieldEnum | AnalyzerPackageScalarFieldEnum[]
+  }
+
+  /**
+   * AnalyzerPackage findFirstOrThrow
+   */
+  export type AnalyzerPackageFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AnalyzerPackage
+     */
+    select?: AnalyzerPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AnalyzerPackage
+     */
+    omit?: AnalyzerPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerPackageInclude<ExtArgs> | null
+    /**
+     * Filter, which AnalyzerPackage to fetch.
+     */
+    where?: AnalyzerPackageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AnalyzerPackages to fetch.
+     */
+    orderBy?: AnalyzerPackageOrderByWithRelationInput | AnalyzerPackageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AnalyzerPackages.
+     */
+    cursor?: AnalyzerPackageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AnalyzerPackages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AnalyzerPackages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AnalyzerPackages.
+     */
+    distinct?: AnalyzerPackageScalarFieldEnum | AnalyzerPackageScalarFieldEnum[]
+  }
+
+  /**
+   * AnalyzerPackage findMany
+   */
+  export type AnalyzerPackageFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AnalyzerPackage
+     */
+    select?: AnalyzerPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AnalyzerPackage
+     */
+    omit?: AnalyzerPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerPackageInclude<ExtArgs> | null
+    /**
+     * Filter, which AnalyzerPackages to fetch.
+     */
+    where?: AnalyzerPackageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AnalyzerPackages to fetch.
+     */
+    orderBy?: AnalyzerPackageOrderByWithRelationInput | AnalyzerPackageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AnalyzerPackages.
+     */
+    cursor?: AnalyzerPackageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AnalyzerPackages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AnalyzerPackages.
+     */
+    skip?: number
+    distinct?: AnalyzerPackageScalarFieldEnum | AnalyzerPackageScalarFieldEnum[]
+  }
+
+  /**
+   * AnalyzerPackage create
+   */
+  export type AnalyzerPackageCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AnalyzerPackage
+     */
+    select?: AnalyzerPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AnalyzerPackage
+     */
+    omit?: AnalyzerPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerPackageInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AnalyzerPackage.
+     */
+    data: XOR<AnalyzerPackageCreateInput, AnalyzerPackageUncheckedCreateInput>
+  }
+
+  /**
+   * AnalyzerPackage createMany
+   */
+  export type AnalyzerPackageCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AnalyzerPackages.
+     */
+    data: AnalyzerPackageCreateManyInput | AnalyzerPackageCreateManyInput[]
+  }
+
+  /**
+   * AnalyzerPackage update
+   */
+  export type AnalyzerPackageUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AnalyzerPackage
+     */
+    select?: AnalyzerPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AnalyzerPackage
+     */
+    omit?: AnalyzerPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerPackageInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AnalyzerPackage.
+     */
+    data: XOR<AnalyzerPackageUpdateInput, AnalyzerPackageUncheckedUpdateInput>
+    /**
+     * Choose, which AnalyzerPackage to update.
+     */
+    where: AnalyzerPackageWhereUniqueInput
+  }
+
+  /**
+   * AnalyzerPackage updateMany
+   */
+  export type AnalyzerPackageUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AnalyzerPackages.
+     */
+    data: XOR<AnalyzerPackageUpdateManyMutationInput, AnalyzerPackageUncheckedUpdateManyInput>
+    /**
+     * Filter which AnalyzerPackages to update
+     */
+    where?: AnalyzerPackageWhereInput
+    /**
+     * Limit how many AnalyzerPackages to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AnalyzerPackage upsert
+   */
+  export type AnalyzerPackageUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AnalyzerPackage
+     */
+    select?: AnalyzerPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AnalyzerPackage
+     */
+    omit?: AnalyzerPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerPackageInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AnalyzerPackage to update in case it exists.
+     */
+    where: AnalyzerPackageWhereUniqueInput
+    /**
+     * In case the AnalyzerPackage found by the `where` argument doesn't exist, create a new AnalyzerPackage with this data.
+     */
+    create: XOR<AnalyzerPackageCreateInput, AnalyzerPackageUncheckedCreateInput>
+    /**
+     * In case the AnalyzerPackage was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AnalyzerPackageUpdateInput, AnalyzerPackageUncheckedUpdateInput>
+  }
+
+  /**
+   * AnalyzerPackage delete
+   */
+  export type AnalyzerPackageDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AnalyzerPackage
+     */
+    select?: AnalyzerPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AnalyzerPackage
+     */
+    omit?: AnalyzerPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerPackageInclude<ExtArgs> | null
+    /**
+     * Filter which AnalyzerPackage to delete.
+     */
+    where: AnalyzerPackageWhereUniqueInput
+  }
+
+  /**
+   * AnalyzerPackage deleteMany
+   */
+  export type AnalyzerPackageDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AnalyzerPackages to delete
+     */
+    where?: AnalyzerPackageWhereInput
+    /**
+     * Limit how many AnalyzerPackages to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AnalyzerPackage.authors
+   */
+  export type AnalyzerPackage$authorsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackageAuthor
+     */
+    select?: PackageAuthorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackageAuthor
+     */
+    omit?: PackageAuthorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackageAuthorInclude<ExtArgs> | null
+    where?: PackageAuthorWhereInput
+    orderBy?: PackageAuthorOrderByWithRelationInput | PackageAuthorOrderByWithRelationInput[]
+    cursor?: PackageAuthorWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PackageAuthorScalarFieldEnum | PackageAuthorScalarFieldEnum[]
+  }
+
+  /**
+   * AnalyzerPackage.binaries
+   */
+  export type AnalyzerPackage$binariesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BinaryArtifact
+     */
+    select?: BinaryArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BinaryArtifact
+     */
+    omit?: BinaryArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BinaryArtifactInclude<ExtArgs> | null
+    where?: BinaryArtifactWhereInput
+    orderBy?: BinaryArtifactOrderByWithRelationInput | BinaryArtifactOrderByWithRelationInput[]
+    cursor?: BinaryArtifactWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BinaryArtifactScalarFieldEnum | BinaryArtifactScalarFieldEnum[]
+  }
+
+  /**
+   * AnalyzerPackage.sources
+   */
+  export type AnalyzerPackage$sourcesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SourceArtifact
+     */
+    select?: SourceArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SourceArtifact
+     */
+    omit?: SourceArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SourceArtifactInclude<ExtArgs> | null
+    where?: SourceArtifactWhereInput
+    orderBy?: SourceArtifactOrderByWithRelationInput | SourceArtifactOrderByWithRelationInput[]
+    cursor?: SourceArtifactWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SourceArtifactScalarFieldEnum | SourceArtifactScalarFieldEnum[]
+  }
+
+  /**
+   * AnalyzerPackage.vcsList
+   */
+  export type AnalyzerPackage$vcsListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vcs
+     */
+    select?: VcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vcs
+     */
+    omit?: VcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsInclude<ExtArgs> | null
+    where?: VcsWhereInput
+    orderBy?: VcsOrderByWithRelationInput | VcsOrderByWithRelationInput[]
+    cursor?: VcsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: VcsScalarFieldEnum | VcsScalarFieldEnum[]
+  }
+
+  /**
+   * AnalyzerPackage.vcsProcessed
+   */
+  export type AnalyzerPackage$vcsProcessedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VcsProcessed
+     */
+    select?: VcsProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VcsProcessed
+     */
+    omit?: VcsProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsProcessedInclude<ExtArgs> | null
+    where?: VcsProcessedWhereInput
+    orderBy?: VcsProcessedOrderByWithRelationInput | VcsProcessedOrderByWithRelationInput[]
+    cursor?: VcsProcessedWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: VcsProcessedScalarFieldEnum | VcsProcessedScalarFieldEnum[]
+  }
+
+  /**
+   * AnalyzerPackage without action
+   */
+  export type AnalyzerPackageDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AnalyzerPackage
+     */
+    select?: AnalyzerPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AnalyzerPackage
+     */
+    omit?: AnalyzerPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnalyzerPackageInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PackageAuthor
+   */
+
+  export type AggregatePackageAuthor = {
+    _count: PackageAuthorCountAggregateOutputType | null
+    _avg: PackageAuthorAvgAggregateOutputType | null
+    _sum: PackageAuthorSumAggregateOutputType | null
+    _min: PackageAuthorMinAggregateOutputType | null
+    _max: PackageAuthorMaxAggregateOutputType | null
+  }
+
+  export type PackageAuthorAvgAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+  }
+
+  export type PackageAuthorSumAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+  }
+
+  export type PackageAuthorMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    packageId: number | null
+  }
+
+  export type PackageAuthorMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    packageId: number | null
+  }
+
+  export type PackageAuthorCountAggregateOutputType = {
+    id: number
+    name: number
+    packageId: number
+    _all: number
+  }
+
+
+  export type PackageAuthorAvgAggregateInputType = {
+    id?: true
+    packageId?: true
+  }
+
+  export type PackageAuthorSumAggregateInputType = {
+    id?: true
+    packageId?: true
+  }
+
+  export type PackageAuthorMinAggregateInputType = {
+    id?: true
+    name?: true
+    packageId?: true
+  }
+
+  export type PackageAuthorMaxAggregateInputType = {
+    id?: true
+    name?: true
+    packageId?: true
+  }
+
+  export type PackageAuthorCountAggregateInputType = {
+    id?: true
+    name?: true
+    packageId?: true
+    _all?: true
+  }
+
+  export type PackageAuthorAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PackageAuthor to aggregate.
+     */
+    where?: PackageAuthorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PackageAuthors to fetch.
+     */
+    orderBy?: PackageAuthorOrderByWithRelationInput | PackageAuthorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PackageAuthorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PackageAuthors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PackageAuthors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PackageAuthors
+    **/
+    _count?: true | PackageAuthorCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PackageAuthorAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PackageAuthorSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PackageAuthorMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PackageAuthorMaxAggregateInputType
+  }
+
+  export type GetPackageAuthorAggregateType<T extends PackageAuthorAggregateArgs> = {
+        [P in keyof T & keyof AggregatePackageAuthor]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePackageAuthor[P]>
+      : GetScalarType<T[P], AggregatePackageAuthor[P]>
+  }
+
+
+
+
+  export type PackageAuthorGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PackageAuthorWhereInput
+    orderBy?: PackageAuthorOrderByWithAggregationInput | PackageAuthorOrderByWithAggregationInput[]
+    by: PackageAuthorScalarFieldEnum[] | PackageAuthorScalarFieldEnum
+    having?: PackageAuthorScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PackageAuthorCountAggregateInputType | true
+    _avg?: PackageAuthorAvgAggregateInputType
+    _sum?: PackageAuthorSumAggregateInputType
+    _min?: PackageAuthorMinAggregateInputType
+    _max?: PackageAuthorMaxAggregateInputType
+  }
+
+  export type PackageAuthorGroupByOutputType = {
+    id: number
+    name: string
+    packageId: number
+    _count: PackageAuthorCountAggregateOutputType | null
+    _avg: PackageAuthorAvgAggregateOutputType | null
+    _sum: PackageAuthorSumAggregateOutputType | null
+    _min: PackageAuthorMinAggregateOutputType | null
+    _max: PackageAuthorMaxAggregateOutputType | null
+  }
+
+  type GetPackageAuthorGroupByPayload<T extends PackageAuthorGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PackageAuthorGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PackageAuthorGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PackageAuthorGroupByOutputType[P]>
+            : GetScalarType<T[P], PackageAuthorGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PackageAuthorSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    packageId?: boolean
+    analyzerPackage?: boolean | AnalyzerPackageDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["packageAuthor"]>
+
+
+
+  export type PackageAuthorSelectScalar = {
+    id?: boolean
+    name?: boolean
+    packageId?: boolean
+  }
+
+  export type PackageAuthorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "packageId", ExtArgs["result"]["packageAuthor"]>
+  export type PackageAuthorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    analyzerPackage?: boolean | AnalyzerPackageDefaultArgs<ExtArgs>
+  }
+
+  export type $PackageAuthorPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PackageAuthor"
+    objects: {
+      analyzerPackage: Prisma.$AnalyzerPackagePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      packageId: number
+    }, ExtArgs["result"]["packageAuthor"]>
+    composites: {}
+  }
+
+  type PackageAuthorGetPayload<S extends boolean | null | undefined | PackageAuthorDefaultArgs> = $Result.GetResult<Prisma.$PackageAuthorPayload, S>
+
+  type PackageAuthorCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PackageAuthorFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PackageAuthorCountAggregateInputType | true
+    }
+
+  export interface PackageAuthorDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PackageAuthor'], meta: { name: 'PackageAuthor' } }
+    /**
+     * Find zero or one PackageAuthor that matches the filter.
+     * @param {PackageAuthorFindUniqueArgs} args - Arguments to find a PackageAuthor
+     * @example
+     * // Get one PackageAuthor
+     * const packageAuthor = await prisma.packageAuthor.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PackageAuthorFindUniqueArgs>(args: SelectSubset<T, PackageAuthorFindUniqueArgs<ExtArgs>>): Prisma__PackageAuthorClient<$Result.GetResult<Prisma.$PackageAuthorPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one PackageAuthor that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PackageAuthorFindUniqueOrThrowArgs} args - Arguments to find a PackageAuthor
+     * @example
+     * // Get one PackageAuthor
+     * const packageAuthor = await prisma.packageAuthor.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PackageAuthorFindUniqueOrThrowArgs>(args: SelectSubset<T, PackageAuthorFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PackageAuthorClient<$Result.GetResult<Prisma.$PackageAuthorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PackageAuthor that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackageAuthorFindFirstArgs} args - Arguments to find a PackageAuthor
+     * @example
+     * // Get one PackageAuthor
+     * const packageAuthor = await prisma.packageAuthor.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PackageAuthorFindFirstArgs>(args?: SelectSubset<T, PackageAuthorFindFirstArgs<ExtArgs>>): Prisma__PackageAuthorClient<$Result.GetResult<Prisma.$PackageAuthorPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PackageAuthor that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackageAuthorFindFirstOrThrowArgs} args - Arguments to find a PackageAuthor
+     * @example
+     * // Get one PackageAuthor
+     * const packageAuthor = await prisma.packageAuthor.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PackageAuthorFindFirstOrThrowArgs>(args?: SelectSubset<T, PackageAuthorFindFirstOrThrowArgs<ExtArgs>>): Prisma__PackageAuthorClient<$Result.GetResult<Prisma.$PackageAuthorPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more PackageAuthors that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackageAuthorFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PackageAuthors
+     * const packageAuthors = await prisma.packageAuthor.findMany()
+     * 
+     * // Get first 10 PackageAuthors
+     * const packageAuthors = await prisma.packageAuthor.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const packageAuthorWithIdOnly = await prisma.packageAuthor.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PackageAuthorFindManyArgs>(args?: SelectSubset<T, PackageAuthorFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PackageAuthorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a PackageAuthor.
+     * @param {PackageAuthorCreateArgs} args - Arguments to create a PackageAuthor.
+     * @example
+     * // Create one PackageAuthor
+     * const PackageAuthor = await prisma.packageAuthor.create({
+     *   data: {
+     *     // ... data to create a PackageAuthor
+     *   }
+     * })
+     * 
+     */
+    create<T extends PackageAuthorCreateArgs>(args: SelectSubset<T, PackageAuthorCreateArgs<ExtArgs>>): Prisma__PackageAuthorClient<$Result.GetResult<Prisma.$PackageAuthorPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many PackageAuthors.
+     * @param {PackageAuthorCreateManyArgs} args - Arguments to create many PackageAuthors.
+     * @example
+     * // Create many PackageAuthors
+     * const packageAuthor = await prisma.packageAuthor.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PackageAuthorCreateManyArgs>(args?: SelectSubset<T, PackageAuthorCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a PackageAuthor.
+     * @param {PackageAuthorDeleteArgs} args - Arguments to delete one PackageAuthor.
+     * @example
+     * // Delete one PackageAuthor
+     * const PackageAuthor = await prisma.packageAuthor.delete({
+     *   where: {
+     *     // ... filter to delete one PackageAuthor
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PackageAuthorDeleteArgs>(args: SelectSubset<T, PackageAuthorDeleteArgs<ExtArgs>>): Prisma__PackageAuthorClient<$Result.GetResult<Prisma.$PackageAuthorPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one PackageAuthor.
+     * @param {PackageAuthorUpdateArgs} args - Arguments to update one PackageAuthor.
+     * @example
+     * // Update one PackageAuthor
+     * const packageAuthor = await prisma.packageAuthor.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PackageAuthorUpdateArgs>(args: SelectSubset<T, PackageAuthorUpdateArgs<ExtArgs>>): Prisma__PackageAuthorClient<$Result.GetResult<Prisma.$PackageAuthorPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more PackageAuthors.
+     * @param {PackageAuthorDeleteManyArgs} args - Arguments to filter PackageAuthors to delete.
+     * @example
+     * // Delete a few PackageAuthors
+     * const { count } = await prisma.packageAuthor.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PackageAuthorDeleteManyArgs>(args?: SelectSubset<T, PackageAuthorDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PackageAuthors.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackageAuthorUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PackageAuthors
+     * const packageAuthor = await prisma.packageAuthor.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PackageAuthorUpdateManyArgs>(args: SelectSubset<T, PackageAuthorUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one PackageAuthor.
+     * @param {PackageAuthorUpsertArgs} args - Arguments to update or create a PackageAuthor.
+     * @example
+     * // Update or create a PackageAuthor
+     * const packageAuthor = await prisma.packageAuthor.upsert({
+     *   create: {
+     *     // ... data to create a PackageAuthor
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PackageAuthor we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PackageAuthorUpsertArgs>(args: SelectSubset<T, PackageAuthorUpsertArgs<ExtArgs>>): Prisma__PackageAuthorClient<$Result.GetResult<Prisma.$PackageAuthorPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of PackageAuthors.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackageAuthorCountArgs} args - Arguments to filter PackageAuthors to count.
+     * @example
+     * // Count the number of PackageAuthors
+     * const count = await prisma.packageAuthor.count({
+     *   where: {
+     *     // ... the filter for the PackageAuthors we want to count
+     *   }
+     * })
+    **/
+    count<T extends PackageAuthorCountArgs>(
+      args?: Subset<T, PackageAuthorCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PackageAuthorCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PackageAuthor.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackageAuthorAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PackageAuthorAggregateArgs>(args: Subset<T, PackageAuthorAggregateArgs>): Prisma.PrismaPromise<GetPackageAuthorAggregateType<T>>
+
+    /**
+     * Group by PackageAuthor.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackageAuthorGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PackageAuthorGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PackageAuthorGroupByArgs['orderBy'] }
+        : { orderBy?: PackageAuthorGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PackageAuthorGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPackageAuthorGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PackageAuthor model
+   */
+  readonly fields: PackageAuthorFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PackageAuthor.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PackageAuthorClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    analyzerPackage<T extends AnalyzerPackageDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackageDefaultArgs<ExtArgs>>): Prisma__AnalyzerPackageClient<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PackageAuthor model
+   */
+  interface PackageAuthorFieldRefs {
+    readonly id: FieldRef<"PackageAuthor", 'Int'>
+    readonly name: FieldRef<"PackageAuthor", 'String'>
+    readonly packageId: FieldRef<"PackageAuthor", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PackageAuthor findUnique
+   */
+  export type PackageAuthorFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackageAuthor
+     */
+    select?: PackageAuthorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackageAuthor
+     */
+    omit?: PackageAuthorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackageAuthorInclude<ExtArgs> | null
+    /**
+     * Filter, which PackageAuthor to fetch.
+     */
+    where: PackageAuthorWhereUniqueInput
+  }
+
+  /**
+   * PackageAuthor findUniqueOrThrow
+   */
+  export type PackageAuthorFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackageAuthor
+     */
+    select?: PackageAuthorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackageAuthor
+     */
+    omit?: PackageAuthorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackageAuthorInclude<ExtArgs> | null
+    /**
+     * Filter, which PackageAuthor to fetch.
+     */
+    where: PackageAuthorWhereUniqueInput
+  }
+
+  /**
+   * PackageAuthor findFirst
+   */
+  export type PackageAuthorFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackageAuthor
+     */
+    select?: PackageAuthorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackageAuthor
+     */
+    omit?: PackageAuthorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackageAuthorInclude<ExtArgs> | null
+    /**
+     * Filter, which PackageAuthor to fetch.
+     */
+    where?: PackageAuthorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PackageAuthors to fetch.
+     */
+    orderBy?: PackageAuthorOrderByWithRelationInput | PackageAuthorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PackageAuthors.
+     */
+    cursor?: PackageAuthorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PackageAuthors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PackageAuthors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PackageAuthors.
+     */
+    distinct?: PackageAuthorScalarFieldEnum | PackageAuthorScalarFieldEnum[]
+  }
+
+  /**
+   * PackageAuthor findFirstOrThrow
+   */
+  export type PackageAuthorFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackageAuthor
+     */
+    select?: PackageAuthorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackageAuthor
+     */
+    omit?: PackageAuthorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackageAuthorInclude<ExtArgs> | null
+    /**
+     * Filter, which PackageAuthor to fetch.
+     */
+    where?: PackageAuthorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PackageAuthors to fetch.
+     */
+    orderBy?: PackageAuthorOrderByWithRelationInput | PackageAuthorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PackageAuthors.
+     */
+    cursor?: PackageAuthorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PackageAuthors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PackageAuthors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PackageAuthors.
+     */
+    distinct?: PackageAuthorScalarFieldEnum | PackageAuthorScalarFieldEnum[]
+  }
+
+  /**
+   * PackageAuthor findMany
+   */
+  export type PackageAuthorFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackageAuthor
+     */
+    select?: PackageAuthorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackageAuthor
+     */
+    omit?: PackageAuthorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackageAuthorInclude<ExtArgs> | null
+    /**
+     * Filter, which PackageAuthors to fetch.
+     */
+    where?: PackageAuthorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PackageAuthors to fetch.
+     */
+    orderBy?: PackageAuthorOrderByWithRelationInput | PackageAuthorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PackageAuthors.
+     */
+    cursor?: PackageAuthorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PackageAuthors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PackageAuthors.
+     */
+    skip?: number
+    distinct?: PackageAuthorScalarFieldEnum | PackageAuthorScalarFieldEnum[]
+  }
+
+  /**
+   * PackageAuthor create
+   */
+  export type PackageAuthorCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackageAuthor
+     */
+    select?: PackageAuthorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackageAuthor
+     */
+    omit?: PackageAuthorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackageAuthorInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PackageAuthor.
+     */
+    data: XOR<PackageAuthorCreateInput, PackageAuthorUncheckedCreateInput>
+  }
+
+  /**
+   * PackageAuthor createMany
+   */
+  export type PackageAuthorCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PackageAuthors.
+     */
+    data: PackageAuthorCreateManyInput | PackageAuthorCreateManyInput[]
+  }
+
+  /**
+   * PackageAuthor update
+   */
+  export type PackageAuthorUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackageAuthor
+     */
+    select?: PackageAuthorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackageAuthor
+     */
+    omit?: PackageAuthorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackageAuthorInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PackageAuthor.
+     */
+    data: XOR<PackageAuthorUpdateInput, PackageAuthorUncheckedUpdateInput>
+    /**
+     * Choose, which PackageAuthor to update.
+     */
+    where: PackageAuthorWhereUniqueInput
+  }
+
+  /**
+   * PackageAuthor updateMany
+   */
+  export type PackageAuthorUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PackageAuthors.
+     */
+    data: XOR<PackageAuthorUpdateManyMutationInput, PackageAuthorUncheckedUpdateManyInput>
+    /**
+     * Filter which PackageAuthors to update
+     */
+    where?: PackageAuthorWhereInput
+    /**
+     * Limit how many PackageAuthors to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PackageAuthor upsert
+   */
+  export type PackageAuthorUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackageAuthor
+     */
+    select?: PackageAuthorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackageAuthor
+     */
+    omit?: PackageAuthorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackageAuthorInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PackageAuthor to update in case it exists.
+     */
+    where: PackageAuthorWhereUniqueInput
+    /**
+     * In case the PackageAuthor found by the `where` argument doesn't exist, create a new PackageAuthor with this data.
+     */
+    create: XOR<PackageAuthorCreateInput, PackageAuthorUncheckedCreateInput>
+    /**
+     * In case the PackageAuthor was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PackageAuthorUpdateInput, PackageAuthorUncheckedUpdateInput>
+  }
+
+  /**
+   * PackageAuthor delete
+   */
+  export type PackageAuthorDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackageAuthor
+     */
+    select?: PackageAuthorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackageAuthor
+     */
+    omit?: PackageAuthorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackageAuthorInclude<ExtArgs> | null
+    /**
+     * Filter which PackageAuthor to delete.
+     */
+    where: PackageAuthorWhereUniqueInput
+  }
+
+  /**
+   * PackageAuthor deleteMany
+   */
+  export type PackageAuthorDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PackageAuthors to delete
+     */
+    where?: PackageAuthorWhereInput
+    /**
+     * Limit how many PackageAuthors to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PackageAuthor without action
+   */
+  export type PackageAuthorDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackageAuthor
+     */
+    select?: PackageAuthorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackageAuthor
+     */
+    omit?: PackageAuthorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackageAuthorInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BinaryArtifact
+   */
+
+  export type AggregateBinaryArtifact = {
+    _count: BinaryArtifactCountAggregateOutputType | null
+    _avg: BinaryArtifactAvgAggregateOutputType | null
+    _sum: BinaryArtifactSumAggregateOutputType | null
+    _min: BinaryArtifactMinAggregateOutputType | null
+    _max: BinaryArtifactMaxAggregateOutputType | null
+  }
+
+  export type BinaryArtifactAvgAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+  }
+
+  export type BinaryArtifactSumAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+  }
+
+  export type BinaryArtifactMinAggregateOutputType = {
+    id: number | null
+    url: string | null
+    packageId: number | null
+  }
+
+  export type BinaryArtifactMaxAggregateOutputType = {
+    id: number | null
+    url: string | null
+    packageId: number | null
+  }
+
+  export type BinaryArtifactCountAggregateOutputType = {
+    id: number
+    url: number
+    packageId: number
+    _all: number
+  }
+
+
+  export type BinaryArtifactAvgAggregateInputType = {
+    id?: true
+    packageId?: true
+  }
+
+  export type BinaryArtifactSumAggregateInputType = {
+    id?: true
+    packageId?: true
+  }
+
+  export type BinaryArtifactMinAggregateInputType = {
+    id?: true
+    url?: true
+    packageId?: true
+  }
+
+  export type BinaryArtifactMaxAggregateInputType = {
+    id?: true
+    url?: true
+    packageId?: true
+  }
+
+  export type BinaryArtifactCountAggregateInputType = {
+    id?: true
+    url?: true
+    packageId?: true
+    _all?: true
+  }
+
+  export type BinaryArtifactAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BinaryArtifact to aggregate.
+     */
+    where?: BinaryArtifactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BinaryArtifacts to fetch.
+     */
+    orderBy?: BinaryArtifactOrderByWithRelationInput | BinaryArtifactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BinaryArtifactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BinaryArtifacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BinaryArtifacts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BinaryArtifacts
+    **/
+    _count?: true | BinaryArtifactCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BinaryArtifactAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BinaryArtifactSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BinaryArtifactMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BinaryArtifactMaxAggregateInputType
+  }
+
+  export type GetBinaryArtifactAggregateType<T extends BinaryArtifactAggregateArgs> = {
+        [P in keyof T & keyof AggregateBinaryArtifact]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBinaryArtifact[P]>
+      : GetScalarType<T[P], AggregateBinaryArtifact[P]>
+  }
+
+
+
+
+  export type BinaryArtifactGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BinaryArtifactWhereInput
+    orderBy?: BinaryArtifactOrderByWithAggregationInput | BinaryArtifactOrderByWithAggregationInput[]
+    by: BinaryArtifactScalarFieldEnum[] | BinaryArtifactScalarFieldEnum
+    having?: BinaryArtifactScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BinaryArtifactCountAggregateInputType | true
+    _avg?: BinaryArtifactAvgAggregateInputType
+    _sum?: BinaryArtifactSumAggregateInputType
+    _min?: BinaryArtifactMinAggregateInputType
+    _max?: BinaryArtifactMaxAggregateInputType
+  }
+
+  export type BinaryArtifactGroupByOutputType = {
+    id: number
+    url: string
+    packageId: number
+    _count: BinaryArtifactCountAggregateOutputType | null
+    _avg: BinaryArtifactAvgAggregateOutputType | null
+    _sum: BinaryArtifactSumAggregateOutputType | null
+    _min: BinaryArtifactMinAggregateOutputType | null
+    _max: BinaryArtifactMaxAggregateOutputType | null
+  }
+
+  type GetBinaryArtifactGroupByPayload<T extends BinaryArtifactGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BinaryArtifactGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BinaryArtifactGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BinaryArtifactGroupByOutputType[P]>
+            : GetScalarType<T[P], BinaryArtifactGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BinaryArtifactSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    packageId?: boolean
+    analyzerPackage?: boolean | AnalyzerPackageDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["binaryArtifact"]>
+
+
+
+  export type BinaryArtifactSelectScalar = {
+    id?: boolean
+    url?: boolean
+    packageId?: boolean
+  }
+
+  export type BinaryArtifactOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "packageId", ExtArgs["result"]["binaryArtifact"]>
+  export type BinaryArtifactInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    analyzerPackage?: boolean | AnalyzerPackageDefaultArgs<ExtArgs>
+  }
+
+  export type $BinaryArtifactPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BinaryArtifact"
+    objects: {
+      analyzerPackage: Prisma.$AnalyzerPackagePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      url: string
+      packageId: number
+    }, ExtArgs["result"]["binaryArtifact"]>
+    composites: {}
+  }
+
+  type BinaryArtifactGetPayload<S extends boolean | null | undefined | BinaryArtifactDefaultArgs> = $Result.GetResult<Prisma.$BinaryArtifactPayload, S>
+
+  type BinaryArtifactCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BinaryArtifactFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BinaryArtifactCountAggregateInputType | true
+    }
+
+  export interface BinaryArtifactDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BinaryArtifact'], meta: { name: 'BinaryArtifact' } }
+    /**
+     * Find zero or one BinaryArtifact that matches the filter.
+     * @param {BinaryArtifactFindUniqueArgs} args - Arguments to find a BinaryArtifact
+     * @example
+     * // Get one BinaryArtifact
+     * const binaryArtifact = await prisma.binaryArtifact.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BinaryArtifactFindUniqueArgs>(args: SelectSubset<T, BinaryArtifactFindUniqueArgs<ExtArgs>>): Prisma__BinaryArtifactClient<$Result.GetResult<Prisma.$BinaryArtifactPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BinaryArtifact that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BinaryArtifactFindUniqueOrThrowArgs} args - Arguments to find a BinaryArtifact
+     * @example
+     * // Get one BinaryArtifact
+     * const binaryArtifact = await prisma.binaryArtifact.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BinaryArtifactFindUniqueOrThrowArgs>(args: SelectSubset<T, BinaryArtifactFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BinaryArtifactClient<$Result.GetResult<Prisma.$BinaryArtifactPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BinaryArtifact that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BinaryArtifactFindFirstArgs} args - Arguments to find a BinaryArtifact
+     * @example
+     * // Get one BinaryArtifact
+     * const binaryArtifact = await prisma.binaryArtifact.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BinaryArtifactFindFirstArgs>(args?: SelectSubset<T, BinaryArtifactFindFirstArgs<ExtArgs>>): Prisma__BinaryArtifactClient<$Result.GetResult<Prisma.$BinaryArtifactPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BinaryArtifact that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BinaryArtifactFindFirstOrThrowArgs} args - Arguments to find a BinaryArtifact
+     * @example
+     * // Get one BinaryArtifact
+     * const binaryArtifact = await prisma.binaryArtifact.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BinaryArtifactFindFirstOrThrowArgs>(args?: SelectSubset<T, BinaryArtifactFindFirstOrThrowArgs<ExtArgs>>): Prisma__BinaryArtifactClient<$Result.GetResult<Prisma.$BinaryArtifactPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BinaryArtifacts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BinaryArtifactFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BinaryArtifacts
+     * const binaryArtifacts = await prisma.binaryArtifact.findMany()
+     * 
+     * // Get first 10 BinaryArtifacts
+     * const binaryArtifacts = await prisma.binaryArtifact.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const binaryArtifactWithIdOnly = await prisma.binaryArtifact.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BinaryArtifactFindManyArgs>(args?: SelectSubset<T, BinaryArtifactFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BinaryArtifactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BinaryArtifact.
+     * @param {BinaryArtifactCreateArgs} args - Arguments to create a BinaryArtifact.
+     * @example
+     * // Create one BinaryArtifact
+     * const BinaryArtifact = await prisma.binaryArtifact.create({
+     *   data: {
+     *     // ... data to create a BinaryArtifact
+     *   }
+     * })
+     * 
+     */
+    create<T extends BinaryArtifactCreateArgs>(args: SelectSubset<T, BinaryArtifactCreateArgs<ExtArgs>>): Prisma__BinaryArtifactClient<$Result.GetResult<Prisma.$BinaryArtifactPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BinaryArtifacts.
+     * @param {BinaryArtifactCreateManyArgs} args - Arguments to create many BinaryArtifacts.
+     * @example
+     * // Create many BinaryArtifacts
+     * const binaryArtifact = await prisma.binaryArtifact.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BinaryArtifactCreateManyArgs>(args?: SelectSubset<T, BinaryArtifactCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a BinaryArtifact.
+     * @param {BinaryArtifactDeleteArgs} args - Arguments to delete one BinaryArtifact.
+     * @example
+     * // Delete one BinaryArtifact
+     * const BinaryArtifact = await prisma.binaryArtifact.delete({
+     *   where: {
+     *     // ... filter to delete one BinaryArtifact
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BinaryArtifactDeleteArgs>(args: SelectSubset<T, BinaryArtifactDeleteArgs<ExtArgs>>): Prisma__BinaryArtifactClient<$Result.GetResult<Prisma.$BinaryArtifactPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BinaryArtifact.
+     * @param {BinaryArtifactUpdateArgs} args - Arguments to update one BinaryArtifact.
+     * @example
+     * // Update one BinaryArtifact
+     * const binaryArtifact = await prisma.binaryArtifact.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BinaryArtifactUpdateArgs>(args: SelectSubset<T, BinaryArtifactUpdateArgs<ExtArgs>>): Prisma__BinaryArtifactClient<$Result.GetResult<Prisma.$BinaryArtifactPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BinaryArtifacts.
+     * @param {BinaryArtifactDeleteManyArgs} args - Arguments to filter BinaryArtifacts to delete.
+     * @example
+     * // Delete a few BinaryArtifacts
+     * const { count } = await prisma.binaryArtifact.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BinaryArtifactDeleteManyArgs>(args?: SelectSubset<T, BinaryArtifactDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BinaryArtifacts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BinaryArtifactUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BinaryArtifacts
+     * const binaryArtifact = await prisma.binaryArtifact.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BinaryArtifactUpdateManyArgs>(args: SelectSubset<T, BinaryArtifactUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one BinaryArtifact.
+     * @param {BinaryArtifactUpsertArgs} args - Arguments to update or create a BinaryArtifact.
+     * @example
+     * // Update or create a BinaryArtifact
+     * const binaryArtifact = await prisma.binaryArtifact.upsert({
+     *   create: {
+     *     // ... data to create a BinaryArtifact
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BinaryArtifact we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BinaryArtifactUpsertArgs>(args: SelectSubset<T, BinaryArtifactUpsertArgs<ExtArgs>>): Prisma__BinaryArtifactClient<$Result.GetResult<Prisma.$BinaryArtifactPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BinaryArtifacts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BinaryArtifactCountArgs} args - Arguments to filter BinaryArtifacts to count.
+     * @example
+     * // Count the number of BinaryArtifacts
+     * const count = await prisma.binaryArtifact.count({
+     *   where: {
+     *     // ... the filter for the BinaryArtifacts we want to count
+     *   }
+     * })
+    **/
+    count<T extends BinaryArtifactCountArgs>(
+      args?: Subset<T, BinaryArtifactCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BinaryArtifactCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BinaryArtifact.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BinaryArtifactAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BinaryArtifactAggregateArgs>(args: Subset<T, BinaryArtifactAggregateArgs>): Prisma.PrismaPromise<GetBinaryArtifactAggregateType<T>>
+
+    /**
+     * Group by BinaryArtifact.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BinaryArtifactGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BinaryArtifactGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BinaryArtifactGroupByArgs['orderBy'] }
+        : { orderBy?: BinaryArtifactGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BinaryArtifactGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBinaryArtifactGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BinaryArtifact model
+   */
+  readonly fields: BinaryArtifactFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BinaryArtifact.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BinaryArtifactClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    analyzerPackage<T extends AnalyzerPackageDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackageDefaultArgs<ExtArgs>>): Prisma__AnalyzerPackageClient<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BinaryArtifact model
+   */
+  interface BinaryArtifactFieldRefs {
+    readonly id: FieldRef<"BinaryArtifact", 'Int'>
+    readonly url: FieldRef<"BinaryArtifact", 'String'>
+    readonly packageId: FieldRef<"BinaryArtifact", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BinaryArtifact findUnique
+   */
+  export type BinaryArtifactFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BinaryArtifact
+     */
+    select?: BinaryArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BinaryArtifact
+     */
+    omit?: BinaryArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BinaryArtifactInclude<ExtArgs> | null
+    /**
+     * Filter, which BinaryArtifact to fetch.
+     */
+    where: BinaryArtifactWhereUniqueInput
+  }
+
+  /**
+   * BinaryArtifact findUniqueOrThrow
+   */
+  export type BinaryArtifactFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BinaryArtifact
+     */
+    select?: BinaryArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BinaryArtifact
+     */
+    omit?: BinaryArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BinaryArtifactInclude<ExtArgs> | null
+    /**
+     * Filter, which BinaryArtifact to fetch.
+     */
+    where: BinaryArtifactWhereUniqueInput
+  }
+
+  /**
+   * BinaryArtifact findFirst
+   */
+  export type BinaryArtifactFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BinaryArtifact
+     */
+    select?: BinaryArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BinaryArtifact
+     */
+    omit?: BinaryArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BinaryArtifactInclude<ExtArgs> | null
+    /**
+     * Filter, which BinaryArtifact to fetch.
+     */
+    where?: BinaryArtifactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BinaryArtifacts to fetch.
+     */
+    orderBy?: BinaryArtifactOrderByWithRelationInput | BinaryArtifactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BinaryArtifacts.
+     */
+    cursor?: BinaryArtifactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BinaryArtifacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BinaryArtifacts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BinaryArtifacts.
+     */
+    distinct?: BinaryArtifactScalarFieldEnum | BinaryArtifactScalarFieldEnum[]
+  }
+
+  /**
+   * BinaryArtifact findFirstOrThrow
+   */
+  export type BinaryArtifactFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BinaryArtifact
+     */
+    select?: BinaryArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BinaryArtifact
+     */
+    omit?: BinaryArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BinaryArtifactInclude<ExtArgs> | null
+    /**
+     * Filter, which BinaryArtifact to fetch.
+     */
+    where?: BinaryArtifactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BinaryArtifacts to fetch.
+     */
+    orderBy?: BinaryArtifactOrderByWithRelationInput | BinaryArtifactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BinaryArtifacts.
+     */
+    cursor?: BinaryArtifactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BinaryArtifacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BinaryArtifacts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BinaryArtifacts.
+     */
+    distinct?: BinaryArtifactScalarFieldEnum | BinaryArtifactScalarFieldEnum[]
+  }
+
+  /**
+   * BinaryArtifact findMany
+   */
+  export type BinaryArtifactFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BinaryArtifact
+     */
+    select?: BinaryArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BinaryArtifact
+     */
+    omit?: BinaryArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BinaryArtifactInclude<ExtArgs> | null
+    /**
+     * Filter, which BinaryArtifacts to fetch.
+     */
+    where?: BinaryArtifactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BinaryArtifacts to fetch.
+     */
+    orderBy?: BinaryArtifactOrderByWithRelationInput | BinaryArtifactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BinaryArtifacts.
+     */
+    cursor?: BinaryArtifactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BinaryArtifacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BinaryArtifacts.
+     */
+    skip?: number
+    distinct?: BinaryArtifactScalarFieldEnum | BinaryArtifactScalarFieldEnum[]
+  }
+
+  /**
+   * BinaryArtifact create
+   */
+  export type BinaryArtifactCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BinaryArtifact
+     */
+    select?: BinaryArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BinaryArtifact
+     */
+    omit?: BinaryArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BinaryArtifactInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BinaryArtifact.
+     */
+    data: XOR<BinaryArtifactCreateInput, BinaryArtifactUncheckedCreateInput>
+  }
+
+  /**
+   * BinaryArtifact createMany
+   */
+  export type BinaryArtifactCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BinaryArtifacts.
+     */
+    data: BinaryArtifactCreateManyInput | BinaryArtifactCreateManyInput[]
+  }
+
+  /**
+   * BinaryArtifact update
+   */
+  export type BinaryArtifactUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BinaryArtifact
+     */
+    select?: BinaryArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BinaryArtifact
+     */
+    omit?: BinaryArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BinaryArtifactInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BinaryArtifact.
+     */
+    data: XOR<BinaryArtifactUpdateInput, BinaryArtifactUncheckedUpdateInput>
+    /**
+     * Choose, which BinaryArtifact to update.
+     */
+    where: BinaryArtifactWhereUniqueInput
+  }
+
+  /**
+   * BinaryArtifact updateMany
+   */
+  export type BinaryArtifactUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BinaryArtifacts.
+     */
+    data: XOR<BinaryArtifactUpdateManyMutationInput, BinaryArtifactUncheckedUpdateManyInput>
+    /**
+     * Filter which BinaryArtifacts to update
+     */
+    where?: BinaryArtifactWhereInput
+    /**
+     * Limit how many BinaryArtifacts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BinaryArtifact upsert
+   */
+  export type BinaryArtifactUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BinaryArtifact
+     */
+    select?: BinaryArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BinaryArtifact
+     */
+    omit?: BinaryArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BinaryArtifactInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BinaryArtifact to update in case it exists.
+     */
+    where: BinaryArtifactWhereUniqueInput
+    /**
+     * In case the BinaryArtifact found by the `where` argument doesn't exist, create a new BinaryArtifact with this data.
+     */
+    create: XOR<BinaryArtifactCreateInput, BinaryArtifactUncheckedCreateInput>
+    /**
+     * In case the BinaryArtifact was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BinaryArtifactUpdateInput, BinaryArtifactUncheckedUpdateInput>
+  }
+
+  /**
+   * BinaryArtifact delete
+   */
+  export type BinaryArtifactDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BinaryArtifact
+     */
+    select?: BinaryArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BinaryArtifact
+     */
+    omit?: BinaryArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BinaryArtifactInclude<ExtArgs> | null
+    /**
+     * Filter which BinaryArtifact to delete.
+     */
+    where: BinaryArtifactWhereUniqueInput
+  }
+
+  /**
+   * BinaryArtifact deleteMany
+   */
+  export type BinaryArtifactDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BinaryArtifacts to delete
+     */
+    where?: BinaryArtifactWhereInput
+    /**
+     * Limit how many BinaryArtifacts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BinaryArtifact without action
+   */
+  export type BinaryArtifactDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BinaryArtifact
+     */
+    select?: BinaryArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BinaryArtifact
+     */
+    omit?: BinaryArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BinaryArtifactInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SourceArtifact
+   */
+
+  export type AggregateSourceArtifact = {
+    _count: SourceArtifactCountAggregateOutputType | null
+    _avg: SourceArtifactAvgAggregateOutputType | null
+    _sum: SourceArtifactSumAggregateOutputType | null
+    _min: SourceArtifactMinAggregateOutputType | null
+    _max: SourceArtifactMaxAggregateOutputType | null
+  }
+
+  export type SourceArtifactAvgAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+  }
+
+  export type SourceArtifactSumAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+  }
+
+  export type SourceArtifactMinAggregateOutputType = {
+    id: number | null
+    url: string | null
+    packageId: number | null
+  }
+
+  export type SourceArtifactMaxAggregateOutputType = {
+    id: number | null
+    url: string | null
+    packageId: number | null
+  }
+
+  export type SourceArtifactCountAggregateOutputType = {
+    id: number
+    url: number
+    packageId: number
+    _all: number
+  }
+
+
+  export type SourceArtifactAvgAggregateInputType = {
+    id?: true
+    packageId?: true
+  }
+
+  export type SourceArtifactSumAggregateInputType = {
+    id?: true
+    packageId?: true
+  }
+
+  export type SourceArtifactMinAggregateInputType = {
+    id?: true
+    url?: true
+    packageId?: true
+  }
+
+  export type SourceArtifactMaxAggregateInputType = {
+    id?: true
+    url?: true
+    packageId?: true
+  }
+
+  export type SourceArtifactCountAggregateInputType = {
+    id?: true
+    url?: true
+    packageId?: true
+    _all?: true
+  }
+
+  export type SourceArtifactAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SourceArtifact to aggregate.
+     */
+    where?: SourceArtifactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SourceArtifacts to fetch.
+     */
+    orderBy?: SourceArtifactOrderByWithRelationInput | SourceArtifactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SourceArtifactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SourceArtifacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SourceArtifacts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SourceArtifacts
+    **/
+    _count?: true | SourceArtifactCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SourceArtifactAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SourceArtifactSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SourceArtifactMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SourceArtifactMaxAggregateInputType
+  }
+
+  export type GetSourceArtifactAggregateType<T extends SourceArtifactAggregateArgs> = {
+        [P in keyof T & keyof AggregateSourceArtifact]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSourceArtifact[P]>
+      : GetScalarType<T[P], AggregateSourceArtifact[P]>
+  }
+
+
+
+
+  export type SourceArtifactGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SourceArtifactWhereInput
+    orderBy?: SourceArtifactOrderByWithAggregationInput | SourceArtifactOrderByWithAggregationInput[]
+    by: SourceArtifactScalarFieldEnum[] | SourceArtifactScalarFieldEnum
+    having?: SourceArtifactScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SourceArtifactCountAggregateInputType | true
+    _avg?: SourceArtifactAvgAggregateInputType
+    _sum?: SourceArtifactSumAggregateInputType
+    _min?: SourceArtifactMinAggregateInputType
+    _max?: SourceArtifactMaxAggregateInputType
+  }
+
+  export type SourceArtifactGroupByOutputType = {
+    id: number
+    url: string
+    packageId: number
+    _count: SourceArtifactCountAggregateOutputType | null
+    _avg: SourceArtifactAvgAggregateOutputType | null
+    _sum: SourceArtifactSumAggregateOutputType | null
+    _min: SourceArtifactMinAggregateOutputType | null
+    _max: SourceArtifactMaxAggregateOutputType | null
+  }
+
+  type GetSourceArtifactGroupByPayload<T extends SourceArtifactGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SourceArtifactGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SourceArtifactGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SourceArtifactGroupByOutputType[P]>
+            : GetScalarType<T[P], SourceArtifactGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SourceArtifactSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    packageId?: boolean
+    analyzerPackage?: boolean | AnalyzerPackageDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["sourceArtifact"]>
+
+
+
+  export type SourceArtifactSelectScalar = {
+    id?: boolean
+    url?: boolean
+    packageId?: boolean
+  }
+
+  export type SourceArtifactOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "packageId", ExtArgs["result"]["sourceArtifact"]>
+  export type SourceArtifactInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    analyzerPackage?: boolean | AnalyzerPackageDefaultArgs<ExtArgs>
+  }
+
+  export type $SourceArtifactPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SourceArtifact"
+    objects: {
+      analyzerPackage: Prisma.$AnalyzerPackagePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      url: string
+      packageId: number
+    }, ExtArgs["result"]["sourceArtifact"]>
+    composites: {}
+  }
+
+  type SourceArtifactGetPayload<S extends boolean | null | undefined | SourceArtifactDefaultArgs> = $Result.GetResult<Prisma.$SourceArtifactPayload, S>
+
+  type SourceArtifactCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SourceArtifactFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SourceArtifactCountAggregateInputType | true
+    }
+
+  export interface SourceArtifactDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SourceArtifact'], meta: { name: 'SourceArtifact' } }
+    /**
+     * Find zero or one SourceArtifact that matches the filter.
+     * @param {SourceArtifactFindUniqueArgs} args - Arguments to find a SourceArtifact
+     * @example
+     * // Get one SourceArtifact
+     * const sourceArtifact = await prisma.sourceArtifact.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SourceArtifactFindUniqueArgs>(args: SelectSubset<T, SourceArtifactFindUniqueArgs<ExtArgs>>): Prisma__SourceArtifactClient<$Result.GetResult<Prisma.$SourceArtifactPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SourceArtifact that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SourceArtifactFindUniqueOrThrowArgs} args - Arguments to find a SourceArtifact
+     * @example
+     * // Get one SourceArtifact
+     * const sourceArtifact = await prisma.sourceArtifact.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SourceArtifactFindUniqueOrThrowArgs>(args: SelectSubset<T, SourceArtifactFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SourceArtifactClient<$Result.GetResult<Prisma.$SourceArtifactPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SourceArtifact that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SourceArtifactFindFirstArgs} args - Arguments to find a SourceArtifact
+     * @example
+     * // Get one SourceArtifact
+     * const sourceArtifact = await prisma.sourceArtifact.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SourceArtifactFindFirstArgs>(args?: SelectSubset<T, SourceArtifactFindFirstArgs<ExtArgs>>): Prisma__SourceArtifactClient<$Result.GetResult<Prisma.$SourceArtifactPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SourceArtifact that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SourceArtifactFindFirstOrThrowArgs} args - Arguments to find a SourceArtifact
+     * @example
+     * // Get one SourceArtifact
+     * const sourceArtifact = await prisma.sourceArtifact.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SourceArtifactFindFirstOrThrowArgs>(args?: SelectSubset<T, SourceArtifactFindFirstOrThrowArgs<ExtArgs>>): Prisma__SourceArtifactClient<$Result.GetResult<Prisma.$SourceArtifactPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SourceArtifacts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SourceArtifactFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SourceArtifacts
+     * const sourceArtifacts = await prisma.sourceArtifact.findMany()
+     * 
+     * // Get first 10 SourceArtifacts
+     * const sourceArtifacts = await prisma.sourceArtifact.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const sourceArtifactWithIdOnly = await prisma.sourceArtifact.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SourceArtifactFindManyArgs>(args?: SelectSubset<T, SourceArtifactFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SourceArtifactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SourceArtifact.
+     * @param {SourceArtifactCreateArgs} args - Arguments to create a SourceArtifact.
+     * @example
+     * // Create one SourceArtifact
+     * const SourceArtifact = await prisma.sourceArtifact.create({
+     *   data: {
+     *     // ... data to create a SourceArtifact
+     *   }
+     * })
+     * 
+     */
+    create<T extends SourceArtifactCreateArgs>(args: SelectSubset<T, SourceArtifactCreateArgs<ExtArgs>>): Prisma__SourceArtifactClient<$Result.GetResult<Prisma.$SourceArtifactPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SourceArtifacts.
+     * @param {SourceArtifactCreateManyArgs} args - Arguments to create many SourceArtifacts.
+     * @example
+     * // Create many SourceArtifacts
+     * const sourceArtifact = await prisma.sourceArtifact.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SourceArtifactCreateManyArgs>(args?: SelectSubset<T, SourceArtifactCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a SourceArtifact.
+     * @param {SourceArtifactDeleteArgs} args - Arguments to delete one SourceArtifact.
+     * @example
+     * // Delete one SourceArtifact
+     * const SourceArtifact = await prisma.sourceArtifact.delete({
+     *   where: {
+     *     // ... filter to delete one SourceArtifact
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SourceArtifactDeleteArgs>(args: SelectSubset<T, SourceArtifactDeleteArgs<ExtArgs>>): Prisma__SourceArtifactClient<$Result.GetResult<Prisma.$SourceArtifactPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SourceArtifact.
+     * @param {SourceArtifactUpdateArgs} args - Arguments to update one SourceArtifact.
+     * @example
+     * // Update one SourceArtifact
+     * const sourceArtifact = await prisma.sourceArtifact.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SourceArtifactUpdateArgs>(args: SelectSubset<T, SourceArtifactUpdateArgs<ExtArgs>>): Prisma__SourceArtifactClient<$Result.GetResult<Prisma.$SourceArtifactPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SourceArtifacts.
+     * @param {SourceArtifactDeleteManyArgs} args - Arguments to filter SourceArtifacts to delete.
+     * @example
+     * // Delete a few SourceArtifacts
+     * const { count } = await prisma.sourceArtifact.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SourceArtifactDeleteManyArgs>(args?: SelectSubset<T, SourceArtifactDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SourceArtifacts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SourceArtifactUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SourceArtifacts
+     * const sourceArtifact = await prisma.sourceArtifact.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SourceArtifactUpdateManyArgs>(args: SelectSubset<T, SourceArtifactUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one SourceArtifact.
+     * @param {SourceArtifactUpsertArgs} args - Arguments to update or create a SourceArtifact.
+     * @example
+     * // Update or create a SourceArtifact
+     * const sourceArtifact = await prisma.sourceArtifact.upsert({
+     *   create: {
+     *     // ... data to create a SourceArtifact
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SourceArtifact we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SourceArtifactUpsertArgs>(args: SelectSubset<T, SourceArtifactUpsertArgs<ExtArgs>>): Prisma__SourceArtifactClient<$Result.GetResult<Prisma.$SourceArtifactPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SourceArtifacts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SourceArtifactCountArgs} args - Arguments to filter SourceArtifacts to count.
+     * @example
+     * // Count the number of SourceArtifacts
+     * const count = await prisma.sourceArtifact.count({
+     *   where: {
+     *     // ... the filter for the SourceArtifacts we want to count
+     *   }
+     * })
+    **/
+    count<T extends SourceArtifactCountArgs>(
+      args?: Subset<T, SourceArtifactCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SourceArtifactCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SourceArtifact.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SourceArtifactAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SourceArtifactAggregateArgs>(args: Subset<T, SourceArtifactAggregateArgs>): Prisma.PrismaPromise<GetSourceArtifactAggregateType<T>>
+
+    /**
+     * Group by SourceArtifact.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SourceArtifactGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SourceArtifactGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SourceArtifactGroupByArgs['orderBy'] }
+        : { orderBy?: SourceArtifactGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SourceArtifactGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSourceArtifactGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SourceArtifact model
+   */
+  readonly fields: SourceArtifactFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SourceArtifact.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SourceArtifactClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    analyzerPackage<T extends AnalyzerPackageDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackageDefaultArgs<ExtArgs>>): Prisma__AnalyzerPackageClient<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SourceArtifact model
+   */
+  interface SourceArtifactFieldRefs {
+    readonly id: FieldRef<"SourceArtifact", 'Int'>
+    readonly url: FieldRef<"SourceArtifact", 'String'>
+    readonly packageId: FieldRef<"SourceArtifact", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SourceArtifact findUnique
+   */
+  export type SourceArtifactFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SourceArtifact
+     */
+    select?: SourceArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SourceArtifact
+     */
+    omit?: SourceArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SourceArtifactInclude<ExtArgs> | null
+    /**
+     * Filter, which SourceArtifact to fetch.
+     */
+    where: SourceArtifactWhereUniqueInput
+  }
+
+  /**
+   * SourceArtifact findUniqueOrThrow
+   */
+  export type SourceArtifactFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SourceArtifact
+     */
+    select?: SourceArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SourceArtifact
+     */
+    omit?: SourceArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SourceArtifactInclude<ExtArgs> | null
+    /**
+     * Filter, which SourceArtifact to fetch.
+     */
+    where: SourceArtifactWhereUniqueInput
+  }
+
+  /**
+   * SourceArtifact findFirst
+   */
+  export type SourceArtifactFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SourceArtifact
+     */
+    select?: SourceArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SourceArtifact
+     */
+    omit?: SourceArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SourceArtifactInclude<ExtArgs> | null
+    /**
+     * Filter, which SourceArtifact to fetch.
+     */
+    where?: SourceArtifactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SourceArtifacts to fetch.
+     */
+    orderBy?: SourceArtifactOrderByWithRelationInput | SourceArtifactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SourceArtifacts.
+     */
+    cursor?: SourceArtifactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SourceArtifacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SourceArtifacts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SourceArtifacts.
+     */
+    distinct?: SourceArtifactScalarFieldEnum | SourceArtifactScalarFieldEnum[]
+  }
+
+  /**
+   * SourceArtifact findFirstOrThrow
+   */
+  export type SourceArtifactFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SourceArtifact
+     */
+    select?: SourceArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SourceArtifact
+     */
+    omit?: SourceArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SourceArtifactInclude<ExtArgs> | null
+    /**
+     * Filter, which SourceArtifact to fetch.
+     */
+    where?: SourceArtifactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SourceArtifacts to fetch.
+     */
+    orderBy?: SourceArtifactOrderByWithRelationInput | SourceArtifactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SourceArtifacts.
+     */
+    cursor?: SourceArtifactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SourceArtifacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SourceArtifacts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SourceArtifacts.
+     */
+    distinct?: SourceArtifactScalarFieldEnum | SourceArtifactScalarFieldEnum[]
+  }
+
+  /**
+   * SourceArtifact findMany
+   */
+  export type SourceArtifactFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SourceArtifact
+     */
+    select?: SourceArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SourceArtifact
+     */
+    omit?: SourceArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SourceArtifactInclude<ExtArgs> | null
+    /**
+     * Filter, which SourceArtifacts to fetch.
+     */
+    where?: SourceArtifactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SourceArtifacts to fetch.
+     */
+    orderBy?: SourceArtifactOrderByWithRelationInput | SourceArtifactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SourceArtifacts.
+     */
+    cursor?: SourceArtifactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SourceArtifacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SourceArtifacts.
+     */
+    skip?: number
+    distinct?: SourceArtifactScalarFieldEnum | SourceArtifactScalarFieldEnum[]
+  }
+
+  /**
+   * SourceArtifact create
+   */
+  export type SourceArtifactCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SourceArtifact
+     */
+    select?: SourceArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SourceArtifact
+     */
+    omit?: SourceArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SourceArtifactInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SourceArtifact.
+     */
+    data: XOR<SourceArtifactCreateInput, SourceArtifactUncheckedCreateInput>
+  }
+
+  /**
+   * SourceArtifact createMany
+   */
+  export type SourceArtifactCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SourceArtifacts.
+     */
+    data: SourceArtifactCreateManyInput | SourceArtifactCreateManyInput[]
+  }
+
+  /**
+   * SourceArtifact update
+   */
+  export type SourceArtifactUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SourceArtifact
+     */
+    select?: SourceArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SourceArtifact
+     */
+    omit?: SourceArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SourceArtifactInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SourceArtifact.
+     */
+    data: XOR<SourceArtifactUpdateInput, SourceArtifactUncheckedUpdateInput>
+    /**
+     * Choose, which SourceArtifact to update.
+     */
+    where: SourceArtifactWhereUniqueInput
+  }
+
+  /**
+   * SourceArtifact updateMany
+   */
+  export type SourceArtifactUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SourceArtifacts.
+     */
+    data: XOR<SourceArtifactUpdateManyMutationInput, SourceArtifactUncheckedUpdateManyInput>
+    /**
+     * Filter which SourceArtifacts to update
+     */
+    where?: SourceArtifactWhereInput
+    /**
+     * Limit how many SourceArtifacts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SourceArtifact upsert
+   */
+  export type SourceArtifactUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SourceArtifact
+     */
+    select?: SourceArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SourceArtifact
+     */
+    omit?: SourceArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SourceArtifactInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SourceArtifact to update in case it exists.
+     */
+    where: SourceArtifactWhereUniqueInput
+    /**
+     * In case the SourceArtifact found by the `where` argument doesn't exist, create a new SourceArtifact with this data.
+     */
+    create: XOR<SourceArtifactCreateInput, SourceArtifactUncheckedCreateInput>
+    /**
+     * In case the SourceArtifact was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SourceArtifactUpdateInput, SourceArtifactUncheckedUpdateInput>
+  }
+
+  /**
+   * SourceArtifact delete
+   */
+  export type SourceArtifactDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SourceArtifact
+     */
+    select?: SourceArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SourceArtifact
+     */
+    omit?: SourceArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SourceArtifactInclude<ExtArgs> | null
+    /**
+     * Filter which SourceArtifact to delete.
+     */
+    where: SourceArtifactWhereUniqueInput
+  }
+
+  /**
+   * SourceArtifact deleteMany
+   */
+  export type SourceArtifactDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SourceArtifacts to delete
+     */
+    where?: SourceArtifactWhereInput
+    /**
+     * Limit how many SourceArtifacts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SourceArtifact without action
+   */
+  export type SourceArtifactDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SourceArtifact
+     */
+    select?: SourceArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SourceArtifact
+     */
+    omit?: SourceArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SourceArtifactInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Vcs
+   */
+
+  export type AggregateVcs = {
+    _count: VcsCountAggregateOutputType | null
+    _avg: VcsAvgAggregateOutputType | null
+    _sum: VcsSumAggregateOutputType | null
+    _min: VcsMinAggregateOutputType | null
+    _max: VcsMaxAggregateOutputType | null
+  }
+
+  export type VcsAvgAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+  }
+
+  export type VcsSumAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+  }
+
+  export type VcsMinAggregateOutputType = {
+    id: number | null
+    type: string | null
+    url: string | null
+    revision: string | null
+    path: string | null
+    packageId: number | null
+  }
+
+  export type VcsMaxAggregateOutputType = {
+    id: number | null
+    type: string | null
+    url: string | null
+    revision: string | null
+    path: string | null
+    packageId: number | null
+  }
+
+  export type VcsCountAggregateOutputType = {
+    id: number
+    type: number
+    url: number
+    revision: number
+    path: number
+    packageId: number
+    _all: number
+  }
+
+
+  export type VcsAvgAggregateInputType = {
+    id?: true
+    packageId?: true
+  }
+
+  export type VcsSumAggregateInputType = {
+    id?: true
+    packageId?: true
+  }
+
+  export type VcsMinAggregateInputType = {
+    id?: true
+    type?: true
+    url?: true
+    revision?: true
+    path?: true
+    packageId?: true
+  }
+
+  export type VcsMaxAggregateInputType = {
+    id?: true
+    type?: true
+    url?: true
+    revision?: true
+    path?: true
+    packageId?: true
+  }
+
+  export type VcsCountAggregateInputType = {
+    id?: true
+    type?: true
+    url?: true
+    revision?: true
+    path?: true
+    packageId?: true
+    _all?: true
+  }
+
+  export type VcsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Vcs to aggregate.
+     */
+    where?: VcsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Vcs to fetch.
+     */
+    orderBy?: VcsOrderByWithRelationInput | VcsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: VcsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Vcs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Vcs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Vcs
+    **/
+    _count?: true | VcsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: VcsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: VcsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: VcsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: VcsMaxAggregateInputType
+  }
+
+  export type GetVcsAggregateType<T extends VcsAggregateArgs> = {
+        [P in keyof T & keyof AggregateVcs]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateVcs[P]>
+      : GetScalarType<T[P], AggregateVcs[P]>
+  }
+
+
+
+
+  export type VcsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VcsWhereInput
+    orderBy?: VcsOrderByWithAggregationInput | VcsOrderByWithAggregationInput[]
+    by: VcsScalarFieldEnum[] | VcsScalarFieldEnum
+    having?: VcsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: VcsCountAggregateInputType | true
+    _avg?: VcsAvgAggregateInputType
+    _sum?: VcsSumAggregateInputType
+    _min?: VcsMinAggregateInputType
+    _max?: VcsMaxAggregateInputType
+  }
+
+  export type VcsGroupByOutputType = {
+    id: number
+    type: string
+    url: string
+    revision: string
+    path: string
+    packageId: number
+    _count: VcsCountAggregateOutputType | null
+    _avg: VcsAvgAggregateOutputType | null
+    _sum: VcsSumAggregateOutputType | null
+    _min: VcsMinAggregateOutputType | null
+    _max: VcsMaxAggregateOutputType | null
+  }
+
+  type GetVcsGroupByPayload<T extends VcsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<VcsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof VcsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], VcsGroupByOutputType[P]>
+            : GetScalarType<T[P], VcsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type VcsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    type?: boolean
+    url?: boolean
+    revision?: boolean
+    path?: boolean
+    packageId?: boolean
+    analyzerPackage?: boolean | AnalyzerPackageDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["vcs"]>
+
+
+
+  export type VcsSelectScalar = {
+    id?: boolean
+    type?: boolean
+    url?: boolean
+    revision?: boolean
+    path?: boolean
+    packageId?: boolean
+  }
+
+  export type VcsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "url" | "revision" | "path" | "packageId", ExtArgs["result"]["vcs"]>
+  export type VcsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    analyzerPackage?: boolean | AnalyzerPackageDefaultArgs<ExtArgs>
+  }
+
+  export type $VcsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Vcs"
+    objects: {
+      analyzerPackage: Prisma.$AnalyzerPackagePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      type: string
+      url: string
+      revision: string
+      path: string
+      packageId: number
+    }, ExtArgs["result"]["vcs"]>
+    composites: {}
+  }
+
+  type VcsGetPayload<S extends boolean | null | undefined | VcsDefaultArgs> = $Result.GetResult<Prisma.$VcsPayload, S>
+
+  type VcsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<VcsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: VcsCountAggregateInputType | true
+    }
+
+  export interface VcsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Vcs'], meta: { name: 'Vcs' } }
+    /**
+     * Find zero or one Vcs that matches the filter.
+     * @param {VcsFindUniqueArgs} args - Arguments to find a Vcs
+     * @example
+     * // Get one Vcs
+     * const vcs = await prisma.vcs.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends VcsFindUniqueArgs>(args: SelectSubset<T, VcsFindUniqueArgs<ExtArgs>>): Prisma__VcsClient<$Result.GetResult<Prisma.$VcsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Vcs that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {VcsFindUniqueOrThrowArgs} args - Arguments to find a Vcs
+     * @example
+     * // Get one Vcs
+     * const vcs = await prisma.vcs.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends VcsFindUniqueOrThrowArgs>(args: SelectSubset<T, VcsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__VcsClient<$Result.GetResult<Prisma.$VcsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Vcs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VcsFindFirstArgs} args - Arguments to find a Vcs
+     * @example
+     * // Get one Vcs
+     * const vcs = await prisma.vcs.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends VcsFindFirstArgs>(args?: SelectSubset<T, VcsFindFirstArgs<ExtArgs>>): Prisma__VcsClient<$Result.GetResult<Prisma.$VcsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Vcs that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VcsFindFirstOrThrowArgs} args - Arguments to find a Vcs
+     * @example
+     * // Get one Vcs
+     * const vcs = await prisma.vcs.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends VcsFindFirstOrThrowArgs>(args?: SelectSubset<T, VcsFindFirstOrThrowArgs<ExtArgs>>): Prisma__VcsClient<$Result.GetResult<Prisma.$VcsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Vcs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VcsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Vcs
+     * const vcs = await prisma.vcs.findMany()
+     * 
+     * // Get first 10 Vcs
+     * const vcs = await prisma.vcs.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const vcsWithIdOnly = await prisma.vcs.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends VcsFindManyArgs>(args?: SelectSubset<T, VcsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VcsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Vcs.
+     * @param {VcsCreateArgs} args - Arguments to create a Vcs.
+     * @example
+     * // Create one Vcs
+     * const Vcs = await prisma.vcs.create({
+     *   data: {
+     *     // ... data to create a Vcs
+     *   }
+     * })
+     * 
+     */
+    create<T extends VcsCreateArgs>(args: SelectSubset<T, VcsCreateArgs<ExtArgs>>): Prisma__VcsClient<$Result.GetResult<Prisma.$VcsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Vcs.
+     * @param {VcsCreateManyArgs} args - Arguments to create many Vcs.
+     * @example
+     * // Create many Vcs
+     * const vcs = await prisma.vcs.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends VcsCreateManyArgs>(args?: SelectSubset<T, VcsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Vcs.
+     * @param {VcsDeleteArgs} args - Arguments to delete one Vcs.
+     * @example
+     * // Delete one Vcs
+     * const Vcs = await prisma.vcs.delete({
+     *   where: {
+     *     // ... filter to delete one Vcs
+     *   }
+     * })
+     * 
+     */
+    delete<T extends VcsDeleteArgs>(args: SelectSubset<T, VcsDeleteArgs<ExtArgs>>): Prisma__VcsClient<$Result.GetResult<Prisma.$VcsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Vcs.
+     * @param {VcsUpdateArgs} args - Arguments to update one Vcs.
+     * @example
+     * // Update one Vcs
+     * const vcs = await prisma.vcs.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends VcsUpdateArgs>(args: SelectSubset<T, VcsUpdateArgs<ExtArgs>>): Prisma__VcsClient<$Result.GetResult<Prisma.$VcsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Vcs.
+     * @param {VcsDeleteManyArgs} args - Arguments to filter Vcs to delete.
+     * @example
+     * // Delete a few Vcs
+     * const { count } = await prisma.vcs.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends VcsDeleteManyArgs>(args?: SelectSubset<T, VcsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Vcs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VcsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Vcs
+     * const vcs = await prisma.vcs.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends VcsUpdateManyArgs>(args: SelectSubset<T, VcsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Vcs.
+     * @param {VcsUpsertArgs} args - Arguments to update or create a Vcs.
+     * @example
+     * // Update or create a Vcs
+     * const vcs = await prisma.vcs.upsert({
+     *   create: {
+     *     // ... data to create a Vcs
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Vcs we want to update
+     *   }
+     * })
+     */
+    upsert<T extends VcsUpsertArgs>(args: SelectSubset<T, VcsUpsertArgs<ExtArgs>>): Prisma__VcsClient<$Result.GetResult<Prisma.$VcsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Vcs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VcsCountArgs} args - Arguments to filter Vcs to count.
+     * @example
+     * // Count the number of Vcs
+     * const count = await prisma.vcs.count({
+     *   where: {
+     *     // ... the filter for the Vcs we want to count
+     *   }
+     * })
+    **/
+    count<T extends VcsCountArgs>(
+      args?: Subset<T, VcsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], VcsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Vcs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VcsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends VcsAggregateArgs>(args: Subset<T, VcsAggregateArgs>): Prisma.PrismaPromise<GetVcsAggregateType<T>>
+
+    /**
+     * Group by Vcs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VcsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends VcsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: VcsGroupByArgs['orderBy'] }
+        : { orderBy?: VcsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, VcsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVcsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Vcs model
+   */
+  readonly fields: VcsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Vcs.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__VcsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    analyzerPackage<T extends AnalyzerPackageDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackageDefaultArgs<ExtArgs>>): Prisma__AnalyzerPackageClient<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Vcs model
+   */
+  interface VcsFieldRefs {
+    readonly id: FieldRef<"Vcs", 'Int'>
+    readonly type: FieldRef<"Vcs", 'String'>
+    readonly url: FieldRef<"Vcs", 'String'>
+    readonly revision: FieldRef<"Vcs", 'String'>
+    readonly path: FieldRef<"Vcs", 'String'>
+    readonly packageId: FieldRef<"Vcs", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Vcs findUnique
+   */
+  export type VcsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vcs
+     */
+    select?: VcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vcs
+     */
+    omit?: VcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsInclude<ExtArgs> | null
+    /**
+     * Filter, which Vcs to fetch.
+     */
+    where: VcsWhereUniqueInput
+  }
+
+  /**
+   * Vcs findUniqueOrThrow
+   */
+  export type VcsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vcs
+     */
+    select?: VcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vcs
+     */
+    omit?: VcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsInclude<ExtArgs> | null
+    /**
+     * Filter, which Vcs to fetch.
+     */
+    where: VcsWhereUniqueInput
+  }
+
+  /**
+   * Vcs findFirst
+   */
+  export type VcsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vcs
+     */
+    select?: VcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vcs
+     */
+    omit?: VcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsInclude<ExtArgs> | null
+    /**
+     * Filter, which Vcs to fetch.
+     */
+    where?: VcsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Vcs to fetch.
+     */
+    orderBy?: VcsOrderByWithRelationInput | VcsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Vcs.
+     */
+    cursor?: VcsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Vcs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Vcs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Vcs.
+     */
+    distinct?: VcsScalarFieldEnum | VcsScalarFieldEnum[]
+  }
+
+  /**
+   * Vcs findFirstOrThrow
+   */
+  export type VcsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vcs
+     */
+    select?: VcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vcs
+     */
+    omit?: VcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsInclude<ExtArgs> | null
+    /**
+     * Filter, which Vcs to fetch.
+     */
+    where?: VcsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Vcs to fetch.
+     */
+    orderBy?: VcsOrderByWithRelationInput | VcsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Vcs.
+     */
+    cursor?: VcsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Vcs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Vcs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Vcs.
+     */
+    distinct?: VcsScalarFieldEnum | VcsScalarFieldEnum[]
+  }
+
+  /**
+   * Vcs findMany
+   */
+  export type VcsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vcs
+     */
+    select?: VcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vcs
+     */
+    omit?: VcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsInclude<ExtArgs> | null
+    /**
+     * Filter, which Vcs to fetch.
+     */
+    where?: VcsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Vcs to fetch.
+     */
+    orderBy?: VcsOrderByWithRelationInput | VcsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Vcs.
+     */
+    cursor?: VcsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Vcs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Vcs.
+     */
+    skip?: number
+    distinct?: VcsScalarFieldEnum | VcsScalarFieldEnum[]
+  }
+
+  /**
+   * Vcs create
+   */
+  export type VcsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vcs
+     */
+    select?: VcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vcs
+     */
+    omit?: VcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Vcs.
+     */
+    data: XOR<VcsCreateInput, VcsUncheckedCreateInput>
+  }
+
+  /**
+   * Vcs createMany
+   */
+  export type VcsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Vcs.
+     */
+    data: VcsCreateManyInput | VcsCreateManyInput[]
+  }
+
+  /**
+   * Vcs update
+   */
+  export type VcsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vcs
+     */
+    select?: VcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vcs
+     */
+    omit?: VcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Vcs.
+     */
+    data: XOR<VcsUpdateInput, VcsUncheckedUpdateInput>
+    /**
+     * Choose, which Vcs to update.
+     */
+    where: VcsWhereUniqueInput
+  }
+
+  /**
+   * Vcs updateMany
+   */
+  export type VcsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Vcs.
+     */
+    data: XOR<VcsUpdateManyMutationInput, VcsUncheckedUpdateManyInput>
+    /**
+     * Filter which Vcs to update
+     */
+    where?: VcsWhereInput
+    /**
+     * Limit how many Vcs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Vcs upsert
+   */
+  export type VcsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vcs
+     */
+    select?: VcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vcs
+     */
+    omit?: VcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Vcs to update in case it exists.
+     */
+    where: VcsWhereUniqueInput
+    /**
+     * In case the Vcs found by the `where` argument doesn't exist, create a new Vcs with this data.
+     */
+    create: XOR<VcsCreateInput, VcsUncheckedCreateInput>
+    /**
+     * In case the Vcs was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<VcsUpdateInput, VcsUncheckedUpdateInput>
+  }
+
+  /**
+   * Vcs delete
+   */
+  export type VcsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vcs
+     */
+    select?: VcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vcs
+     */
+    omit?: VcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsInclude<ExtArgs> | null
+    /**
+     * Filter which Vcs to delete.
+     */
+    where: VcsWhereUniqueInput
+  }
+
+  /**
+   * Vcs deleteMany
+   */
+  export type VcsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Vcs to delete
+     */
+    where?: VcsWhereInput
+    /**
+     * Limit how many Vcs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Vcs without action
+   */
+  export type VcsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vcs
+     */
+    select?: VcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vcs
+     */
+    omit?: VcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model VcsProcessed
+   */
+
+  export type AggregateVcsProcessed = {
+    _count: VcsProcessedCountAggregateOutputType | null
+    _avg: VcsProcessedAvgAggregateOutputType | null
+    _sum: VcsProcessedSumAggregateOutputType | null
+    _min: VcsProcessedMinAggregateOutputType | null
+    _max: VcsProcessedMaxAggregateOutputType | null
+  }
+
+  export type VcsProcessedAvgAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+  }
+
+  export type VcsProcessedSumAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+  }
+
+  export type VcsProcessedMinAggregateOutputType = {
+    id: number | null
+    type: string | null
+    url: string | null
+    revision: string | null
+    path: string | null
+    packageId: number | null
+  }
+
+  export type VcsProcessedMaxAggregateOutputType = {
+    id: number | null
+    type: string | null
+    url: string | null
+    revision: string | null
+    path: string | null
+    packageId: number | null
+  }
+
+  export type VcsProcessedCountAggregateOutputType = {
+    id: number
+    type: number
+    url: number
+    revision: number
+    path: number
+    packageId: number
+    _all: number
+  }
+
+
+  export type VcsProcessedAvgAggregateInputType = {
+    id?: true
+    packageId?: true
+  }
+
+  export type VcsProcessedSumAggregateInputType = {
+    id?: true
+    packageId?: true
+  }
+
+  export type VcsProcessedMinAggregateInputType = {
+    id?: true
+    type?: true
+    url?: true
+    revision?: true
+    path?: true
+    packageId?: true
+  }
+
+  export type VcsProcessedMaxAggregateInputType = {
+    id?: true
+    type?: true
+    url?: true
+    revision?: true
+    path?: true
+    packageId?: true
+  }
+
+  export type VcsProcessedCountAggregateInputType = {
+    id?: true
+    type?: true
+    url?: true
+    revision?: true
+    path?: true
+    packageId?: true
+    _all?: true
+  }
+
+  export type VcsProcessedAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which VcsProcessed to aggregate.
+     */
+    where?: VcsProcessedWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VcsProcesseds to fetch.
+     */
+    orderBy?: VcsProcessedOrderByWithRelationInput | VcsProcessedOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: VcsProcessedWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VcsProcesseds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VcsProcesseds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned VcsProcesseds
+    **/
+    _count?: true | VcsProcessedCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: VcsProcessedAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: VcsProcessedSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: VcsProcessedMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: VcsProcessedMaxAggregateInputType
+  }
+
+  export type GetVcsProcessedAggregateType<T extends VcsProcessedAggregateArgs> = {
+        [P in keyof T & keyof AggregateVcsProcessed]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateVcsProcessed[P]>
+      : GetScalarType<T[P], AggregateVcsProcessed[P]>
+  }
+
+
+
+
+  export type VcsProcessedGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VcsProcessedWhereInput
+    orderBy?: VcsProcessedOrderByWithAggregationInput | VcsProcessedOrderByWithAggregationInput[]
+    by: VcsProcessedScalarFieldEnum[] | VcsProcessedScalarFieldEnum
+    having?: VcsProcessedScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: VcsProcessedCountAggregateInputType | true
+    _avg?: VcsProcessedAvgAggregateInputType
+    _sum?: VcsProcessedSumAggregateInputType
+    _min?: VcsProcessedMinAggregateInputType
+    _max?: VcsProcessedMaxAggregateInputType
+  }
+
+  export type VcsProcessedGroupByOutputType = {
+    id: number
+    type: string
+    url: string
+    revision: string
+    path: string
+    packageId: number
+    _count: VcsProcessedCountAggregateOutputType | null
+    _avg: VcsProcessedAvgAggregateOutputType | null
+    _sum: VcsProcessedSumAggregateOutputType | null
+    _min: VcsProcessedMinAggregateOutputType | null
+    _max: VcsProcessedMaxAggregateOutputType | null
+  }
+
+  type GetVcsProcessedGroupByPayload<T extends VcsProcessedGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<VcsProcessedGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof VcsProcessedGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], VcsProcessedGroupByOutputType[P]>
+            : GetScalarType<T[P], VcsProcessedGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type VcsProcessedSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    type?: boolean
+    url?: boolean
+    revision?: boolean
+    path?: boolean
+    packageId?: boolean
+    analyzerPackage?: boolean | AnalyzerPackageDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["vcsProcessed"]>
+
+
+
+  export type VcsProcessedSelectScalar = {
+    id?: boolean
+    type?: boolean
+    url?: boolean
+    revision?: boolean
+    path?: boolean
+    packageId?: boolean
+  }
+
+  export type VcsProcessedOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "url" | "revision" | "path" | "packageId", ExtArgs["result"]["vcsProcessed"]>
+  export type VcsProcessedInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    analyzerPackage?: boolean | AnalyzerPackageDefaultArgs<ExtArgs>
+  }
+
+  export type $VcsProcessedPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "VcsProcessed"
+    objects: {
+      analyzerPackage: Prisma.$AnalyzerPackagePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      type: string
+      url: string
+      revision: string
+      path: string
+      packageId: number
+    }, ExtArgs["result"]["vcsProcessed"]>
+    composites: {}
+  }
+
+  type VcsProcessedGetPayload<S extends boolean | null | undefined | VcsProcessedDefaultArgs> = $Result.GetResult<Prisma.$VcsProcessedPayload, S>
+
+  type VcsProcessedCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<VcsProcessedFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: VcsProcessedCountAggregateInputType | true
+    }
+
+  export interface VcsProcessedDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['VcsProcessed'], meta: { name: 'VcsProcessed' } }
+    /**
+     * Find zero or one VcsProcessed that matches the filter.
+     * @param {VcsProcessedFindUniqueArgs} args - Arguments to find a VcsProcessed
+     * @example
+     * // Get one VcsProcessed
+     * const vcsProcessed = await prisma.vcsProcessed.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends VcsProcessedFindUniqueArgs>(args: SelectSubset<T, VcsProcessedFindUniqueArgs<ExtArgs>>): Prisma__VcsProcessedClient<$Result.GetResult<Prisma.$VcsProcessedPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one VcsProcessed that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {VcsProcessedFindUniqueOrThrowArgs} args - Arguments to find a VcsProcessed
+     * @example
+     * // Get one VcsProcessed
+     * const vcsProcessed = await prisma.vcsProcessed.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends VcsProcessedFindUniqueOrThrowArgs>(args: SelectSubset<T, VcsProcessedFindUniqueOrThrowArgs<ExtArgs>>): Prisma__VcsProcessedClient<$Result.GetResult<Prisma.$VcsProcessedPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first VcsProcessed that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VcsProcessedFindFirstArgs} args - Arguments to find a VcsProcessed
+     * @example
+     * // Get one VcsProcessed
+     * const vcsProcessed = await prisma.vcsProcessed.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends VcsProcessedFindFirstArgs>(args?: SelectSubset<T, VcsProcessedFindFirstArgs<ExtArgs>>): Prisma__VcsProcessedClient<$Result.GetResult<Prisma.$VcsProcessedPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first VcsProcessed that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VcsProcessedFindFirstOrThrowArgs} args - Arguments to find a VcsProcessed
+     * @example
+     * // Get one VcsProcessed
+     * const vcsProcessed = await prisma.vcsProcessed.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends VcsProcessedFindFirstOrThrowArgs>(args?: SelectSubset<T, VcsProcessedFindFirstOrThrowArgs<ExtArgs>>): Prisma__VcsProcessedClient<$Result.GetResult<Prisma.$VcsProcessedPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more VcsProcesseds that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VcsProcessedFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all VcsProcesseds
+     * const vcsProcesseds = await prisma.vcsProcessed.findMany()
+     * 
+     * // Get first 10 VcsProcesseds
+     * const vcsProcesseds = await prisma.vcsProcessed.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const vcsProcessedWithIdOnly = await prisma.vcsProcessed.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends VcsProcessedFindManyArgs>(args?: SelectSubset<T, VcsProcessedFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VcsProcessedPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a VcsProcessed.
+     * @param {VcsProcessedCreateArgs} args - Arguments to create a VcsProcessed.
+     * @example
+     * // Create one VcsProcessed
+     * const VcsProcessed = await prisma.vcsProcessed.create({
+     *   data: {
+     *     // ... data to create a VcsProcessed
+     *   }
+     * })
+     * 
+     */
+    create<T extends VcsProcessedCreateArgs>(args: SelectSubset<T, VcsProcessedCreateArgs<ExtArgs>>): Prisma__VcsProcessedClient<$Result.GetResult<Prisma.$VcsProcessedPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many VcsProcesseds.
+     * @param {VcsProcessedCreateManyArgs} args - Arguments to create many VcsProcesseds.
+     * @example
+     * // Create many VcsProcesseds
+     * const vcsProcessed = await prisma.vcsProcessed.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends VcsProcessedCreateManyArgs>(args?: SelectSubset<T, VcsProcessedCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a VcsProcessed.
+     * @param {VcsProcessedDeleteArgs} args - Arguments to delete one VcsProcessed.
+     * @example
+     * // Delete one VcsProcessed
+     * const VcsProcessed = await prisma.vcsProcessed.delete({
+     *   where: {
+     *     // ... filter to delete one VcsProcessed
+     *   }
+     * })
+     * 
+     */
+    delete<T extends VcsProcessedDeleteArgs>(args: SelectSubset<T, VcsProcessedDeleteArgs<ExtArgs>>): Prisma__VcsProcessedClient<$Result.GetResult<Prisma.$VcsProcessedPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one VcsProcessed.
+     * @param {VcsProcessedUpdateArgs} args - Arguments to update one VcsProcessed.
+     * @example
+     * // Update one VcsProcessed
+     * const vcsProcessed = await prisma.vcsProcessed.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends VcsProcessedUpdateArgs>(args: SelectSubset<T, VcsProcessedUpdateArgs<ExtArgs>>): Prisma__VcsProcessedClient<$Result.GetResult<Prisma.$VcsProcessedPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more VcsProcesseds.
+     * @param {VcsProcessedDeleteManyArgs} args - Arguments to filter VcsProcesseds to delete.
+     * @example
+     * // Delete a few VcsProcesseds
+     * const { count } = await prisma.vcsProcessed.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends VcsProcessedDeleteManyArgs>(args?: SelectSubset<T, VcsProcessedDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more VcsProcesseds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VcsProcessedUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many VcsProcesseds
+     * const vcsProcessed = await prisma.vcsProcessed.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends VcsProcessedUpdateManyArgs>(args: SelectSubset<T, VcsProcessedUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one VcsProcessed.
+     * @param {VcsProcessedUpsertArgs} args - Arguments to update or create a VcsProcessed.
+     * @example
+     * // Update or create a VcsProcessed
+     * const vcsProcessed = await prisma.vcsProcessed.upsert({
+     *   create: {
+     *     // ... data to create a VcsProcessed
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the VcsProcessed we want to update
+     *   }
+     * })
+     */
+    upsert<T extends VcsProcessedUpsertArgs>(args: SelectSubset<T, VcsProcessedUpsertArgs<ExtArgs>>): Prisma__VcsProcessedClient<$Result.GetResult<Prisma.$VcsProcessedPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of VcsProcesseds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VcsProcessedCountArgs} args - Arguments to filter VcsProcesseds to count.
+     * @example
+     * // Count the number of VcsProcesseds
+     * const count = await prisma.vcsProcessed.count({
+     *   where: {
+     *     // ... the filter for the VcsProcesseds we want to count
+     *   }
+     * })
+    **/
+    count<T extends VcsProcessedCountArgs>(
+      args?: Subset<T, VcsProcessedCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], VcsProcessedCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a VcsProcessed.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VcsProcessedAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends VcsProcessedAggregateArgs>(args: Subset<T, VcsProcessedAggregateArgs>): Prisma.PrismaPromise<GetVcsProcessedAggregateType<T>>
+
+    /**
+     * Group by VcsProcessed.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VcsProcessedGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends VcsProcessedGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: VcsProcessedGroupByArgs['orderBy'] }
+        : { orderBy?: VcsProcessedGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, VcsProcessedGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVcsProcessedGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the VcsProcessed model
+   */
+  readonly fields: VcsProcessedFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for VcsProcessed.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__VcsProcessedClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    analyzerPackage<T extends AnalyzerPackageDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackageDefaultArgs<ExtArgs>>): Prisma__AnalyzerPackageClient<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the VcsProcessed model
+   */
+  interface VcsProcessedFieldRefs {
+    readonly id: FieldRef<"VcsProcessed", 'Int'>
+    readonly type: FieldRef<"VcsProcessed", 'String'>
+    readonly url: FieldRef<"VcsProcessed", 'String'>
+    readonly revision: FieldRef<"VcsProcessed", 'String'>
+    readonly path: FieldRef<"VcsProcessed", 'String'>
+    readonly packageId: FieldRef<"VcsProcessed", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * VcsProcessed findUnique
+   */
+  export type VcsProcessedFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VcsProcessed
+     */
+    select?: VcsProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VcsProcessed
+     */
+    omit?: VcsProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsProcessedInclude<ExtArgs> | null
+    /**
+     * Filter, which VcsProcessed to fetch.
+     */
+    where: VcsProcessedWhereUniqueInput
+  }
+
+  /**
+   * VcsProcessed findUniqueOrThrow
+   */
+  export type VcsProcessedFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VcsProcessed
+     */
+    select?: VcsProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VcsProcessed
+     */
+    omit?: VcsProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsProcessedInclude<ExtArgs> | null
+    /**
+     * Filter, which VcsProcessed to fetch.
+     */
+    where: VcsProcessedWhereUniqueInput
+  }
+
+  /**
+   * VcsProcessed findFirst
+   */
+  export type VcsProcessedFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VcsProcessed
+     */
+    select?: VcsProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VcsProcessed
+     */
+    omit?: VcsProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsProcessedInclude<ExtArgs> | null
+    /**
+     * Filter, which VcsProcessed to fetch.
+     */
+    where?: VcsProcessedWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VcsProcesseds to fetch.
+     */
+    orderBy?: VcsProcessedOrderByWithRelationInput | VcsProcessedOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for VcsProcesseds.
+     */
+    cursor?: VcsProcessedWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VcsProcesseds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VcsProcesseds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of VcsProcesseds.
+     */
+    distinct?: VcsProcessedScalarFieldEnum | VcsProcessedScalarFieldEnum[]
+  }
+
+  /**
+   * VcsProcessed findFirstOrThrow
+   */
+  export type VcsProcessedFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VcsProcessed
+     */
+    select?: VcsProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VcsProcessed
+     */
+    omit?: VcsProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsProcessedInclude<ExtArgs> | null
+    /**
+     * Filter, which VcsProcessed to fetch.
+     */
+    where?: VcsProcessedWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VcsProcesseds to fetch.
+     */
+    orderBy?: VcsProcessedOrderByWithRelationInput | VcsProcessedOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for VcsProcesseds.
+     */
+    cursor?: VcsProcessedWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VcsProcesseds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VcsProcesseds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of VcsProcesseds.
+     */
+    distinct?: VcsProcessedScalarFieldEnum | VcsProcessedScalarFieldEnum[]
+  }
+
+  /**
+   * VcsProcessed findMany
+   */
+  export type VcsProcessedFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VcsProcessed
+     */
+    select?: VcsProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VcsProcessed
+     */
+    omit?: VcsProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsProcessedInclude<ExtArgs> | null
+    /**
+     * Filter, which VcsProcesseds to fetch.
+     */
+    where?: VcsProcessedWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VcsProcesseds to fetch.
+     */
+    orderBy?: VcsProcessedOrderByWithRelationInput | VcsProcessedOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing VcsProcesseds.
+     */
+    cursor?: VcsProcessedWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VcsProcesseds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VcsProcesseds.
+     */
+    skip?: number
+    distinct?: VcsProcessedScalarFieldEnum | VcsProcessedScalarFieldEnum[]
+  }
+
+  /**
+   * VcsProcessed create
+   */
+  export type VcsProcessedCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VcsProcessed
+     */
+    select?: VcsProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VcsProcessed
+     */
+    omit?: VcsProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsProcessedInclude<ExtArgs> | null
+    /**
+     * The data needed to create a VcsProcessed.
+     */
+    data: XOR<VcsProcessedCreateInput, VcsProcessedUncheckedCreateInput>
+  }
+
+  /**
+   * VcsProcessed createMany
+   */
+  export type VcsProcessedCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many VcsProcesseds.
+     */
+    data: VcsProcessedCreateManyInput | VcsProcessedCreateManyInput[]
+  }
+
+  /**
+   * VcsProcessed update
+   */
+  export type VcsProcessedUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VcsProcessed
+     */
+    select?: VcsProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VcsProcessed
+     */
+    omit?: VcsProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsProcessedInclude<ExtArgs> | null
+    /**
+     * The data needed to update a VcsProcessed.
+     */
+    data: XOR<VcsProcessedUpdateInput, VcsProcessedUncheckedUpdateInput>
+    /**
+     * Choose, which VcsProcessed to update.
+     */
+    where: VcsProcessedWhereUniqueInput
+  }
+
+  /**
+   * VcsProcessed updateMany
+   */
+  export type VcsProcessedUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update VcsProcesseds.
+     */
+    data: XOR<VcsProcessedUpdateManyMutationInput, VcsProcessedUncheckedUpdateManyInput>
+    /**
+     * Filter which VcsProcesseds to update
+     */
+    where?: VcsProcessedWhereInput
+    /**
+     * Limit how many VcsProcesseds to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * VcsProcessed upsert
+   */
+  export type VcsProcessedUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VcsProcessed
+     */
+    select?: VcsProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VcsProcessed
+     */
+    omit?: VcsProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsProcessedInclude<ExtArgs> | null
+    /**
+     * The filter to search for the VcsProcessed to update in case it exists.
+     */
+    where: VcsProcessedWhereUniqueInput
+    /**
+     * In case the VcsProcessed found by the `where` argument doesn't exist, create a new VcsProcessed with this data.
+     */
+    create: XOR<VcsProcessedCreateInput, VcsProcessedUncheckedCreateInput>
+    /**
+     * In case the VcsProcessed was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<VcsProcessedUpdateInput, VcsProcessedUncheckedUpdateInput>
+  }
+
+  /**
+   * VcsProcessed delete
+   */
+  export type VcsProcessedDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VcsProcessed
+     */
+    select?: VcsProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VcsProcessed
+     */
+    omit?: VcsProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsProcessedInclude<ExtArgs> | null
+    /**
+     * Filter which VcsProcessed to delete.
+     */
+    where: VcsProcessedWhereUniqueInput
+  }
+
+  /**
+   * VcsProcessed deleteMany
+   */
+  export type VcsProcessedDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which VcsProcesseds to delete
+     */
+    where?: VcsProcessedWhereInput
+    /**
+     * Limit how many VcsProcesseds to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * VcsProcessed without action
+   */
+  export type VcsProcessedDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VcsProcessed
+     */
+    select?: VcsProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VcsProcessed
+     */
+    omit?: VcsProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VcsProcessedInclude<ExtArgs> | null
+  }
 
 
   /**
@@ -796,11 +11536,3603 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+  export const UserScalarFieldEnum: {
+    userId: 'userId',
+    userName: 'userName',
+    email: 'email',
+    password: 'password',
+    createdAt: 'createdAt'
+  };
+
+  export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+  export const ProjectScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    createdAt: 'createdAt',
+    userId: 'userId'
+  };
+
+  export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]
+
+
+  export const ScanScalarFieldEnum: {
+    id: 'id',
+    createdAt: 'createdAt',
+    projectId: 'projectId'
+  };
+
+  export type ScanScalarFieldEnum = (typeof ScanScalarFieldEnum)[keyof typeof ScanScalarFieldEnum]
+
+
+  export const AnalyzerScalarFieldEnum: {
+    id: 'id',
+    createdAt: 'createdAt',
+    scanId: 'scanId'
+  };
+
+  export type AnalyzerScalarFieldEnum = (typeof AnalyzerScalarFieldEnum)[keyof typeof AnalyzerScalarFieldEnum]
+
+
+  export const AnalyzerPackageScalarFieldEnum: {
+    id: 'id',
+    createdAt: 'createdAt',
+    packId: 'packId',
+    purl: 'purl',
+    description: 'description',
+    homepageUrl: 'homepageUrl',
+    analyzerId: 'analyzerId'
+  };
+
+  export type AnalyzerPackageScalarFieldEnum = (typeof AnalyzerPackageScalarFieldEnum)[keyof typeof AnalyzerPackageScalarFieldEnum]
+
+
+  export const PackageAuthorScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    packageId: 'packageId'
+  };
+
+  export type PackageAuthorScalarFieldEnum = (typeof PackageAuthorScalarFieldEnum)[keyof typeof PackageAuthorScalarFieldEnum]
+
+
+  export const BinaryArtifactScalarFieldEnum: {
+    id: 'id',
+    url: 'url',
+    packageId: 'packageId'
+  };
+
+  export type BinaryArtifactScalarFieldEnum = (typeof BinaryArtifactScalarFieldEnum)[keyof typeof BinaryArtifactScalarFieldEnum]
+
+
+  export const SourceArtifactScalarFieldEnum: {
+    id: 'id',
+    url: 'url',
+    packageId: 'packageId'
+  };
+
+  export type SourceArtifactScalarFieldEnum = (typeof SourceArtifactScalarFieldEnum)[keyof typeof SourceArtifactScalarFieldEnum]
+
+
+  export const VcsScalarFieldEnum: {
+    id: 'id',
+    type: 'type',
+    url: 'url',
+    revision: 'revision',
+    path: 'path',
+    packageId: 'packageId'
+  };
+
+  export type VcsScalarFieldEnum = (typeof VcsScalarFieldEnum)[keyof typeof VcsScalarFieldEnum]
+
+
+  export const VcsProcessedScalarFieldEnum: {
+    id: 'id',
+    type: 'type',
+    url: 'url',
+    revision: 'revision',
+    path: 'path',
+    packageId: 'packageId'
+  };
+
+  export type VcsProcessedScalarFieldEnum = (typeof VcsProcessedScalarFieldEnum)[keyof typeof VcsProcessedScalarFieldEnum]
+
+
+  export const SortOrder: {
+    asc: 'asc',
+    desc: 'desc'
+  };
+
+  export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  /**
+   * Field references
+   */
+
+
+  /**
+   * Reference to a field of type 'String'
+   */
+  export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int'
+   */
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
   /**
    * Deep Input Types
    */
 
-  undefined
+
+  export type UserWhereInput = {
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    userId?: StringFilter<"User"> | string
+    userName?: StringNullableFilter<"User"> | string | null
+    email?: StringNullableFilter<"User"> | string | null
+    password?: StringNullableFilter<"User"> | string | null
+    createdAt?: DateTimeNullableFilter<"User"> | Date | string | null
+    projects?: ProjectListRelationFilter
+  }
+
+  export type UserOrderByWithRelationInput = {
+    userId?: SortOrder
+    userName?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    password?: SortOrderInput | SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    projects?: ProjectOrderByRelationAggregateInput
+  }
+
+  export type UserWhereUniqueInput = Prisma.AtLeast<{
+    userId?: string
+    email?: string
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    userName?: StringNullableFilter<"User"> | string | null
+    password?: StringNullableFilter<"User"> | string | null
+    createdAt?: DateTimeNullableFilter<"User"> | Date | string | null
+    projects?: ProjectListRelationFilter
+  }, "userId" | "email">
+
+  export type UserOrderByWithAggregationInput = {
+    userId?: SortOrder
+    userName?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    password?: SortOrderInput | SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    _count?: UserCountOrderByAggregateInput
+    _max?: UserMaxOrderByAggregateInput
+    _min?: UserMinOrderByAggregateInput
+  }
+
+  export type UserScalarWhereWithAggregatesInput = {
+    AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
+    OR?: UserScalarWhereWithAggregatesInput[]
+    NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
+    userId?: StringWithAggregatesFilter<"User"> | string
+    userName?: StringNullableWithAggregatesFilter<"User"> | string | null
+    email?: StringNullableWithAggregatesFilter<"User"> | string | null
+    password?: StringNullableWithAggregatesFilter<"User"> | string | null
+    createdAt?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
+  }
+
+  export type ProjectWhereInput = {
+    AND?: ProjectWhereInput | ProjectWhereInput[]
+    OR?: ProjectWhereInput[]
+    NOT?: ProjectWhereInput | ProjectWhereInput[]
+    id?: StringFilter<"Project"> | string
+    name?: StringFilter<"Project"> | string
+    createdAt?: DateTimeFilter<"Project"> | Date | string
+    userId?: StringFilter<"Project"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    scans?: ScanListRelationFilter
+  }
+
+  export type ProjectOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    userId?: SortOrder
+    user?: UserOrderByWithRelationInput
+    scans?: ScanOrderByRelationAggregateInput
+  }
+
+  export type ProjectWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ProjectWhereInput | ProjectWhereInput[]
+    OR?: ProjectWhereInput[]
+    NOT?: ProjectWhereInput | ProjectWhereInput[]
+    name?: StringFilter<"Project"> | string
+    createdAt?: DateTimeFilter<"Project"> | Date | string
+    userId?: StringFilter<"Project"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    scans?: ScanListRelationFilter
+  }, "id">
+
+  export type ProjectOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    userId?: SortOrder
+    _count?: ProjectCountOrderByAggregateInput
+    _max?: ProjectMaxOrderByAggregateInput
+    _min?: ProjectMinOrderByAggregateInput
+  }
+
+  export type ProjectScalarWhereWithAggregatesInput = {
+    AND?: ProjectScalarWhereWithAggregatesInput | ProjectScalarWhereWithAggregatesInput[]
+    OR?: ProjectScalarWhereWithAggregatesInput[]
+    NOT?: ProjectScalarWhereWithAggregatesInput | ProjectScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Project"> | string
+    name?: StringWithAggregatesFilter<"Project"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
+    userId?: StringWithAggregatesFilter<"Project"> | string
+  }
+
+  export type ScanWhereInput = {
+    AND?: ScanWhereInput | ScanWhereInput[]
+    OR?: ScanWhereInput[]
+    NOT?: ScanWhereInput | ScanWhereInput[]
+    id?: IntFilter<"Scan"> | number
+    createdAt?: DateTimeFilter<"Scan"> | Date | string
+    projectId?: StringFilter<"Scan"> | string
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+    analyzer?: XOR<AnalyzerNullableScalarRelationFilter, AnalyzerWhereInput> | null
+  }
+
+  export type ScanOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    projectId?: SortOrder
+    project?: ProjectOrderByWithRelationInput
+    analyzer?: AnalyzerOrderByWithRelationInput
+  }
+
+  export type ScanWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ScanWhereInput | ScanWhereInput[]
+    OR?: ScanWhereInput[]
+    NOT?: ScanWhereInput | ScanWhereInput[]
+    createdAt?: DateTimeFilter<"Scan"> | Date | string
+    projectId?: StringFilter<"Scan"> | string
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+    analyzer?: XOR<AnalyzerNullableScalarRelationFilter, AnalyzerWhereInput> | null
+  }, "id">
+
+  export type ScanOrderByWithAggregationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    projectId?: SortOrder
+    _count?: ScanCountOrderByAggregateInput
+    _avg?: ScanAvgOrderByAggregateInput
+    _max?: ScanMaxOrderByAggregateInput
+    _min?: ScanMinOrderByAggregateInput
+    _sum?: ScanSumOrderByAggregateInput
+  }
+
+  export type ScanScalarWhereWithAggregatesInput = {
+    AND?: ScanScalarWhereWithAggregatesInput | ScanScalarWhereWithAggregatesInput[]
+    OR?: ScanScalarWhereWithAggregatesInput[]
+    NOT?: ScanScalarWhereWithAggregatesInput | ScanScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Scan"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Scan"> | Date | string
+    projectId?: StringWithAggregatesFilter<"Scan"> | string
+  }
+
+  export type AnalyzerWhereInput = {
+    AND?: AnalyzerWhereInput | AnalyzerWhereInput[]
+    OR?: AnalyzerWhereInput[]
+    NOT?: AnalyzerWhereInput | AnalyzerWhereInput[]
+    id?: IntFilter<"Analyzer"> | number
+    createdAt?: DateTimeFilter<"Analyzer"> | Date | string
+    scanId?: IntFilter<"Analyzer"> | number
+    scan?: XOR<ScanScalarRelationFilter, ScanWhereInput>
+    packages?: AnalyzerPackageListRelationFilter
+  }
+
+  export type AnalyzerOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    scanId?: SortOrder
+    scan?: ScanOrderByWithRelationInput
+    packages?: AnalyzerPackageOrderByRelationAggregateInput
+  }
+
+  export type AnalyzerWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    scanId?: number
+    AND?: AnalyzerWhereInput | AnalyzerWhereInput[]
+    OR?: AnalyzerWhereInput[]
+    NOT?: AnalyzerWhereInput | AnalyzerWhereInput[]
+    createdAt?: DateTimeFilter<"Analyzer"> | Date | string
+    scan?: XOR<ScanScalarRelationFilter, ScanWhereInput>
+    packages?: AnalyzerPackageListRelationFilter
+  }, "id" | "scanId">
+
+  export type AnalyzerOrderByWithAggregationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    scanId?: SortOrder
+    _count?: AnalyzerCountOrderByAggregateInput
+    _avg?: AnalyzerAvgOrderByAggregateInput
+    _max?: AnalyzerMaxOrderByAggregateInput
+    _min?: AnalyzerMinOrderByAggregateInput
+    _sum?: AnalyzerSumOrderByAggregateInput
+  }
+
+  export type AnalyzerScalarWhereWithAggregatesInput = {
+    AND?: AnalyzerScalarWhereWithAggregatesInput | AnalyzerScalarWhereWithAggregatesInput[]
+    OR?: AnalyzerScalarWhereWithAggregatesInput[]
+    NOT?: AnalyzerScalarWhereWithAggregatesInput | AnalyzerScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Analyzer"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Analyzer"> | Date | string
+    scanId?: IntWithAggregatesFilter<"Analyzer"> | number
+  }
+
+  export type AnalyzerPackageWhereInput = {
+    AND?: AnalyzerPackageWhereInput | AnalyzerPackageWhereInput[]
+    OR?: AnalyzerPackageWhereInput[]
+    NOT?: AnalyzerPackageWhereInput | AnalyzerPackageWhereInput[]
+    id?: IntFilter<"AnalyzerPackage"> | number
+    createdAt?: DateTimeFilter<"AnalyzerPackage"> | Date | string
+    packId?: StringFilter<"AnalyzerPackage"> | string
+    purl?: StringFilter<"AnalyzerPackage"> | string
+    description?: StringFilter<"AnalyzerPackage"> | string
+    homepageUrl?: StringFilter<"AnalyzerPackage"> | string
+    analyzerId?: IntFilter<"AnalyzerPackage"> | number
+    analyzer?: XOR<AnalyzerScalarRelationFilter, AnalyzerWhereInput>
+    authors?: PackageAuthorListRelationFilter
+    binaries?: BinaryArtifactListRelationFilter
+    sources?: SourceArtifactListRelationFilter
+    vcsList?: VcsListRelationFilter
+    vcsProcessed?: VcsProcessedListRelationFilter
+  }
+
+  export type AnalyzerPackageOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    packId?: SortOrder
+    purl?: SortOrder
+    description?: SortOrder
+    homepageUrl?: SortOrder
+    analyzerId?: SortOrder
+    analyzer?: AnalyzerOrderByWithRelationInput
+    authors?: PackageAuthorOrderByRelationAggregateInput
+    binaries?: BinaryArtifactOrderByRelationAggregateInput
+    sources?: SourceArtifactOrderByRelationAggregateInput
+    vcsList?: VcsOrderByRelationAggregateInput
+    vcsProcessed?: VcsProcessedOrderByRelationAggregateInput
+  }
+
+  export type AnalyzerPackageWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: AnalyzerPackageWhereInput | AnalyzerPackageWhereInput[]
+    OR?: AnalyzerPackageWhereInput[]
+    NOT?: AnalyzerPackageWhereInput | AnalyzerPackageWhereInput[]
+    createdAt?: DateTimeFilter<"AnalyzerPackage"> | Date | string
+    packId?: StringFilter<"AnalyzerPackage"> | string
+    purl?: StringFilter<"AnalyzerPackage"> | string
+    description?: StringFilter<"AnalyzerPackage"> | string
+    homepageUrl?: StringFilter<"AnalyzerPackage"> | string
+    analyzerId?: IntFilter<"AnalyzerPackage"> | number
+    analyzer?: XOR<AnalyzerScalarRelationFilter, AnalyzerWhereInput>
+    authors?: PackageAuthorListRelationFilter
+    binaries?: BinaryArtifactListRelationFilter
+    sources?: SourceArtifactListRelationFilter
+    vcsList?: VcsListRelationFilter
+    vcsProcessed?: VcsProcessedListRelationFilter
+  }, "id">
+
+  export type AnalyzerPackageOrderByWithAggregationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    packId?: SortOrder
+    purl?: SortOrder
+    description?: SortOrder
+    homepageUrl?: SortOrder
+    analyzerId?: SortOrder
+    _count?: AnalyzerPackageCountOrderByAggregateInput
+    _avg?: AnalyzerPackageAvgOrderByAggregateInput
+    _max?: AnalyzerPackageMaxOrderByAggregateInput
+    _min?: AnalyzerPackageMinOrderByAggregateInput
+    _sum?: AnalyzerPackageSumOrderByAggregateInput
+  }
+
+  export type AnalyzerPackageScalarWhereWithAggregatesInput = {
+    AND?: AnalyzerPackageScalarWhereWithAggregatesInput | AnalyzerPackageScalarWhereWithAggregatesInput[]
+    OR?: AnalyzerPackageScalarWhereWithAggregatesInput[]
+    NOT?: AnalyzerPackageScalarWhereWithAggregatesInput | AnalyzerPackageScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"AnalyzerPackage"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"AnalyzerPackage"> | Date | string
+    packId?: StringWithAggregatesFilter<"AnalyzerPackage"> | string
+    purl?: StringWithAggregatesFilter<"AnalyzerPackage"> | string
+    description?: StringWithAggregatesFilter<"AnalyzerPackage"> | string
+    homepageUrl?: StringWithAggregatesFilter<"AnalyzerPackage"> | string
+    analyzerId?: IntWithAggregatesFilter<"AnalyzerPackage"> | number
+  }
+
+  export type PackageAuthorWhereInput = {
+    AND?: PackageAuthorWhereInput | PackageAuthorWhereInput[]
+    OR?: PackageAuthorWhereInput[]
+    NOT?: PackageAuthorWhereInput | PackageAuthorWhereInput[]
+    id?: IntFilter<"PackageAuthor"> | number
+    name?: StringFilter<"PackageAuthor"> | string
+    packageId?: IntFilter<"PackageAuthor"> | number
+    analyzerPackage?: XOR<AnalyzerPackageScalarRelationFilter, AnalyzerPackageWhereInput>
+  }
+
+  export type PackageAuthorOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    packageId?: SortOrder
+    analyzerPackage?: AnalyzerPackageOrderByWithRelationInput
+  }
+
+  export type PackageAuthorWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: PackageAuthorWhereInput | PackageAuthorWhereInput[]
+    OR?: PackageAuthorWhereInput[]
+    NOT?: PackageAuthorWhereInput | PackageAuthorWhereInput[]
+    name?: StringFilter<"PackageAuthor"> | string
+    packageId?: IntFilter<"PackageAuthor"> | number
+    analyzerPackage?: XOR<AnalyzerPackageScalarRelationFilter, AnalyzerPackageWhereInput>
+  }, "id">
+
+  export type PackageAuthorOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    packageId?: SortOrder
+    _count?: PackageAuthorCountOrderByAggregateInput
+    _avg?: PackageAuthorAvgOrderByAggregateInput
+    _max?: PackageAuthorMaxOrderByAggregateInput
+    _min?: PackageAuthorMinOrderByAggregateInput
+    _sum?: PackageAuthorSumOrderByAggregateInput
+  }
+
+  export type PackageAuthorScalarWhereWithAggregatesInput = {
+    AND?: PackageAuthorScalarWhereWithAggregatesInput | PackageAuthorScalarWhereWithAggregatesInput[]
+    OR?: PackageAuthorScalarWhereWithAggregatesInput[]
+    NOT?: PackageAuthorScalarWhereWithAggregatesInput | PackageAuthorScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"PackageAuthor"> | number
+    name?: StringWithAggregatesFilter<"PackageAuthor"> | string
+    packageId?: IntWithAggregatesFilter<"PackageAuthor"> | number
+  }
+
+  export type BinaryArtifactWhereInput = {
+    AND?: BinaryArtifactWhereInput | BinaryArtifactWhereInput[]
+    OR?: BinaryArtifactWhereInput[]
+    NOT?: BinaryArtifactWhereInput | BinaryArtifactWhereInput[]
+    id?: IntFilter<"BinaryArtifact"> | number
+    url?: StringFilter<"BinaryArtifact"> | string
+    packageId?: IntFilter<"BinaryArtifact"> | number
+    analyzerPackage?: XOR<AnalyzerPackageScalarRelationFilter, AnalyzerPackageWhereInput>
+  }
+
+  export type BinaryArtifactOrderByWithRelationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    packageId?: SortOrder
+    analyzerPackage?: AnalyzerPackageOrderByWithRelationInput
+  }
+
+  export type BinaryArtifactWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: BinaryArtifactWhereInput | BinaryArtifactWhereInput[]
+    OR?: BinaryArtifactWhereInput[]
+    NOT?: BinaryArtifactWhereInput | BinaryArtifactWhereInput[]
+    url?: StringFilter<"BinaryArtifact"> | string
+    packageId?: IntFilter<"BinaryArtifact"> | number
+    analyzerPackage?: XOR<AnalyzerPackageScalarRelationFilter, AnalyzerPackageWhereInput>
+  }, "id">
+
+  export type BinaryArtifactOrderByWithAggregationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    packageId?: SortOrder
+    _count?: BinaryArtifactCountOrderByAggregateInput
+    _avg?: BinaryArtifactAvgOrderByAggregateInput
+    _max?: BinaryArtifactMaxOrderByAggregateInput
+    _min?: BinaryArtifactMinOrderByAggregateInput
+    _sum?: BinaryArtifactSumOrderByAggregateInput
+  }
+
+  export type BinaryArtifactScalarWhereWithAggregatesInput = {
+    AND?: BinaryArtifactScalarWhereWithAggregatesInput | BinaryArtifactScalarWhereWithAggregatesInput[]
+    OR?: BinaryArtifactScalarWhereWithAggregatesInput[]
+    NOT?: BinaryArtifactScalarWhereWithAggregatesInput | BinaryArtifactScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"BinaryArtifact"> | number
+    url?: StringWithAggregatesFilter<"BinaryArtifact"> | string
+    packageId?: IntWithAggregatesFilter<"BinaryArtifact"> | number
+  }
+
+  export type SourceArtifactWhereInput = {
+    AND?: SourceArtifactWhereInput | SourceArtifactWhereInput[]
+    OR?: SourceArtifactWhereInput[]
+    NOT?: SourceArtifactWhereInput | SourceArtifactWhereInput[]
+    id?: IntFilter<"SourceArtifact"> | number
+    url?: StringFilter<"SourceArtifact"> | string
+    packageId?: IntFilter<"SourceArtifact"> | number
+    analyzerPackage?: XOR<AnalyzerPackageScalarRelationFilter, AnalyzerPackageWhereInput>
+  }
+
+  export type SourceArtifactOrderByWithRelationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    packageId?: SortOrder
+    analyzerPackage?: AnalyzerPackageOrderByWithRelationInput
+  }
+
+  export type SourceArtifactWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: SourceArtifactWhereInput | SourceArtifactWhereInput[]
+    OR?: SourceArtifactWhereInput[]
+    NOT?: SourceArtifactWhereInput | SourceArtifactWhereInput[]
+    url?: StringFilter<"SourceArtifact"> | string
+    packageId?: IntFilter<"SourceArtifact"> | number
+    analyzerPackage?: XOR<AnalyzerPackageScalarRelationFilter, AnalyzerPackageWhereInput>
+  }, "id">
+
+  export type SourceArtifactOrderByWithAggregationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    packageId?: SortOrder
+    _count?: SourceArtifactCountOrderByAggregateInput
+    _avg?: SourceArtifactAvgOrderByAggregateInput
+    _max?: SourceArtifactMaxOrderByAggregateInput
+    _min?: SourceArtifactMinOrderByAggregateInput
+    _sum?: SourceArtifactSumOrderByAggregateInput
+  }
+
+  export type SourceArtifactScalarWhereWithAggregatesInput = {
+    AND?: SourceArtifactScalarWhereWithAggregatesInput | SourceArtifactScalarWhereWithAggregatesInput[]
+    OR?: SourceArtifactScalarWhereWithAggregatesInput[]
+    NOT?: SourceArtifactScalarWhereWithAggregatesInput | SourceArtifactScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"SourceArtifact"> | number
+    url?: StringWithAggregatesFilter<"SourceArtifact"> | string
+    packageId?: IntWithAggregatesFilter<"SourceArtifact"> | number
+  }
+
+  export type VcsWhereInput = {
+    AND?: VcsWhereInput | VcsWhereInput[]
+    OR?: VcsWhereInput[]
+    NOT?: VcsWhereInput | VcsWhereInput[]
+    id?: IntFilter<"Vcs"> | number
+    type?: StringFilter<"Vcs"> | string
+    url?: StringFilter<"Vcs"> | string
+    revision?: StringFilter<"Vcs"> | string
+    path?: StringFilter<"Vcs"> | string
+    packageId?: IntFilter<"Vcs"> | number
+    analyzerPackage?: XOR<AnalyzerPackageScalarRelationFilter, AnalyzerPackageWhereInput>
+  }
+
+  export type VcsOrderByWithRelationInput = {
+    id?: SortOrder
+    type?: SortOrder
+    url?: SortOrder
+    revision?: SortOrder
+    path?: SortOrder
+    packageId?: SortOrder
+    analyzerPackage?: AnalyzerPackageOrderByWithRelationInput
+  }
+
+  export type VcsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: VcsWhereInput | VcsWhereInput[]
+    OR?: VcsWhereInput[]
+    NOT?: VcsWhereInput | VcsWhereInput[]
+    type?: StringFilter<"Vcs"> | string
+    url?: StringFilter<"Vcs"> | string
+    revision?: StringFilter<"Vcs"> | string
+    path?: StringFilter<"Vcs"> | string
+    packageId?: IntFilter<"Vcs"> | number
+    analyzerPackage?: XOR<AnalyzerPackageScalarRelationFilter, AnalyzerPackageWhereInput>
+  }, "id">
+
+  export type VcsOrderByWithAggregationInput = {
+    id?: SortOrder
+    type?: SortOrder
+    url?: SortOrder
+    revision?: SortOrder
+    path?: SortOrder
+    packageId?: SortOrder
+    _count?: VcsCountOrderByAggregateInput
+    _avg?: VcsAvgOrderByAggregateInput
+    _max?: VcsMaxOrderByAggregateInput
+    _min?: VcsMinOrderByAggregateInput
+    _sum?: VcsSumOrderByAggregateInput
+  }
+
+  export type VcsScalarWhereWithAggregatesInput = {
+    AND?: VcsScalarWhereWithAggregatesInput | VcsScalarWhereWithAggregatesInput[]
+    OR?: VcsScalarWhereWithAggregatesInput[]
+    NOT?: VcsScalarWhereWithAggregatesInput | VcsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Vcs"> | number
+    type?: StringWithAggregatesFilter<"Vcs"> | string
+    url?: StringWithAggregatesFilter<"Vcs"> | string
+    revision?: StringWithAggregatesFilter<"Vcs"> | string
+    path?: StringWithAggregatesFilter<"Vcs"> | string
+    packageId?: IntWithAggregatesFilter<"Vcs"> | number
+  }
+
+  export type VcsProcessedWhereInput = {
+    AND?: VcsProcessedWhereInput | VcsProcessedWhereInput[]
+    OR?: VcsProcessedWhereInput[]
+    NOT?: VcsProcessedWhereInput | VcsProcessedWhereInput[]
+    id?: IntFilter<"VcsProcessed"> | number
+    type?: StringFilter<"VcsProcessed"> | string
+    url?: StringFilter<"VcsProcessed"> | string
+    revision?: StringFilter<"VcsProcessed"> | string
+    path?: StringFilter<"VcsProcessed"> | string
+    packageId?: IntFilter<"VcsProcessed"> | number
+    analyzerPackage?: XOR<AnalyzerPackageScalarRelationFilter, AnalyzerPackageWhereInput>
+  }
+
+  export type VcsProcessedOrderByWithRelationInput = {
+    id?: SortOrder
+    type?: SortOrder
+    url?: SortOrder
+    revision?: SortOrder
+    path?: SortOrder
+    packageId?: SortOrder
+    analyzerPackage?: AnalyzerPackageOrderByWithRelationInput
+  }
+
+  export type VcsProcessedWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: VcsProcessedWhereInput | VcsProcessedWhereInput[]
+    OR?: VcsProcessedWhereInput[]
+    NOT?: VcsProcessedWhereInput | VcsProcessedWhereInput[]
+    type?: StringFilter<"VcsProcessed"> | string
+    url?: StringFilter<"VcsProcessed"> | string
+    revision?: StringFilter<"VcsProcessed"> | string
+    path?: StringFilter<"VcsProcessed"> | string
+    packageId?: IntFilter<"VcsProcessed"> | number
+    analyzerPackage?: XOR<AnalyzerPackageScalarRelationFilter, AnalyzerPackageWhereInput>
+  }, "id">
+
+  export type VcsProcessedOrderByWithAggregationInput = {
+    id?: SortOrder
+    type?: SortOrder
+    url?: SortOrder
+    revision?: SortOrder
+    path?: SortOrder
+    packageId?: SortOrder
+    _count?: VcsProcessedCountOrderByAggregateInput
+    _avg?: VcsProcessedAvgOrderByAggregateInput
+    _max?: VcsProcessedMaxOrderByAggregateInput
+    _min?: VcsProcessedMinOrderByAggregateInput
+    _sum?: VcsProcessedSumOrderByAggregateInput
+  }
+
+  export type VcsProcessedScalarWhereWithAggregatesInput = {
+    AND?: VcsProcessedScalarWhereWithAggregatesInput | VcsProcessedScalarWhereWithAggregatesInput[]
+    OR?: VcsProcessedScalarWhereWithAggregatesInput[]
+    NOT?: VcsProcessedScalarWhereWithAggregatesInput | VcsProcessedScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"VcsProcessed"> | number
+    type?: StringWithAggregatesFilter<"VcsProcessed"> | string
+    url?: StringWithAggregatesFilter<"VcsProcessed"> | string
+    revision?: StringWithAggregatesFilter<"VcsProcessed"> | string
+    path?: StringWithAggregatesFilter<"VcsProcessed"> | string
+    packageId?: IntWithAggregatesFilter<"VcsProcessed"> | number
+  }
+
+  export type UserCreateInput = {
+    userId: string
+    userName?: string | null
+    email?: string | null
+    password?: string | null
+    createdAt?: Date | string | null
+    projects?: ProjectCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateInput = {
+    userId: string
+    userName?: string | null
+    email?: string | null
+    password?: string | null
+    createdAt?: Date | string | null
+    projects?: ProjectUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    userName?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    projects?: ProjectUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    userName?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    projects?: ProjectUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateManyInput = {
+    userId: string
+    userName?: string | null
+    email?: string | null
+    password?: string | null
+    createdAt?: Date | string | null
+  }
+
+  export type UserUpdateManyMutationInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    userName?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type UserUncheckedUpdateManyInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    userName?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ProjectCreateInput = {
+    id: string
+    name: string
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutProjectsInput
+    scans?: ScanCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateInput = {
+    id: string
+    name: string
+    createdAt?: Date | string
+    userId: string
+    scans?: ScanUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    scans?: ScanUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    scans?: ScanUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectCreateManyInput = {
+    id: string
+    name: string
+    createdAt?: Date | string
+    userId: string
+  }
+
+  export type ProjectUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProjectUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ScanCreateInput = {
+    createdAt?: Date | string
+    project: ProjectCreateNestedOneWithoutScansInput
+    analyzer?: AnalyzerCreateNestedOneWithoutScanInput
+  }
+
+  export type ScanUncheckedCreateInput = {
+    id?: number
+    createdAt?: Date | string
+    projectId: string
+    analyzer?: AnalyzerUncheckedCreateNestedOneWithoutScanInput
+  }
+
+  export type ScanUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    project?: ProjectUpdateOneRequiredWithoutScansNestedInput
+    analyzer?: AnalyzerUpdateOneWithoutScanNestedInput
+  }
+
+  export type ScanUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    analyzer?: AnalyzerUncheckedUpdateOneWithoutScanNestedInput
+  }
+
+  export type ScanCreateManyInput = {
+    createdAt?: Date | string
+    projectId: string
+  }
+
+  export type ScanUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ScanUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    projectId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type AnalyzerCreateInput = {
+    createdAt?: Date | string
+    scan: ScanCreateNestedOneWithoutAnalyzerInput
+    packages?: AnalyzerPackageCreateNestedManyWithoutAnalyzerInput
+  }
+
+  export type AnalyzerUncheckedCreateInput = {
+    id?: number
+    createdAt?: Date | string
+    scanId: number
+    packages?: AnalyzerPackageUncheckedCreateNestedManyWithoutAnalyzerInput
+  }
+
+  export type AnalyzerUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scan?: ScanUpdateOneRequiredWithoutAnalyzerNestedInput
+    packages?: AnalyzerPackageUpdateManyWithoutAnalyzerNestedInput
+  }
+
+  export type AnalyzerUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scanId?: IntFieldUpdateOperationsInput | number
+    packages?: AnalyzerPackageUncheckedUpdateManyWithoutAnalyzerNestedInput
+  }
+
+  export type AnalyzerCreateManyInput = {
+    createdAt?: Date | string
+    scanId: number
+  }
+
+  export type AnalyzerUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AnalyzerUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scanId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AnalyzerPackageCreateInput = {
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzer: AnalyzerCreateNestedOneWithoutPackagesInput
+    authors?: PackageAuthorCreateNestedManyWithoutAnalyzerPackageInput
+    binaries?: BinaryArtifactCreateNestedManyWithoutAnalyzerPackageInput
+    sources?: SourceArtifactCreateNestedManyWithoutAnalyzerPackageInput
+    vcsList?: VcsCreateNestedManyWithoutAnalyzerPackageInput
+    vcsProcessed?: VcsProcessedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageUncheckedCreateInput = {
+    id?: number
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzerId: number
+    authors?: PackageAuthorUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    binaries?: BinaryArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    sources?: SourceArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    vcsList?: VcsUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    vcsProcessed?: VcsProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzer?: AnalyzerUpdateOneRequiredWithoutPackagesNestedInput
+    authors?: PackageAuthorUpdateManyWithoutAnalyzerPackageNestedInput
+    binaries?: BinaryArtifactUpdateManyWithoutAnalyzerPackageNestedInput
+    sources?: SourceArtifactUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsList?: VcsUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsProcessed?: VcsProcessedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzerId?: IntFieldUpdateOperationsInput | number
+    authors?: PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    binaries?: BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    sources?: SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsList?: VcsUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsProcessed?: VcsProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageCreateManyInput = {
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzerId: number
+  }
+
+  export type AnalyzerPackageUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type AnalyzerPackageUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzerId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PackageAuthorCreateInput = {
+    name: string
+    analyzerPackage: AnalyzerPackageCreateNestedOneWithoutAuthorsInput
+  }
+
+  export type PackageAuthorUncheckedCreateInput = {
+    id?: number
+    name: string
+    packageId: number
+  }
+
+  export type PackageAuthorUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    analyzerPackage?: AnalyzerPackageUpdateOneRequiredWithoutAuthorsNestedInput
+  }
+
+  export type PackageAuthorUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    packageId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PackageAuthorCreateManyInput = {
+    name: string
+    packageId: number
+  }
+
+  export type PackageAuthorUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PackageAuthorUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    packageId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BinaryArtifactCreateInput = {
+    url: string
+    analyzerPackage: AnalyzerPackageCreateNestedOneWithoutBinariesInput
+  }
+
+  export type BinaryArtifactUncheckedCreateInput = {
+    id?: number
+    url: string
+    packageId: number
+  }
+
+  export type BinaryArtifactUpdateInput = {
+    url?: StringFieldUpdateOperationsInput | string
+    analyzerPackage?: AnalyzerPackageUpdateOneRequiredWithoutBinariesNestedInput
+  }
+
+  export type BinaryArtifactUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    packageId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BinaryArtifactCreateManyInput = {
+    url: string
+    packageId: number
+  }
+
+  export type BinaryArtifactUpdateManyMutationInput = {
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BinaryArtifactUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    packageId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SourceArtifactCreateInput = {
+    url: string
+    analyzerPackage: AnalyzerPackageCreateNestedOneWithoutSourcesInput
+  }
+
+  export type SourceArtifactUncheckedCreateInput = {
+    id?: number
+    url: string
+    packageId: number
+  }
+
+  export type SourceArtifactUpdateInput = {
+    url?: StringFieldUpdateOperationsInput | string
+    analyzerPackage?: AnalyzerPackageUpdateOneRequiredWithoutSourcesNestedInput
+  }
+
+  export type SourceArtifactUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    packageId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SourceArtifactCreateManyInput = {
+    url: string
+    packageId: number
+  }
+
+  export type SourceArtifactUpdateManyMutationInput = {
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SourceArtifactUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    packageId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type VcsCreateInput = {
+    type: string
+    url: string
+    revision: string
+    path: string
+    analyzerPackage: AnalyzerPackageCreateNestedOneWithoutVcsListInput
+  }
+
+  export type VcsUncheckedCreateInput = {
+    id?: number
+    type: string
+    url: string
+    revision: string
+    path: string
+    packageId: number
+  }
+
+  export type VcsUpdateInput = {
+    type?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    revision?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    analyzerPackage?: AnalyzerPackageUpdateOneRequiredWithoutVcsListNestedInput
+  }
+
+  export type VcsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    revision?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    packageId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type VcsCreateManyInput = {
+    type: string
+    url: string
+    revision: string
+    path: string
+    packageId: number
+  }
+
+  export type VcsUpdateManyMutationInput = {
+    type?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    revision?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VcsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    revision?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    packageId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type VcsProcessedCreateInput = {
+    type: string
+    url: string
+    revision: string
+    path: string
+    analyzerPackage: AnalyzerPackageCreateNestedOneWithoutVcsProcessedInput
+  }
+
+  export type VcsProcessedUncheckedCreateInput = {
+    id?: number
+    type: string
+    url: string
+    revision: string
+    path: string
+    packageId: number
+  }
+
+  export type VcsProcessedUpdateInput = {
+    type?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    revision?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    analyzerPackage?: AnalyzerPackageUpdateOneRequiredWithoutVcsProcessedNestedInput
+  }
+
+  export type VcsProcessedUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    revision?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    packageId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type VcsProcessedCreateManyInput = {
+    type: string
+    url: string
+    revision: string
+    path: string
+    packageId: number
+  }
+
+  export type VcsProcessedUpdateManyMutationInput = {
+    type?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    revision?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VcsProcessedUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    revision?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    packageId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type StringFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type ProjectListRelationFilter = {
+    every?: ProjectWhereInput
+    some?: ProjectWhereInput
+    none?: ProjectWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type ProjectOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UserCountOrderByAggregateInput = {
+    userId?: SortOrder
+    userName?: SortOrder
+    email?: SortOrder
+    password?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type UserMaxOrderByAggregateInput = {
+    userId?: SortOrder
+    userName?: SortOrder
+    email?: SortOrder
+    password?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type UserMinOrderByAggregateInput = {
+    userId?: SortOrder
+    userName?: SortOrder
+    email?: SortOrder
+    password?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type StringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
+  export type ScanListRelationFilter = {
+    every?: ScanWhereInput
+    some?: ScanWhereInput
+    none?: ScanWhereInput
+  }
+
+  export type ScanOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProjectCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type ProjectMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type ProjectMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type ProjectScalarRelationFilter = {
+    is?: ProjectWhereInput
+    isNot?: ProjectWhereInput
+  }
+
+  export type AnalyzerNullableScalarRelationFilter = {
+    is?: AnalyzerWhereInput | null
+    isNot?: AnalyzerWhereInput | null
+  }
+
+  export type ScanCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    projectId?: SortOrder
+  }
+
+  export type ScanAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type ScanMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    projectId?: SortOrder
+  }
+
+  export type ScanMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    projectId?: SortOrder
+  }
+
+  export type ScanSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type ScanScalarRelationFilter = {
+    is?: ScanWhereInput
+    isNot?: ScanWhereInput
+  }
+
+  export type AnalyzerPackageListRelationFilter = {
+    every?: AnalyzerPackageWhereInput
+    some?: AnalyzerPackageWhereInput
+    none?: AnalyzerPackageWhereInput
+  }
+
+  export type AnalyzerPackageOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AnalyzerCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    scanId?: SortOrder
+  }
+
+  export type AnalyzerAvgOrderByAggregateInput = {
+    id?: SortOrder
+    scanId?: SortOrder
+  }
+
+  export type AnalyzerMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    scanId?: SortOrder
+  }
+
+  export type AnalyzerMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    scanId?: SortOrder
+  }
+
+  export type AnalyzerSumOrderByAggregateInput = {
+    id?: SortOrder
+    scanId?: SortOrder
+  }
+
+  export type AnalyzerScalarRelationFilter = {
+    is?: AnalyzerWhereInput
+    isNot?: AnalyzerWhereInput
+  }
+
+  export type PackageAuthorListRelationFilter = {
+    every?: PackageAuthorWhereInput
+    some?: PackageAuthorWhereInput
+    none?: PackageAuthorWhereInput
+  }
+
+  export type BinaryArtifactListRelationFilter = {
+    every?: BinaryArtifactWhereInput
+    some?: BinaryArtifactWhereInput
+    none?: BinaryArtifactWhereInput
+  }
+
+  export type SourceArtifactListRelationFilter = {
+    every?: SourceArtifactWhereInput
+    some?: SourceArtifactWhereInput
+    none?: SourceArtifactWhereInput
+  }
+
+  export type VcsListRelationFilter = {
+    every?: VcsWhereInput
+    some?: VcsWhereInput
+    none?: VcsWhereInput
+  }
+
+  export type VcsProcessedListRelationFilter = {
+    every?: VcsProcessedWhereInput
+    some?: VcsProcessedWhereInput
+    none?: VcsProcessedWhereInput
+  }
+
+  export type PackageAuthorOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BinaryArtifactOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SourceArtifactOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type VcsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type VcsProcessedOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AnalyzerPackageCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    packId?: SortOrder
+    purl?: SortOrder
+    description?: SortOrder
+    homepageUrl?: SortOrder
+    analyzerId?: SortOrder
+  }
+
+  export type AnalyzerPackageAvgOrderByAggregateInput = {
+    id?: SortOrder
+    analyzerId?: SortOrder
+  }
+
+  export type AnalyzerPackageMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    packId?: SortOrder
+    purl?: SortOrder
+    description?: SortOrder
+    homepageUrl?: SortOrder
+    analyzerId?: SortOrder
+  }
+
+  export type AnalyzerPackageMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    packId?: SortOrder
+    purl?: SortOrder
+    description?: SortOrder
+    homepageUrl?: SortOrder
+    analyzerId?: SortOrder
+  }
+
+  export type AnalyzerPackageSumOrderByAggregateInput = {
+    id?: SortOrder
+    analyzerId?: SortOrder
+  }
+
+  export type AnalyzerPackageScalarRelationFilter = {
+    is?: AnalyzerPackageWhereInput
+    isNot?: AnalyzerPackageWhereInput
+  }
+
+  export type PackageAuthorCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type PackageAuthorAvgOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type PackageAuthorMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type PackageAuthorMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type PackageAuthorSumOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type BinaryArtifactCountOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type BinaryArtifactAvgOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type BinaryArtifactMaxOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type BinaryArtifactMinOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type BinaryArtifactSumOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type SourceArtifactCountOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type SourceArtifactAvgOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type SourceArtifactMaxOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type SourceArtifactMinOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type SourceArtifactSumOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type VcsCountOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+    url?: SortOrder
+    revision?: SortOrder
+    path?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type VcsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type VcsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+    url?: SortOrder
+    revision?: SortOrder
+    path?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type VcsMinOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+    url?: SortOrder
+    revision?: SortOrder
+    path?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type VcsSumOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type VcsProcessedCountOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+    url?: SortOrder
+    revision?: SortOrder
+    path?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type VcsProcessedAvgOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type VcsProcessedMaxOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+    url?: SortOrder
+    revision?: SortOrder
+    path?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type VcsProcessedMinOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+    url?: SortOrder
+    revision?: SortOrder
+    path?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type VcsProcessedSumOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type ProjectCreateNestedManyWithoutUserInput = {
+    create?: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput> | ProjectCreateWithoutUserInput[] | ProjectUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutUserInput | ProjectCreateOrConnectWithoutUserInput[]
+    createMany?: ProjectCreateManyUserInputEnvelope
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  }
+
+  export type ProjectUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput> | ProjectCreateWithoutUserInput[] | ProjectUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutUserInput | ProjectCreateOrConnectWithoutUserInput[]
+    createMany?: ProjectCreateManyUserInputEnvelope
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  }
+
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type ProjectUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput> | ProjectCreateWithoutUserInput[] | ProjectUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutUserInput | ProjectCreateOrConnectWithoutUserInput[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutUserInput | ProjectUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ProjectCreateManyUserInputEnvelope
+    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutUserInput | ProjectUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutUserInput | ProjectUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+  }
+
+  export type ProjectUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput> | ProjectCreateWithoutUserInput[] | ProjectUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutUserInput | ProjectCreateOrConnectWithoutUserInput[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutUserInput | ProjectUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ProjectCreateManyUserInputEnvelope
+    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutUserInput | ProjectUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutUserInput | ProjectUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutProjectsInput = {
+    create?: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProjectsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type ScanCreateNestedManyWithoutProjectInput = {
+    create?: XOR<ScanCreateWithoutProjectInput, ScanUncheckedCreateWithoutProjectInput> | ScanCreateWithoutProjectInput[] | ScanUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ScanCreateOrConnectWithoutProjectInput | ScanCreateOrConnectWithoutProjectInput[]
+    createMany?: ScanCreateManyProjectInputEnvelope
+    connect?: ScanWhereUniqueInput | ScanWhereUniqueInput[]
+  }
+
+  export type ScanUncheckedCreateNestedManyWithoutProjectInput = {
+    create?: XOR<ScanCreateWithoutProjectInput, ScanUncheckedCreateWithoutProjectInput> | ScanCreateWithoutProjectInput[] | ScanUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ScanCreateOrConnectWithoutProjectInput | ScanCreateOrConnectWithoutProjectInput[]
+    createMany?: ScanCreateManyProjectInputEnvelope
+    connect?: ScanWhereUniqueInput | ScanWhereUniqueInput[]
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type UserUpdateOneRequiredWithoutProjectsNestedInput = {
+    create?: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProjectsInput
+    upsert?: UserUpsertWithoutProjectsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProjectsInput, UserUpdateWithoutProjectsInput>, UserUncheckedUpdateWithoutProjectsInput>
+  }
+
+  export type ScanUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<ScanCreateWithoutProjectInput, ScanUncheckedCreateWithoutProjectInput> | ScanCreateWithoutProjectInput[] | ScanUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ScanCreateOrConnectWithoutProjectInput | ScanCreateOrConnectWithoutProjectInput[]
+    upsert?: ScanUpsertWithWhereUniqueWithoutProjectInput | ScanUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: ScanCreateManyProjectInputEnvelope
+    set?: ScanWhereUniqueInput | ScanWhereUniqueInput[]
+    disconnect?: ScanWhereUniqueInput | ScanWhereUniqueInput[]
+    delete?: ScanWhereUniqueInput | ScanWhereUniqueInput[]
+    connect?: ScanWhereUniqueInput | ScanWhereUniqueInput[]
+    update?: ScanUpdateWithWhereUniqueWithoutProjectInput | ScanUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: ScanUpdateManyWithWhereWithoutProjectInput | ScanUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: ScanScalarWhereInput | ScanScalarWhereInput[]
+  }
+
+  export type ScanUncheckedUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<ScanCreateWithoutProjectInput, ScanUncheckedCreateWithoutProjectInput> | ScanCreateWithoutProjectInput[] | ScanUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ScanCreateOrConnectWithoutProjectInput | ScanCreateOrConnectWithoutProjectInput[]
+    upsert?: ScanUpsertWithWhereUniqueWithoutProjectInput | ScanUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: ScanCreateManyProjectInputEnvelope
+    set?: ScanWhereUniqueInput | ScanWhereUniqueInput[]
+    disconnect?: ScanWhereUniqueInput | ScanWhereUniqueInput[]
+    delete?: ScanWhereUniqueInput | ScanWhereUniqueInput[]
+    connect?: ScanWhereUniqueInput | ScanWhereUniqueInput[]
+    update?: ScanUpdateWithWhereUniqueWithoutProjectInput | ScanUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: ScanUpdateManyWithWhereWithoutProjectInput | ScanUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: ScanScalarWhereInput | ScanScalarWhereInput[]
+  }
+
+  export type ProjectCreateNestedOneWithoutScansInput = {
+    create?: XOR<ProjectCreateWithoutScansInput, ProjectUncheckedCreateWithoutScansInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutScansInput
+    connect?: ProjectWhereUniqueInput
+  }
+
+  export type AnalyzerCreateNestedOneWithoutScanInput = {
+    create?: XOR<AnalyzerCreateWithoutScanInput, AnalyzerUncheckedCreateWithoutScanInput>
+    connectOrCreate?: AnalyzerCreateOrConnectWithoutScanInput
+    connect?: AnalyzerWhereUniqueInput
+  }
+
+  export type AnalyzerUncheckedCreateNestedOneWithoutScanInput = {
+    create?: XOR<AnalyzerCreateWithoutScanInput, AnalyzerUncheckedCreateWithoutScanInput>
+    connectOrCreate?: AnalyzerCreateOrConnectWithoutScanInput
+    connect?: AnalyzerWhereUniqueInput
+  }
+
+  export type ProjectUpdateOneRequiredWithoutScansNestedInput = {
+    create?: XOR<ProjectCreateWithoutScansInput, ProjectUncheckedCreateWithoutScansInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutScansInput
+    upsert?: ProjectUpsertWithoutScansInput
+    connect?: ProjectWhereUniqueInput
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutScansInput, ProjectUpdateWithoutScansInput>, ProjectUncheckedUpdateWithoutScansInput>
+  }
+
+  export type AnalyzerUpdateOneWithoutScanNestedInput = {
+    create?: XOR<AnalyzerCreateWithoutScanInput, AnalyzerUncheckedCreateWithoutScanInput>
+    connectOrCreate?: AnalyzerCreateOrConnectWithoutScanInput
+    upsert?: AnalyzerUpsertWithoutScanInput
+    disconnect?: AnalyzerWhereInput | boolean
+    delete?: AnalyzerWhereInput | boolean
+    connect?: AnalyzerWhereUniqueInput
+    update?: XOR<XOR<AnalyzerUpdateToOneWithWhereWithoutScanInput, AnalyzerUpdateWithoutScanInput>, AnalyzerUncheckedUpdateWithoutScanInput>
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type AnalyzerUncheckedUpdateOneWithoutScanNestedInput = {
+    create?: XOR<AnalyzerCreateWithoutScanInput, AnalyzerUncheckedCreateWithoutScanInput>
+    connectOrCreate?: AnalyzerCreateOrConnectWithoutScanInput
+    upsert?: AnalyzerUpsertWithoutScanInput
+    disconnect?: AnalyzerWhereInput | boolean
+    delete?: AnalyzerWhereInput | boolean
+    connect?: AnalyzerWhereUniqueInput
+    update?: XOR<XOR<AnalyzerUpdateToOneWithWhereWithoutScanInput, AnalyzerUpdateWithoutScanInput>, AnalyzerUncheckedUpdateWithoutScanInput>
+  }
+
+  export type ScanCreateNestedOneWithoutAnalyzerInput = {
+    create?: XOR<ScanCreateWithoutAnalyzerInput, ScanUncheckedCreateWithoutAnalyzerInput>
+    connectOrCreate?: ScanCreateOrConnectWithoutAnalyzerInput
+    connect?: ScanWhereUniqueInput
+  }
+
+  export type AnalyzerPackageCreateNestedManyWithoutAnalyzerInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutAnalyzerInput, AnalyzerPackageUncheckedCreateWithoutAnalyzerInput> | AnalyzerPackageCreateWithoutAnalyzerInput[] | AnalyzerPackageUncheckedCreateWithoutAnalyzerInput[]
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutAnalyzerInput | AnalyzerPackageCreateOrConnectWithoutAnalyzerInput[]
+    createMany?: AnalyzerPackageCreateManyAnalyzerInputEnvelope
+    connect?: AnalyzerPackageWhereUniqueInput | AnalyzerPackageWhereUniqueInput[]
+  }
+
+  export type AnalyzerPackageUncheckedCreateNestedManyWithoutAnalyzerInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutAnalyzerInput, AnalyzerPackageUncheckedCreateWithoutAnalyzerInput> | AnalyzerPackageCreateWithoutAnalyzerInput[] | AnalyzerPackageUncheckedCreateWithoutAnalyzerInput[]
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutAnalyzerInput | AnalyzerPackageCreateOrConnectWithoutAnalyzerInput[]
+    createMany?: AnalyzerPackageCreateManyAnalyzerInputEnvelope
+    connect?: AnalyzerPackageWhereUniqueInput | AnalyzerPackageWhereUniqueInput[]
+  }
+
+  export type ScanUpdateOneRequiredWithoutAnalyzerNestedInput = {
+    create?: XOR<ScanCreateWithoutAnalyzerInput, ScanUncheckedCreateWithoutAnalyzerInput>
+    connectOrCreate?: ScanCreateOrConnectWithoutAnalyzerInput
+    upsert?: ScanUpsertWithoutAnalyzerInput
+    connect?: ScanWhereUniqueInput
+    update?: XOR<XOR<ScanUpdateToOneWithWhereWithoutAnalyzerInput, ScanUpdateWithoutAnalyzerInput>, ScanUncheckedUpdateWithoutAnalyzerInput>
+  }
+
+  export type AnalyzerPackageUpdateManyWithoutAnalyzerNestedInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutAnalyzerInput, AnalyzerPackageUncheckedCreateWithoutAnalyzerInput> | AnalyzerPackageCreateWithoutAnalyzerInput[] | AnalyzerPackageUncheckedCreateWithoutAnalyzerInput[]
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutAnalyzerInput | AnalyzerPackageCreateOrConnectWithoutAnalyzerInput[]
+    upsert?: AnalyzerPackageUpsertWithWhereUniqueWithoutAnalyzerInput | AnalyzerPackageUpsertWithWhereUniqueWithoutAnalyzerInput[]
+    createMany?: AnalyzerPackageCreateManyAnalyzerInputEnvelope
+    set?: AnalyzerPackageWhereUniqueInput | AnalyzerPackageWhereUniqueInput[]
+    disconnect?: AnalyzerPackageWhereUniqueInput | AnalyzerPackageWhereUniqueInput[]
+    delete?: AnalyzerPackageWhereUniqueInput | AnalyzerPackageWhereUniqueInput[]
+    connect?: AnalyzerPackageWhereUniqueInput | AnalyzerPackageWhereUniqueInput[]
+    update?: AnalyzerPackageUpdateWithWhereUniqueWithoutAnalyzerInput | AnalyzerPackageUpdateWithWhereUniqueWithoutAnalyzerInput[]
+    updateMany?: AnalyzerPackageUpdateManyWithWhereWithoutAnalyzerInput | AnalyzerPackageUpdateManyWithWhereWithoutAnalyzerInput[]
+    deleteMany?: AnalyzerPackageScalarWhereInput | AnalyzerPackageScalarWhereInput[]
+  }
+
+  export type AnalyzerPackageUncheckedUpdateManyWithoutAnalyzerNestedInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutAnalyzerInput, AnalyzerPackageUncheckedCreateWithoutAnalyzerInput> | AnalyzerPackageCreateWithoutAnalyzerInput[] | AnalyzerPackageUncheckedCreateWithoutAnalyzerInput[]
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutAnalyzerInput | AnalyzerPackageCreateOrConnectWithoutAnalyzerInput[]
+    upsert?: AnalyzerPackageUpsertWithWhereUniqueWithoutAnalyzerInput | AnalyzerPackageUpsertWithWhereUniqueWithoutAnalyzerInput[]
+    createMany?: AnalyzerPackageCreateManyAnalyzerInputEnvelope
+    set?: AnalyzerPackageWhereUniqueInput | AnalyzerPackageWhereUniqueInput[]
+    disconnect?: AnalyzerPackageWhereUniqueInput | AnalyzerPackageWhereUniqueInput[]
+    delete?: AnalyzerPackageWhereUniqueInput | AnalyzerPackageWhereUniqueInput[]
+    connect?: AnalyzerPackageWhereUniqueInput | AnalyzerPackageWhereUniqueInput[]
+    update?: AnalyzerPackageUpdateWithWhereUniqueWithoutAnalyzerInput | AnalyzerPackageUpdateWithWhereUniqueWithoutAnalyzerInput[]
+    updateMany?: AnalyzerPackageUpdateManyWithWhereWithoutAnalyzerInput | AnalyzerPackageUpdateManyWithWhereWithoutAnalyzerInput[]
+    deleteMany?: AnalyzerPackageScalarWhereInput | AnalyzerPackageScalarWhereInput[]
+  }
+
+  export type AnalyzerCreateNestedOneWithoutPackagesInput = {
+    create?: XOR<AnalyzerCreateWithoutPackagesInput, AnalyzerUncheckedCreateWithoutPackagesInput>
+    connectOrCreate?: AnalyzerCreateOrConnectWithoutPackagesInput
+    connect?: AnalyzerWhereUniqueInput
+  }
+
+  export type PackageAuthorCreateNestedManyWithoutAnalyzerPackageInput = {
+    create?: XOR<PackageAuthorCreateWithoutAnalyzerPackageInput, PackageAuthorUncheckedCreateWithoutAnalyzerPackageInput> | PackageAuthorCreateWithoutAnalyzerPackageInput[] | PackageAuthorUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: PackageAuthorCreateOrConnectWithoutAnalyzerPackageInput | PackageAuthorCreateOrConnectWithoutAnalyzerPackageInput[]
+    createMany?: PackageAuthorCreateManyAnalyzerPackageInputEnvelope
+    connect?: PackageAuthorWhereUniqueInput | PackageAuthorWhereUniqueInput[]
+  }
+
+  export type BinaryArtifactCreateNestedManyWithoutAnalyzerPackageInput = {
+    create?: XOR<BinaryArtifactCreateWithoutAnalyzerPackageInput, BinaryArtifactUncheckedCreateWithoutAnalyzerPackageInput> | BinaryArtifactCreateWithoutAnalyzerPackageInput[] | BinaryArtifactUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: BinaryArtifactCreateOrConnectWithoutAnalyzerPackageInput | BinaryArtifactCreateOrConnectWithoutAnalyzerPackageInput[]
+    createMany?: BinaryArtifactCreateManyAnalyzerPackageInputEnvelope
+    connect?: BinaryArtifactWhereUniqueInput | BinaryArtifactWhereUniqueInput[]
+  }
+
+  export type SourceArtifactCreateNestedManyWithoutAnalyzerPackageInput = {
+    create?: XOR<SourceArtifactCreateWithoutAnalyzerPackageInput, SourceArtifactUncheckedCreateWithoutAnalyzerPackageInput> | SourceArtifactCreateWithoutAnalyzerPackageInput[] | SourceArtifactUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: SourceArtifactCreateOrConnectWithoutAnalyzerPackageInput | SourceArtifactCreateOrConnectWithoutAnalyzerPackageInput[]
+    createMany?: SourceArtifactCreateManyAnalyzerPackageInputEnvelope
+    connect?: SourceArtifactWhereUniqueInput | SourceArtifactWhereUniqueInput[]
+  }
+
+  export type VcsCreateNestedManyWithoutAnalyzerPackageInput = {
+    create?: XOR<VcsCreateWithoutAnalyzerPackageInput, VcsUncheckedCreateWithoutAnalyzerPackageInput> | VcsCreateWithoutAnalyzerPackageInput[] | VcsUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: VcsCreateOrConnectWithoutAnalyzerPackageInput | VcsCreateOrConnectWithoutAnalyzerPackageInput[]
+    createMany?: VcsCreateManyAnalyzerPackageInputEnvelope
+    connect?: VcsWhereUniqueInput | VcsWhereUniqueInput[]
+  }
+
+  export type VcsProcessedCreateNestedManyWithoutAnalyzerPackageInput = {
+    create?: XOR<VcsProcessedCreateWithoutAnalyzerPackageInput, VcsProcessedUncheckedCreateWithoutAnalyzerPackageInput> | VcsProcessedCreateWithoutAnalyzerPackageInput[] | VcsProcessedUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: VcsProcessedCreateOrConnectWithoutAnalyzerPackageInput | VcsProcessedCreateOrConnectWithoutAnalyzerPackageInput[]
+    createMany?: VcsProcessedCreateManyAnalyzerPackageInputEnvelope
+    connect?: VcsProcessedWhereUniqueInput | VcsProcessedWhereUniqueInput[]
+  }
+
+  export type PackageAuthorUncheckedCreateNestedManyWithoutAnalyzerPackageInput = {
+    create?: XOR<PackageAuthorCreateWithoutAnalyzerPackageInput, PackageAuthorUncheckedCreateWithoutAnalyzerPackageInput> | PackageAuthorCreateWithoutAnalyzerPackageInput[] | PackageAuthorUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: PackageAuthorCreateOrConnectWithoutAnalyzerPackageInput | PackageAuthorCreateOrConnectWithoutAnalyzerPackageInput[]
+    createMany?: PackageAuthorCreateManyAnalyzerPackageInputEnvelope
+    connect?: PackageAuthorWhereUniqueInput | PackageAuthorWhereUniqueInput[]
+  }
+
+  export type BinaryArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput = {
+    create?: XOR<BinaryArtifactCreateWithoutAnalyzerPackageInput, BinaryArtifactUncheckedCreateWithoutAnalyzerPackageInput> | BinaryArtifactCreateWithoutAnalyzerPackageInput[] | BinaryArtifactUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: BinaryArtifactCreateOrConnectWithoutAnalyzerPackageInput | BinaryArtifactCreateOrConnectWithoutAnalyzerPackageInput[]
+    createMany?: BinaryArtifactCreateManyAnalyzerPackageInputEnvelope
+    connect?: BinaryArtifactWhereUniqueInput | BinaryArtifactWhereUniqueInput[]
+  }
+
+  export type SourceArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput = {
+    create?: XOR<SourceArtifactCreateWithoutAnalyzerPackageInput, SourceArtifactUncheckedCreateWithoutAnalyzerPackageInput> | SourceArtifactCreateWithoutAnalyzerPackageInput[] | SourceArtifactUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: SourceArtifactCreateOrConnectWithoutAnalyzerPackageInput | SourceArtifactCreateOrConnectWithoutAnalyzerPackageInput[]
+    createMany?: SourceArtifactCreateManyAnalyzerPackageInputEnvelope
+    connect?: SourceArtifactWhereUniqueInput | SourceArtifactWhereUniqueInput[]
+  }
+
+  export type VcsUncheckedCreateNestedManyWithoutAnalyzerPackageInput = {
+    create?: XOR<VcsCreateWithoutAnalyzerPackageInput, VcsUncheckedCreateWithoutAnalyzerPackageInput> | VcsCreateWithoutAnalyzerPackageInput[] | VcsUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: VcsCreateOrConnectWithoutAnalyzerPackageInput | VcsCreateOrConnectWithoutAnalyzerPackageInput[]
+    createMany?: VcsCreateManyAnalyzerPackageInputEnvelope
+    connect?: VcsWhereUniqueInput | VcsWhereUniqueInput[]
+  }
+
+  export type VcsProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput = {
+    create?: XOR<VcsProcessedCreateWithoutAnalyzerPackageInput, VcsProcessedUncheckedCreateWithoutAnalyzerPackageInput> | VcsProcessedCreateWithoutAnalyzerPackageInput[] | VcsProcessedUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: VcsProcessedCreateOrConnectWithoutAnalyzerPackageInput | VcsProcessedCreateOrConnectWithoutAnalyzerPackageInput[]
+    createMany?: VcsProcessedCreateManyAnalyzerPackageInputEnvelope
+    connect?: VcsProcessedWhereUniqueInput | VcsProcessedWhereUniqueInput[]
+  }
+
+  export type AnalyzerUpdateOneRequiredWithoutPackagesNestedInput = {
+    create?: XOR<AnalyzerCreateWithoutPackagesInput, AnalyzerUncheckedCreateWithoutPackagesInput>
+    connectOrCreate?: AnalyzerCreateOrConnectWithoutPackagesInput
+    upsert?: AnalyzerUpsertWithoutPackagesInput
+    connect?: AnalyzerWhereUniqueInput
+    update?: XOR<XOR<AnalyzerUpdateToOneWithWhereWithoutPackagesInput, AnalyzerUpdateWithoutPackagesInput>, AnalyzerUncheckedUpdateWithoutPackagesInput>
+  }
+
+  export type PackageAuthorUpdateManyWithoutAnalyzerPackageNestedInput = {
+    create?: XOR<PackageAuthorCreateWithoutAnalyzerPackageInput, PackageAuthorUncheckedCreateWithoutAnalyzerPackageInput> | PackageAuthorCreateWithoutAnalyzerPackageInput[] | PackageAuthorUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: PackageAuthorCreateOrConnectWithoutAnalyzerPackageInput | PackageAuthorCreateOrConnectWithoutAnalyzerPackageInput[]
+    upsert?: PackageAuthorUpsertWithWhereUniqueWithoutAnalyzerPackageInput | PackageAuthorUpsertWithWhereUniqueWithoutAnalyzerPackageInput[]
+    createMany?: PackageAuthorCreateManyAnalyzerPackageInputEnvelope
+    set?: PackageAuthorWhereUniqueInput | PackageAuthorWhereUniqueInput[]
+    disconnect?: PackageAuthorWhereUniqueInput | PackageAuthorWhereUniqueInput[]
+    delete?: PackageAuthorWhereUniqueInput | PackageAuthorWhereUniqueInput[]
+    connect?: PackageAuthorWhereUniqueInput | PackageAuthorWhereUniqueInput[]
+    update?: PackageAuthorUpdateWithWhereUniqueWithoutAnalyzerPackageInput | PackageAuthorUpdateWithWhereUniqueWithoutAnalyzerPackageInput[]
+    updateMany?: PackageAuthorUpdateManyWithWhereWithoutAnalyzerPackageInput | PackageAuthorUpdateManyWithWhereWithoutAnalyzerPackageInput[]
+    deleteMany?: PackageAuthorScalarWhereInput | PackageAuthorScalarWhereInput[]
+  }
+
+  export type BinaryArtifactUpdateManyWithoutAnalyzerPackageNestedInput = {
+    create?: XOR<BinaryArtifactCreateWithoutAnalyzerPackageInput, BinaryArtifactUncheckedCreateWithoutAnalyzerPackageInput> | BinaryArtifactCreateWithoutAnalyzerPackageInput[] | BinaryArtifactUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: BinaryArtifactCreateOrConnectWithoutAnalyzerPackageInput | BinaryArtifactCreateOrConnectWithoutAnalyzerPackageInput[]
+    upsert?: BinaryArtifactUpsertWithWhereUniqueWithoutAnalyzerPackageInput | BinaryArtifactUpsertWithWhereUniqueWithoutAnalyzerPackageInput[]
+    createMany?: BinaryArtifactCreateManyAnalyzerPackageInputEnvelope
+    set?: BinaryArtifactWhereUniqueInput | BinaryArtifactWhereUniqueInput[]
+    disconnect?: BinaryArtifactWhereUniqueInput | BinaryArtifactWhereUniqueInput[]
+    delete?: BinaryArtifactWhereUniqueInput | BinaryArtifactWhereUniqueInput[]
+    connect?: BinaryArtifactWhereUniqueInput | BinaryArtifactWhereUniqueInput[]
+    update?: BinaryArtifactUpdateWithWhereUniqueWithoutAnalyzerPackageInput | BinaryArtifactUpdateWithWhereUniqueWithoutAnalyzerPackageInput[]
+    updateMany?: BinaryArtifactUpdateManyWithWhereWithoutAnalyzerPackageInput | BinaryArtifactUpdateManyWithWhereWithoutAnalyzerPackageInput[]
+    deleteMany?: BinaryArtifactScalarWhereInput | BinaryArtifactScalarWhereInput[]
+  }
+
+  export type SourceArtifactUpdateManyWithoutAnalyzerPackageNestedInput = {
+    create?: XOR<SourceArtifactCreateWithoutAnalyzerPackageInput, SourceArtifactUncheckedCreateWithoutAnalyzerPackageInput> | SourceArtifactCreateWithoutAnalyzerPackageInput[] | SourceArtifactUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: SourceArtifactCreateOrConnectWithoutAnalyzerPackageInput | SourceArtifactCreateOrConnectWithoutAnalyzerPackageInput[]
+    upsert?: SourceArtifactUpsertWithWhereUniqueWithoutAnalyzerPackageInput | SourceArtifactUpsertWithWhereUniqueWithoutAnalyzerPackageInput[]
+    createMany?: SourceArtifactCreateManyAnalyzerPackageInputEnvelope
+    set?: SourceArtifactWhereUniqueInput | SourceArtifactWhereUniqueInput[]
+    disconnect?: SourceArtifactWhereUniqueInput | SourceArtifactWhereUniqueInput[]
+    delete?: SourceArtifactWhereUniqueInput | SourceArtifactWhereUniqueInput[]
+    connect?: SourceArtifactWhereUniqueInput | SourceArtifactWhereUniqueInput[]
+    update?: SourceArtifactUpdateWithWhereUniqueWithoutAnalyzerPackageInput | SourceArtifactUpdateWithWhereUniqueWithoutAnalyzerPackageInput[]
+    updateMany?: SourceArtifactUpdateManyWithWhereWithoutAnalyzerPackageInput | SourceArtifactUpdateManyWithWhereWithoutAnalyzerPackageInput[]
+    deleteMany?: SourceArtifactScalarWhereInput | SourceArtifactScalarWhereInput[]
+  }
+
+  export type VcsUpdateManyWithoutAnalyzerPackageNestedInput = {
+    create?: XOR<VcsCreateWithoutAnalyzerPackageInput, VcsUncheckedCreateWithoutAnalyzerPackageInput> | VcsCreateWithoutAnalyzerPackageInput[] | VcsUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: VcsCreateOrConnectWithoutAnalyzerPackageInput | VcsCreateOrConnectWithoutAnalyzerPackageInput[]
+    upsert?: VcsUpsertWithWhereUniqueWithoutAnalyzerPackageInput | VcsUpsertWithWhereUniqueWithoutAnalyzerPackageInput[]
+    createMany?: VcsCreateManyAnalyzerPackageInputEnvelope
+    set?: VcsWhereUniqueInput | VcsWhereUniqueInput[]
+    disconnect?: VcsWhereUniqueInput | VcsWhereUniqueInput[]
+    delete?: VcsWhereUniqueInput | VcsWhereUniqueInput[]
+    connect?: VcsWhereUniqueInput | VcsWhereUniqueInput[]
+    update?: VcsUpdateWithWhereUniqueWithoutAnalyzerPackageInput | VcsUpdateWithWhereUniqueWithoutAnalyzerPackageInput[]
+    updateMany?: VcsUpdateManyWithWhereWithoutAnalyzerPackageInput | VcsUpdateManyWithWhereWithoutAnalyzerPackageInput[]
+    deleteMany?: VcsScalarWhereInput | VcsScalarWhereInput[]
+  }
+
+  export type VcsProcessedUpdateManyWithoutAnalyzerPackageNestedInput = {
+    create?: XOR<VcsProcessedCreateWithoutAnalyzerPackageInput, VcsProcessedUncheckedCreateWithoutAnalyzerPackageInput> | VcsProcessedCreateWithoutAnalyzerPackageInput[] | VcsProcessedUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: VcsProcessedCreateOrConnectWithoutAnalyzerPackageInput | VcsProcessedCreateOrConnectWithoutAnalyzerPackageInput[]
+    upsert?: VcsProcessedUpsertWithWhereUniqueWithoutAnalyzerPackageInput | VcsProcessedUpsertWithWhereUniqueWithoutAnalyzerPackageInput[]
+    createMany?: VcsProcessedCreateManyAnalyzerPackageInputEnvelope
+    set?: VcsProcessedWhereUniqueInput | VcsProcessedWhereUniqueInput[]
+    disconnect?: VcsProcessedWhereUniqueInput | VcsProcessedWhereUniqueInput[]
+    delete?: VcsProcessedWhereUniqueInput | VcsProcessedWhereUniqueInput[]
+    connect?: VcsProcessedWhereUniqueInput | VcsProcessedWhereUniqueInput[]
+    update?: VcsProcessedUpdateWithWhereUniqueWithoutAnalyzerPackageInput | VcsProcessedUpdateWithWhereUniqueWithoutAnalyzerPackageInput[]
+    updateMany?: VcsProcessedUpdateManyWithWhereWithoutAnalyzerPackageInput | VcsProcessedUpdateManyWithWhereWithoutAnalyzerPackageInput[]
+    deleteMany?: VcsProcessedScalarWhereInput | VcsProcessedScalarWhereInput[]
+  }
+
+  export type PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageNestedInput = {
+    create?: XOR<PackageAuthorCreateWithoutAnalyzerPackageInput, PackageAuthorUncheckedCreateWithoutAnalyzerPackageInput> | PackageAuthorCreateWithoutAnalyzerPackageInput[] | PackageAuthorUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: PackageAuthorCreateOrConnectWithoutAnalyzerPackageInput | PackageAuthorCreateOrConnectWithoutAnalyzerPackageInput[]
+    upsert?: PackageAuthorUpsertWithWhereUniqueWithoutAnalyzerPackageInput | PackageAuthorUpsertWithWhereUniqueWithoutAnalyzerPackageInput[]
+    createMany?: PackageAuthorCreateManyAnalyzerPackageInputEnvelope
+    set?: PackageAuthorWhereUniqueInput | PackageAuthorWhereUniqueInput[]
+    disconnect?: PackageAuthorWhereUniqueInput | PackageAuthorWhereUniqueInput[]
+    delete?: PackageAuthorWhereUniqueInput | PackageAuthorWhereUniqueInput[]
+    connect?: PackageAuthorWhereUniqueInput | PackageAuthorWhereUniqueInput[]
+    update?: PackageAuthorUpdateWithWhereUniqueWithoutAnalyzerPackageInput | PackageAuthorUpdateWithWhereUniqueWithoutAnalyzerPackageInput[]
+    updateMany?: PackageAuthorUpdateManyWithWhereWithoutAnalyzerPackageInput | PackageAuthorUpdateManyWithWhereWithoutAnalyzerPackageInput[]
+    deleteMany?: PackageAuthorScalarWhereInput | PackageAuthorScalarWhereInput[]
+  }
+
+  export type BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput = {
+    create?: XOR<BinaryArtifactCreateWithoutAnalyzerPackageInput, BinaryArtifactUncheckedCreateWithoutAnalyzerPackageInput> | BinaryArtifactCreateWithoutAnalyzerPackageInput[] | BinaryArtifactUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: BinaryArtifactCreateOrConnectWithoutAnalyzerPackageInput | BinaryArtifactCreateOrConnectWithoutAnalyzerPackageInput[]
+    upsert?: BinaryArtifactUpsertWithWhereUniqueWithoutAnalyzerPackageInput | BinaryArtifactUpsertWithWhereUniqueWithoutAnalyzerPackageInput[]
+    createMany?: BinaryArtifactCreateManyAnalyzerPackageInputEnvelope
+    set?: BinaryArtifactWhereUniqueInput | BinaryArtifactWhereUniqueInput[]
+    disconnect?: BinaryArtifactWhereUniqueInput | BinaryArtifactWhereUniqueInput[]
+    delete?: BinaryArtifactWhereUniqueInput | BinaryArtifactWhereUniqueInput[]
+    connect?: BinaryArtifactWhereUniqueInput | BinaryArtifactWhereUniqueInput[]
+    update?: BinaryArtifactUpdateWithWhereUniqueWithoutAnalyzerPackageInput | BinaryArtifactUpdateWithWhereUniqueWithoutAnalyzerPackageInput[]
+    updateMany?: BinaryArtifactUpdateManyWithWhereWithoutAnalyzerPackageInput | BinaryArtifactUpdateManyWithWhereWithoutAnalyzerPackageInput[]
+    deleteMany?: BinaryArtifactScalarWhereInput | BinaryArtifactScalarWhereInput[]
+  }
+
+  export type SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput = {
+    create?: XOR<SourceArtifactCreateWithoutAnalyzerPackageInput, SourceArtifactUncheckedCreateWithoutAnalyzerPackageInput> | SourceArtifactCreateWithoutAnalyzerPackageInput[] | SourceArtifactUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: SourceArtifactCreateOrConnectWithoutAnalyzerPackageInput | SourceArtifactCreateOrConnectWithoutAnalyzerPackageInput[]
+    upsert?: SourceArtifactUpsertWithWhereUniqueWithoutAnalyzerPackageInput | SourceArtifactUpsertWithWhereUniqueWithoutAnalyzerPackageInput[]
+    createMany?: SourceArtifactCreateManyAnalyzerPackageInputEnvelope
+    set?: SourceArtifactWhereUniqueInput | SourceArtifactWhereUniqueInput[]
+    disconnect?: SourceArtifactWhereUniqueInput | SourceArtifactWhereUniqueInput[]
+    delete?: SourceArtifactWhereUniqueInput | SourceArtifactWhereUniqueInput[]
+    connect?: SourceArtifactWhereUniqueInput | SourceArtifactWhereUniqueInput[]
+    update?: SourceArtifactUpdateWithWhereUniqueWithoutAnalyzerPackageInput | SourceArtifactUpdateWithWhereUniqueWithoutAnalyzerPackageInput[]
+    updateMany?: SourceArtifactUpdateManyWithWhereWithoutAnalyzerPackageInput | SourceArtifactUpdateManyWithWhereWithoutAnalyzerPackageInput[]
+    deleteMany?: SourceArtifactScalarWhereInput | SourceArtifactScalarWhereInput[]
+  }
+
+  export type VcsUncheckedUpdateManyWithoutAnalyzerPackageNestedInput = {
+    create?: XOR<VcsCreateWithoutAnalyzerPackageInput, VcsUncheckedCreateWithoutAnalyzerPackageInput> | VcsCreateWithoutAnalyzerPackageInput[] | VcsUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: VcsCreateOrConnectWithoutAnalyzerPackageInput | VcsCreateOrConnectWithoutAnalyzerPackageInput[]
+    upsert?: VcsUpsertWithWhereUniqueWithoutAnalyzerPackageInput | VcsUpsertWithWhereUniqueWithoutAnalyzerPackageInput[]
+    createMany?: VcsCreateManyAnalyzerPackageInputEnvelope
+    set?: VcsWhereUniqueInput | VcsWhereUniqueInput[]
+    disconnect?: VcsWhereUniqueInput | VcsWhereUniqueInput[]
+    delete?: VcsWhereUniqueInput | VcsWhereUniqueInput[]
+    connect?: VcsWhereUniqueInput | VcsWhereUniqueInput[]
+    update?: VcsUpdateWithWhereUniqueWithoutAnalyzerPackageInput | VcsUpdateWithWhereUniqueWithoutAnalyzerPackageInput[]
+    updateMany?: VcsUpdateManyWithWhereWithoutAnalyzerPackageInput | VcsUpdateManyWithWhereWithoutAnalyzerPackageInput[]
+    deleteMany?: VcsScalarWhereInput | VcsScalarWhereInput[]
+  }
+
+  export type VcsProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput = {
+    create?: XOR<VcsProcessedCreateWithoutAnalyzerPackageInput, VcsProcessedUncheckedCreateWithoutAnalyzerPackageInput> | VcsProcessedCreateWithoutAnalyzerPackageInput[] | VcsProcessedUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: VcsProcessedCreateOrConnectWithoutAnalyzerPackageInput | VcsProcessedCreateOrConnectWithoutAnalyzerPackageInput[]
+    upsert?: VcsProcessedUpsertWithWhereUniqueWithoutAnalyzerPackageInput | VcsProcessedUpsertWithWhereUniqueWithoutAnalyzerPackageInput[]
+    createMany?: VcsProcessedCreateManyAnalyzerPackageInputEnvelope
+    set?: VcsProcessedWhereUniqueInput | VcsProcessedWhereUniqueInput[]
+    disconnect?: VcsProcessedWhereUniqueInput | VcsProcessedWhereUniqueInput[]
+    delete?: VcsProcessedWhereUniqueInput | VcsProcessedWhereUniqueInput[]
+    connect?: VcsProcessedWhereUniqueInput | VcsProcessedWhereUniqueInput[]
+    update?: VcsProcessedUpdateWithWhereUniqueWithoutAnalyzerPackageInput | VcsProcessedUpdateWithWhereUniqueWithoutAnalyzerPackageInput[]
+    updateMany?: VcsProcessedUpdateManyWithWhereWithoutAnalyzerPackageInput | VcsProcessedUpdateManyWithWhereWithoutAnalyzerPackageInput[]
+    deleteMany?: VcsProcessedScalarWhereInput | VcsProcessedScalarWhereInput[]
+  }
+
+  export type AnalyzerPackageCreateNestedOneWithoutAuthorsInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutAuthorsInput, AnalyzerPackageUncheckedCreateWithoutAuthorsInput>
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutAuthorsInput
+    connect?: AnalyzerPackageWhereUniqueInput
+  }
+
+  export type AnalyzerPackageUpdateOneRequiredWithoutAuthorsNestedInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutAuthorsInput, AnalyzerPackageUncheckedCreateWithoutAuthorsInput>
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutAuthorsInput
+    upsert?: AnalyzerPackageUpsertWithoutAuthorsInput
+    connect?: AnalyzerPackageWhereUniqueInput
+    update?: XOR<XOR<AnalyzerPackageUpdateToOneWithWhereWithoutAuthorsInput, AnalyzerPackageUpdateWithoutAuthorsInput>, AnalyzerPackageUncheckedUpdateWithoutAuthorsInput>
+  }
+
+  export type AnalyzerPackageCreateNestedOneWithoutBinariesInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutBinariesInput, AnalyzerPackageUncheckedCreateWithoutBinariesInput>
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutBinariesInput
+    connect?: AnalyzerPackageWhereUniqueInput
+  }
+
+  export type AnalyzerPackageUpdateOneRequiredWithoutBinariesNestedInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutBinariesInput, AnalyzerPackageUncheckedCreateWithoutBinariesInput>
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutBinariesInput
+    upsert?: AnalyzerPackageUpsertWithoutBinariesInput
+    connect?: AnalyzerPackageWhereUniqueInput
+    update?: XOR<XOR<AnalyzerPackageUpdateToOneWithWhereWithoutBinariesInput, AnalyzerPackageUpdateWithoutBinariesInput>, AnalyzerPackageUncheckedUpdateWithoutBinariesInput>
+  }
+
+  export type AnalyzerPackageCreateNestedOneWithoutSourcesInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutSourcesInput, AnalyzerPackageUncheckedCreateWithoutSourcesInput>
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutSourcesInput
+    connect?: AnalyzerPackageWhereUniqueInput
+  }
+
+  export type AnalyzerPackageUpdateOneRequiredWithoutSourcesNestedInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutSourcesInput, AnalyzerPackageUncheckedCreateWithoutSourcesInput>
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutSourcesInput
+    upsert?: AnalyzerPackageUpsertWithoutSourcesInput
+    connect?: AnalyzerPackageWhereUniqueInput
+    update?: XOR<XOR<AnalyzerPackageUpdateToOneWithWhereWithoutSourcesInput, AnalyzerPackageUpdateWithoutSourcesInput>, AnalyzerPackageUncheckedUpdateWithoutSourcesInput>
+  }
+
+  export type AnalyzerPackageCreateNestedOneWithoutVcsListInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutVcsListInput, AnalyzerPackageUncheckedCreateWithoutVcsListInput>
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutVcsListInput
+    connect?: AnalyzerPackageWhereUniqueInput
+  }
+
+  export type AnalyzerPackageUpdateOneRequiredWithoutVcsListNestedInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutVcsListInput, AnalyzerPackageUncheckedCreateWithoutVcsListInput>
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutVcsListInput
+    upsert?: AnalyzerPackageUpsertWithoutVcsListInput
+    connect?: AnalyzerPackageWhereUniqueInput
+    update?: XOR<XOR<AnalyzerPackageUpdateToOneWithWhereWithoutVcsListInput, AnalyzerPackageUpdateWithoutVcsListInput>, AnalyzerPackageUncheckedUpdateWithoutVcsListInput>
+  }
+
+  export type AnalyzerPackageCreateNestedOneWithoutVcsProcessedInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutVcsProcessedInput, AnalyzerPackageUncheckedCreateWithoutVcsProcessedInput>
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutVcsProcessedInput
+    connect?: AnalyzerPackageWhereUniqueInput
+  }
+
+  export type AnalyzerPackageUpdateOneRequiredWithoutVcsProcessedNestedInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutVcsProcessedInput, AnalyzerPackageUncheckedCreateWithoutVcsProcessedInput>
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutVcsProcessedInput
+    upsert?: AnalyzerPackageUpsertWithoutVcsProcessedInput
+    connect?: AnalyzerPackageWhereUniqueInput
+    update?: XOR<XOR<AnalyzerPackageUpdateToOneWithWhereWithoutVcsProcessedInput, AnalyzerPackageUpdateWithoutVcsProcessedInput>, AnalyzerPackageUncheckedUpdateWithoutVcsProcessedInput>
+  }
+
+  export type NestedStringFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type ProjectCreateWithoutUserInput = {
+    id: string
+    name: string
+    createdAt?: Date | string
+    scans?: ScanCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutUserInput = {
+    id: string
+    name: string
+    createdAt?: Date | string
+    scans?: ScanUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutUserInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput>
+  }
+
+  export type ProjectCreateManyUserInputEnvelope = {
+    data: ProjectCreateManyUserInput | ProjectCreateManyUserInput[]
+  }
+
+  export type ProjectUpsertWithWhereUniqueWithoutUserInput = {
+    where: ProjectWhereUniqueInput
+    update: XOR<ProjectUpdateWithoutUserInput, ProjectUncheckedUpdateWithoutUserInput>
+    create: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput>
+  }
+
+  export type ProjectUpdateWithWhereUniqueWithoutUserInput = {
+    where: ProjectWhereUniqueInput
+    data: XOR<ProjectUpdateWithoutUserInput, ProjectUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ProjectUpdateManyWithWhereWithoutUserInput = {
+    where: ProjectScalarWhereInput
+    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type ProjectScalarWhereInput = {
+    AND?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+    OR?: ProjectScalarWhereInput[]
+    NOT?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+    id?: StringFilter<"Project"> | string
+    name?: StringFilter<"Project"> | string
+    createdAt?: DateTimeFilter<"Project"> | Date | string
+    userId?: StringFilter<"Project"> | string
+  }
+
+  export type UserCreateWithoutProjectsInput = {
+    userId: string
+    userName?: string | null
+    email?: string | null
+    password?: string | null
+    createdAt?: Date | string | null
+  }
+
+  export type UserUncheckedCreateWithoutProjectsInput = {
+    userId: string
+    userName?: string | null
+    email?: string | null
+    password?: string | null
+    createdAt?: Date | string | null
+  }
+
+  export type UserCreateOrConnectWithoutProjectsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
+  }
+
+  export type ScanCreateWithoutProjectInput = {
+    createdAt?: Date | string
+    analyzer?: AnalyzerCreateNestedOneWithoutScanInput
+  }
+
+  export type ScanUncheckedCreateWithoutProjectInput = {
+    id?: number
+    createdAt?: Date | string
+    analyzer?: AnalyzerUncheckedCreateNestedOneWithoutScanInput
+  }
+
+  export type ScanCreateOrConnectWithoutProjectInput = {
+    where: ScanWhereUniqueInput
+    create: XOR<ScanCreateWithoutProjectInput, ScanUncheckedCreateWithoutProjectInput>
+  }
+
+  export type ScanCreateManyProjectInputEnvelope = {
+    data: ScanCreateManyProjectInput | ScanCreateManyProjectInput[]
+  }
+
+  export type UserUpsertWithoutProjectsInput = {
+    update: XOR<UserUpdateWithoutProjectsInput, UserUncheckedUpdateWithoutProjectsInput>
+    create: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutProjectsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutProjectsInput, UserUncheckedUpdateWithoutProjectsInput>
+  }
+
+  export type UserUpdateWithoutProjectsInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    userName?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type UserUncheckedUpdateWithoutProjectsInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    userName?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ScanUpsertWithWhereUniqueWithoutProjectInput = {
+    where: ScanWhereUniqueInput
+    update: XOR<ScanUpdateWithoutProjectInput, ScanUncheckedUpdateWithoutProjectInput>
+    create: XOR<ScanCreateWithoutProjectInput, ScanUncheckedCreateWithoutProjectInput>
+  }
+
+  export type ScanUpdateWithWhereUniqueWithoutProjectInput = {
+    where: ScanWhereUniqueInput
+    data: XOR<ScanUpdateWithoutProjectInput, ScanUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type ScanUpdateManyWithWhereWithoutProjectInput = {
+    where: ScanScalarWhereInput
+    data: XOR<ScanUpdateManyMutationInput, ScanUncheckedUpdateManyWithoutProjectInput>
+  }
+
+  export type ScanScalarWhereInput = {
+    AND?: ScanScalarWhereInput | ScanScalarWhereInput[]
+    OR?: ScanScalarWhereInput[]
+    NOT?: ScanScalarWhereInput | ScanScalarWhereInput[]
+    id?: IntFilter<"Scan"> | number
+    createdAt?: DateTimeFilter<"Scan"> | Date | string
+    projectId?: StringFilter<"Scan"> | string
+  }
+
+  export type ProjectCreateWithoutScansInput = {
+    id: string
+    name: string
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutProjectsInput
+  }
+
+  export type ProjectUncheckedCreateWithoutScansInput = {
+    id: string
+    name: string
+    createdAt?: Date | string
+    userId: string
+  }
+
+  export type ProjectCreateOrConnectWithoutScansInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutScansInput, ProjectUncheckedCreateWithoutScansInput>
+  }
+
+  export type AnalyzerCreateWithoutScanInput = {
+    createdAt?: Date | string
+    packages?: AnalyzerPackageCreateNestedManyWithoutAnalyzerInput
+  }
+
+  export type AnalyzerUncheckedCreateWithoutScanInput = {
+    id?: number
+    createdAt?: Date | string
+    packages?: AnalyzerPackageUncheckedCreateNestedManyWithoutAnalyzerInput
+  }
+
+  export type AnalyzerCreateOrConnectWithoutScanInput = {
+    where: AnalyzerWhereUniqueInput
+    create: XOR<AnalyzerCreateWithoutScanInput, AnalyzerUncheckedCreateWithoutScanInput>
+  }
+
+  export type ProjectUpsertWithoutScansInput = {
+    update: XOR<ProjectUpdateWithoutScansInput, ProjectUncheckedUpdateWithoutScansInput>
+    create: XOR<ProjectCreateWithoutScansInput, ProjectUncheckedCreateWithoutScansInput>
+    where?: ProjectWhereInput
+  }
+
+  export type ProjectUpdateToOneWithWhereWithoutScansInput = {
+    where?: ProjectWhereInput
+    data: XOR<ProjectUpdateWithoutScansInput, ProjectUncheckedUpdateWithoutScansInput>
+  }
+
+  export type ProjectUpdateWithoutScansInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutProjectsNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutScansInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type AnalyzerUpsertWithoutScanInput = {
+    update: XOR<AnalyzerUpdateWithoutScanInput, AnalyzerUncheckedUpdateWithoutScanInput>
+    create: XOR<AnalyzerCreateWithoutScanInput, AnalyzerUncheckedCreateWithoutScanInput>
+    where?: AnalyzerWhereInput
+  }
+
+  export type AnalyzerUpdateToOneWithWhereWithoutScanInput = {
+    where?: AnalyzerWhereInput
+    data: XOR<AnalyzerUpdateWithoutScanInput, AnalyzerUncheckedUpdateWithoutScanInput>
+  }
+
+  export type AnalyzerUpdateWithoutScanInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packages?: AnalyzerPackageUpdateManyWithoutAnalyzerNestedInput
+  }
+
+  export type AnalyzerUncheckedUpdateWithoutScanInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packages?: AnalyzerPackageUncheckedUpdateManyWithoutAnalyzerNestedInput
+  }
+
+  export type ScanCreateWithoutAnalyzerInput = {
+    createdAt?: Date | string
+    project: ProjectCreateNestedOneWithoutScansInput
+  }
+
+  export type ScanUncheckedCreateWithoutAnalyzerInput = {
+    id?: number
+    createdAt?: Date | string
+    projectId: string
+  }
+
+  export type ScanCreateOrConnectWithoutAnalyzerInput = {
+    where: ScanWhereUniqueInput
+    create: XOR<ScanCreateWithoutAnalyzerInput, ScanUncheckedCreateWithoutAnalyzerInput>
+  }
+
+  export type AnalyzerPackageCreateWithoutAnalyzerInput = {
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    authors?: PackageAuthorCreateNestedManyWithoutAnalyzerPackageInput
+    binaries?: BinaryArtifactCreateNestedManyWithoutAnalyzerPackageInput
+    sources?: SourceArtifactCreateNestedManyWithoutAnalyzerPackageInput
+    vcsList?: VcsCreateNestedManyWithoutAnalyzerPackageInput
+    vcsProcessed?: VcsProcessedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageUncheckedCreateWithoutAnalyzerInput = {
+    id?: number
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    authors?: PackageAuthorUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    binaries?: BinaryArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    sources?: SourceArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    vcsList?: VcsUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    vcsProcessed?: VcsProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageCreateOrConnectWithoutAnalyzerInput = {
+    where: AnalyzerPackageWhereUniqueInput
+    create: XOR<AnalyzerPackageCreateWithoutAnalyzerInput, AnalyzerPackageUncheckedCreateWithoutAnalyzerInput>
+  }
+
+  export type AnalyzerPackageCreateManyAnalyzerInputEnvelope = {
+    data: AnalyzerPackageCreateManyAnalyzerInput | AnalyzerPackageCreateManyAnalyzerInput[]
+  }
+
+  export type ScanUpsertWithoutAnalyzerInput = {
+    update: XOR<ScanUpdateWithoutAnalyzerInput, ScanUncheckedUpdateWithoutAnalyzerInput>
+    create: XOR<ScanCreateWithoutAnalyzerInput, ScanUncheckedCreateWithoutAnalyzerInput>
+    where?: ScanWhereInput
+  }
+
+  export type ScanUpdateToOneWithWhereWithoutAnalyzerInput = {
+    where?: ScanWhereInput
+    data: XOR<ScanUpdateWithoutAnalyzerInput, ScanUncheckedUpdateWithoutAnalyzerInput>
+  }
+
+  export type ScanUpdateWithoutAnalyzerInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    project?: ProjectUpdateOneRequiredWithoutScansNestedInput
+  }
+
+  export type ScanUncheckedUpdateWithoutAnalyzerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    projectId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type AnalyzerPackageUpsertWithWhereUniqueWithoutAnalyzerInput = {
+    where: AnalyzerPackageWhereUniqueInput
+    update: XOR<AnalyzerPackageUpdateWithoutAnalyzerInput, AnalyzerPackageUncheckedUpdateWithoutAnalyzerInput>
+    create: XOR<AnalyzerPackageCreateWithoutAnalyzerInput, AnalyzerPackageUncheckedCreateWithoutAnalyzerInput>
+  }
+
+  export type AnalyzerPackageUpdateWithWhereUniqueWithoutAnalyzerInput = {
+    where: AnalyzerPackageWhereUniqueInput
+    data: XOR<AnalyzerPackageUpdateWithoutAnalyzerInput, AnalyzerPackageUncheckedUpdateWithoutAnalyzerInput>
+  }
+
+  export type AnalyzerPackageUpdateManyWithWhereWithoutAnalyzerInput = {
+    where: AnalyzerPackageScalarWhereInput
+    data: XOR<AnalyzerPackageUpdateManyMutationInput, AnalyzerPackageUncheckedUpdateManyWithoutAnalyzerInput>
+  }
+
+  export type AnalyzerPackageScalarWhereInput = {
+    AND?: AnalyzerPackageScalarWhereInput | AnalyzerPackageScalarWhereInput[]
+    OR?: AnalyzerPackageScalarWhereInput[]
+    NOT?: AnalyzerPackageScalarWhereInput | AnalyzerPackageScalarWhereInput[]
+    id?: IntFilter<"AnalyzerPackage"> | number
+    createdAt?: DateTimeFilter<"AnalyzerPackage"> | Date | string
+    packId?: StringFilter<"AnalyzerPackage"> | string
+    purl?: StringFilter<"AnalyzerPackage"> | string
+    description?: StringFilter<"AnalyzerPackage"> | string
+    homepageUrl?: StringFilter<"AnalyzerPackage"> | string
+    analyzerId?: IntFilter<"AnalyzerPackage"> | number
+  }
+
+  export type AnalyzerCreateWithoutPackagesInput = {
+    createdAt?: Date | string
+    scan: ScanCreateNestedOneWithoutAnalyzerInput
+  }
+
+  export type AnalyzerUncheckedCreateWithoutPackagesInput = {
+    id?: number
+    createdAt?: Date | string
+    scanId: number
+  }
+
+  export type AnalyzerCreateOrConnectWithoutPackagesInput = {
+    where: AnalyzerWhereUniqueInput
+    create: XOR<AnalyzerCreateWithoutPackagesInput, AnalyzerUncheckedCreateWithoutPackagesInput>
+  }
+
+  export type PackageAuthorCreateWithoutAnalyzerPackageInput = {
+    name: string
+  }
+
+  export type PackageAuthorUncheckedCreateWithoutAnalyzerPackageInput = {
+    id?: number
+    name: string
+  }
+
+  export type PackageAuthorCreateOrConnectWithoutAnalyzerPackageInput = {
+    where: PackageAuthorWhereUniqueInput
+    create: XOR<PackageAuthorCreateWithoutAnalyzerPackageInput, PackageAuthorUncheckedCreateWithoutAnalyzerPackageInput>
+  }
+
+  export type PackageAuthorCreateManyAnalyzerPackageInputEnvelope = {
+    data: PackageAuthorCreateManyAnalyzerPackageInput | PackageAuthorCreateManyAnalyzerPackageInput[]
+  }
+
+  export type BinaryArtifactCreateWithoutAnalyzerPackageInput = {
+    url: string
+  }
+
+  export type BinaryArtifactUncheckedCreateWithoutAnalyzerPackageInput = {
+    id?: number
+    url: string
+  }
+
+  export type BinaryArtifactCreateOrConnectWithoutAnalyzerPackageInput = {
+    where: BinaryArtifactWhereUniqueInput
+    create: XOR<BinaryArtifactCreateWithoutAnalyzerPackageInput, BinaryArtifactUncheckedCreateWithoutAnalyzerPackageInput>
+  }
+
+  export type BinaryArtifactCreateManyAnalyzerPackageInputEnvelope = {
+    data: BinaryArtifactCreateManyAnalyzerPackageInput | BinaryArtifactCreateManyAnalyzerPackageInput[]
+  }
+
+  export type SourceArtifactCreateWithoutAnalyzerPackageInput = {
+    url: string
+  }
+
+  export type SourceArtifactUncheckedCreateWithoutAnalyzerPackageInput = {
+    id?: number
+    url: string
+  }
+
+  export type SourceArtifactCreateOrConnectWithoutAnalyzerPackageInput = {
+    where: SourceArtifactWhereUniqueInput
+    create: XOR<SourceArtifactCreateWithoutAnalyzerPackageInput, SourceArtifactUncheckedCreateWithoutAnalyzerPackageInput>
+  }
+
+  export type SourceArtifactCreateManyAnalyzerPackageInputEnvelope = {
+    data: SourceArtifactCreateManyAnalyzerPackageInput | SourceArtifactCreateManyAnalyzerPackageInput[]
+  }
+
+  export type VcsCreateWithoutAnalyzerPackageInput = {
+    type: string
+    url: string
+    revision: string
+    path: string
+  }
+
+  export type VcsUncheckedCreateWithoutAnalyzerPackageInput = {
+    id?: number
+    type: string
+    url: string
+    revision: string
+    path: string
+  }
+
+  export type VcsCreateOrConnectWithoutAnalyzerPackageInput = {
+    where: VcsWhereUniqueInput
+    create: XOR<VcsCreateWithoutAnalyzerPackageInput, VcsUncheckedCreateWithoutAnalyzerPackageInput>
+  }
+
+  export type VcsCreateManyAnalyzerPackageInputEnvelope = {
+    data: VcsCreateManyAnalyzerPackageInput | VcsCreateManyAnalyzerPackageInput[]
+  }
+
+  export type VcsProcessedCreateWithoutAnalyzerPackageInput = {
+    type: string
+    url: string
+    revision: string
+    path: string
+  }
+
+  export type VcsProcessedUncheckedCreateWithoutAnalyzerPackageInput = {
+    id?: number
+    type: string
+    url: string
+    revision: string
+    path: string
+  }
+
+  export type VcsProcessedCreateOrConnectWithoutAnalyzerPackageInput = {
+    where: VcsProcessedWhereUniqueInput
+    create: XOR<VcsProcessedCreateWithoutAnalyzerPackageInput, VcsProcessedUncheckedCreateWithoutAnalyzerPackageInput>
+  }
+
+  export type VcsProcessedCreateManyAnalyzerPackageInputEnvelope = {
+    data: VcsProcessedCreateManyAnalyzerPackageInput | VcsProcessedCreateManyAnalyzerPackageInput[]
+  }
+
+  export type AnalyzerUpsertWithoutPackagesInput = {
+    update: XOR<AnalyzerUpdateWithoutPackagesInput, AnalyzerUncheckedUpdateWithoutPackagesInput>
+    create: XOR<AnalyzerCreateWithoutPackagesInput, AnalyzerUncheckedCreateWithoutPackagesInput>
+    where?: AnalyzerWhereInput
+  }
+
+  export type AnalyzerUpdateToOneWithWhereWithoutPackagesInput = {
+    where?: AnalyzerWhereInput
+    data: XOR<AnalyzerUpdateWithoutPackagesInput, AnalyzerUncheckedUpdateWithoutPackagesInput>
+  }
+
+  export type AnalyzerUpdateWithoutPackagesInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scan?: ScanUpdateOneRequiredWithoutAnalyzerNestedInput
+  }
+
+  export type AnalyzerUncheckedUpdateWithoutPackagesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scanId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PackageAuthorUpsertWithWhereUniqueWithoutAnalyzerPackageInput = {
+    where: PackageAuthorWhereUniqueInput
+    update: XOR<PackageAuthorUpdateWithoutAnalyzerPackageInput, PackageAuthorUncheckedUpdateWithoutAnalyzerPackageInput>
+    create: XOR<PackageAuthorCreateWithoutAnalyzerPackageInput, PackageAuthorUncheckedCreateWithoutAnalyzerPackageInput>
+  }
+
+  export type PackageAuthorUpdateWithWhereUniqueWithoutAnalyzerPackageInput = {
+    where: PackageAuthorWhereUniqueInput
+    data: XOR<PackageAuthorUpdateWithoutAnalyzerPackageInput, PackageAuthorUncheckedUpdateWithoutAnalyzerPackageInput>
+  }
+
+  export type PackageAuthorUpdateManyWithWhereWithoutAnalyzerPackageInput = {
+    where: PackageAuthorScalarWhereInput
+    data: XOR<PackageAuthorUpdateManyMutationInput, PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageInput>
+  }
+
+  export type PackageAuthorScalarWhereInput = {
+    AND?: PackageAuthorScalarWhereInput | PackageAuthorScalarWhereInput[]
+    OR?: PackageAuthorScalarWhereInput[]
+    NOT?: PackageAuthorScalarWhereInput | PackageAuthorScalarWhereInput[]
+    id?: IntFilter<"PackageAuthor"> | number
+    name?: StringFilter<"PackageAuthor"> | string
+    packageId?: IntFilter<"PackageAuthor"> | number
+  }
+
+  export type BinaryArtifactUpsertWithWhereUniqueWithoutAnalyzerPackageInput = {
+    where: BinaryArtifactWhereUniqueInput
+    update: XOR<BinaryArtifactUpdateWithoutAnalyzerPackageInput, BinaryArtifactUncheckedUpdateWithoutAnalyzerPackageInput>
+    create: XOR<BinaryArtifactCreateWithoutAnalyzerPackageInput, BinaryArtifactUncheckedCreateWithoutAnalyzerPackageInput>
+  }
+
+  export type BinaryArtifactUpdateWithWhereUniqueWithoutAnalyzerPackageInput = {
+    where: BinaryArtifactWhereUniqueInput
+    data: XOR<BinaryArtifactUpdateWithoutAnalyzerPackageInput, BinaryArtifactUncheckedUpdateWithoutAnalyzerPackageInput>
+  }
+
+  export type BinaryArtifactUpdateManyWithWhereWithoutAnalyzerPackageInput = {
+    where: BinaryArtifactScalarWhereInput
+    data: XOR<BinaryArtifactUpdateManyMutationInput, BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageInput>
+  }
+
+  export type BinaryArtifactScalarWhereInput = {
+    AND?: BinaryArtifactScalarWhereInput | BinaryArtifactScalarWhereInput[]
+    OR?: BinaryArtifactScalarWhereInput[]
+    NOT?: BinaryArtifactScalarWhereInput | BinaryArtifactScalarWhereInput[]
+    id?: IntFilter<"BinaryArtifact"> | number
+    url?: StringFilter<"BinaryArtifact"> | string
+    packageId?: IntFilter<"BinaryArtifact"> | number
+  }
+
+  export type SourceArtifactUpsertWithWhereUniqueWithoutAnalyzerPackageInput = {
+    where: SourceArtifactWhereUniqueInput
+    update: XOR<SourceArtifactUpdateWithoutAnalyzerPackageInput, SourceArtifactUncheckedUpdateWithoutAnalyzerPackageInput>
+    create: XOR<SourceArtifactCreateWithoutAnalyzerPackageInput, SourceArtifactUncheckedCreateWithoutAnalyzerPackageInput>
+  }
+
+  export type SourceArtifactUpdateWithWhereUniqueWithoutAnalyzerPackageInput = {
+    where: SourceArtifactWhereUniqueInput
+    data: XOR<SourceArtifactUpdateWithoutAnalyzerPackageInput, SourceArtifactUncheckedUpdateWithoutAnalyzerPackageInput>
+  }
+
+  export type SourceArtifactUpdateManyWithWhereWithoutAnalyzerPackageInput = {
+    where: SourceArtifactScalarWhereInput
+    data: XOR<SourceArtifactUpdateManyMutationInput, SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageInput>
+  }
+
+  export type SourceArtifactScalarWhereInput = {
+    AND?: SourceArtifactScalarWhereInput | SourceArtifactScalarWhereInput[]
+    OR?: SourceArtifactScalarWhereInput[]
+    NOT?: SourceArtifactScalarWhereInput | SourceArtifactScalarWhereInput[]
+    id?: IntFilter<"SourceArtifact"> | number
+    url?: StringFilter<"SourceArtifact"> | string
+    packageId?: IntFilter<"SourceArtifact"> | number
+  }
+
+  export type VcsUpsertWithWhereUniqueWithoutAnalyzerPackageInput = {
+    where: VcsWhereUniqueInput
+    update: XOR<VcsUpdateWithoutAnalyzerPackageInput, VcsUncheckedUpdateWithoutAnalyzerPackageInput>
+    create: XOR<VcsCreateWithoutAnalyzerPackageInput, VcsUncheckedCreateWithoutAnalyzerPackageInput>
+  }
+
+  export type VcsUpdateWithWhereUniqueWithoutAnalyzerPackageInput = {
+    where: VcsWhereUniqueInput
+    data: XOR<VcsUpdateWithoutAnalyzerPackageInput, VcsUncheckedUpdateWithoutAnalyzerPackageInput>
+  }
+
+  export type VcsUpdateManyWithWhereWithoutAnalyzerPackageInput = {
+    where: VcsScalarWhereInput
+    data: XOR<VcsUpdateManyMutationInput, VcsUncheckedUpdateManyWithoutAnalyzerPackageInput>
+  }
+
+  export type VcsScalarWhereInput = {
+    AND?: VcsScalarWhereInput | VcsScalarWhereInput[]
+    OR?: VcsScalarWhereInput[]
+    NOT?: VcsScalarWhereInput | VcsScalarWhereInput[]
+    id?: IntFilter<"Vcs"> | number
+    type?: StringFilter<"Vcs"> | string
+    url?: StringFilter<"Vcs"> | string
+    revision?: StringFilter<"Vcs"> | string
+    path?: StringFilter<"Vcs"> | string
+    packageId?: IntFilter<"Vcs"> | number
+  }
+
+  export type VcsProcessedUpsertWithWhereUniqueWithoutAnalyzerPackageInput = {
+    where: VcsProcessedWhereUniqueInput
+    update: XOR<VcsProcessedUpdateWithoutAnalyzerPackageInput, VcsProcessedUncheckedUpdateWithoutAnalyzerPackageInput>
+    create: XOR<VcsProcessedCreateWithoutAnalyzerPackageInput, VcsProcessedUncheckedCreateWithoutAnalyzerPackageInput>
+  }
+
+  export type VcsProcessedUpdateWithWhereUniqueWithoutAnalyzerPackageInput = {
+    where: VcsProcessedWhereUniqueInput
+    data: XOR<VcsProcessedUpdateWithoutAnalyzerPackageInput, VcsProcessedUncheckedUpdateWithoutAnalyzerPackageInput>
+  }
+
+  export type VcsProcessedUpdateManyWithWhereWithoutAnalyzerPackageInput = {
+    where: VcsProcessedScalarWhereInput
+    data: XOR<VcsProcessedUpdateManyMutationInput, VcsProcessedUncheckedUpdateManyWithoutAnalyzerPackageInput>
+  }
+
+  export type VcsProcessedScalarWhereInput = {
+    AND?: VcsProcessedScalarWhereInput | VcsProcessedScalarWhereInput[]
+    OR?: VcsProcessedScalarWhereInput[]
+    NOT?: VcsProcessedScalarWhereInput | VcsProcessedScalarWhereInput[]
+    id?: IntFilter<"VcsProcessed"> | number
+    type?: StringFilter<"VcsProcessed"> | string
+    url?: StringFilter<"VcsProcessed"> | string
+    revision?: StringFilter<"VcsProcessed"> | string
+    path?: StringFilter<"VcsProcessed"> | string
+    packageId?: IntFilter<"VcsProcessed"> | number
+  }
+
+  export type AnalyzerPackageCreateWithoutAuthorsInput = {
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzer: AnalyzerCreateNestedOneWithoutPackagesInput
+    binaries?: BinaryArtifactCreateNestedManyWithoutAnalyzerPackageInput
+    sources?: SourceArtifactCreateNestedManyWithoutAnalyzerPackageInput
+    vcsList?: VcsCreateNestedManyWithoutAnalyzerPackageInput
+    vcsProcessed?: VcsProcessedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageUncheckedCreateWithoutAuthorsInput = {
+    id?: number
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzerId: number
+    binaries?: BinaryArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    sources?: SourceArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    vcsList?: VcsUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    vcsProcessed?: VcsProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageCreateOrConnectWithoutAuthorsInput = {
+    where: AnalyzerPackageWhereUniqueInput
+    create: XOR<AnalyzerPackageCreateWithoutAuthorsInput, AnalyzerPackageUncheckedCreateWithoutAuthorsInput>
+  }
+
+  export type AnalyzerPackageUpsertWithoutAuthorsInput = {
+    update: XOR<AnalyzerPackageUpdateWithoutAuthorsInput, AnalyzerPackageUncheckedUpdateWithoutAuthorsInput>
+    create: XOR<AnalyzerPackageCreateWithoutAuthorsInput, AnalyzerPackageUncheckedCreateWithoutAuthorsInput>
+    where?: AnalyzerPackageWhereInput
+  }
+
+  export type AnalyzerPackageUpdateToOneWithWhereWithoutAuthorsInput = {
+    where?: AnalyzerPackageWhereInput
+    data: XOR<AnalyzerPackageUpdateWithoutAuthorsInput, AnalyzerPackageUncheckedUpdateWithoutAuthorsInput>
+  }
+
+  export type AnalyzerPackageUpdateWithoutAuthorsInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzer?: AnalyzerUpdateOneRequiredWithoutPackagesNestedInput
+    binaries?: BinaryArtifactUpdateManyWithoutAnalyzerPackageNestedInput
+    sources?: SourceArtifactUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsList?: VcsUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsProcessed?: VcsProcessedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageUncheckedUpdateWithoutAuthorsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzerId?: IntFieldUpdateOperationsInput | number
+    binaries?: BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    sources?: SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsList?: VcsUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsProcessed?: VcsProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageCreateWithoutBinariesInput = {
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzer: AnalyzerCreateNestedOneWithoutPackagesInput
+    authors?: PackageAuthorCreateNestedManyWithoutAnalyzerPackageInput
+    sources?: SourceArtifactCreateNestedManyWithoutAnalyzerPackageInput
+    vcsList?: VcsCreateNestedManyWithoutAnalyzerPackageInput
+    vcsProcessed?: VcsProcessedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageUncheckedCreateWithoutBinariesInput = {
+    id?: number
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzerId: number
+    authors?: PackageAuthorUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    sources?: SourceArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    vcsList?: VcsUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    vcsProcessed?: VcsProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageCreateOrConnectWithoutBinariesInput = {
+    where: AnalyzerPackageWhereUniqueInput
+    create: XOR<AnalyzerPackageCreateWithoutBinariesInput, AnalyzerPackageUncheckedCreateWithoutBinariesInput>
+  }
+
+  export type AnalyzerPackageUpsertWithoutBinariesInput = {
+    update: XOR<AnalyzerPackageUpdateWithoutBinariesInput, AnalyzerPackageUncheckedUpdateWithoutBinariesInput>
+    create: XOR<AnalyzerPackageCreateWithoutBinariesInput, AnalyzerPackageUncheckedCreateWithoutBinariesInput>
+    where?: AnalyzerPackageWhereInput
+  }
+
+  export type AnalyzerPackageUpdateToOneWithWhereWithoutBinariesInput = {
+    where?: AnalyzerPackageWhereInput
+    data: XOR<AnalyzerPackageUpdateWithoutBinariesInput, AnalyzerPackageUncheckedUpdateWithoutBinariesInput>
+  }
+
+  export type AnalyzerPackageUpdateWithoutBinariesInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzer?: AnalyzerUpdateOneRequiredWithoutPackagesNestedInput
+    authors?: PackageAuthorUpdateManyWithoutAnalyzerPackageNestedInput
+    sources?: SourceArtifactUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsList?: VcsUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsProcessed?: VcsProcessedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageUncheckedUpdateWithoutBinariesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzerId?: IntFieldUpdateOperationsInput | number
+    authors?: PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    sources?: SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsList?: VcsUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsProcessed?: VcsProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageCreateWithoutSourcesInput = {
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzer: AnalyzerCreateNestedOneWithoutPackagesInput
+    authors?: PackageAuthorCreateNestedManyWithoutAnalyzerPackageInput
+    binaries?: BinaryArtifactCreateNestedManyWithoutAnalyzerPackageInput
+    vcsList?: VcsCreateNestedManyWithoutAnalyzerPackageInput
+    vcsProcessed?: VcsProcessedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageUncheckedCreateWithoutSourcesInput = {
+    id?: number
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzerId: number
+    authors?: PackageAuthorUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    binaries?: BinaryArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    vcsList?: VcsUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    vcsProcessed?: VcsProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageCreateOrConnectWithoutSourcesInput = {
+    where: AnalyzerPackageWhereUniqueInput
+    create: XOR<AnalyzerPackageCreateWithoutSourcesInput, AnalyzerPackageUncheckedCreateWithoutSourcesInput>
+  }
+
+  export type AnalyzerPackageUpsertWithoutSourcesInput = {
+    update: XOR<AnalyzerPackageUpdateWithoutSourcesInput, AnalyzerPackageUncheckedUpdateWithoutSourcesInput>
+    create: XOR<AnalyzerPackageCreateWithoutSourcesInput, AnalyzerPackageUncheckedCreateWithoutSourcesInput>
+    where?: AnalyzerPackageWhereInput
+  }
+
+  export type AnalyzerPackageUpdateToOneWithWhereWithoutSourcesInput = {
+    where?: AnalyzerPackageWhereInput
+    data: XOR<AnalyzerPackageUpdateWithoutSourcesInput, AnalyzerPackageUncheckedUpdateWithoutSourcesInput>
+  }
+
+  export type AnalyzerPackageUpdateWithoutSourcesInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzer?: AnalyzerUpdateOneRequiredWithoutPackagesNestedInput
+    authors?: PackageAuthorUpdateManyWithoutAnalyzerPackageNestedInput
+    binaries?: BinaryArtifactUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsList?: VcsUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsProcessed?: VcsProcessedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageUncheckedUpdateWithoutSourcesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzerId?: IntFieldUpdateOperationsInput | number
+    authors?: PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    binaries?: BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsList?: VcsUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsProcessed?: VcsProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageCreateWithoutVcsListInput = {
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzer: AnalyzerCreateNestedOneWithoutPackagesInput
+    authors?: PackageAuthorCreateNestedManyWithoutAnalyzerPackageInput
+    binaries?: BinaryArtifactCreateNestedManyWithoutAnalyzerPackageInput
+    sources?: SourceArtifactCreateNestedManyWithoutAnalyzerPackageInput
+    vcsProcessed?: VcsProcessedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageUncheckedCreateWithoutVcsListInput = {
+    id?: number
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzerId: number
+    authors?: PackageAuthorUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    binaries?: BinaryArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    sources?: SourceArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    vcsProcessed?: VcsProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageCreateOrConnectWithoutVcsListInput = {
+    where: AnalyzerPackageWhereUniqueInput
+    create: XOR<AnalyzerPackageCreateWithoutVcsListInput, AnalyzerPackageUncheckedCreateWithoutVcsListInput>
+  }
+
+  export type AnalyzerPackageUpsertWithoutVcsListInput = {
+    update: XOR<AnalyzerPackageUpdateWithoutVcsListInput, AnalyzerPackageUncheckedUpdateWithoutVcsListInput>
+    create: XOR<AnalyzerPackageCreateWithoutVcsListInput, AnalyzerPackageUncheckedCreateWithoutVcsListInput>
+    where?: AnalyzerPackageWhereInput
+  }
+
+  export type AnalyzerPackageUpdateToOneWithWhereWithoutVcsListInput = {
+    where?: AnalyzerPackageWhereInput
+    data: XOR<AnalyzerPackageUpdateWithoutVcsListInput, AnalyzerPackageUncheckedUpdateWithoutVcsListInput>
+  }
+
+  export type AnalyzerPackageUpdateWithoutVcsListInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzer?: AnalyzerUpdateOneRequiredWithoutPackagesNestedInput
+    authors?: PackageAuthorUpdateManyWithoutAnalyzerPackageNestedInput
+    binaries?: BinaryArtifactUpdateManyWithoutAnalyzerPackageNestedInput
+    sources?: SourceArtifactUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsProcessed?: VcsProcessedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageUncheckedUpdateWithoutVcsListInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzerId?: IntFieldUpdateOperationsInput | number
+    authors?: PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    binaries?: BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    sources?: SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsProcessed?: VcsProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageCreateWithoutVcsProcessedInput = {
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzer: AnalyzerCreateNestedOneWithoutPackagesInput
+    authors?: PackageAuthorCreateNestedManyWithoutAnalyzerPackageInput
+    binaries?: BinaryArtifactCreateNestedManyWithoutAnalyzerPackageInput
+    sources?: SourceArtifactCreateNestedManyWithoutAnalyzerPackageInput
+    vcsList?: VcsCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageUncheckedCreateWithoutVcsProcessedInput = {
+    id?: number
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzerId: number
+    authors?: PackageAuthorUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    binaries?: BinaryArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    sources?: SourceArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    vcsList?: VcsUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageCreateOrConnectWithoutVcsProcessedInput = {
+    where: AnalyzerPackageWhereUniqueInput
+    create: XOR<AnalyzerPackageCreateWithoutVcsProcessedInput, AnalyzerPackageUncheckedCreateWithoutVcsProcessedInput>
+  }
+
+  export type AnalyzerPackageUpsertWithoutVcsProcessedInput = {
+    update: XOR<AnalyzerPackageUpdateWithoutVcsProcessedInput, AnalyzerPackageUncheckedUpdateWithoutVcsProcessedInput>
+    create: XOR<AnalyzerPackageCreateWithoutVcsProcessedInput, AnalyzerPackageUncheckedCreateWithoutVcsProcessedInput>
+    where?: AnalyzerPackageWhereInput
+  }
+
+  export type AnalyzerPackageUpdateToOneWithWhereWithoutVcsProcessedInput = {
+    where?: AnalyzerPackageWhereInput
+    data: XOR<AnalyzerPackageUpdateWithoutVcsProcessedInput, AnalyzerPackageUncheckedUpdateWithoutVcsProcessedInput>
+  }
+
+  export type AnalyzerPackageUpdateWithoutVcsProcessedInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzer?: AnalyzerUpdateOneRequiredWithoutPackagesNestedInput
+    authors?: PackageAuthorUpdateManyWithoutAnalyzerPackageNestedInput
+    binaries?: BinaryArtifactUpdateManyWithoutAnalyzerPackageNestedInput
+    sources?: SourceArtifactUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsList?: VcsUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageUncheckedUpdateWithoutVcsProcessedInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzerId?: IntFieldUpdateOperationsInput | number
+    authors?: PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    binaries?: BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    sources?: SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsList?: VcsUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type ProjectCreateManyUserInput = {
+    id: string
+    name: string
+    createdAt?: Date | string
+  }
+
+  export type ProjectUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scans?: ScanUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scans?: ScanUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ScanCreateManyProjectInput = {
+    createdAt?: Date | string
+  }
+
+  export type ScanUpdateWithoutProjectInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    analyzer?: AnalyzerUpdateOneWithoutScanNestedInput
+  }
+
+  export type ScanUncheckedUpdateWithoutProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    analyzer?: AnalyzerUncheckedUpdateOneWithoutScanNestedInput
+  }
+
+  export type ScanUncheckedUpdateManyWithoutProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AnalyzerPackageCreateManyAnalyzerInput = {
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+  }
+
+  export type AnalyzerPackageUpdateWithoutAnalyzerInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    authors?: PackageAuthorUpdateManyWithoutAnalyzerPackageNestedInput
+    binaries?: BinaryArtifactUpdateManyWithoutAnalyzerPackageNestedInput
+    sources?: SourceArtifactUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsList?: VcsUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsProcessed?: VcsProcessedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageUncheckedUpdateWithoutAnalyzerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    authors?: PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    binaries?: BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    sources?: SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsList?: VcsUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsProcessed?: VcsProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageUncheckedUpdateManyWithoutAnalyzerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PackageAuthorCreateManyAnalyzerPackageInput = {
+    name: string
+  }
+
+  export type BinaryArtifactCreateManyAnalyzerPackageInput = {
+    url: string
+  }
+
+  export type SourceArtifactCreateManyAnalyzerPackageInput = {
+    url: string
+  }
+
+  export type VcsCreateManyAnalyzerPackageInput = {
+    type: string
+    url: string
+    revision: string
+    path: string
+  }
+
+  export type VcsProcessedCreateManyAnalyzerPackageInput = {
+    type: string
+    url: string
+    revision: string
+    path: string
+  }
+
+  export type PackageAuthorUpdateWithoutAnalyzerPackageInput = {
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PackageAuthorUncheckedUpdateWithoutAnalyzerPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BinaryArtifactUpdateWithoutAnalyzerPackageInput = {
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BinaryArtifactUncheckedUpdateWithoutAnalyzerPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SourceArtifactUpdateWithoutAnalyzerPackageInput = {
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SourceArtifactUncheckedUpdateWithoutAnalyzerPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VcsUpdateWithoutAnalyzerPackageInput = {
+    type?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    revision?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VcsUncheckedUpdateWithoutAnalyzerPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    revision?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VcsUncheckedUpdateManyWithoutAnalyzerPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    revision?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VcsProcessedUpdateWithoutAnalyzerPackageInput = {
+    type?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    revision?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VcsProcessedUncheckedUpdateWithoutAnalyzerPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    revision?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VcsProcessedUncheckedUpdateManyWithoutAnalyzerPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    revision?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+  }
 
 
 

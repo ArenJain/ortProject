@@ -8,91 +8,107 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  userId      String    @id @db.UniqueIdentifier
+  userName    String?   @db.NVarChar(100)
+  email       String?   @unique @db.NVarChar(100)
+  password    String?   @db.NVarChar(100)
+  createdAt   DateTime? @db.DateTime
 
-model Users {
-  userId           String   @db.UniqueIdentifier @id
-  userName         String?   @db.NVarChar(100)
-  projectName String?   @db.NVarChar(100)
-  createdDate      DateTime? @db.DateTime
-  email            String?   @db.NVarChar(100)
-  password         String?   @db.NVarChar(100)
-
+  projects    Project[]
 }
 
-model Project{
-  id  String @id
-  name String 
-  analyzer  Analyzer?
+model Project {
+  id          String   @id
+  name        String
+  createdAt   DateTime @default(now())
+
+  user        User     @relation(fields: [userId], references: [userId])
+  userId      String   @db.UniqueIdentifier
+
+  scans       Scan[]
 }
 
-model Analyzer{
-  id   Int   @id @default(autoincrement())
-  createdAt DateTime @default(now())
+model Scan {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
 
-  project Project @relation(fields: [projectId],references: [id])
-  projectId String @unique
+  project     Project  @relation(fields: [projectId], references: [id])
+  projectId   String
 
-  analyzerPackage AnalyzerPackage[]
-
-  
+  analyzer    Analyzer?
 }
 
-model AnalyzerPackage{
-  id   Int   @id @default(autoincrement())
-  createdAt DateTime @default(now())
+model Analyzer {
+  id              Int               @id @default(autoincrement())
+  createdAt       DateTime          @default(now())
 
-  analyzer Analyzer @relation(fields: [analyzerId],references: [id])
-  analyzerId Int
+  scan            Scan              @relation(fields: [scanId], references: [id])
+  scanId          Int               @unique
 
-  packId String
-  purl String
-  description String
-  homepage_url String
-  authors ay_pack_authors[]
-  binary_artifact ay_pack_binary_artifact[]
-  source_artifact ay_pack_source_artifact[]
-  vcs ay_pack_vcs[]
-  vcs_processed ay_pack_vcs_processed[]
+  packages        AnalyzerPackage[]
 }
 
-model ay_pack_authors {
-  id   Int   @id @default(autoincrement())
-  name String
-  analyzerPackage AnalyzerPackage @relation(fields: [AnalyzerPackageId],references: [id])
-  AnalyzerPackageId Int
-  
+model AnalyzerPackage {
+  id              Int                      @id @default(autoincrement())
+  createdAt       DateTime                 @default(now())
+  packId          String
+  purl            String
+  description     String
+  homepageUrl     String
+
+  analyzer        Analyzer                 @relation(fields: [analyzerId], references: [id])
+  analyzerId      Int
+
+  authors         PackageAuthor[]
+  binaries        BinaryArtifact[]
+  sources         SourceArtifact[]
+  vcsList         Vcs[]
+  vcsProcessed    VcsProcessed[]
 }
 
-model ay_pack_binary_artifact{
-  id   Int   @id @default(autoincrement())
-  url String
-  analyzerPackage AnalyzerPackage @relation(fields: [AnalyzerPackageId],references: [id])
-  AnalyzerPackageId Int
+model PackageAuthor {
+  id                Int              @id @default(autoincrement())
+  name              String
+
+  analyzerPackage   AnalyzerPackage  @relation(fields: [packageId], references: [id])
+  packageId         Int
 }
 
-model ay_pack_source_artifact{
-  id   Int   @id @default(autoincrement())
-  url String
-  analyzerPackage AnalyzerPackage @relation(fields: [AnalyzerPackageId],references: [id])
-  AnalyzerPackageId Int
+model BinaryArtifact {
+  id                Int              @id @default(autoincrement())
+  url               String
+
+  analyzerPackage   AnalyzerPackage  @relation(fields: [packageId], references: [id])
+  packageId         Int
 }
 
-model ay_pack_vcs{
-  id   Int   @id @default(autoincrement())
-  type String
-  url String
-  revision String
-  path String
-  analyzerPackage AnalyzerPackage @relation(fields: [AnalyzerPackageId],references: [id])
-  AnalyzerPackageId Int
+model SourceArtifact {
+  id                Int              @id @default(autoincrement())
+  url               String
+
+  analyzerPackage   AnalyzerPackage  @relation(fields: [packageId], references: [id])
+  packageId         Int
 }
 
-model ay_pack_vcs_processed{
-  id   Int   @id @default(autoincrement())
-  type String
-  url String
-  revision String
-  path String
-  analyzerPackage AnalyzerPackage @relation(fields: [AnalyzerPackageId],references: [id])
-  AnalyzerPackageId Int
+model Vcs {
+  id                Int              @id @default(autoincrement())
+  type              String
+  url               String
+  revision          String
+  path              String
+
+  analyzerPackage   AnalyzerPackage  @relation(fields: [packageId], references: [id])
+  packageId         Int
+}
+
+model VcsProcessed {
+  id                Int              @id @default(autoincrement())
+  type              String
+  url               String
+  revision          String
+  path              String
+
+  analyzerPackage   AnalyzerPackage  @relation(fields: [packageId], references: [id])
+  packageId         Int
 }

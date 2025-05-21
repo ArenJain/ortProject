@@ -8,14 +8,107 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model Users {
-  UserId           String?   @db.UniqueIdentifier
-  UserName         String?   @db.NVarChar(100)
-  OrganisationName String?   @db.NVarChar(100)
-  CreatedDate      DateTime? @db.DateTime
-  Email            String?   @db.NVarChar(100)
-  Password         String?   @db.NVarChar(100)
+model User {
+  userId    String    @id @db.UniqueIdentifier
+  userName  String?   @db.NVarChar(100)
+  email     String?   @unique @db.NVarChar(100)
+  password  String?   @db.NVarChar(100)
+  createdAt DateTime? @db.DateTime
 
-  @@ignore
+  projects Project[]
+}
+
+model Project {
+  id        String   @id
+  name      String
+  createdAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [userId])
+  userId String @db.UniqueIdentifier
+
+  scans Scan[]
+}
+
+model Scan {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  project   Project @relation(fields: [projectId], references: [id])
+  projectId String
+
+  analyzer Analyzer?
+}
+
+model Analyzer {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  scan   Scan @relation(fields: [scanId], references: [id])
+  scanId Int  @unique
+
+  packages AnalyzerPackage[]
+}
+
+model AnalyzerPackage {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  packId      String
+  purl        String
+  description String
+  homepageUrl String
+
+  analyzer   Analyzer @relation(fields: [analyzerId], references: [id])
+  analyzerId Int
+
+  authors      PackageAuthor[]
+  binaries     BinaryArtifact[]
+  sources      SourceArtifact[]
+  vcsList      Vcs[]
+  vcsProcessed VcsProcessed[]
+}
+
+model PackageAuthor {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
+  packageId       Int
+}
+
+model BinaryArtifact {
+  id  Int    @id @default(autoincrement())
+  url String
+
+  analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
+  packageId       Int
+}
+
+model SourceArtifact {
+  id  Int    @id @default(autoincrement())
+  url String
+
+  analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
+  packageId       Int
+}
+
+model Vcs {
+  id       Int    @id @default(autoincrement())
+  type     String
+  url      String
+  revision String
+  path     String
+
+  analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
+  packageId       Int
+}
+
+model VcsProcessed {
+  id       Int    @id @default(autoincrement())
+  type     String
+  url      String
+  revision String
+  path     String
+
+  analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
+  packageId       Int
 }
