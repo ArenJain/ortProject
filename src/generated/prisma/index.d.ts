@@ -3691,18 +3691,21 @@ export namespace Prisma {
   export type ScanMinAggregateOutputType = {
     id: number | null
     createdAt: Date | null
+    gitRunId: string | null
     projectId: string | null
   }
 
   export type ScanMaxAggregateOutputType = {
     id: number | null
     createdAt: Date | null
+    gitRunId: string | null
     projectId: string | null
   }
 
   export type ScanCountAggregateOutputType = {
     id: number
     createdAt: number
+    gitRunId: number
     projectId: number
     _all: number
   }
@@ -3719,18 +3722,21 @@ export namespace Prisma {
   export type ScanMinAggregateInputType = {
     id?: true
     createdAt?: true
+    gitRunId?: true
     projectId?: true
   }
 
   export type ScanMaxAggregateInputType = {
     id?: true
     createdAt?: true
+    gitRunId?: true
     projectId?: true
   }
 
   export type ScanCountAggregateInputType = {
     id?: true
     createdAt?: true
+    gitRunId?: true
     projectId?: true
     _all?: true
   }
@@ -3824,6 +3830,7 @@ export namespace Prisma {
   export type ScanGroupByOutputType = {
     id: number
     createdAt: Date
+    gitRunId: string
     projectId: string
     _count: ScanCountAggregateOutputType | null
     _avg: ScanAvgAggregateOutputType | null
@@ -3849,6 +3856,7 @@ export namespace Prisma {
   export type ScanSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     createdAt?: boolean
+    gitRunId?: boolean
     projectId?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
     analyzer?: boolean | Scan$analyzerArgs<ExtArgs>
@@ -3859,10 +3867,11 @@ export namespace Prisma {
   export type ScanSelectScalar = {
     id?: boolean
     createdAt?: boolean
+    gitRunId?: boolean
     projectId?: boolean
   }
 
-  export type ScanOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "projectId", ExtArgs["result"]["scan"]>
+  export type ScanOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "gitRunId" | "projectId", ExtArgs["result"]["scan"]>
   export type ScanInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
     analyzer?: boolean | Scan$analyzerArgs<ExtArgs>
@@ -3877,6 +3886,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       createdAt: Date
+      gitRunId: string
       projectId: string
     }, ExtArgs["result"]["scan"]>
     composites: {}
@@ -4251,6 +4261,7 @@ export namespace Prisma {
   interface ScanFieldRefs {
     readonly id: FieldRef<"Scan", 'Int'>
     readonly createdAt: FieldRef<"Scan", 'DateTime'>
+    readonly gitRunId: FieldRef<"Scan", 'String'>
     readonly projectId: FieldRef<"Scan", 'String'>
   }
     
@@ -11560,6 +11571,7 @@ export namespace Prisma {
   export const ScanScalarFieldEnum: {
     id: 'id',
     createdAt: 'createdAt',
+    gitRunId: 'gitRunId',
     projectId: 'projectId'
   };
 
@@ -11806,6 +11818,7 @@ export namespace Prisma {
     NOT?: ScanWhereInput | ScanWhereInput[]
     id?: IntFilter<"Scan"> | number
     createdAt?: DateTimeFilter<"Scan"> | Date | string
+    gitRunId?: StringFilter<"Scan"> | string
     projectId?: StringFilter<"Scan"> | string
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     analyzer?: XOR<AnalyzerNullableScalarRelationFilter, AnalyzerWhereInput> | null
@@ -11814,6 +11827,7 @@ export namespace Prisma {
   export type ScanOrderByWithRelationInput = {
     id?: SortOrder
     createdAt?: SortOrder
+    gitRunId?: SortOrder
     projectId?: SortOrder
     project?: ProjectOrderByWithRelationInput
     analyzer?: AnalyzerOrderByWithRelationInput
@@ -11821,6 +11835,7 @@ export namespace Prisma {
 
   export type ScanWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    gitRunId?: string
     AND?: ScanWhereInput | ScanWhereInput[]
     OR?: ScanWhereInput[]
     NOT?: ScanWhereInput | ScanWhereInput[]
@@ -11828,11 +11843,12 @@ export namespace Prisma {
     projectId?: StringFilter<"Scan"> | string
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     analyzer?: XOR<AnalyzerNullableScalarRelationFilter, AnalyzerWhereInput> | null
-  }, "id">
+  }, "id" | "gitRunId">
 
   export type ScanOrderByWithAggregationInput = {
     id?: SortOrder
     createdAt?: SortOrder
+    gitRunId?: SortOrder
     projectId?: SortOrder
     _count?: ScanCountOrderByAggregateInput
     _avg?: ScanAvgOrderByAggregateInput
@@ -11847,6 +11863,7 @@ export namespace Prisma {
     NOT?: ScanScalarWhereWithAggregatesInput | ScanScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Scan"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Scan"> | Date | string
+    gitRunId?: StringWithAggregatesFilter<"Scan"> | string
     projectId?: StringWithAggregatesFilter<"Scan"> | string
   }
 
@@ -12361,6 +12378,7 @@ export namespace Prisma {
 
   export type ScanCreateInput = {
     createdAt?: Date | string
+    gitRunId: string
     project: ProjectCreateNestedOneWithoutScansInput
     analyzer?: AnalyzerCreateNestedOneWithoutScanInput
   }
@@ -12368,12 +12386,14 @@ export namespace Prisma {
   export type ScanUncheckedCreateInput = {
     id?: number
     createdAt?: Date | string
+    gitRunId: string
     projectId: string
     analyzer?: AnalyzerUncheckedCreateNestedOneWithoutScanInput
   }
 
   export type ScanUpdateInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    gitRunId?: StringFieldUpdateOperationsInput | string
     project?: ProjectUpdateOneRequiredWithoutScansNestedInput
     analyzer?: AnalyzerUpdateOneWithoutScanNestedInput
   }
@@ -12381,22 +12401,26 @@ export namespace Prisma {
   export type ScanUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    gitRunId?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     analyzer?: AnalyzerUncheckedUpdateOneWithoutScanNestedInput
   }
 
   export type ScanCreateManyInput = {
     createdAt?: Date | string
+    gitRunId: string
     projectId: string
   }
 
   export type ScanUpdateManyMutationInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    gitRunId?: StringFieldUpdateOperationsInput | string
   }
 
   export type ScanUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    gitRunId?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -12969,6 +12993,7 @@ export namespace Prisma {
   export type ScanCountOrderByAggregateInput = {
     id?: SortOrder
     createdAt?: SortOrder
+    gitRunId?: SortOrder
     projectId?: SortOrder
   }
 
@@ -12979,12 +13004,14 @@ export namespace Prisma {
   export type ScanMaxOrderByAggregateInput = {
     id?: SortOrder
     createdAt?: SortOrder
+    gitRunId?: SortOrder
     projectId?: SortOrder
   }
 
   export type ScanMinOrderByAggregateInput = {
     id?: SortOrder
     createdAt?: SortOrder
+    gitRunId?: SortOrder
     projectId?: SortOrder
   }
 
@@ -14060,12 +14087,14 @@ export namespace Prisma {
 
   export type ScanCreateWithoutProjectInput = {
     createdAt?: Date | string
+    gitRunId: string
     analyzer?: AnalyzerCreateNestedOneWithoutScanInput
   }
 
   export type ScanUncheckedCreateWithoutProjectInput = {
     id?: number
     createdAt?: Date | string
+    gitRunId: string
     analyzer?: AnalyzerUncheckedCreateNestedOneWithoutScanInput
   }
 
@@ -14127,6 +14156,7 @@ export namespace Prisma {
     NOT?: ScanScalarWhereInput | ScanScalarWhereInput[]
     id?: IntFilter<"Scan"> | number
     createdAt?: DateTimeFilter<"Scan"> | Date | string
+    gitRunId?: StringFilter<"Scan"> | string
     projectId?: StringFilter<"Scan"> | string
   }
 
@@ -14214,12 +14244,14 @@ export namespace Prisma {
 
   export type ScanCreateWithoutAnalyzerInput = {
     createdAt?: Date | string
+    gitRunId: string
     project: ProjectCreateNestedOneWithoutScansInput
   }
 
   export type ScanUncheckedCreateWithoutAnalyzerInput = {
     id?: number
     createdAt?: Date | string
+    gitRunId: string
     projectId: string
   }
 
@@ -14277,12 +14309,14 @@ export namespace Prisma {
 
   export type ScanUpdateWithoutAnalyzerInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    gitRunId?: StringFieldUpdateOperationsInput | string
     project?: ProjectUpdateOneRequiredWithoutScansNestedInput
   }
 
   export type ScanUncheckedUpdateWithoutAnalyzerInput = {
     id?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    gitRunId?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -14964,22 +14998,26 @@ export namespace Prisma {
 
   export type ScanCreateManyProjectInput = {
     createdAt?: Date | string
+    gitRunId: string
   }
 
   export type ScanUpdateWithoutProjectInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    gitRunId?: StringFieldUpdateOperationsInput | string
     analyzer?: AnalyzerUpdateOneWithoutScanNestedInput
   }
 
   export type ScanUncheckedUpdateWithoutProjectInput = {
     id?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    gitRunId?: StringFieldUpdateOperationsInput | string
     analyzer?: AnalyzerUncheckedUpdateOneWithoutScanNestedInput
   }
 
   export type ScanUncheckedUpdateManyWithoutProjectInput = {
     id?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    gitRunId?: StringFieldUpdateOperationsInput | string
   }
 
   export type AnalyzerPackageCreateManyAnalyzerInput = {

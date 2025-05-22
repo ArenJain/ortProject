@@ -9,7 +9,8 @@ CREATE TABLE [dbo].[User] (
     [email] NVARCHAR(100),
     [password] NVARCHAR(100),
     [createdAt] DATETIME,
-    CONSTRAINT [User_pkey] PRIMARY KEY CLUSTERED ([userId])
+    CONSTRAINT [User_pkey] PRIMARY KEY CLUSTERED ([userId]),
+    CONSTRAINT [User_email_key] UNIQUE NONCLUSTERED ([email])
 );
 
 -- CreateTable
@@ -18,15 +19,18 @@ CREATE TABLE [dbo].[Project] (
     [name] NVARCHAR(1000) NOT NULL,
     [createdAt] DATETIME2 NOT NULL CONSTRAINT [Project_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
     [userId] UNIQUEIDENTIFIER NOT NULL,
-    CONSTRAINT [Project_pkey] PRIMARY KEY CLUSTERED ([id])
+    CONSTRAINT [Project_pkey] PRIMARY KEY CLUSTERED ([id]),
+    CONSTRAINT [Project_userId_name_key] UNIQUE NONCLUSTERED ([userId],[name])
 );
 
 -- CreateTable
 CREATE TABLE [dbo].[Scan] (
     [id] INT NOT NULL IDENTITY(1,1),
     [createdAt] DATETIME2 NOT NULL CONSTRAINT [Scan_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
+    [gitRunId] NVARCHAR(1000) NOT NULL,
     [projectId] NVARCHAR(1000) NOT NULL,
-    CONSTRAINT [Scan_pkey] PRIMARY KEY CLUSTERED ([id])
+    CONSTRAINT [Scan_pkey] PRIMARY KEY CLUSTERED ([id]),
+    CONSTRAINT [Scan_gitRunId_key] UNIQUE NONCLUSTERED ([gitRunId])
 );
 
 -- CreateTable

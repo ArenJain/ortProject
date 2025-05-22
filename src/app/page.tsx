@@ -16,6 +16,7 @@ export default function Home() {
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
 
   const handleSubmit = async () => {
+    setDownloadUrl(null);
     if (!repoUrl.trim() || !projectName.trim()) {
       setMessage('⚠️ Please enter both repository URL and project name.');
       return;

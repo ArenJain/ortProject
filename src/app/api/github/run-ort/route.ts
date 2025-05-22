@@ -50,55 +50,70 @@ jobs:
 
   try {
     // Step 1: Create a new repository and push the workflow file
-    const repo = `${projectName || 'ort-repo'}-${Date.now()}`; // unique name
-    const owner = session.user?.name || 'your-github-username'; // fallback if needed
+    const fixedRepoName = 'ort-analysis-repo'; // your fixed repo name
+    const owner = session.user?.name || 'your-github-username';
+    const repo = fixedRepoName;
 
-    // 1.1 Create the repository
-    await octokit.repos.createForAuthenticatedUser({
-      name: repo,
-      auto_init: true,
-      description: `ORT analysis repo for ${repoUrl}`,
-    });
-
-    // 1.2 Push the workflow file into the new repo
     const workflowFilePath = '.github/workflows/ort.yml';
+    const branch = 'main';
 
-    // let sha: string | undefined;
-    // try {
-    //   const { data: fileData } = await octokit.repos.getContent({
-    //     owner,
-    //     repo: repo,
-    //     path: workflowFilePath,
-    //   });
+    let repoExists = false;
 
-    //   if (!Array.isArray(fileData) && fileData.sha) {
-    //     sha = fileData.sha;
-    //   }
-    // } catch (error: any) {
-    //   if (error.status !== 404) throw error; // Ignore if file doesn't exist yet
-    // }
-  
+    try {
+      await octokit.repos.get({
+        owner,
+        repo,
+      });
+      repoExists = true;
+    } catch (err: any) {
+      if (err.status !== 404) throw err;
+    }
 
+    // If repo doesn't exist, create it
+    if (!repoExists) {
+      await octokit.repos.createForAuthenticatedUser({
+        name: repo,
+        auto_init: true,
+        description: 'ORT analysis repository',
+      });
 
-    let branchReady = false;
-    for (let i = 0; i < 20; i++) {
-      try {
-        await octokit.repos.getBranch({
-          owner,
-          repo: repo,
-          branch: 'main',
-        });
-        branchReady = true;
-        break;
-      } catch {
-        await new Promise((res) => setTimeout(res, 2000)); // wait 2 seconds
+      // Wait until the main branch is ready
+      let branchReady = false;
+      for (let i = 0; i < 20; i++) {
+        try {
+          await octokit.repos.getBranch({
+            owner,
+            repo,
+            branch,
+          });
+          branchReady = true;
+          break;
+        } catch {
+          await new Promise(res => setTimeout(res, 2000));
+        }
+      }
+
+      if (!branchReady) {
+        return NextResponse.json({ error: 'Main branch not ready yet' }, { status: 500 });
       }
     }
 
-    if (!branchReady) {
-      return NextResponse.json({ error: 'Main branch not ready yet' }, { status: 500 });
-    }
+    // Push or update the workflow file
+    let sha: string | undefined;
 
+    try {
+      const { data: fileData } = await octokit.repos.getContent({
+        owner,
+        repo,
+        path: workflowFilePath,
+      });
+
+      if (!Array.isArray(fileData) && fileData.sha) {
+        sha = fileData.sha;
+      }
+    } catch (err: any) {
+      if (err.status !== 404) throw err;
+    }
     await octokit.repos.createOrUpdateFileContents({
       owner,
       repo: repo,
@@ -106,7 +121,7 @@ jobs:
       message: 'Add ORT workflow',
       content: Buffer.from(workflowContent).toString('base64'),
       branch: 'main',
-      // sha,
+      sha,
     });
     console.log("workflow is pushed into new repo ");
     // Wait for GitHub to register the workflow
@@ -114,6 +129,8 @@ jobs:
 
 
     // Step 2: Trigger the workflow
+
+    const triggerTime = new Date().toISOString();
     try{
       await octokit.request(`POST /repos/${owner}/${repo}/actions/workflows/ort.yml/dispatches`, {
       ref: branch,
@@ -127,9 +144,10 @@ jobs:
 
     // Step 3: Poll for workflow completion
     let runId = null;
-    for (let i = 0; i < 30; i++) {
-      const runs = await octokit.actions.listWorkflowRuns({ owner, repo, workflow_id: 'ort.yml' });
-      const latest = runs.data.workflow_runs[0];
+    for (let i = 0; i < 300; i++) {
+      const runs = await octokit.actions.listWorkflowRuns({ owner, repo, workflow_id: 'ort.yml' ,event: 'workflow_dispatch',});
+      const latest = runs.data.workflow_runs.find(run =>
+      new Date(run.created_at) > new Date(triggerTime));
 
       if (latest?.status === 'completed') {
         runId = latest.id;
@@ -193,7 +211,7 @@ jobs:
         // console.log(jsonData);
         const user = await getUserByEmail(session.user.email);
         if (user){
-          await createScanService(user.userId,jsonData,projectName)
+          await createScanService(user.userId,jsonData,projectName,runId.toString())
         }
         
       } else {

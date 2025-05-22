@@ -139,6 +139,7 @@ exports.Prisma.ProjectScalarFieldEnum = {
 exports.Prisma.ScanScalarFieldEnum = {
   id: 'id',
   createdAt: 'createdAt',
+  gitRunId: 'gitRunId',
   projectId: 'projectId'
 };
 
