@@ -12,3 +12,16 @@ export async function createProject(userId: string , projectData : any) {
   })
   return project.id
 }
+
+export async function getProjectByName(projectName : string, userId : string){
+    const project = await prisma.project.findUnique({
+        where :{
+            userId_name : {
+                userId : userId,
+                name : projectName
+            }
+            
+        }
+    });
+    return project?.id;
+}

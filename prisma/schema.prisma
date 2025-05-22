@@ -27,6 +27,8 @@ model Project {
   userId      String   @db.UniqueIdentifier
 
   scans       Scan[]
+
+  @@unique(name: "userId_name",[userId, name])
 }
 
 model Scan {

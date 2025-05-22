@@ -11769,6 +11769,7 @@ export namespace Prisma {
 
   export type ProjectWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    userId_name?: ProjectUserId_nameCompoundUniqueInput
     AND?: ProjectWhereInput | ProjectWhereInput[]
     OR?: ProjectWhereInput[]
     NOT?: ProjectWhereInput | ProjectWhereInput[]
@@ -11777,7 +11778,7 @@ export namespace Prisma {
     userId?: StringFilter<"Project"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     scans?: ScanListRelationFilter
-  }, "id">
+  }, "id" | "userId_name">
 
   export type ProjectOrderByWithAggregationInput = {
     id?: SortOrder
@@ -12902,6 +12903,11 @@ export namespace Prisma {
 
   export type ScanOrderByRelationAggregateInput = {
     _count?: SortOrder
+  }
+
+  export type ProjectUserId_nameCompoundUniqueInput = {
+    userId: string
+    name: string
   }
 
   export type ProjectCountOrderByAggregateInput = {
