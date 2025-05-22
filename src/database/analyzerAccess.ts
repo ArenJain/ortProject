@@ -28,38 +28,50 @@ export async function addAnalyzerPackages(analyzerId: number, packages: any[]) {
               create: pkg.authors.map((name: string) => ({ name }))
             }
           : undefined,
-
-        binaries: pkg.binary_artifact && pkg.binary_artifact.length > 0
+        
+        declaredLicenses : pkg.declared_licenses && pkg.declared_licenses.length > 0
           ? {
-              create: pkg.binary_artifact.map((b: any) => ({ url: b.url }))
+              create: pkg.declared_licenses.map((name: string) => ({ name }))
+            }
+          : undefined,
+        
+        declaredLicensesProcessed : pkg.declared_licenses_processed && pkg.declared_licenses_processed.spdx_expression 
+          ? {
+              create: { spdxExpression: pkg.declared_licenses_processed.spdx_expression }
             }
           : undefined,
 
-        sources: pkg.source_artifact && pkg.source_artifact.length > 0
+        binaries: pkg.binary_artifact 
           ? {
-              create: pkg.source_artifact.map((s: any) => ({ url: s.url }))
+              create: { url: pkg.binary_artifact.url }
             }
           : undefined,
 
-        vcsList: pkg.vcs && pkg.vcs.length > 0
+        sources: pkg.source_artifact 
           ? {
-              create: pkg.vcs.map((v: any) => ({
-                type: v.type,
-                url: v.url,
-                revision: v.revision,
-                path: v.path
-              }))
+              create: { url: pkg.source_artifact.url }
             }
           : undefined,
 
-        vcsProcessed: pkg.vcs_processed && pkg.vcs_processed.length > 0
+        vcsList: pkg.vcs 
           ? {
-              create: pkg.vcs_processed.map((vp: any) => ({
-                type: vp.type,
-                url: vp.url,
-                revision: vp.revision,
-                path: vp.path
-              }))
+              create: {
+                type: pkg.vcs.type,
+                url: pkg.vcs.url,
+                revision: pkg.vcs.revision,
+                path: pkg.vcs.path
+              }
+            }
+          : undefined,
+
+        vcsProcessed: pkg.vcs_processed 
+          ? {
+              create: {
+                type: pkg.vcs_processed.type,
+                url: pkg.vcs_processed.url,
+                revision: pkg.vcs_processed.revision,
+                path: pkg.vcs_processed.path
+              }
             }
           : undefined
       }

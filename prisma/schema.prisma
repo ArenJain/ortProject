@@ -40,6 +40,7 @@ model Scan {
   projectId   String
 
   analyzer    Analyzer?
+  scanner     Scanner?
 }
 
 model Analyzer {
@@ -64,6 +65,8 @@ model AnalyzerPackage {
   analyzerId      Int
 
   authors         PackageAuthor[]
+  declaredLicenses DeclaredLicenses[]
+  declaredLicensesProcessed DeclaredLicensesProcessed[]
   binaries        BinaryArtifact[]
   sources         SourceArtifact[]
   vcsList         Vcs[]
@@ -73,6 +76,22 @@ model AnalyzerPackage {
 model PackageAuthor {
   id                Int              @id @default(autoincrement())
   name              String
+
+  analyzerPackage   AnalyzerPackage  @relation(fields: [packageId], references: [id])
+  packageId         Int
+}
+
+model DeclaredLicenses {
+  id                Int              @id @default(autoincrement())
+  name              String
+
+  analyzerPackage   AnalyzerPackage  @relation(fields: [packageId], references: [id])
+  packageId         Int
+}
+
+model DeclaredLicensesProcessed {
+  id                Int              @id @default(autoincrement())
+  spdxExpression    String
 
   analyzerPackage   AnalyzerPackage  @relation(fields: [packageId], references: [id])
   packageId         Int
@@ -114,4 +133,42 @@ model VcsProcessed {
 
   analyzerPackage   AnalyzerPackage  @relation(fields: [packageId], references: [id])
   packageId         Int
+}
+
+model Scanner {
+  id              Int               @id @default(autoincrement())
+  createdAt       DateTime          @default(now())
+
+  scan            Scan              @relation(fields: [scanId], references: [id])
+  scanId          Int               @unique
+
+  licenses        Licenses[]
+  copyrights      Copyrights[]
+
+}
+
+model Licenses {
+  id              Int               @id @default(autoincrement())
+  createdAt       DateTime          @default(now())
+  licenseName     String
+  path            String
+  startLine       Int
+  endLine         Int
+  score           Float
+
+  scanner Scanner @relation(fields: [scannerId], references: [id])
+  scannerId       Int
+
+}
+
+model Copyrights {
+  id              Int               @id @default(autoincrement())
+  createdAt       DateTime          @default(now())
+  statement       String
+  path            String
+  startLine       Int
+  endLine         Int
+
+  scanner Scanner @relation(fields: [scannerId], references: [id])
+  scannerId       Int
 }

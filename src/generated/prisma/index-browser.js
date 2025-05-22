@@ -165,6 +165,18 @@ exports.Prisma.PackageAuthorScalarFieldEnum = {
   packageId: 'packageId'
 };
 
+exports.Prisma.DeclaredLicensesScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  packageId: 'packageId'
+};
+
+exports.Prisma.DeclaredLicensesProcessedScalarFieldEnum = {
+  id: 'id',
+  spdxExpression: 'spdxExpression',
+  packageId: 'packageId'
+};
+
 exports.Prisma.BinaryArtifactScalarFieldEnum = {
   id: 'id',
   url: 'url',
@@ -195,6 +207,33 @@ exports.Prisma.VcsProcessedScalarFieldEnum = {
   packageId: 'packageId'
 };
 
+exports.Prisma.ScannerScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  scanId: 'scanId'
+};
+
+exports.Prisma.LicensesScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  licenseName: 'licenseName',
+  path: 'path',
+  startLine: 'startLine',
+  endLine: 'endLine',
+  score: 'score',
+  scannerId: 'scannerId'
+};
+
+exports.Prisma.CopyrightsScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  statement: 'statement',
+  path: 'path',
+  startLine: 'startLine',
+  endLine: 'endLine',
+  scannerId: 'scannerId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -213,10 +252,15 @@ exports.Prisma.ModelName = {
   Analyzer: 'Analyzer',
   AnalyzerPackage: 'AnalyzerPackage',
   PackageAuthor: 'PackageAuthor',
+  DeclaredLicenses: 'DeclaredLicenses',
+  DeclaredLicensesProcessed: 'DeclaredLicensesProcessed',
   BinaryArtifact: 'BinaryArtifact',
   SourceArtifact: 'SourceArtifact',
   Vcs: 'Vcs',
-  VcsProcessed: 'VcsProcessed'
+  VcsProcessed: 'VcsProcessed',
+  Scanner: 'Scanner',
+  Licenses: 'Licenses',
+  Copyrights: 'Copyrights'
 };
 
 /**

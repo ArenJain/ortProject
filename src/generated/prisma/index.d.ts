@@ -44,6 +44,16 @@ export type AnalyzerPackage = $Result.DefaultSelection<Prisma.$AnalyzerPackagePa
  */
 export type PackageAuthor = $Result.DefaultSelection<Prisma.$PackageAuthorPayload>
 /**
+ * Model DeclaredLicenses
+ * 
+ */
+export type DeclaredLicenses = $Result.DefaultSelection<Prisma.$DeclaredLicensesPayload>
+/**
+ * Model DeclaredLicensesProcessed
+ * 
+ */
+export type DeclaredLicensesProcessed = $Result.DefaultSelection<Prisma.$DeclaredLicensesProcessedPayload>
+/**
  * Model BinaryArtifact
  * 
  */
@@ -63,6 +73,21 @@ export type Vcs = $Result.DefaultSelection<Prisma.$VcsPayload>
  * 
  */
 export type VcsProcessed = $Result.DefaultSelection<Prisma.$VcsProcessedPayload>
+/**
+ * Model Scanner
+ * 
+ */
+export type Scanner = $Result.DefaultSelection<Prisma.$ScannerPayload>
+/**
+ * Model Licenses
+ * 
+ */
+export type Licenses = $Result.DefaultSelection<Prisma.$LicensesPayload>
+/**
+ * Model Copyrights
+ * 
+ */
+export type Copyrights = $Result.DefaultSelection<Prisma.$CopyrightsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -250,6 +275,26 @@ export class PrismaClient<
   get packageAuthor(): Prisma.PackageAuthorDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.declaredLicenses`: Exposes CRUD operations for the **DeclaredLicenses** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DeclaredLicenses
+    * const declaredLicenses = await prisma.declaredLicenses.findMany()
+    * ```
+    */
+  get declaredLicenses(): Prisma.DeclaredLicensesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.declaredLicensesProcessed`: Exposes CRUD operations for the **DeclaredLicensesProcessed** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DeclaredLicensesProcesseds
+    * const declaredLicensesProcesseds = await prisma.declaredLicensesProcessed.findMany()
+    * ```
+    */
+  get declaredLicensesProcessed(): Prisma.DeclaredLicensesProcessedDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.binaryArtifact`: Exposes CRUD operations for the **BinaryArtifact** model.
     * Example usage:
     * ```ts
@@ -288,6 +333,36 @@ export class PrismaClient<
     * ```
     */
   get vcsProcessed(): Prisma.VcsProcessedDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.scanner`: Exposes CRUD operations for the **Scanner** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Scanners
+    * const scanners = await prisma.scanner.findMany()
+    * ```
+    */
+  get scanner(): Prisma.ScannerDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.licenses`: Exposes CRUD operations for the **Licenses** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Licenses
+    * const licenses = await prisma.licenses.findMany()
+    * ```
+    */
+  get licenses(): Prisma.LicensesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.copyrights`: Exposes CRUD operations for the **Copyrights** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Copyrights
+    * const copyrights = await prisma.copyrights.findMany()
+    * ```
+    */
+  get copyrights(): Prisma.CopyrightsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -734,10 +809,15 @@ export namespace Prisma {
     Analyzer: 'Analyzer',
     AnalyzerPackage: 'AnalyzerPackage',
     PackageAuthor: 'PackageAuthor',
+    DeclaredLicenses: 'DeclaredLicenses',
+    DeclaredLicensesProcessed: 'DeclaredLicensesProcessed',
     BinaryArtifact: 'BinaryArtifact',
     SourceArtifact: 'SourceArtifact',
     Vcs: 'Vcs',
-    VcsProcessed: 'VcsProcessed'
+    VcsProcessed: 'VcsProcessed',
+    Scanner: 'Scanner',
+    Licenses: 'Licenses',
+    Copyrights: 'Copyrights'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -756,7 +836,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "project" | "scan" | "analyzer" | "analyzerPackage" | "packageAuthor" | "binaryArtifact" | "sourceArtifact" | "vcs" | "vcsProcessed"
+      modelProps: "user" | "project" | "scan" | "analyzer" | "analyzerPackage" | "packageAuthor" | "declaredLicenses" | "declaredLicensesProcessed" | "binaryArtifact" | "sourceArtifact" | "vcs" | "vcsProcessed" | "scanner" | "licenses" | "copyrights"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1156,6 +1236,138 @@ export namespace Prisma {
           }
         }
       }
+      DeclaredLicenses: {
+        payload: Prisma.$DeclaredLicensesPayload<ExtArgs>
+        fields: Prisma.DeclaredLicensesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DeclaredLicensesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DeclaredLicensesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesPayload>
+          }
+          findFirst: {
+            args: Prisma.DeclaredLicensesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DeclaredLicensesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesPayload>
+          }
+          findMany: {
+            args: Prisma.DeclaredLicensesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesPayload>[]
+          }
+          create: {
+            args: Prisma.DeclaredLicensesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesPayload>
+          }
+          createMany: {
+            args: Prisma.DeclaredLicensesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.DeclaredLicensesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesPayload>
+          }
+          update: {
+            args: Prisma.DeclaredLicensesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesPayload>
+          }
+          deleteMany: {
+            args: Prisma.DeclaredLicensesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DeclaredLicensesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.DeclaredLicensesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesPayload>
+          }
+          aggregate: {
+            args: Prisma.DeclaredLicensesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDeclaredLicenses>
+          }
+          groupBy: {
+            args: Prisma.DeclaredLicensesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DeclaredLicensesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DeclaredLicensesCountArgs<ExtArgs>
+            result: $Utils.Optional<DeclaredLicensesCountAggregateOutputType> | number
+          }
+        }
+      }
+      DeclaredLicensesProcessed: {
+        payload: Prisma.$DeclaredLicensesProcessedPayload<ExtArgs>
+        fields: Prisma.DeclaredLicensesProcessedFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DeclaredLicensesProcessedFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesProcessedPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DeclaredLicensesProcessedFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesProcessedPayload>
+          }
+          findFirst: {
+            args: Prisma.DeclaredLicensesProcessedFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesProcessedPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DeclaredLicensesProcessedFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesProcessedPayload>
+          }
+          findMany: {
+            args: Prisma.DeclaredLicensesProcessedFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesProcessedPayload>[]
+          }
+          create: {
+            args: Prisma.DeclaredLicensesProcessedCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesProcessedPayload>
+          }
+          createMany: {
+            args: Prisma.DeclaredLicensesProcessedCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.DeclaredLicensesProcessedDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesProcessedPayload>
+          }
+          update: {
+            args: Prisma.DeclaredLicensesProcessedUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesProcessedPayload>
+          }
+          deleteMany: {
+            args: Prisma.DeclaredLicensesProcessedDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DeclaredLicensesProcessedUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.DeclaredLicensesProcessedUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclaredLicensesProcessedPayload>
+          }
+          aggregate: {
+            args: Prisma.DeclaredLicensesProcessedAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDeclaredLicensesProcessed>
+          }
+          groupBy: {
+            args: Prisma.DeclaredLicensesProcessedGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DeclaredLicensesProcessedGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DeclaredLicensesProcessedCountArgs<ExtArgs>
+            result: $Utils.Optional<DeclaredLicensesProcessedCountAggregateOutputType> | number
+          }
+        }
+      }
       BinaryArtifact: {
         payload: Prisma.$BinaryArtifactPayload<ExtArgs>
         fields: Prisma.BinaryArtifactFieldRefs
@@ -1420,6 +1632,204 @@ export namespace Prisma {
           }
         }
       }
+      Scanner: {
+        payload: Prisma.$ScannerPayload<ExtArgs>
+        fields: Prisma.ScannerFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ScannerFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScannerPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ScannerFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScannerPayload>
+          }
+          findFirst: {
+            args: Prisma.ScannerFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScannerPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ScannerFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScannerPayload>
+          }
+          findMany: {
+            args: Prisma.ScannerFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScannerPayload>[]
+          }
+          create: {
+            args: Prisma.ScannerCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScannerPayload>
+          }
+          createMany: {
+            args: Prisma.ScannerCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.ScannerDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScannerPayload>
+          }
+          update: {
+            args: Prisma.ScannerUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScannerPayload>
+          }
+          deleteMany: {
+            args: Prisma.ScannerDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ScannerUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ScannerUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScannerPayload>
+          }
+          aggregate: {
+            args: Prisma.ScannerAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateScanner>
+          }
+          groupBy: {
+            args: Prisma.ScannerGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ScannerGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ScannerCountArgs<ExtArgs>
+            result: $Utils.Optional<ScannerCountAggregateOutputType> | number
+          }
+        }
+      }
+      Licenses: {
+        payload: Prisma.$LicensesPayload<ExtArgs>
+        fields: Prisma.LicensesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LicensesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LicensesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LicensesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LicensesPayload>
+          }
+          findFirst: {
+            args: Prisma.LicensesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LicensesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LicensesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LicensesPayload>
+          }
+          findMany: {
+            args: Prisma.LicensesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LicensesPayload>[]
+          }
+          create: {
+            args: Prisma.LicensesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LicensesPayload>
+          }
+          createMany: {
+            args: Prisma.LicensesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.LicensesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LicensesPayload>
+          }
+          update: {
+            args: Prisma.LicensesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LicensesPayload>
+          }
+          deleteMany: {
+            args: Prisma.LicensesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LicensesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.LicensesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LicensesPayload>
+          }
+          aggregate: {
+            args: Prisma.LicensesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLicenses>
+          }
+          groupBy: {
+            args: Prisma.LicensesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LicensesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LicensesCountArgs<ExtArgs>
+            result: $Utils.Optional<LicensesCountAggregateOutputType> | number
+          }
+        }
+      }
+      Copyrights: {
+        payload: Prisma.$CopyrightsPayload<ExtArgs>
+        fields: Prisma.CopyrightsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CopyrightsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CopyrightsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CopyrightsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CopyrightsPayload>
+          }
+          findFirst: {
+            args: Prisma.CopyrightsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CopyrightsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CopyrightsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CopyrightsPayload>
+          }
+          findMany: {
+            args: Prisma.CopyrightsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CopyrightsPayload>[]
+          }
+          create: {
+            args: Prisma.CopyrightsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CopyrightsPayload>
+          }
+          createMany: {
+            args: Prisma.CopyrightsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.CopyrightsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CopyrightsPayload>
+          }
+          update: {
+            args: Prisma.CopyrightsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CopyrightsPayload>
+          }
+          deleteMany: {
+            args: Prisma.CopyrightsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CopyrightsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.CopyrightsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CopyrightsPayload>
+          }
+          aggregate: {
+            args: Prisma.CopyrightsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCopyrights>
+          }
+          groupBy: {
+            args: Prisma.CopyrightsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CopyrightsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CopyrightsCountArgs<ExtArgs>
+            result: $Utils.Optional<CopyrightsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1510,10 +1920,15 @@ export namespace Prisma {
     analyzer?: AnalyzerOmit
     analyzerPackage?: AnalyzerPackageOmit
     packageAuthor?: PackageAuthorOmit
+    declaredLicenses?: DeclaredLicensesOmit
+    declaredLicensesProcessed?: DeclaredLicensesProcessedOmit
     binaryArtifact?: BinaryArtifactOmit
     sourceArtifact?: SourceArtifactOmit
     vcs?: VcsOmit
     vcsProcessed?: VcsProcessedOmit
+    scanner?: ScannerOmit
+    licenses?: LicensesOmit
+    copyrights?: CopyrightsOmit
   }
 
   /* Types for Logging */
@@ -1702,6 +2117,8 @@ export namespace Prisma {
 
   export type AnalyzerPackageCountOutputType = {
     authors: number
+    declaredLicenses: number
+    declaredLicensesProcessed: number
     binaries: number
     sources: number
     vcsList: number
@@ -1710,6 +2127,8 @@ export namespace Prisma {
 
   export type AnalyzerPackageCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     authors?: boolean | AnalyzerPackageCountOutputTypeCountAuthorsArgs
+    declaredLicenses?: boolean | AnalyzerPackageCountOutputTypeCountDeclaredLicensesArgs
+    declaredLicensesProcessed?: boolean | AnalyzerPackageCountOutputTypeCountDeclaredLicensesProcessedArgs
     binaries?: boolean | AnalyzerPackageCountOutputTypeCountBinariesArgs
     sources?: boolean | AnalyzerPackageCountOutputTypeCountSourcesArgs
     vcsList?: boolean | AnalyzerPackageCountOutputTypeCountVcsListArgs
@@ -1732,6 +2151,20 @@ export namespace Prisma {
    */
   export type AnalyzerPackageCountOutputTypeCountAuthorsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PackageAuthorWhereInput
+  }
+
+  /**
+   * AnalyzerPackageCountOutputType without action
+   */
+  export type AnalyzerPackageCountOutputTypeCountDeclaredLicensesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DeclaredLicensesWhereInput
+  }
+
+  /**
+   * AnalyzerPackageCountOutputType without action
+   */
+  export type AnalyzerPackageCountOutputTypeCountDeclaredLicensesProcessedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DeclaredLicensesProcessedWhereInput
   }
 
   /**
@@ -1760,6 +2193,46 @@ export namespace Prisma {
    */
   export type AnalyzerPackageCountOutputTypeCountVcsProcessedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: VcsProcessedWhereInput
+  }
+
+
+  /**
+   * Count Type ScannerCountOutputType
+   */
+
+  export type ScannerCountOutputType = {
+    licenses: number
+    copyrights: number
+  }
+
+  export type ScannerCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    licenses?: boolean | ScannerCountOutputTypeCountLicensesArgs
+    copyrights?: boolean | ScannerCountOutputTypeCountCopyrightsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ScannerCountOutputType without action
+   */
+  export type ScannerCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ScannerCountOutputType
+     */
+    select?: ScannerCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ScannerCountOutputType without action
+   */
+  export type ScannerCountOutputTypeCountLicensesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LicensesWhereInput
+  }
+
+  /**
+   * ScannerCountOutputType without action
+   */
+  export type ScannerCountOutputTypeCountCopyrightsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CopyrightsWhereInput
   }
 
 
@@ -3860,6 +4333,7 @@ export namespace Prisma {
     projectId?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
     analyzer?: boolean | Scan$analyzerArgs<ExtArgs>
+    scanner?: boolean | Scan$scannerArgs<ExtArgs>
   }, ExtArgs["result"]["scan"]>
 
 
@@ -3875,6 +4349,7 @@ export namespace Prisma {
   export type ScanInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
     analyzer?: boolean | Scan$analyzerArgs<ExtArgs>
+    scanner?: boolean | Scan$scannerArgs<ExtArgs>
   }
 
   export type $ScanPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3882,6 +4357,7 @@ export namespace Prisma {
     objects: {
       project: Prisma.$ProjectPayload<ExtArgs>
       analyzer: Prisma.$AnalyzerPayload<ExtArgs> | null
+      scanner: Prisma.$ScannerPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4230,6 +4706,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     analyzer<T extends Scan$analyzerArgs<ExtArgs> = {}>(args?: Subset<T, Scan$analyzerArgs<ExtArgs>>): Prisma__AnalyzerClient<$Result.GetResult<Prisma.$AnalyzerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    scanner<T extends Scan$scannerArgs<ExtArgs> = {}>(args?: Subset<T, Scan$scannerArgs<ExtArgs>>): Prisma__ScannerClient<$Result.GetResult<Prisma.$ScannerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4621,6 +5098,25 @@ export namespace Prisma {
      */
     include?: AnalyzerInclude<ExtArgs> | null
     where?: AnalyzerWhereInput
+  }
+
+  /**
+   * Scan.scanner
+   */
+  export type Scan$scannerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scanner
+     */
+    select?: ScannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scanner
+     */
+    omit?: ScannerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScannerInclude<ExtArgs> | null
+    where?: ScannerWhereInput
   }
 
   /**
@@ -5836,6 +6332,8 @@ export namespace Prisma {
     analyzerId?: boolean
     analyzer?: boolean | AnalyzerDefaultArgs<ExtArgs>
     authors?: boolean | AnalyzerPackage$authorsArgs<ExtArgs>
+    declaredLicenses?: boolean | AnalyzerPackage$declaredLicensesArgs<ExtArgs>
+    declaredLicensesProcessed?: boolean | AnalyzerPackage$declaredLicensesProcessedArgs<ExtArgs>
     binaries?: boolean | AnalyzerPackage$binariesArgs<ExtArgs>
     sources?: boolean | AnalyzerPackage$sourcesArgs<ExtArgs>
     vcsList?: boolean | AnalyzerPackage$vcsListArgs<ExtArgs>
@@ -5859,6 +6357,8 @@ export namespace Prisma {
   export type AnalyzerPackageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     analyzer?: boolean | AnalyzerDefaultArgs<ExtArgs>
     authors?: boolean | AnalyzerPackage$authorsArgs<ExtArgs>
+    declaredLicenses?: boolean | AnalyzerPackage$declaredLicensesArgs<ExtArgs>
+    declaredLicensesProcessed?: boolean | AnalyzerPackage$declaredLicensesProcessedArgs<ExtArgs>
     binaries?: boolean | AnalyzerPackage$binariesArgs<ExtArgs>
     sources?: boolean | AnalyzerPackage$sourcesArgs<ExtArgs>
     vcsList?: boolean | AnalyzerPackage$vcsListArgs<ExtArgs>
@@ -5871,6 +6371,8 @@ export namespace Prisma {
     objects: {
       analyzer: Prisma.$AnalyzerPayload<ExtArgs>
       authors: Prisma.$PackageAuthorPayload<ExtArgs>[]
+      declaredLicenses: Prisma.$DeclaredLicensesPayload<ExtArgs>[]
+      declaredLicensesProcessed: Prisma.$DeclaredLicensesProcessedPayload<ExtArgs>[]
       binaries: Prisma.$BinaryArtifactPayload<ExtArgs>[]
       sources: Prisma.$SourceArtifactPayload<ExtArgs>[]
       vcsList: Prisma.$VcsPayload<ExtArgs>[]
@@ -6226,6 +6728,8 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     analyzer<T extends AnalyzerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerDefaultArgs<ExtArgs>>): Prisma__AnalyzerClient<$Result.GetResult<Prisma.$AnalyzerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     authors<T extends AnalyzerPackage$authorsArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackage$authorsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PackageAuthorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    declaredLicenses<T extends AnalyzerPackage$declaredLicensesArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackage$declaredLicensesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeclaredLicensesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    declaredLicensesProcessed<T extends AnalyzerPackage$declaredLicensesProcessedArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackage$declaredLicensesProcessedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeclaredLicensesProcessedPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     binaries<T extends AnalyzerPackage$binariesArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackage$binariesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BinaryArtifactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sources<T extends AnalyzerPackage$sourcesArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackage$sourcesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SourceArtifactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     vcsList<T extends AnalyzerPackage$vcsListArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackage$vcsListArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VcsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -6629,6 +7133,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PackageAuthorScalarFieldEnum | PackageAuthorScalarFieldEnum[]
+  }
+
+  /**
+   * AnalyzerPackage.declaredLicenses
+   */
+  export type AnalyzerPackage$declaredLicensesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicenses
+     */
+    select?: DeclaredLicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicenses
+     */
+    omit?: DeclaredLicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesInclude<ExtArgs> | null
+    where?: DeclaredLicensesWhereInput
+    orderBy?: DeclaredLicensesOrderByWithRelationInput | DeclaredLicensesOrderByWithRelationInput[]
+    cursor?: DeclaredLicensesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DeclaredLicensesScalarFieldEnum | DeclaredLicensesScalarFieldEnum[]
+  }
+
+  /**
+   * AnalyzerPackage.declaredLicensesProcessed
+   */
+  export type AnalyzerPackage$declaredLicensesProcessedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicensesProcessed
+     */
+    select?: DeclaredLicensesProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicensesProcessed
+     */
+    omit?: DeclaredLicensesProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesProcessedInclude<ExtArgs> | null
+    where?: DeclaredLicensesProcessedWhereInput
+    orderBy?: DeclaredLicensesProcessedOrderByWithRelationInput | DeclaredLicensesProcessedOrderByWithRelationInput[]
+    cursor?: DeclaredLicensesProcessedWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DeclaredLicensesProcessedScalarFieldEnum | DeclaredLicensesProcessedScalarFieldEnum[]
   }
 
   /**
@@ -7687,6 +8239,1894 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: PackageAuthorInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model DeclaredLicenses
+   */
+
+  export type AggregateDeclaredLicenses = {
+    _count: DeclaredLicensesCountAggregateOutputType | null
+    _avg: DeclaredLicensesAvgAggregateOutputType | null
+    _sum: DeclaredLicensesSumAggregateOutputType | null
+    _min: DeclaredLicensesMinAggregateOutputType | null
+    _max: DeclaredLicensesMaxAggregateOutputType | null
+  }
+
+  export type DeclaredLicensesAvgAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+  }
+
+  export type DeclaredLicensesSumAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+  }
+
+  export type DeclaredLicensesMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    packageId: number | null
+  }
+
+  export type DeclaredLicensesMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    packageId: number | null
+  }
+
+  export type DeclaredLicensesCountAggregateOutputType = {
+    id: number
+    name: number
+    packageId: number
+    _all: number
+  }
+
+
+  export type DeclaredLicensesAvgAggregateInputType = {
+    id?: true
+    packageId?: true
+  }
+
+  export type DeclaredLicensesSumAggregateInputType = {
+    id?: true
+    packageId?: true
+  }
+
+  export type DeclaredLicensesMinAggregateInputType = {
+    id?: true
+    name?: true
+    packageId?: true
+  }
+
+  export type DeclaredLicensesMaxAggregateInputType = {
+    id?: true
+    name?: true
+    packageId?: true
+  }
+
+  export type DeclaredLicensesCountAggregateInputType = {
+    id?: true
+    name?: true
+    packageId?: true
+    _all?: true
+  }
+
+  export type DeclaredLicensesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DeclaredLicenses to aggregate.
+     */
+    where?: DeclaredLicensesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DeclaredLicenses to fetch.
+     */
+    orderBy?: DeclaredLicensesOrderByWithRelationInput | DeclaredLicensesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DeclaredLicensesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DeclaredLicenses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DeclaredLicenses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DeclaredLicenses
+    **/
+    _count?: true | DeclaredLicensesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DeclaredLicensesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DeclaredLicensesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DeclaredLicensesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DeclaredLicensesMaxAggregateInputType
+  }
+
+  export type GetDeclaredLicensesAggregateType<T extends DeclaredLicensesAggregateArgs> = {
+        [P in keyof T & keyof AggregateDeclaredLicenses]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDeclaredLicenses[P]>
+      : GetScalarType<T[P], AggregateDeclaredLicenses[P]>
+  }
+
+
+
+
+  export type DeclaredLicensesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DeclaredLicensesWhereInput
+    orderBy?: DeclaredLicensesOrderByWithAggregationInput | DeclaredLicensesOrderByWithAggregationInput[]
+    by: DeclaredLicensesScalarFieldEnum[] | DeclaredLicensesScalarFieldEnum
+    having?: DeclaredLicensesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DeclaredLicensesCountAggregateInputType | true
+    _avg?: DeclaredLicensesAvgAggregateInputType
+    _sum?: DeclaredLicensesSumAggregateInputType
+    _min?: DeclaredLicensesMinAggregateInputType
+    _max?: DeclaredLicensesMaxAggregateInputType
+  }
+
+  export type DeclaredLicensesGroupByOutputType = {
+    id: number
+    name: string
+    packageId: number
+    _count: DeclaredLicensesCountAggregateOutputType | null
+    _avg: DeclaredLicensesAvgAggregateOutputType | null
+    _sum: DeclaredLicensesSumAggregateOutputType | null
+    _min: DeclaredLicensesMinAggregateOutputType | null
+    _max: DeclaredLicensesMaxAggregateOutputType | null
+  }
+
+  type GetDeclaredLicensesGroupByPayload<T extends DeclaredLicensesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DeclaredLicensesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DeclaredLicensesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DeclaredLicensesGroupByOutputType[P]>
+            : GetScalarType<T[P], DeclaredLicensesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DeclaredLicensesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    packageId?: boolean
+    analyzerPackage?: boolean | AnalyzerPackageDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["declaredLicenses"]>
+
+
+
+  export type DeclaredLicensesSelectScalar = {
+    id?: boolean
+    name?: boolean
+    packageId?: boolean
+  }
+
+  export type DeclaredLicensesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "packageId", ExtArgs["result"]["declaredLicenses"]>
+  export type DeclaredLicensesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    analyzerPackage?: boolean | AnalyzerPackageDefaultArgs<ExtArgs>
+  }
+
+  export type $DeclaredLicensesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DeclaredLicenses"
+    objects: {
+      analyzerPackage: Prisma.$AnalyzerPackagePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      packageId: number
+    }, ExtArgs["result"]["declaredLicenses"]>
+    composites: {}
+  }
+
+  type DeclaredLicensesGetPayload<S extends boolean | null | undefined | DeclaredLicensesDefaultArgs> = $Result.GetResult<Prisma.$DeclaredLicensesPayload, S>
+
+  type DeclaredLicensesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DeclaredLicensesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DeclaredLicensesCountAggregateInputType | true
+    }
+
+  export interface DeclaredLicensesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DeclaredLicenses'], meta: { name: 'DeclaredLicenses' } }
+    /**
+     * Find zero or one DeclaredLicenses that matches the filter.
+     * @param {DeclaredLicensesFindUniqueArgs} args - Arguments to find a DeclaredLicenses
+     * @example
+     * // Get one DeclaredLicenses
+     * const declaredLicenses = await prisma.declaredLicenses.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DeclaredLicensesFindUniqueArgs>(args: SelectSubset<T, DeclaredLicensesFindUniqueArgs<ExtArgs>>): Prisma__DeclaredLicensesClient<$Result.GetResult<Prisma.$DeclaredLicensesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one DeclaredLicenses that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DeclaredLicensesFindUniqueOrThrowArgs} args - Arguments to find a DeclaredLicenses
+     * @example
+     * // Get one DeclaredLicenses
+     * const declaredLicenses = await prisma.declaredLicenses.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DeclaredLicensesFindUniqueOrThrowArgs>(args: SelectSubset<T, DeclaredLicensesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DeclaredLicensesClient<$Result.GetResult<Prisma.$DeclaredLicensesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DeclaredLicenses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclaredLicensesFindFirstArgs} args - Arguments to find a DeclaredLicenses
+     * @example
+     * // Get one DeclaredLicenses
+     * const declaredLicenses = await prisma.declaredLicenses.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DeclaredLicensesFindFirstArgs>(args?: SelectSubset<T, DeclaredLicensesFindFirstArgs<ExtArgs>>): Prisma__DeclaredLicensesClient<$Result.GetResult<Prisma.$DeclaredLicensesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DeclaredLicenses that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclaredLicensesFindFirstOrThrowArgs} args - Arguments to find a DeclaredLicenses
+     * @example
+     * // Get one DeclaredLicenses
+     * const declaredLicenses = await prisma.declaredLicenses.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DeclaredLicensesFindFirstOrThrowArgs>(args?: SelectSubset<T, DeclaredLicensesFindFirstOrThrowArgs<ExtArgs>>): Prisma__DeclaredLicensesClient<$Result.GetResult<Prisma.$DeclaredLicensesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more DeclaredLicenses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclaredLicensesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DeclaredLicenses
+     * const declaredLicenses = await prisma.declaredLicenses.findMany()
+     * 
+     * // Get first 10 DeclaredLicenses
+     * const declaredLicenses = await prisma.declaredLicenses.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const declaredLicensesWithIdOnly = await prisma.declaredLicenses.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DeclaredLicensesFindManyArgs>(args?: SelectSubset<T, DeclaredLicensesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeclaredLicensesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a DeclaredLicenses.
+     * @param {DeclaredLicensesCreateArgs} args - Arguments to create a DeclaredLicenses.
+     * @example
+     * // Create one DeclaredLicenses
+     * const DeclaredLicenses = await prisma.declaredLicenses.create({
+     *   data: {
+     *     // ... data to create a DeclaredLicenses
+     *   }
+     * })
+     * 
+     */
+    create<T extends DeclaredLicensesCreateArgs>(args: SelectSubset<T, DeclaredLicensesCreateArgs<ExtArgs>>): Prisma__DeclaredLicensesClient<$Result.GetResult<Prisma.$DeclaredLicensesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many DeclaredLicenses.
+     * @param {DeclaredLicensesCreateManyArgs} args - Arguments to create many DeclaredLicenses.
+     * @example
+     * // Create many DeclaredLicenses
+     * const declaredLicenses = await prisma.declaredLicenses.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DeclaredLicensesCreateManyArgs>(args?: SelectSubset<T, DeclaredLicensesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a DeclaredLicenses.
+     * @param {DeclaredLicensesDeleteArgs} args - Arguments to delete one DeclaredLicenses.
+     * @example
+     * // Delete one DeclaredLicenses
+     * const DeclaredLicenses = await prisma.declaredLicenses.delete({
+     *   where: {
+     *     // ... filter to delete one DeclaredLicenses
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DeclaredLicensesDeleteArgs>(args: SelectSubset<T, DeclaredLicensesDeleteArgs<ExtArgs>>): Prisma__DeclaredLicensesClient<$Result.GetResult<Prisma.$DeclaredLicensesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one DeclaredLicenses.
+     * @param {DeclaredLicensesUpdateArgs} args - Arguments to update one DeclaredLicenses.
+     * @example
+     * // Update one DeclaredLicenses
+     * const declaredLicenses = await prisma.declaredLicenses.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DeclaredLicensesUpdateArgs>(args: SelectSubset<T, DeclaredLicensesUpdateArgs<ExtArgs>>): Prisma__DeclaredLicensesClient<$Result.GetResult<Prisma.$DeclaredLicensesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more DeclaredLicenses.
+     * @param {DeclaredLicensesDeleteManyArgs} args - Arguments to filter DeclaredLicenses to delete.
+     * @example
+     * // Delete a few DeclaredLicenses
+     * const { count } = await prisma.declaredLicenses.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DeclaredLicensesDeleteManyArgs>(args?: SelectSubset<T, DeclaredLicensesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DeclaredLicenses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclaredLicensesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DeclaredLicenses
+     * const declaredLicenses = await prisma.declaredLicenses.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DeclaredLicensesUpdateManyArgs>(args: SelectSubset<T, DeclaredLicensesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one DeclaredLicenses.
+     * @param {DeclaredLicensesUpsertArgs} args - Arguments to update or create a DeclaredLicenses.
+     * @example
+     * // Update or create a DeclaredLicenses
+     * const declaredLicenses = await prisma.declaredLicenses.upsert({
+     *   create: {
+     *     // ... data to create a DeclaredLicenses
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DeclaredLicenses we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DeclaredLicensesUpsertArgs>(args: SelectSubset<T, DeclaredLicensesUpsertArgs<ExtArgs>>): Prisma__DeclaredLicensesClient<$Result.GetResult<Prisma.$DeclaredLicensesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of DeclaredLicenses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclaredLicensesCountArgs} args - Arguments to filter DeclaredLicenses to count.
+     * @example
+     * // Count the number of DeclaredLicenses
+     * const count = await prisma.declaredLicenses.count({
+     *   where: {
+     *     // ... the filter for the DeclaredLicenses we want to count
+     *   }
+     * })
+    **/
+    count<T extends DeclaredLicensesCountArgs>(
+      args?: Subset<T, DeclaredLicensesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DeclaredLicensesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DeclaredLicenses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclaredLicensesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DeclaredLicensesAggregateArgs>(args: Subset<T, DeclaredLicensesAggregateArgs>): Prisma.PrismaPromise<GetDeclaredLicensesAggregateType<T>>
+
+    /**
+     * Group by DeclaredLicenses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclaredLicensesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DeclaredLicensesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DeclaredLicensesGroupByArgs['orderBy'] }
+        : { orderBy?: DeclaredLicensesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DeclaredLicensesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDeclaredLicensesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the DeclaredLicenses model
+   */
+  readonly fields: DeclaredLicensesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DeclaredLicenses.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DeclaredLicensesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    analyzerPackage<T extends AnalyzerPackageDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackageDefaultArgs<ExtArgs>>): Prisma__AnalyzerPackageClient<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the DeclaredLicenses model
+   */
+  interface DeclaredLicensesFieldRefs {
+    readonly id: FieldRef<"DeclaredLicenses", 'Int'>
+    readonly name: FieldRef<"DeclaredLicenses", 'String'>
+    readonly packageId: FieldRef<"DeclaredLicenses", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * DeclaredLicenses findUnique
+   */
+  export type DeclaredLicensesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicenses
+     */
+    select?: DeclaredLicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicenses
+     */
+    omit?: DeclaredLicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesInclude<ExtArgs> | null
+    /**
+     * Filter, which DeclaredLicenses to fetch.
+     */
+    where: DeclaredLicensesWhereUniqueInput
+  }
+
+  /**
+   * DeclaredLicenses findUniqueOrThrow
+   */
+  export type DeclaredLicensesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicenses
+     */
+    select?: DeclaredLicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicenses
+     */
+    omit?: DeclaredLicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesInclude<ExtArgs> | null
+    /**
+     * Filter, which DeclaredLicenses to fetch.
+     */
+    where: DeclaredLicensesWhereUniqueInput
+  }
+
+  /**
+   * DeclaredLicenses findFirst
+   */
+  export type DeclaredLicensesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicenses
+     */
+    select?: DeclaredLicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicenses
+     */
+    omit?: DeclaredLicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesInclude<ExtArgs> | null
+    /**
+     * Filter, which DeclaredLicenses to fetch.
+     */
+    where?: DeclaredLicensesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DeclaredLicenses to fetch.
+     */
+    orderBy?: DeclaredLicensesOrderByWithRelationInput | DeclaredLicensesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DeclaredLicenses.
+     */
+    cursor?: DeclaredLicensesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DeclaredLicenses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DeclaredLicenses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DeclaredLicenses.
+     */
+    distinct?: DeclaredLicensesScalarFieldEnum | DeclaredLicensesScalarFieldEnum[]
+  }
+
+  /**
+   * DeclaredLicenses findFirstOrThrow
+   */
+  export type DeclaredLicensesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicenses
+     */
+    select?: DeclaredLicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicenses
+     */
+    omit?: DeclaredLicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesInclude<ExtArgs> | null
+    /**
+     * Filter, which DeclaredLicenses to fetch.
+     */
+    where?: DeclaredLicensesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DeclaredLicenses to fetch.
+     */
+    orderBy?: DeclaredLicensesOrderByWithRelationInput | DeclaredLicensesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DeclaredLicenses.
+     */
+    cursor?: DeclaredLicensesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DeclaredLicenses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DeclaredLicenses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DeclaredLicenses.
+     */
+    distinct?: DeclaredLicensesScalarFieldEnum | DeclaredLicensesScalarFieldEnum[]
+  }
+
+  /**
+   * DeclaredLicenses findMany
+   */
+  export type DeclaredLicensesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicenses
+     */
+    select?: DeclaredLicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicenses
+     */
+    omit?: DeclaredLicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesInclude<ExtArgs> | null
+    /**
+     * Filter, which DeclaredLicenses to fetch.
+     */
+    where?: DeclaredLicensesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DeclaredLicenses to fetch.
+     */
+    orderBy?: DeclaredLicensesOrderByWithRelationInput | DeclaredLicensesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DeclaredLicenses.
+     */
+    cursor?: DeclaredLicensesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DeclaredLicenses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DeclaredLicenses.
+     */
+    skip?: number
+    distinct?: DeclaredLicensesScalarFieldEnum | DeclaredLicensesScalarFieldEnum[]
+  }
+
+  /**
+   * DeclaredLicenses create
+   */
+  export type DeclaredLicensesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicenses
+     */
+    select?: DeclaredLicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicenses
+     */
+    omit?: DeclaredLicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a DeclaredLicenses.
+     */
+    data: XOR<DeclaredLicensesCreateInput, DeclaredLicensesUncheckedCreateInput>
+  }
+
+  /**
+   * DeclaredLicenses createMany
+   */
+  export type DeclaredLicensesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DeclaredLicenses.
+     */
+    data: DeclaredLicensesCreateManyInput | DeclaredLicensesCreateManyInput[]
+  }
+
+  /**
+   * DeclaredLicenses update
+   */
+  export type DeclaredLicensesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicenses
+     */
+    select?: DeclaredLicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicenses
+     */
+    omit?: DeclaredLicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a DeclaredLicenses.
+     */
+    data: XOR<DeclaredLicensesUpdateInput, DeclaredLicensesUncheckedUpdateInput>
+    /**
+     * Choose, which DeclaredLicenses to update.
+     */
+    where: DeclaredLicensesWhereUniqueInput
+  }
+
+  /**
+   * DeclaredLicenses updateMany
+   */
+  export type DeclaredLicensesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DeclaredLicenses.
+     */
+    data: XOR<DeclaredLicensesUpdateManyMutationInput, DeclaredLicensesUncheckedUpdateManyInput>
+    /**
+     * Filter which DeclaredLicenses to update
+     */
+    where?: DeclaredLicensesWhereInput
+    /**
+     * Limit how many DeclaredLicenses to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * DeclaredLicenses upsert
+   */
+  export type DeclaredLicensesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicenses
+     */
+    select?: DeclaredLicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicenses
+     */
+    omit?: DeclaredLicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the DeclaredLicenses to update in case it exists.
+     */
+    where: DeclaredLicensesWhereUniqueInput
+    /**
+     * In case the DeclaredLicenses found by the `where` argument doesn't exist, create a new DeclaredLicenses with this data.
+     */
+    create: XOR<DeclaredLicensesCreateInput, DeclaredLicensesUncheckedCreateInput>
+    /**
+     * In case the DeclaredLicenses was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DeclaredLicensesUpdateInput, DeclaredLicensesUncheckedUpdateInput>
+  }
+
+  /**
+   * DeclaredLicenses delete
+   */
+  export type DeclaredLicensesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicenses
+     */
+    select?: DeclaredLicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicenses
+     */
+    omit?: DeclaredLicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesInclude<ExtArgs> | null
+    /**
+     * Filter which DeclaredLicenses to delete.
+     */
+    where: DeclaredLicensesWhereUniqueInput
+  }
+
+  /**
+   * DeclaredLicenses deleteMany
+   */
+  export type DeclaredLicensesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DeclaredLicenses to delete
+     */
+    where?: DeclaredLicensesWhereInput
+    /**
+     * Limit how many DeclaredLicenses to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * DeclaredLicenses without action
+   */
+  export type DeclaredLicensesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicenses
+     */
+    select?: DeclaredLicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicenses
+     */
+    omit?: DeclaredLicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model DeclaredLicensesProcessed
+   */
+
+  export type AggregateDeclaredLicensesProcessed = {
+    _count: DeclaredLicensesProcessedCountAggregateOutputType | null
+    _avg: DeclaredLicensesProcessedAvgAggregateOutputType | null
+    _sum: DeclaredLicensesProcessedSumAggregateOutputType | null
+    _min: DeclaredLicensesProcessedMinAggregateOutputType | null
+    _max: DeclaredLicensesProcessedMaxAggregateOutputType | null
+  }
+
+  export type DeclaredLicensesProcessedAvgAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+  }
+
+  export type DeclaredLicensesProcessedSumAggregateOutputType = {
+    id: number | null
+    packageId: number | null
+  }
+
+  export type DeclaredLicensesProcessedMinAggregateOutputType = {
+    id: number | null
+    spdxExpression: string | null
+    packageId: number | null
+  }
+
+  export type DeclaredLicensesProcessedMaxAggregateOutputType = {
+    id: number | null
+    spdxExpression: string | null
+    packageId: number | null
+  }
+
+  export type DeclaredLicensesProcessedCountAggregateOutputType = {
+    id: number
+    spdxExpression: number
+    packageId: number
+    _all: number
+  }
+
+
+  export type DeclaredLicensesProcessedAvgAggregateInputType = {
+    id?: true
+    packageId?: true
+  }
+
+  export type DeclaredLicensesProcessedSumAggregateInputType = {
+    id?: true
+    packageId?: true
+  }
+
+  export type DeclaredLicensesProcessedMinAggregateInputType = {
+    id?: true
+    spdxExpression?: true
+    packageId?: true
+  }
+
+  export type DeclaredLicensesProcessedMaxAggregateInputType = {
+    id?: true
+    spdxExpression?: true
+    packageId?: true
+  }
+
+  export type DeclaredLicensesProcessedCountAggregateInputType = {
+    id?: true
+    spdxExpression?: true
+    packageId?: true
+    _all?: true
+  }
+
+  export type DeclaredLicensesProcessedAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DeclaredLicensesProcessed to aggregate.
+     */
+    where?: DeclaredLicensesProcessedWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DeclaredLicensesProcesseds to fetch.
+     */
+    orderBy?: DeclaredLicensesProcessedOrderByWithRelationInput | DeclaredLicensesProcessedOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DeclaredLicensesProcessedWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DeclaredLicensesProcesseds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DeclaredLicensesProcesseds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DeclaredLicensesProcesseds
+    **/
+    _count?: true | DeclaredLicensesProcessedCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DeclaredLicensesProcessedAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DeclaredLicensesProcessedSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DeclaredLicensesProcessedMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DeclaredLicensesProcessedMaxAggregateInputType
+  }
+
+  export type GetDeclaredLicensesProcessedAggregateType<T extends DeclaredLicensesProcessedAggregateArgs> = {
+        [P in keyof T & keyof AggregateDeclaredLicensesProcessed]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDeclaredLicensesProcessed[P]>
+      : GetScalarType<T[P], AggregateDeclaredLicensesProcessed[P]>
+  }
+
+
+
+
+  export type DeclaredLicensesProcessedGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DeclaredLicensesProcessedWhereInput
+    orderBy?: DeclaredLicensesProcessedOrderByWithAggregationInput | DeclaredLicensesProcessedOrderByWithAggregationInput[]
+    by: DeclaredLicensesProcessedScalarFieldEnum[] | DeclaredLicensesProcessedScalarFieldEnum
+    having?: DeclaredLicensesProcessedScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DeclaredLicensesProcessedCountAggregateInputType | true
+    _avg?: DeclaredLicensesProcessedAvgAggregateInputType
+    _sum?: DeclaredLicensesProcessedSumAggregateInputType
+    _min?: DeclaredLicensesProcessedMinAggregateInputType
+    _max?: DeclaredLicensesProcessedMaxAggregateInputType
+  }
+
+  export type DeclaredLicensesProcessedGroupByOutputType = {
+    id: number
+    spdxExpression: string
+    packageId: number
+    _count: DeclaredLicensesProcessedCountAggregateOutputType | null
+    _avg: DeclaredLicensesProcessedAvgAggregateOutputType | null
+    _sum: DeclaredLicensesProcessedSumAggregateOutputType | null
+    _min: DeclaredLicensesProcessedMinAggregateOutputType | null
+    _max: DeclaredLicensesProcessedMaxAggregateOutputType | null
+  }
+
+  type GetDeclaredLicensesProcessedGroupByPayload<T extends DeclaredLicensesProcessedGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DeclaredLicensesProcessedGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DeclaredLicensesProcessedGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DeclaredLicensesProcessedGroupByOutputType[P]>
+            : GetScalarType<T[P], DeclaredLicensesProcessedGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DeclaredLicensesProcessedSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    spdxExpression?: boolean
+    packageId?: boolean
+    analyzerPackage?: boolean | AnalyzerPackageDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["declaredLicensesProcessed"]>
+
+
+
+  export type DeclaredLicensesProcessedSelectScalar = {
+    id?: boolean
+    spdxExpression?: boolean
+    packageId?: boolean
+  }
+
+  export type DeclaredLicensesProcessedOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "spdxExpression" | "packageId", ExtArgs["result"]["declaredLicensesProcessed"]>
+  export type DeclaredLicensesProcessedInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    analyzerPackage?: boolean | AnalyzerPackageDefaultArgs<ExtArgs>
+  }
+
+  export type $DeclaredLicensesProcessedPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DeclaredLicensesProcessed"
+    objects: {
+      analyzerPackage: Prisma.$AnalyzerPackagePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      spdxExpression: string
+      packageId: number
+    }, ExtArgs["result"]["declaredLicensesProcessed"]>
+    composites: {}
+  }
+
+  type DeclaredLicensesProcessedGetPayload<S extends boolean | null | undefined | DeclaredLicensesProcessedDefaultArgs> = $Result.GetResult<Prisma.$DeclaredLicensesProcessedPayload, S>
+
+  type DeclaredLicensesProcessedCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DeclaredLicensesProcessedFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DeclaredLicensesProcessedCountAggregateInputType | true
+    }
+
+  export interface DeclaredLicensesProcessedDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DeclaredLicensesProcessed'], meta: { name: 'DeclaredLicensesProcessed' } }
+    /**
+     * Find zero or one DeclaredLicensesProcessed that matches the filter.
+     * @param {DeclaredLicensesProcessedFindUniqueArgs} args - Arguments to find a DeclaredLicensesProcessed
+     * @example
+     * // Get one DeclaredLicensesProcessed
+     * const declaredLicensesProcessed = await prisma.declaredLicensesProcessed.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DeclaredLicensesProcessedFindUniqueArgs>(args: SelectSubset<T, DeclaredLicensesProcessedFindUniqueArgs<ExtArgs>>): Prisma__DeclaredLicensesProcessedClient<$Result.GetResult<Prisma.$DeclaredLicensesProcessedPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one DeclaredLicensesProcessed that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DeclaredLicensesProcessedFindUniqueOrThrowArgs} args - Arguments to find a DeclaredLicensesProcessed
+     * @example
+     * // Get one DeclaredLicensesProcessed
+     * const declaredLicensesProcessed = await prisma.declaredLicensesProcessed.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DeclaredLicensesProcessedFindUniqueOrThrowArgs>(args: SelectSubset<T, DeclaredLicensesProcessedFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DeclaredLicensesProcessedClient<$Result.GetResult<Prisma.$DeclaredLicensesProcessedPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DeclaredLicensesProcessed that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclaredLicensesProcessedFindFirstArgs} args - Arguments to find a DeclaredLicensesProcessed
+     * @example
+     * // Get one DeclaredLicensesProcessed
+     * const declaredLicensesProcessed = await prisma.declaredLicensesProcessed.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DeclaredLicensesProcessedFindFirstArgs>(args?: SelectSubset<T, DeclaredLicensesProcessedFindFirstArgs<ExtArgs>>): Prisma__DeclaredLicensesProcessedClient<$Result.GetResult<Prisma.$DeclaredLicensesProcessedPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DeclaredLicensesProcessed that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclaredLicensesProcessedFindFirstOrThrowArgs} args - Arguments to find a DeclaredLicensesProcessed
+     * @example
+     * // Get one DeclaredLicensesProcessed
+     * const declaredLicensesProcessed = await prisma.declaredLicensesProcessed.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DeclaredLicensesProcessedFindFirstOrThrowArgs>(args?: SelectSubset<T, DeclaredLicensesProcessedFindFirstOrThrowArgs<ExtArgs>>): Prisma__DeclaredLicensesProcessedClient<$Result.GetResult<Prisma.$DeclaredLicensesProcessedPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more DeclaredLicensesProcesseds that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclaredLicensesProcessedFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DeclaredLicensesProcesseds
+     * const declaredLicensesProcesseds = await prisma.declaredLicensesProcessed.findMany()
+     * 
+     * // Get first 10 DeclaredLicensesProcesseds
+     * const declaredLicensesProcesseds = await prisma.declaredLicensesProcessed.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const declaredLicensesProcessedWithIdOnly = await prisma.declaredLicensesProcessed.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DeclaredLicensesProcessedFindManyArgs>(args?: SelectSubset<T, DeclaredLicensesProcessedFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeclaredLicensesProcessedPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a DeclaredLicensesProcessed.
+     * @param {DeclaredLicensesProcessedCreateArgs} args - Arguments to create a DeclaredLicensesProcessed.
+     * @example
+     * // Create one DeclaredLicensesProcessed
+     * const DeclaredLicensesProcessed = await prisma.declaredLicensesProcessed.create({
+     *   data: {
+     *     // ... data to create a DeclaredLicensesProcessed
+     *   }
+     * })
+     * 
+     */
+    create<T extends DeclaredLicensesProcessedCreateArgs>(args: SelectSubset<T, DeclaredLicensesProcessedCreateArgs<ExtArgs>>): Prisma__DeclaredLicensesProcessedClient<$Result.GetResult<Prisma.$DeclaredLicensesProcessedPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many DeclaredLicensesProcesseds.
+     * @param {DeclaredLicensesProcessedCreateManyArgs} args - Arguments to create many DeclaredLicensesProcesseds.
+     * @example
+     * // Create many DeclaredLicensesProcesseds
+     * const declaredLicensesProcessed = await prisma.declaredLicensesProcessed.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DeclaredLicensesProcessedCreateManyArgs>(args?: SelectSubset<T, DeclaredLicensesProcessedCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a DeclaredLicensesProcessed.
+     * @param {DeclaredLicensesProcessedDeleteArgs} args - Arguments to delete one DeclaredLicensesProcessed.
+     * @example
+     * // Delete one DeclaredLicensesProcessed
+     * const DeclaredLicensesProcessed = await prisma.declaredLicensesProcessed.delete({
+     *   where: {
+     *     // ... filter to delete one DeclaredLicensesProcessed
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DeclaredLicensesProcessedDeleteArgs>(args: SelectSubset<T, DeclaredLicensesProcessedDeleteArgs<ExtArgs>>): Prisma__DeclaredLicensesProcessedClient<$Result.GetResult<Prisma.$DeclaredLicensesProcessedPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one DeclaredLicensesProcessed.
+     * @param {DeclaredLicensesProcessedUpdateArgs} args - Arguments to update one DeclaredLicensesProcessed.
+     * @example
+     * // Update one DeclaredLicensesProcessed
+     * const declaredLicensesProcessed = await prisma.declaredLicensesProcessed.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DeclaredLicensesProcessedUpdateArgs>(args: SelectSubset<T, DeclaredLicensesProcessedUpdateArgs<ExtArgs>>): Prisma__DeclaredLicensesProcessedClient<$Result.GetResult<Prisma.$DeclaredLicensesProcessedPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more DeclaredLicensesProcesseds.
+     * @param {DeclaredLicensesProcessedDeleteManyArgs} args - Arguments to filter DeclaredLicensesProcesseds to delete.
+     * @example
+     * // Delete a few DeclaredLicensesProcesseds
+     * const { count } = await prisma.declaredLicensesProcessed.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DeclaredLicensesProcessedDeleteManyArgs>(args?: SelectSubset<T, DeclaredLicensesProcessedDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DeclaredLicensesProcesseds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclaredLicensesProcessedUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DeclaredLicensesProcesseds
+     * const declaredLicensesProcessed = await prisma.declaredLicensesProcessed.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DeclaredLicensesProcessedUpdateManyArgs>(args: SelectSubset<T, DeclaredLicensesProcessedUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one DeclaredLicensesProcessed.
+     * @param {DeclaredLicensesProcessedUpsertArgs} args - Arguments to update or create a DeclaredLicensesProcessed.
+     * @example
+     * // Update or create a DeclaredLicensesProcessed
+     * const declaredLicensesProcessed = await prisma.declaredLicensesProcessed.upsert({
+     *   create: {
+     *     // ... data to create a DeclaredLicensesProcessed
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DeclaredLicensesProcessed we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DeclaredLicensesProcessedUpsertArgs>(args: SelectSubset<T, DeclaredLicensesProcessedUpsertArgs<ExtArgs>>): Prisma__DeclaredLicensesProcessedClient<$Result.GetResult<Prisma.$DeclaredLicensesProcessedPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of DeclaredLicensesProcesseds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclaredLicensesProcessedCountArgs} args - Arguments to filter DeclaredLicensesProcesseds to count.
+     * @example
+     * // Count the number of DeclaredLicensesProcesseds
+     * const count = await prisma.declaredLicensesProcessed.count({
+     *   where: {
+     *     // ... the filter for the DeclaredLicensesProcesseds we want to count
+     *   }
+     * })
+    **/
+    count<T extends DeclaredLicensesProcessedCountArgs>(
+      args?: Subset<T, DeclaredLicensesProcessedCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DeclaredLicensesProcessedCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DeclaredLicensesProcessed.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclaredLicensesProcessedAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DeclaredLicensesProcessedAggregateArgs>(args: Subset<T, DeclaredLicensesProcessedAggregateArgs>): Prisma.PrismaPromise<GetDeclaredLicensesProcessedAggregateType<T>>
+
+    /**
+     * Group by DeclaredLicensesProcessed.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclaredLicensesProcessedGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DeclaredLicensesProcessedGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DeclaredLicensesProcessedGroupByArgs['orderBy'] }
+        : { orderBy?: DeclaredLicensesProcessedGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DeclaredLicensesProcessedGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDeclaredLicensesProcessedGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the DeclaredLicensesProcessed model
+   */
+  readonly fields: DeclaredLicensesProcessedFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DeclaredLicensesProcessed.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DeclaredLicensesProcessedClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    analyzerPackage<T extends AnalyzerPackageDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AnalyzerPackageDefaultArgs<ExtArgs>>): Prisma__AnalyzerPackageClient<$Result.GetResult<Prisma.$AnalyzerPackagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the DeclaredLicensesProcessed model
+   */
+  interface DeclaredLicensesProcessedFieldRefs {
+    readonly id: FieldRef<"DeclaredLicensesProcessed", 'Int'>
+    readonly spdxExpression: FieldRef<"DeclaredLicensesProcessed", 'String'>
+    readonly packageId: FieldRef<"DeclaredLicensesProcessed", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * DeclaredLicensesProcessed findUnique
+   */
+  export type DeclaredLicensesProcessedFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicensesProcessed
+     */
+    select?: DeclaredLicensesProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicensesProcessed
+     */
+    omit?: DeclaredLicensesProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesProcessedInclude<ExtArgs> | null
+    /**
+     * Filter, which DeclaredLicensesProcessed to fetch.
+     */
+    where: DeclaredLicensesProcessedWhereUniqueInput
+  }
+
+  /**
+   * DeclaredLicensesProcessed findUniqueOrThrow
+   */
+  export type DeclaredLicensesProcessedFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicensesProcessed
+     */
+    select?: DeclaredLicensesProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicensesProcessed
+     */
+    omit?: DeclaredLicensesProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesProcessedInclude<ExtArgs> | null
+    /**
+     * Filter, which DeclaredLicensesProcessed to fetch.
+     */
+    where: DeclaredLicensesProcessedWhereUniqueInput
+  }
+
+  /**
+   * DeclaredLicensesProcessed findFirst
+   */
+  export type DeclaredLicensesProcessedFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicensesProcessed
+     */
+    select?: DeclaredLicensesProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicensesProcessed
+     */
+    omit?: DeclaredLicensesProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesProcessedInclude<ExtArgs> | null
+    /**
+     * Filter, which DeclaredLicensesProcessed to fetch.
+     */
+    where?: DeclaredLicensesProcessedWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DeclaredLicensesProcesseds to fetch.
+     */
+    orderBy?: DeclaredLicensesProcessedOrderByWithRelationInput | DeclaredLicensesProcessedOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DeclaredLicensesProcesseds.
+     */
+    cursor?: DeclaredLicensesProcessedWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DeclaredLicensesProcesseds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DeclaredLicensesProcesseds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DeclaredLicensesProcesseds.
+     */
+    distinct?: DeclaredLicensesProcessedScalarFieldEnum | DeclaredLicensesProcessedScalarFieldEnum[]
+  }
+
+  /**
+   * DeclaredLicensesProcessed findFirstOrThrow
+   */
+  export type DeclaredLicensesProcessedFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicensesProcessed
+     */
+    select?: DeclaredLicensesProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicensesProcessed
+     */
+    omit?: DeclaredLicensesProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesProcessedInclude<ExtArgs> | null
+    /**
+     * Filter, which DeclaredLicensesProcessed to fetch.
+     */
+    where?: DeclaredLicensesProcessedWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DeclaredLicensesProcesseds to fetch.
+     */
+    orderBy?: DeclaredLicensesProcessedOrderByWithRelationInput | DeclaredLicensesProcessedOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DeclaredLicensesProcesseds.
+     */
+    cursor?: DeclaredLicensesProcessedWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DeclaredLicensesProcesseds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DeclaredLicensesProcesseds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DeclaredLicensesProcesseds.
+     */
+    distinct?: DeclaredLicensesProcessedScalarFieldEnum | DeclaredLicensesProcessedScalarFieldEnum[]
+  }
+
+  /**
+   * DeclaredLicensesProcessed findMany
+   */
+  export type DeclaredLicensesProcessedFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicensesProcessed
+     */
+    select?: DeclaredLicensesProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicensesProcessed
+     */
+    omit?: DeclaredLicensesProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesProcessedInclude<ExtArgs> | null
+    /**
+     * Filter, which DeclaredLicensesProcesseds to fetch.
+     */
+    where?: DeclaredLicensesProcessedWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DeclaredLicensesProcesseds to fetch.
+     */
+    orderBy?: DeclaredLicensesProcessedOrderByWithRelationInput | DeclaredLicensesProcessedOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DeclaredLicensesProcesseds.
+     */
+    cursor?: DeclaredLicensesProcessedWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DeclaredLicensesProcesseds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DeclaredLicensesProcesseds.
+     */
+    skip?: number
+    distinct?: DeclaredLicensesProcessedScalarFieldEnum | DeclaredLicensesProcessedScalarFieldEnum[]
+  }
+
+  /**
+   * DeclaredLicensesProcessed create
+   */
+  export type DeclaredLicensesProcessedCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicensesProcessed
+     */
+    select?: DeclaredLicensesProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicensesProcessed
+     */
+    omit?: DeclaredLicensesProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesProcessedInclude<ExtArgs> | null
+    /**
+     * The data needed to create a DeclaredLicensesProcessed.
+     */
+    data: XOR<DeclaredLicensesProcessedCreateInput, DeclaredLicensesProcessedUncheckedCreateInput>
+  }
+
+  /**
+   * DeclaredLicensesProcessed createMany
+   */
+  export type DeclaredLicensesProcessedCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DeclaredLicensesProcesseds.
+     */
+    data: DeclaredLicensesProcessedCreateManyInput | DeclaredLicensesProcessedCreateManyInput[]
+  }
+
+  /**
+   * DeclaredLicensesProcessed update
+   */
+  export type DeclaredLicensesProcessedUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicensesProcessed
+     */
+    select?: DeclaredLicensesProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicensesProcessed
+     */
+    omit?: DeclaredLicensesProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesProcessedInclude<ExtArgs> | null
+    /**
+     * The data needed to update a DeclaredLicensesProcessed.
+     */
+    data: XOR<DeclaredLicensesProcessedUpdateInput, DeclaredLicensesProcessedUncheckedUpdateInput>
+    /**
+     * Choose, which DeclaredLicensesProcessed to update.
+     */
+    where: DeclaredLicensesProcessedWhereUniqueInput
+  }
+
+  /**
+   * DeclaredLicensesProcessed updateMany
+   */
+  export type DeclaredLicensesProcessedUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DeclaredLicensesProcesseds.
+     */
+    data: XOR<DeclaredLicensesProcessedUpdateManyMutationInput, DeclaredLicensesProcessedUncheckedUpdateManyInput>
+    /**
+     * Filter which DeclaredLicensesProcesseds to update
+     */
+    where?: DeclaredLicensesProcessedWhereInput
+    /**
+     * Limit how many DeclaredLicensesProcesseds to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * DeclaredLicensesProcessed upsert
+   */
+  export type DeclaredLicensesProcessedUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicensesProcessed
+     */
+    select?: DeclaredLicensesProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicensesProcessed
+     */
+    omit?: DeclaredLicensesProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesProcessedInclude<ExtArgs> | null
+    /**
+     * The filter to search for the DeclaredLicensesProcessed to update in case it exists.
+     */
+    where: DeclaredLicensesProcessedWhereUniqueInput
+    /**
+     * In case the DeclaredLicensesProcessed found by the `where` argument doesn't exist, create a new DeclaredLicensesProcessed with this data.
+     */
+    create: XOR<DeclaredLicensesProcessedCreateInput, DeclaredLicensesProcessedUncheckedCreateInput>
+    /**
+     * In case the DeclaredLicensesProcessed was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DeclaredLicensesProcessedUpdateInput, DeclaredLicensesProcessedUncheckedUpdateInput>
+  }
+
+  /**
+   * DeclaredLicensesProcessed delete
+   */
+  export type DeclaredLicensesProcessedDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicensesProcessed
+     */
+    select?: DeclaredLicensesProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicensesProcessed
+     */
+    omit?: DeclaredLicensesProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesProcessedInclude<ExtArgs> | null
+    /**
+     * Filter which DeclaredLicensesProcessed to delete.
+     */
+    where: DeclaredLicensesProcessedWhereUniqueInput
+  }
+
+  /**
+   * DeclaredLicensesProcessed deleteMany
+   */
+  export type DeclaredLicensesProcessedDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DeclaredLicensesProcesseds to delete
+     */
+    where?: DeclaredLicensesProcessedWhereInput
+    /**
+     * Limit how many DeclaredLicensesProcesseds to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * DeclaredLicensesProcessed without action
+   */
+  export type DeclaredLicensesProcessedDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeclaredLicensesProcessed
+     */
+    select?: DeclaredLicensesProcessedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeclaredLicensesProcessed
+     */
+    omit?: DeclaredLicensesProcessedOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeclaredLicensesProcessedInclude<ExtArgs> | null
   }
 
 
@@ -11533,6 +13973,3015 @@ export namespace Prisma {
 
 
   /**
+   * Model Scanner
+   */
+
+  export type AggregateScanner = {
+    _count: ScannerCountAggregateOutputType | null
+    _avg: ScannerAvgAggregateOutputType | null
+    _sum: ScannerSumAggregateOutputType | null
+    _min: ScannerMinAggregateOutputType | null
+    _max: ScannerMaxAggregateOutputType | null
+  }
+
+  export type ScannerAvgAggregateOutputType = {
+    id: number | null
+    scanId: number | null
+  }
+
+  export type ScannerSumAggregateOutputType = {
+    id: number | null
+    scanId: number | null
+  }
+
+  export type ScannerMinAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    scanId: number | null
+  }
+
+  export type ScannerMaxAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    scanId: number | null
+  }
+
+  export type ScannerCountAggregateOutputType = {
+    id: number
+    createdAt: number
+    scanId: number
+    _all: number
+  }
+
+
+  export type ScannerAvgAggregateInputType = {
+    id?: true
+    scanId?: true
+  }
+
+  export type ScannerSumAggregateInputType = {
+    id?: true
+    scanId?: true
+  }
+
+  export type ScannerMinAggregateInputType = {
+    id?: true
+    createdAt?: true
+    scanId?: true
+  }
+
+  export type ScannerMaxAggregateInputType = {
+    id?: true
+    createdAt?: true
+    scanId?: true
+  }
+
+  export type ScannerCountAggregateInputType = {
+    id?: true
+    createdAt?: true
+    scanId?: true
+    _all?: true
+  }
+
+  export type ScannerAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Scanner to aggregate.
+     */
+    where?: ScannerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Scanners to fetch.
+     */
+    orderBy?: ScannerOrderByWithRelationInput | ScannerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ScannerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Scanners from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Scanners.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Scanners
+    **/
+    _count?: true | ScannerCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ScannerAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ScannerSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ScannerMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ScannerMaxAggregateInputType
+  }
+
+  export type GetScannerAggregateType<T extends ScannerAggregateArgs> = {
+        [P in keyof T & keyof AggregateScanner]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateScanner[P]>
+      : GetScalarType<T[P], AggregateScanner[P]>
+  }
+
+
+
+
+  export type ScannerGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ScannerWhereInput
+    orderBy?: ScannerOrderByWithAggregationInput | ScannerOrderByWithAggregationInput[]
+    by: ScannerScalarFieldEnum[] | ScannerScalarFieldEnum
+    having?: ScannerScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ScannerCountAggregateInputType | true
+    _avg?: ScannerAvgAggregateInputType
+    _sum?: ScannerSumAggregateInputType
+    _min?: ScannerMinAggregateInputType
+    _max?: ScannerMaxAggregateInputType
+  }
+
+  export type ScannerGroupByOutputType = {
+    id: number
+    createdAt: Date
+    scanId: number
+    _count: ScannerCountAggregateOutputType | null
+    _avg: ScannerAvgAggregateOutputType | null
+    _sum: ScannerSumAggregateOutputType | null
+    _min: ScannerMinAggregateOutputType | null
+    _max: ScannerMaxAggregateOutputType | null
+  }
+
+  type GetScannerGroupByPayload<T extends ScannerGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ScannerGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ScannerGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ScannerGroupByOutputType[P]>
+            : GetScalarType<T[P], ScannerGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ScannerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    scanId?: boolean
+    scan?: boolean | ScanDefaultArgs<ExtArgs>
+    licenses?: boolean | Scanner$licensesArgs<ExtArgs>
+    copyrights?: boolean | Scanner$copyrightsArgs<ExtArgs>
+    _count?: boolean | ScannerCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["scanner"]>
+
+
+
+  export type ScannerSelectScalar = {
+    id?: boolean
+    createdAt?: boolean
+    scanId?: boolean
+  }
+
+  export type ScannerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "scanId", ExtArgs["result"]["scanner"]>
+  export type ScannerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    scan?: boolean | ScanDefaultArgs<ExtArgs>
+    licenses?: boolean | Scanner$licensesArgs<ExtArgs>
+    copyrights?: boolean | Scanner$copyrightsArgs<ExtArgs>
+    _count?: boolean | ScannerCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $ScannerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Scanner"
+    objects: {
+      scan: Prisma.$ScanPayload<ExtArgs>
+      licenses: Prisma.$LicensesPayload<ExtArgs>[]
+      copyrights: Prisma.$CopyrightsPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      createdAt: Date
+      scanId: number
+    }, ExtArgs["result"]["scanner"]>
+    composites: {}
+  }
+
+  type ScannerGetPayload<S extends boolean | null | undefined | ScannerDefaultArgs> = $Result.GetResult<Prisma.$ScannerPayload, S>
+
+  type ScannerCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ScannerFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ScannerCountAggregateInputType | true
+    }
+
+  export interface ScannerDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Scanner'], meta: { name: 'Scanner' } }
+    /**
+     * Find zero or one Scanner that matches the filter.
+     * @param {ScannerFindUniqueArgs} args - Arguments to find a Scanner
+     * @example
+     * // Get one Scanner
+     * const scanner = await prisma.scanner.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ScannerFindUniqueArgs>(args: SelectSubset<T, ScannerFindUniqueArgs<ExtArgs>>): Prisma__ScannerClient<$Result.GetResult<Prisma.$ScannerPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Scanner that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ScannerFindUniqueOrThrowArgs} args - Arguments to find a Scanner
+     * @example
+     * // Get one Scanner
+     * const scanner = await prisma.scanner.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ScannerFindUniqueOrThrowArgs>(args: SelectSubset<T, ScannerFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ScannerClient<$Result.GetResult<Prisma.$ScannerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Scanner that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScannerFindFirstArgs} args - Arguments to find a Scanner
+     * @example
+     * // Get one Scanner
+     * const scanner = await prisma.scanner.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ScannerFindFirstArgs>(args?: SelectSubset<T, ScannerFindFirstArgs<ExtArgs>>): Prisma__ScannerClient<$Result.GetResult<Prisma.$ScannerPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Scanner that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScannerFindFirstOrThrowArgs} args - Arguments to find a Scanner
+     * @example
+     * // Get one Scanner
+     * const scanner = await prisma.scanner.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ScannerFindFirstOrThrowArgs>(args?: SelectSubset<T, ScannerFindFirstOrThrowArgs<ExtArgs>>): Prisma__ScannerClient<$Result.GetResult<Prisma.$ScannerPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Scanners that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScannerFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Scanners
+     * const scanners = await prisma.scanner.findMany()
+     * 
+     * // Get first 10 Scanners
+     * const scanners = await prisma.scanner.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const scannerWithIdOnly = await prisma.scanner.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ScannerFindManyArgs>(args?: SelectSubset<T, ScannerFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ScannerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Scanner.
+     * @param {ScannerCreateArgs} args - Arguments to create a Scanner.
+     * @example
+     * // Create one Scanner
+     * const Scanner = await prisma.scanner.create({
+     *   data: {
+     *     // ... data to create a Scanner
+     *   }
+     * })
+     * 
+     */
+    create<T extends ScannerCreateArgs>(args: SelectSubset<T, ScannerCreateArgs<ExtArgs>>): Prisma__ScannerClient<$Result.GetResult<Prisma.$ScannerPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Scanners.
+     * @param {ScannerCreateManyArgs} args - Arguments to create many Scanners.
+     * @example
+     * // Create many Scanners
+     * const scanner = await prisma.scanner.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ScannerCreateManyArgs>(args?: SelectSubset<T, ScannerCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Scanner.
+     * @param {ScannerDeleteArgs} args - Arguments to delete one Scanner.
+     * @example
+     * // Delete one Scanner
+     * const Scanner = await prisma.scanner.delete({
+     *   where: {
+     *     // ... filter to delete one Scanner
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ScannerDeleteArgs>(args: SelectSubset<T, ScannerDeleteArgs<ExtArgs>>): Prisma__ScannerClient<$Result.GetResult<Prisma.$ScannerPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Scanner.
+     * @param {ScannerUpdateArgs} args - Arguments to update one Scanner.
+     * @example
+     * // Update one Scanner
+     * const scanner = await prisma.scanner.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ScannerUpdateArgs>(args: SelectSubset<T, ScannerUpdateArgs<ExtArgs>>): Prisma__ScannerClient<$Result.GetResult<Prisma.$ScannerPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Scanners.
+     * @param {ScannerDeleteManyArgs} args - Arguments to filter Scanners to delete.
+     * @example
+     * // Delete a few Scanners
+     * const { count } = await prisma.scanner.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ScannerDeleteManyArgs>(args?: SelectSubset<T, ScannerDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Scanners.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScannerUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Scanners
+     * const scanner = await prisma.scanner.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ScannerUpdateManyArgs>(args: SelectSubset<T, ScannerUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Scanner.
+     * @param {ScannerUpsertArgs} args - Arguments to update or create a Scanner.
+     * @example
+     * // Update or create a Scanner
+     * const scanner = await prisma.scanner.upsert({
+     *   create: {
+     *     // ... data to create a Scanner
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Scanner we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ScannerUpsertArgs>(args: SelectSubset<T, ScannerUpsertArgs<ExtArgs>>): Prisma__ScannerClient<$Result.GetResult<Prisma.$ScannerPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Scanners.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScannerCountArgs} args - Arguments to filter Scanners to count.
+     * @example
+     * // Count the number of Scanners
+     * const count = await prisma.scanner.count({
+     *   where: {
+     *     // ... the filter for the Scanners we want to count
+     *   }
+     * })
+    **/
+    count<T extends ScannerCountArgs>(
+      args?: Subset<T, ScannerCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ScannerCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Scanner.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScannerAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ScannerAggregateArgs>(args: Subset<T, ScannerAggregateArgs>): Prisma.PrismaPromise<GetScannerAggregateType<T>>
+
+    /**
+     * Group by Scanner.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScannerGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ScannerGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ScannerGroupByArgs['orderBy'] }
+        : { orderBy?: ScannerGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ScannerGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetScannerGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Scanner model
+   */
+  readonly fields: ScannerFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Scanner.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ScannerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    scan<T extends ScanDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ScanDefaultArgs<ExtArgs>>): Prisma__ScanClient<$Result.GetResult<Prisma.$ScanPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    licenses<T extends Scanner$licensesArgs<ExtArgs> = {}>(args?: Subset<T, Scanner$licensesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LicensesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    copyrights<T extends Scanner$copyrightsArgs<ExtArgs> = {}>(args?: Subset<T, Scanner$copyrightsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CopyrightsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Scanner model
+   */
+  interface ScannerFieldRefs {
+    readonly id: FieldRef<"Scanner", 'Int'>
+    readonly createdAt: FieldRef<"Scanner", 'DateTime'>
+    readonly scanId: FieldRef<"Scanner", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Scanner findUnique
+   */
+  export type ScannerFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scanner
+     */
+    select?: ScannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scanner
+     */
+    omit?: ScannerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScannerInclude<ExtArgs> | null
+    /**
+     * Filter, which Scanner to fetch.
+     */
+    where: ScannerWhereUniqueInput
+  }
+
+  /**
+   * Scanner findUniqueOrThrow
+   */
+  export type ScannerFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scanner
+     */
+    select?: ScannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scanner
+     */
+    omit?: ScannerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScannerInclude<ExtArgs> | null
+    /**
+     * Filter, which Scanner to fetch.
+     */
+    where: ScannerWhereUniqueInput
+  }
+
+  /**
+   * Scanner findFirst
+   */
+  export type ScannerFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scanner
+     */
+    select?: ScannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scanner
+     */
+    omit?: ScannerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScannerInclude<ExtArgs> | null
+    /**
+     * Filter, which Scanner to fetch.
+     */
+    where?: ScannerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Scanners to fetch.
+     */
+    orderBy?: ScannerOrderByWithRelationInput | ScannerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Scanners.
+     */
+    cursor?: ScannerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Scanners from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Scanners.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Scanners.
+     */
+    distinct?: ScannerScalarFieldEnum | ScannerScalarFieldEnum[]
+  }
+
+  /**
+   * Scanner findFirstOrThrow
+   */
+  export type ScannerFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scanner
+     */
+    select?: ScannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scanner
+     */
+    omit?: ScannerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScannerInclude<ExtArgs> | null
+    /**
+     * Filter, which Scanner to fetch.
+     */
+    where?: ScannerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Scanners to fetch.
+     */
+    orderBy?: ScannerOrderByWithRelationInput | ScannerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Scanners.
+     */
+    cursor?: ScannerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Scanners from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Scanners.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Scanners.
+     */
+    distinct?: ScannerScalarFieldEnum | ScannerScalarFieldEnum[]
+  }
+
+  /**
+   * Scanner findMany
+   */
+  export type ScannerFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scanner
+     */
+    select?: ScannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scanner
+     */
+    omit?: ScannerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScannerInclude<ExtArgs> | null
+    /**
+     * Filter, which Scanners to fetch.
+     */
+    where?: ScannerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Scanners to fetch.
+     */
+    orderBy?: ScannerOrderByWithRelationInput | ScannerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Scanners.
+     */
+    cursor?: ScannerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Scanners from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Scanners.
+     */
+    skip?: number
+    distinct?: ScannerScalarFieldEnum | ScannerScalarFieldEnum[]
+  }
+
+  /**
+   * Scanner create
+   */
+  export type ScannerCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scanner
+     */
+    select?: ScannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scanner
+     */
+    omit?: ScannerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScannerInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Scanner.
+     */
+    data: XOR<ScannerCreateInput, ScannerUncheckedCreateInput>
+  }
+
+  /**
+   * Scanner createMany
+   */
+  export type ScannerCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Scanners.
+     */
+    data: ScannerCreateManyInput | ScannerCreateManyInput[]
+  }
+
+  /**
+   * Scanner update
+   */
+  export type ScannerUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scanner
+     */
+    select?: ScannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scanner
+     */
+    omit?: ScannerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScannerInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Scanner.
+     */
+    data: XOR<ScannerUpdateInput, ScannerUncheckedUpdateInput>
+    /**
+     * Choose, which Scanner to update.
+     */
+    where: ScannerWhereUniqueInput
+  }
+
+  /**
+   * Scanner updateMany
+   */
+  export type ScannerUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Scanners.
+     */
+    data: XOR<ScannerUpdateManyMutationInput, ScannerUncheckedUpdateManyInput>
+    /**
+     * Filter which Scanners to update
+     */
+    where?: ScannerWhereInput
+    /**
+     * Limit how many Scanners to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Scanner upsert
+   */
+  export type ScannerUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scanner
+     */
+    select?: ScannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scanner
+     */
+    omit?: ScannerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScannerInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Scanner to update in case it exists.
+     */
+    where: ScannerWhereUniqueInput
+    /**
+     * In case the Scanner found by the `where` argument doesn't exist, create a new Scanner with this data.
+     */
+    create: XOR<ScannerCreateInput, ScannerUncheckedCreateInput>
+    /**
+     * In case the Scanner was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ScannerUpdateInput, ScannerUncheckedUpdateInput>
+  }
+
+  /**
+   * Scanner delete
+   */
+  export type ScannerDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scanner
+     */
+    select?: ScannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scanner
+     */
+    omit?: ScannerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScannerInclude<ExtArgs> | null
+    /**
+     * Filter which Scanner to delete.
+     */
+    where: ScannerWhereUniqueInput
+  }
+
+  /**
+   * Scanner deleteMany
+   */
+  export type ScannerDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Scanners to delete
+     */
+    where?: ScannerWhereInput
+    /**
+     * Limit how many Scanners to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Scanner.licenses
+   */
+  export type Scanner$licensesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Licenses
+     */
+    select?: LicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Licenses
+     */
+    omit?: LicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LicensesInclude<ExtArgs> | null
+    where?: LicensesWhereInput
+    orderBy?: LicensesOrderByWithRelationInput | LicensesOrderByWithRelationInput[]
+    cursor?: LicensesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LicensesScalarFieldEnum | LicensesScalarFieldEnum[]
+  }
+
+  /**
+   * Scanner.copyrights
+   */
+  export type Scanner$copyrightsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Copyrights
+     */
+    select?: CopyrightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Copyrights
+     */
+    omit?: CopyrightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CopyrightsInclude<ExtArgs> | null
+    where?: CopyrightsWhereInput
+    orderBy?: CopyrightsOrderByWithRelationInput | CopyrightsOrderByWithRelationInput[]
+    cursor?: CopyrightsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CopyrightsScalarFieldEnum | CopyrightsScalarFieldEnum[]
+  }
+
+  /**
+   * Scanner without action
+   */
+  export type ScannerDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scanner
+     */
+    select?: ScannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scanner
+     */
+    omit?: ScannerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScannerInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Licenses
+   */
+
+  export type AggregateLicenses = {
+    _count: LicensesCountAggregateOutputType | null
+    _avg: LicensesAvgAggregateOutputType | null
+    _sum: LicensesSumAggregateOutputType | null
+    _min: LicensesMinAggregateOutputType | null
+    _max: LicensesMaxAggregateOutputType | null
+  }
+
+  export type LicensesAvgAggregateOutputType = {
+    id: number | null
+    startLine: number | null
+    endLine: number | null
+    score: number | null
+    scannerId: number | null
+  }
+
+  export type LicensesSumAggregateOutputType = {
+    id: number | null
+    startLine: number | null
+    endLine: number | null
+    score: number | null
+    scannerId: number | null
+  }
+
+  export type LicensesMinAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    licenseName: string | null
+    path: string | null
+    startLine: number | null
+    endLine: number | null
+    score: number | null
+    scannerId: number | null
+  }
+
+  export type LicensesMaxAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    licenseName: string | null
+    path: string | null
+    startLine: number | null
+    endLine: number | null
+    score: number | null
+    scannerId: number | null
+  }
+
+  export type LicensesCountAggregateOutputType = {
+    id: number
+    createdAt: number
+    licenseName: number
+    path: number
+    startLine: number
+    endLine: number
+    score: number
+    scannerId: number
+    _all: number
+  }
+
+
+  export type LicensesAvgAggregateInputType = {
+    id?: true
+    startLine?: true
+    endLine?: true
+    score?: true
+    scannerId?: true
+  }
+
+  export type LicensesSumAggregateInputType = {
+    id?: true
+    startLine?: true
+    endLine?: true
+    score?: true
+    scannerId?: true
+  }
+
+  export type LicensesMinAggregateInputType = {
+    id?: true
+    createdAt?: true
+    licenseName?: true
+    path?: true
+    startLine?: true
+    endLine?: true
+    score?: true
+    scannerId?: true
+  }
+
+  export type LicensesMaxAggregateInputType = {
+    id?: true
+    createdAt?: true
+    licenseName?: true
+    path?: true
+    startLine?: true
+    endLine?: true
+    score?: true
+    scannerId?: true
+  }
+
+  export type LicensesCountAggregateInputType = {
+    id?: true
+    createdAt?: true
+    licenseName?: true
+    path?: true
+    startLine?: true
+    endLine?: true
+    score?: true
+    scannerId?: true
+    _all?: true
+  }
+
+  export type LicensesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Licenses to aggregate.
+     */
+    where?: LicensesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Licenses to fetch.
+     */
+    orderBy?: LicensesOrderByWithRelationInput | LicensesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LicensesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Licenses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Licenses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Licenses
+    **/
+    _count?: true | LicensesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LicensesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LicensesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LicensesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LicensesMaxAggregateInputType
+  }
+
+  export type GetLicensesAggregateType<T extends LicensesAggregateArgs> = {
+        [P in keyof T & keyof AggregateLicenses]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLicenses[P]>
+      : GetScalarType<T[P], AggregateLicenses[P]>
+  }
+
+
+
+
+  export type LicensesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LicensesWhereInput
+    orderBy?: LicensesOrderByWithAggregationInput | LicensesOrderByWithAggregationInput[]
+    by: LicensesScalarFieldEnum[] | LicensesScalarFieldEnum
+    having?: LicensesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LicensesCountAggregateInputType | true
+    _avg?: LicensesAvgAggregateInputType
+    _sum?: LicensesSumAggregateInputType
+    _min?: LicensesMinAggregateInputType
+    _max?: LicensesMaxAggregateInputType
+  }
+
+  export type LicensesGroupByOutputType = {
+    id: number
+    createdAt: Date
+    licenseName: string
+    path: string
+    startLine: number
+    endLine: number
+    score: number
+    scannerId: number
+    _count: LicensesCountAggregateOutputType | null
+    _avg: LicensesAvgAggregateOutputType | null
+    _sum: LicensesSumAggregateOutputType | null
+    _min: LicensesMinAggregateOutputType | null
+    _max: LicensesMaxAggregateOutputType | null
+  }
+
+  type GetLicensesGroupByPayload<T extends LicensesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LicensesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LicensesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LicensesGroupByOutputType[P]>
+            : GetScalarType<T[P], LicensesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LicensesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    licenseName?: boolean
+    path?: boolean
+    startLine?: boolean
+    endLine?: boolean
+    score?: boolean
+    scannerId?: boolean
+    scanner?: boolean | ScannerDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["licenses"]>
+
+
+
+  export type LicensesSelectScalar = {
+    id?: boolean
+    createdAt?: boolean
+    licenseName?: boolean
+    path?: boolean
+    startLine?: boolean
+    endLine?: boolean
+    score?: boolean
+    scannerId?: boolean
+  }
+
+  export type LicensesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "licenseName" | "path" | "startLine" | "endLine" | "score" | "scannerId", ExtArgs["result"]["licenses"]>
+  export type LicensesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    scanner?: boolean | ScannerDefaultArgs<ExtArgs>
+  }
+
+  export type $LicensesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Licenses"
+    objects: {
+      scanner: Prisma.$ScannerPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      createdAt: Date
+      licenseName: string
+      path: string
+      startLine: number
+      endLine: number
+      score: number
+      scannerId: number
+    }, ExtArgs["result"]["licenses"]>
+    composites: {}
+  }
+
+  type LicensesGetPayload<S extends boolean | null | undefined | LicensesDefaultArgs> = $Result.GetResult<Prisma.$LicensesPayload, S>
+
+  type LicensesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LicensesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LicensesCountAggregateInputType | true
+    }
+
+  export interface LicensesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Licenses'], meta: { name: 'Licenses' } }
+    /**
+     * Find zero or one Licenses that matches the filter.
+     * @param {LicensesFindUniqueArgs} args - Arguments to find a Licenses
+     * @example
+     * // Get one Licenses
+     * const licenses = await prisma.licenses.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LicensesFindUniqueArgs>(args: SelectSubset<T, LicensesFindUniqueArgs<ExtArgs>>): Prisma__LicensesClient<$Result.GetResult<Prisma.$LicensesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Licenses that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LicensesFindUniqueOrThrowArgs} args - Arguments to find a Licenses
+     * @example
+     * // Get one Licenses
+     * const licenses = await prisma.licenses.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LicensesFindUniqueOrThrowArgs>(args: SelectSubset<T, LicensesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LicensesClient<$Result.GetResult<Prisma.$LicensesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Licenses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LicensesFindFirstArgs} args - Arguments to find a Licenses
+     * @example
+     * // Get one Licenses
+     * const licenses = await prisma.licenses.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LicensesFindFirstArgs>(args?: SelectSubset<T, LicensesFindFirstArgs<ExtArgs>>): Prisma__LicensesClient<$Result.GetResult<Prisma.$LicensesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Licenses that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LicensesFindFirstOrThrowArgs} args - Arguments to find a Licenses
+     * @example
+     * // Get one Licenses
+     * const licenses = await prisma.licenses.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LicensesFindFirstOrThrowArgs>(args?: SelectSubset<T, LicensesFindFirstOrThrowArgs<ExtArgs>>): Prisma__LicensesClient<$Result.GetResult<Prisma.$LicensesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Licenses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LicensesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Licenses
+     * const licenses = await prisma.licenses.findMany()
+     * 
+     * // Get first 10 Licenses
+     * const licenses = await prisma.licenses.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const licensesWithIdOnly = await prisma.licenses.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LicensesFindManyArgs>(args?: SelectSubset<T, LicensesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LicensesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Licenses.
+     * @param {LicensesCreateArgs} args - Arguments to create a Licenses.
+     * @example
+     * // Create one Licenses
+     * const Licenses = await prisma.licenses.create({
+     *   data: {
+     *     // ... data to create a Licenses
+     *   }
+     * })
+     * 
+     */
+    create<T extends LicensesCreateArgs>(args: SelectSubset<T, LicensesCreateArgs<ExtArgs>>): Prisma__LicensesClient<$Result.GetResult<Prisma.$LicensesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Licenses.
+     * @param {LicensesCreateManyArgs} args - Arguments to create many Licenses.
+     * @example
+     * // Create many Licenses
+     * const licenses = await prisma.licenses.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LicensesCreateManyArgs>(args?: SelectSubset<T, LicensesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Licenses.
+     * @param {LicensesDeleteArgs} args - Arguments to delete one Licenses.
+     * @example
+     * // Delete one Licenses
+     * const Licenses = await prisma.licenses.delete({
+     *   where: {
+     *     // ... filter to delete one Licenses
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LicensesDeleteArgs>(args: SelectSubset<T, LicensesDeleteArgs<ExtArgs>>): Prisma__LicensesClient<$Result.GetResult<Prisma.$LicensesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Licenses.
+     * @param {LicensesUpdateArgs} args - Arguments to update one Licenses.
+     * @example
+     * // Update one Licenses
+     * const licenses = await prisma.licenses.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LicensesUpdateArgs>(args: SelectSubset<T, LicensesUpdateArgs<ExtArgs>>): Prisma__LicensesClient<$Result.GetResult<Prisma.$LicensesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Licenses.
+     * @param {LicensesDeleteManyArgs} args - Arguments to filter Licenses to delete.
+     * @example
+     * // Delete a few Licenses
+     * const { count } = await prisma.licenses.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LicensesDeleteManyArgs>(args?: SelectSubset<T, LicensesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Licenses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LicensesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Licenses
+     * const licenses = await prisma.licenses.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LicensesUpdateManyArgs>(args: SelectSubset<T, LicensesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Licenses.
+     * @param {LicensesUpsertArgs} args - Arguments to update or create a Licenses.
+     * @example
+     * // Update or create a Licenses
+     * const licenses = await prisma.licenses.upsert({
+     *   create: {
+     *     // ... data to create a Licenses
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Licenses we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LicensesUpsertArgs>(args: SelectSubset<T, LicensesUpsertArgs<ExtArgs>>): Prisma__LicensesClient<$Result.GetResult<Prisma.$LicensesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Licenses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LicensesCountArgs} args - Arguments to filter Licenses to count.
+     * @example
+     * // Count the number of Licenses
+     * const count = await prisma.licenses.count({
+     *   where: {
+     *     // ... the filter for the Licenses we want to count
+     *   }
+     * })
+    **/
+    count<T extends LicensesCountArgs>(
+      args?: Subset<T, LicensesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LicensesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Licenses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LicensesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LicensesAggregateArgs>(args: Subset<T, LicensesAggregateArgs>): Prisma.PrismaPromise<GetLicensesAggregateType<T>>
+
+    /**
+     * Group by Licenses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LicensesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LicensesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LicensesGroupByArgs['orderBy'] }
+        : { orderBy?: LicensesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LicensesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLicensesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Licenses model
+   */
+  readonly fields: LicensesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Licenses.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LicensesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    scanner<T extends ScannerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ScannerDefaultArgs<ExtArgs>>): Prisma__ScannerClient<$Result.GetResult<Prisma.$ScannerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Licenses model
+   */
+  interface LicensesFieldRefs {
+    readonly id: FieldRef<"Licenses", 'Int'>
+    readonly createdAt: FieldRef<"Licenses", 'DateTime'>
+    readonly licenseName: FieldRef<"Licenses", 'String'>
+    readonly path: FieldRef<"Licenses", 'String'>
+    readonly startLine: FieldRef<"Licenses", 'Int'>
+    readonly endLine: FieldRef<"Licenses", 'Int'>
+    readonly score: FieldRef<"Licenses", 'Float'>
+    readonly scannerId: FieldRef<"Licenses", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Licenses findUnique
+   */
+  export type LicensesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Licenses
+     */
+    select?: LicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Licenses
+     */
+    omit?: LicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LicensesInclude<ExtArgs> | null
+    /**
+     * Filter, which Licenses to fetch.
+     */
+    where: LicensesWhereUniqueInput
+  }
+
+  /**
+   * Licenses findUniqueOrThrow
+   */
+  export type LicensesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Licenses
+     */
+    select?: LicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Licenses
+     */
+    omit?: LicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LicensesInclude<ExtArgs> | null
+    /**
+     * Filter, which Licenses to fetch.
+     */
+    where: LicensesWhereUniqueInput
+  }
+
+  /**
+   * Licenses findFirst
+   */
+  export type LicensesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Licenses
+     */
+    select?: LicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Licenses
+     */
+    omit?: LicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LicensesInclude<ExtArgs> | null
+    /**
+     * Filter, which Licenses to fetch.
+     */
+    where?: LicensesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Licenses to fetch.
+     */
+    orderBy?: LicensesOrderByWithRelationInput | LicensesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Licenses.
+     */
+    cursor?: LicensesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Licenses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Licenses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Licenses.
+     */
+    distinct?: LicensesScalarFieldEnum | LicensesScalarFieldEnum[]
+  }
+
+  /**
+   * Licenses findFirstOrThrow
+   */
+  export type LicensesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Licenses
+     */
+    select?: LicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Licenses
+     */
+    omit?: LicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LicensesInclude<ExtArgs> | null
+    /**
+     * Filter, which Licenses to fetch.
+     */
+    where?: LicensesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Licenses to fetch.
+     */
+    orderBy?: LicensesOrderByWithRelationInput | LicensesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Licenses.
+     */
+    cursor?: LicensesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Licenses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Licenses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Licenses.
+     */
+    distinct?: LicensesScalarFieldEnum | LicensesScalarFieldEnum[]
+  }
+
+  /**
+   * Licenses findMany
+   */
+  export type LicensesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Licenses
+     */
+    select?: LicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Licenses
+     */
+    omit?: LicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LicensesInclude<ExtArgs> | null
+    /**
+     * Filter, which Licenses to fetch.
+     */
+    where?: LicensesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Licenses to fetch.
+     */
+    orderBy?: LicensesOrderByWithRelationInput | LicensesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Licenses.
+     */
+    cursor?: LicensesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Licenses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Licenses.
+     */
+    skip?: number
+    distinct?: LicensesScalarFieldEnum | LicensesScalarFieldEnum[]
+  }
+
+  /**
+   * Licenses create
+   */
+  export type LicensesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Licenses
+     */
+    select?: LicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Licenses
+     */
+    omit?: LicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LicensesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Licenses.
+     */
+    data: XOR<LicensesCreateInput, LicensesUncheckedCreateInput>
+  }
+
+  /**
+   * Licenses createMany
+   */
+  export type LicensesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Licenses.
+     */
+    data: LicensesCreateManyInput | LicensesCreateManyInput[]
+  }
+
+  /**
+   * Licenses update
+   */
+  export type LicensesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Licenses
+     */
+    select?: LicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Licenses
+     */
+    omit?: LicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LicensesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Licenses.
+     */
+    data: XOR<LicensesUpdateInput, LicensesUncheckedUpdateInput>
+    /**
+     * Choose, which Licenses to update.
+     */
+    where: LicensesWhereUniqueInput
+  }
+
+  /**
+   * Licenses updateMany
+   */
+  export type LicensesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Licenses.
+     */
+    data: XOR<LicensesUpdateManyMutationInput, LicensesUncheckedUpdateManyInput>
+    /**
+     * Filter which Licenses to update
+     */
+    where?: LicensesWhereInput
+    /**
+     * Limit how many Licenses to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Licenses upsert
+   */
+  export type LicensesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Licenses
+     */
+    select?: LicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Licenses
+     */
+    omit?: LicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LicensesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Licenses to update in case it exists.
+     */
+    where: LicensesWhereUniqueInput
+    /**
+     * In case the Licenses found by the `where` argument doesn't exist, create a new Licenses with this data.
+     */
+    create: XOR<LicensesCreateInput, LicensesUncheckedCreateInput>
+    /**
+     * In case the Licenses was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LicensesUpdateInput, LicensesUncheckedUpdateInput>
+  }
+
+  /**
+   * Licenses delete
+   */
+  export type LicensesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Licenses
+     */
+    select?: LicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Licenses
+     */
+    omit?: LicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LicensesInclude<ExtArgs> | null
+    /**
+     * Filter which Licenses to delete.
+     */
+    where: LicensesWhereUniqueInput
+  }
+
+  /**
+   * Licenses deleteMany
+   */
+  export type LicensesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Licenses to delete
+     */
+    where?: LicensesWhereInput
+    /**
+     * Limit how many Licenses to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Licenses without action
+   */
+  export type LicensesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Licenses
+     */
+    select?: LicensesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Licenses
+     */
+    omit?: LicensesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LicensesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Copyrights
+   */
+
+  export type AggregateCopyrights = {
+    _count: CopyrightsCountAggregateOutputType | null
+    _avg: CopyrightsAvgAggregateOutputType | null
+    _sum: CopyrightsSumAggregateOutputType | null
+    _min: CopyrightsMinAggregateOutputType | null
+    _max: CopyrightsMaxAggregateOutputType | null
+  }
+
+  export type CopyrightsAvgAggregateOutputType = {
+    id: number | null
+    startLine: number | null
+    endLine: number | null
+    scannerId: number | null
+  }
+
+  export type CopyrightsSumAggregateOutputType = {
+    id: number | null
+    startLine: number | null
+    endLine: number | null
+    scannerId: number | null
+  }
+
+  export type CopyrightsMinAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    statement: string | null
+    path: string | null
+    startLine: number | null
+    endLine: number | null
+    scannerId: number | null
+  }
+
+  export type CopyrightsMaxAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    statement: string | null
+    path: string | null
+    startLine: number | null
+    endLine: number | null
+    scannerId: number | null
+  }
+
+  export type CopyrightsCountAggregateOutputType = {
+    id: number
+    createdAt: number
+    statement: number
+    path: number
+    startLine: number
+    endLine: number
+    scannerId: number
+    _all: number
+  }
+
+
+  export type CopyrightsAvgAggregateInputType = {
+    id?: true
+    startLine?: true
+    endLine?: true
+    scannerId?: true
+  }
+
+  export type CopyrightsSumAggregateInputType = {
+    id?: true
+    startLine?: true
+    endLine?: true
+    scannerId?: true
+  }
+
+  export type CopyrightsMinAggregateInputType = {
+    id?: true
+    createdAt?: true
+    statement?: true
+    path?: true
+    startLine?: true
+    endLine?: true
+    scannerId?: true
+  }
+
+  export type CopyrightsMaxAggregateInputType = {
+    id?: true
+    createdAt?: true
+    statement?: true
+    path?: true
+    startLine?: true
+    endLine?: true
+    scannerId?: true
+  }
+
+  export type CopyrightsCountAggregateInputType = {
+    id?: true
+    createdAt?: true
+    statement?: true
+    path?: true
+    startLine?: true
+    endLine?: true
+    scannerId?: true
+    _all?: true
+  }
+
+  export type CopyrightsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Copyrights to aggregate.
+     */
+    where?: CopyrightsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Copyrights to fetch.
+     */
+    orderBy?: CopyrightsOrderByWithRelationInput | CopyrightsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CopyrightsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Copyrights from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Copyrights.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Copyrights
+    **/
+    _count?: true | CopyrightsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CopyrightsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CopyrightsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CopyrightsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CopyrightsMaxAggregateInputType
+  }
+
+  export type GetCopyrightsAggregateType<T extends CopyrightsAggregateArgs> = {
+        [P in keyof T & keyof AggregateCopyrights]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCopyrights[P]>
+      : GetScalarType<T[P], AggregateCopyrights[P]>
+  }
+
+
+
+
+  export type CopyrightsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CopyrightsWhereInput
+    orderBy?: CopyrightsOrderByWithAggregationInput | CopyrightsOrderByWithAggregationInput[]
+    by: CopyrightsScalarFieldEnum[] | CopyrightsScalarFieldEnum
+    having?: CopyrightsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CopyrightsCountAggregateInputType | true
+    _avg?: CopyrightsAvgAggregateInputType
+    _sum?: CopyrightsSumAggregateInputType
+    _min?: CopyrightsMinAggregateInputType
+    _max?: CopyrightsMaxAggregateInputType
+  }
+
+  export type CopyrightsGroupByOutputType = {
+    id: number
+    createdAt: Date
+    statement: string
+    path: string
+    startLine: number
+    endLine: number
+    scannerId: number
+    _count: CopyrightsCountAggregateOutputType | null
+    _avg: CopyrightsAvgAggregateOutputType | null
+    _sum: CopyrightsSumAggregateOutputType | null
+    _min: CopyrightsMinAggregateOutputType | null
+    _max: CopyrightsMaxAggregateOutputType | null
+  }
+
+  type GetCopyrightsGroupByPayload<T extends CopyrightsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CopyrightsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CopyrightsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CopyrightsGroupByOutputType[P]>
+            : GetScalarType<T[P], CopyrightsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CopyrightsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    statement?: boolean
+    path?: boolean
+    startLine?: boolean
+    endLine?: boolean
+    scannerId?: boolean
+    scanner?: boolean | ScannerDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["copyrights"]>
+
+
+
+  export type CopyrightsSelectScalar = {
+    id?: boolean
+    createdAt?: boolean
+    statement?: boolean
+    path?: boolean
+    startLine?: boolean
+    endLine?: boolean
+    scannerId?: boolean
+  }
+
+  export type CopyrightsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "statement" | "path" | "startLine" | "endLine" | "scannerId", ExtArgs["result"]["copyrights"]>
+  export type CopyrightsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    scanner?: boolean | ScannerDefaultArgs<ExtArgs>
+  }
+
+  export type $CopyrightsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Copyrights"
+    objects: {
+      scanner: Prisma.$ScannerPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      createdAt: Date
+      statement: string
+      path: string
+      startLine: number
+      endLine: number
+      scannerId: number
+    }, ExtArgs["result"]["copyrights"]>
+    composites: {}
+  }
+
+  type CopyrightsGetPayload<S extends boolean | null | undefined | CopyrightsDefaultArgs> = $Result.GetResult<Prisma.$CopyrightsPayload, S>
+
+  type CopyrightsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CopyrightsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CopyrightsCountAggregateInputType | true
+    }
+
+  export interface CopyrightsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Copyrights'], meta: { name: 'Copyrights' } }
+    /**
+     * Find zero or one Copyrights that matches the filter.
+     * @param {CopyrightsFindUniqueArgs} args - Arguments to find a Copyrights
+     * @example
+     * // Get one Copyrights
+     * const copyrights = await prisma.copyrights.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CopyrightsFindUniqueArgs>(args: SelectSubset<T, CopyrightsFindUniqueArgs<ExtArgs>>): Prisma__CopyrightsClient<$Result.GetResult<Prisma.$CopyrightsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Copyrights that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CopyrightsFindUniqueOrThrowArgs} args - Arguments to find a Copyrights
+     * @example
+     * // Get one Copyrights
+     * const copyrights = await prisma.copyrights.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CopyrightsFindUniqueOrThrowArgs>(args: SelectSubset<T, CopyrightsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CopyrightsClient<$Result.GetResult<Prisma.$CopyrightsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Copyrights that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CopyrightsFindFirstArgs} args - Arguments to find a Copyrights
+     * @example
+     * // Get one Copyrights
+     * const copyrights = await prisma.copyrights.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CopyrightsFindFirstArgs>(args?: SelectSubset<T, CopyrightsFindFirstArgs<ExtArgs>>): Prisma__CopyrightsClient<$Result.GetResult<Prisma.$CopyrightsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Copyrights that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CopyrightsFindFirstOrThrowArgs} args - Arguments to find a Copyrights
+     * @example
+     * // Get one Copyrights
+     * const copyrights = await prisma.copyrights.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CopyrightsFindFirstOrThrowArgs>(args?: SelectSubset<T, CopyrightsFindFirstOrThrowArgs<ExtArgs>>): Prisma__CopyrightsClient<$Result.GetResult<Prisma.$CopyrightsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Copyrights that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CopyrightsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Copyrights
+     * const copyrights = await prisma.copyrights.findMany()
+     * 
+     * // Get first 10 Copyrights
+     * const copyrights = await prisma.copyrights.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const copyrightsWithIdOnly = await prisma.copyrights.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CopyrightsFindManyArgs>(args?: SelectSubset<T, CopyrightsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CopyrightsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Copyrights.
+     * @param {CopyrightsCreateArgs} args - Arguments to create a Copyrights.
+     * @example
+     * // Create one Copyrights
+     * const Copyrights = await prisma.copyrights.create({
+     *   data: {
+     *     // ... data to create a Copyrights
+     *   }
+     * })
+     * 
+     */
+    create<T extends CopyrightsCreateArgs>(args: SelectSubset<T, CopyrightsCreateArgs<ExtArgs>>): Prisma__CopyrightsClient<$Result.GetResult<Prisma.$CopyrightsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Copyrights.
+     * @param {CopyrightsCreateManyArgs} args - Arguments to create many Copyrights.
+     * @example
+     * // Create many Copyrights
+     * const copyrights = await prisma.copyrights.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CopyrightsCreateManyArgs>(args?: SelectSubset<T, CopyrightsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Copyrights.
+     * @param {CopyrightsDeleteArgs} args - Arguments to delete one Copyrights.
+     * @example
+     * // Delete one Copyrights
+     * const Copyrights = await prisma.copyrights.delete({
+     *   where: {
+     *     // ... filter to delete one Copyrights
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CopyrightsDeleteArgs>(args: SelectSubset<T, CopyrightsDeleteArgs<ExtArgs>>): Prisma__CopyrightsClient<$Result.GetResult<Prisma.$CopyrightsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Copyrights.
+     * @param {CopyrightsUpdateArgs} args - Arguments to update one Copyrights.
+     * @example
+     * // Update one Copyrights
+     * const copyrights = await prisma.copyrights.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CopyrightsUpdateArgs>(args: SelectSubset<T, CopyrightsUpdateArgs<ExtArgs>>): Prisma__CopyrightsClient<$Result.GetResult<Prisma.$CopyrightsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Copyrights.
+     * @param {CopyrightsDeleteManyArgs} args - Arguments to filter Copyrights to delete.
+     * @example
+     * // Delete a few Copyrights
+     * const { count } = await prisma.copyrights.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CopyrightsDeleteManyArgs>(args?: SelectSubset<T, CopyrightsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Copyrights.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CopyrightsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Copyrights
+     * const copyrights = await prisma.copyrights.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CopyrightsUpdateManyArgs>(args: SelectSubset<T, CopyrightsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Copyrights.
+     * @param {CopyrightsUpsertArgs} args - Arguments to update or create a Copyrights.
+     * @example
+     * // Update or create a Copyrights
+     * const copyrights = await prisma.copyrights.upsert({
+     *   create: {
+     *     // ... data to create a Copyrights
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Copyrights we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CopyrightsUpsertArgs>(args: SelectSubset<T, CopyrightsUpsertArgs<ExtArgs>>): Prisma__CopyrightsClient<$Result.GetResult<Prisma.$CopyrightsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Copyrights.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CopyrightsCountArgs} args - Arguments to filter Copyrights to count.
+     * @example
+     * // Count the number of Copyrights
+     * const count = await prisma.copyrights.count({
+     *   where: {
+     *     // ... the filter for the Copyrights we want to count
+     *   }
+     * })
+    **/
+    count<T extends CopyrightsCountArgs>(
+      args?: Subset<T, CopyrightsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CopyrightsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Copyrights.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CopyrightsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CopyrightsAggregateArgs>(args: Subset<T, CopyrightsAggregateArgs>): Prisma.PrismaPromise<GetCopyrightsAggregateType<T>>
+
+    /**
+     * Group by Copyrights.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CopyrightsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CopyrightsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CopyrightsGroupByArgs['orderBy'] }
+        : { orderBy?: CopyrightsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CopyrightsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCopyrightsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Copyrights model
+   */
+  readonly fields: CopyrightsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Copyrights.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CopyrightsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    scanner<T extends ScannerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ScannerDefaultArgs<ExtArgs>>): Prisma__ScannerClient<$Result.GetResult<Prisma.$ScannerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Copyrights model
+   */
+  interface CopyrightsFieldRefs {
+    readonly id: FieldRef<"Copyrights", 'Int'>
+    readonly createdAt: FieldRef<"Copyrights", 'DateTime'>
+    readonly statement: FieldRef<"Copyrights", 'String'>
+    readonly path: FieldRef<"Copyrights", 'String'>
+    readonly startLine: FieldRef<"Copyrights", 'Int'>
+    readonly endLine: FieldRef<"Copyrights", 'Int'>
+    readonly scannerId: FieldRef<"Copyrights", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Copyrights findUnique
+   */
+  export type CopyrightsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Copyrights
+     */
+    select?: CopyrightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Copyrights
+     */
+    omit?: CopyrightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CopyrightsInclude<ExtArgs> | null
+    /**
+     * Filter, which Copyrights to fetch.
+     */
+    where: CopyrightsWhereUniqueInput
+  }
+
+  /**
+   * Copyrights findUniqueOrThrow
+   */
+  export type CopyrightsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Copyrights
+     */
+    select?: CopyrightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Copyrights
+     */
+    omit?: CopyrightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CopyrightsInclude<ExtArgs> | null
+    /**
+     * Filter, which Copyrights to fetch.
+     */
+    where: CopyrightsWhereUniqueInput
+  }
+
+  /**
+   * Copyrights findFirst
+   */
+  export type CopyrightsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Copyrights
+     */
+    select?: CopyrightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Copyrights
+     */
+    omit?: CopyrightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CopyrightsInclude<ExtArgs> | null
+    /**
+     * Filter, which Copyrights to fetch.
+     */
+    where?: CopyrightsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Copyrights to fetch.
+     */
+    orderBy?: CopyrightsOrderByWithRelationInput | CopyrightsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Copyrights.
+     */
+    cursor?: CopyrightsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Copyrights from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Copyrights.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Copyrights.
+     */
+    distinct?: CopyrightsScalarFieldEnum | CopyrightsScalarFieldEnum[]
+  }
+
+  /**
+   * Copyrights findFirstOrThrow
+   */
+  export type CopyrightsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Copyrights
+     */
+    select?: CopyrightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Copyrights
+     */
+    omit?: CopyrightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CopyrightsInclude<ExtArgs> | null
+    /**
+     * Filter, which Copyrights to fetch.
+     */
+    where?: CopyrightsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Copyrights to fetch.
+     */
+    orderBy?: CopyrightsOrderByWithRelationInput | CopyrightsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Copyrights.
+     */
+    cursor?: CopyrightsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Copyrights from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Copyrights.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Copyrights.
+     */
+    distinct?: CopyrightsScalarFieldEnum | CopyrightsScalarFieldEnum[]
+  }
+
+  /**
+   * Copyrights findMany
+   */
+  export type CopyrightsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Copyrights
+     */
+    select?: CopyrightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Copyrights
+     */
+    omit?: CopyrightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CopyrightsInclude<ExtArgs> | null
+    /**
+     * Filter, which Copyrights to fetch.
+     */
+    where?: CopyrightsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Copyrights to fetch.
+     */
+    orderBy?: CopyrightsOrderByWithRelationInput | CopyrightsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Copyrights.
+     */
+    cursor?: CopyrightsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Copyrights from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Copyrights.
+     */
+    skip?: number
+    distinct?: CopyrightsScalarFieldEnum | CopyrightsScalarFieldEnum[]
+  }
+
+  /**
+   * Copyrights create
+   */
+  export type CopyrightsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Copyrights
+     */
+    select?: CopyrightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Copyrights
+     */
+    omit?: CopyrightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CopyrightsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Copyrights.
+     */
+    data: XOR<CopyrightsCreateInput, CopyrightsUncheckedCreateInput>
+  }
+
+  /**
+   * Copyrights createMany
+   */
+  export type CopyrightsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Copyrights.
+     */
+    data: CopyrightsCreateManyInput | CopyrightsCreateManyInput[]
+  }
+
+  /**
+   * Copyrights update
+   */
+  export type CopyrightsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Copyrights
+     */
+    select?: CopyrightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Copyrights
+     */
+    omit?: CopyrightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CopyrightsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Copyrights.
+     */
+    data: XOR<CopyrightsUpdateInput, CopyrightsUncheckedUpdateInput>
+    /**
+     * Choose, which Copyrights to update.
+     */
+    where: CopyrightsWhereUniqueInput
+  }
+
+  /**
+   * Copyrights updateMany
+   */
+  export type CopyrightsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Copyrights.
+     */
+    data: XOR<CopyrightsUpdateManyMutationInput, CopyrightsUncheckedUpdateManyInput>
+    /**
+     * Filter which Copyrights to update
+     */
+    where?: CopyrightsWhereInput
+    /**
+     * Limit how many Copyrights to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Copyrights upsert
+   */
+  export type CopyrightsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Copyrights
+     */
+    select?: CopyrightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Copyrights
+     */
+    omit?: CopyrightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CopyrightsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Copyrights to update in case it exists.
+     */
+    where: CopyrightsWhereUniqueInput
+    /**
+     * In case the Copyrights found by the `where` argument doesn't exist, create a new Copyrights with this data.
+     */
+    create: XOR<CopyrightsCreateInput, CopyrightsUncheckedCreateInput>
+    /**
+     * In case the Copyrights was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CopyrightsUpdateInput, CopyrightsUncheckedUpdateInput>
+  }
+
+  /**
+   * Copyrights delete
+   */
+  export type CopyrightsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Copyrights
+     */
+    select?: CopyrightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Copyrights
+     */
+    omit?: CopyrightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CopyrightsInclude<ExtArgs> | null
+    /**
+     * Filter which Copyrights to delete.
+     */
+    where: CopyrightsWhereUniqueInput
+  }
+
+  /**
+   * Copyrights deleteMany
+   */
+  export type CopyrightsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Copyrights to delete
+     */
+    where?: CopyrightsWhereInput
+    /**
+     * Limit how many Copyrights to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Copyrights without action
+   */
+  export type CopyrightsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Copyrights
+     */
+    select?: CopyrightsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Copyrights
+     */
+    omit?: CopyrightsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CopyrightsInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -11609,6 +17058,24 @@ export namespace Prisma {
   export type PackageAuthorScalarFieldEnum = (typeof PackageAuthorScalarFieldEnum)[keyof typeof PackageAuthorScalarFieldEnum]
 
 
+  export const DeclaredLicensesScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    packageId: 'packageId'
+  };
+
+  export type DeclaredLicensesScalarFieldEnum = (typeof DeclaredLicensesScalarFieldEnum)[keyof typeof DeclaredLicensesScalarFieldEnum]
+
+
+  export const DeclaredLicensesProcessedScalarFieldEnum: {
+    id: 'id',
+    spdxExpression: 'spdxExpression',
+    packageId: 'packageId'
+  };
+
+  export type DeclaredLicensesProcessedScalarFieldEnum = (typeof DeclaredLicensesProcessedScalarFieldEnum)[keyof typeof DeclaredLicensesProcessedScalarFieldEnum]
+
+
   export const BinaryArtifactScalarFieldEnum: {
     id: 'id',
     url: 'url',
@@ -11649,6 +17116,42 @@ export namespace Prisma {
   };
 
   export type VcsProcessedScalarFieldEnum = (typeof VcsProcessedScalarFieldEnum)[keyof typeof VcsProcessedScalarFieldEnum]
+
+
+  export const ScannerScalarFieldEnum: {
+    id: 'id',
+    createdAt: 'createdAt',
+    scanId: 'scanId'
+  };
+
+  export type ScannerScalarFieldEnum = (typeof ScannerScalarFieldEnum)[keyof typeof ScannerScalarFieldEnum]
+
+
+  export const LicensesScalarFieldEnum: {
+    id: 'id',
+    createdAt: 'createdAt',
+    licenseName: 'licenseName',
+    path: 'path',
+    startLine: 'startLine',
+    endLine: 'endLine',
+    score: 'score',
+    scannerId: 'scannerId'
+  };
+
+  export type LicensesScalarFieldEnum = (typeof LicensesScalarFieldEnum)[keyof typeof LicensesScalarFieldEnum]
+
+
+  export const CopyrightsScalarFieldEnum: {
+    id: 'id',
+    createdAt: 'createdAt',
+    statement: 'statement',
+    path: 'path',
+    startLine: 'startLine',
+    endLine: 'endLine',
+    scannerId: 'scannerId'
+  };
+
+  export type CopyrightsScalarFieldEnum = (typeof CopyrightsScalarFieldEnum)[keyof typeof CopyrightsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -11822,6 +17325,7 @@ export namespace Prisma {
     projectId?: StringFilter<"Scan"> | string
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     analyzer?: XOR<AnalyzerNullableScalarRelationFilter, AnalyzerWhereInput> | null
+    scanner?: XOR<ScannerNullableScalarRelationFilter, ScannerWhereInput> | null
   }
 
   export type ScanOrderByWithRelationInput = {
@@ -11831,6 +17335,7 @@ export namespace Prisma {
     projectId?: SortOrder
     project?: ProjectOrderByWithRelationInput
     analyzer?: AnalyzerOrderByWithRelationInput
+    scanner?: ScannerOrderByWithRelationInput
   }
 
   export type ScanWhereUniqueInput = Prisma.AtLeast<{
@@ -11843,6 +17348,7 @@ export namespace Prisma {
     projectId?: StringFilter<"Scan"> | string
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     analyzer?: XOR<AnalyzerNullableScalarRelationFilter, AnalyzerWhereInput> | null
+    scanner?: XOR<ScannerNullableScalarRelationFilter, ScannerWhereInput> | null
   }, "id" | "gitRunId">
 
   export type ScanOrderByWithAggregationInput = {
@@ -11930,6 +17436,8 @@ export namespace Prisma {
     analyzerId?: IntFilter<"AnalyzerPackage"> | number
     analyzer?: XOR<AnalyzerScalarRelationFilter, AnalyzerWhereInput>
     authors?: PackageAuthorListRelationFilter
+    declaredLicenses?: DeclaredLicensesListRelationFilter
+    declaredLicensesProcessed?: DeclaredLicensesProcessedListRelationFilter
     binaries?: BinaryArtifactListRelationFilter
     sources?: SourceArtifactListRelationFilter
     vcsList?: VcsListRelationFilter
@@ -11946,6 +17454,8 @@ export namespace Prisma {
     analyzerId?: SortOrder
     analyzer?: AnalyzerOrderByWithRelationInput
     authors?: PackageAuthorOrderByRelationAggregateInput
+    declaredLicenses?: DeclaredLicensesOrderByRelationAggregateInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedOrderByRelationAggregateInput
     binaries?: BinaryArtifactOrderByRelationAggregateInput
     sources?: SourceArtifactOrderByRelationAggregateInput
     vcsList?: VcsOrderByRelationAggregateInput
@@ -11965,6 +17475,8 @@ export namespace Prisma {
     analyzerId?: IntFilter<"AnalyzerPackage"> | number
     analyzer?: XOR<AnalyzerScalarRelationFilter, AnalyzerWhereInput>
     authors?: PackageAuthorListRelationFilter
+    declaredLicenses?: DeclaredLicensesListRelationFilter
+    declaredLicensesProcessed?: DeclaredLicensesProcessedListRelationFilter
     binaries?: BinaryArtifactListRelationFilter
     sources?: SourceArtifactListRelationFilter
     vcsList?: VcsListRelationFilter
@@ -12044,6 +17556,100 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"PackageAuthor"> | number
     name?: StringWithAggregatesFilter<"PackageAuthor"> | string
     packageId?: IntWithAggregatesFilter<"PackageAuthor"> | number
+  }
+
+  export type DeclaredLicensesWhereInput = {
+    AND?: DeclaredLicensesWhereInput | DeclaredLicensesWhereInput[]
+    OR?: DeclaredLicensesWhereInput[]
+    NOT?: DeclaredLicensesWhereInput | DeclaredLicensesWhereInput[]
+    id?: IntFilter<"DeclaredLicenses"> | number
+    name?: StringFilter<"DeclaredLicenses"> | string
+    packageId?: IntFilter<"DeclaredLicenses"> | number
+    analyzerPackage?: XOR<AnalyzerPackageScalarRelationFilter, AnalyzerPackageWhereInput>
+  }
+
+  export type DeclaredLicensesOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    packageId?: SortOrder
+    analyzerPackage?: AnalyzerPackageOrderByWithRelationInput
+  }
+
+  export type DeclaredLicensesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: DeclaredLicensesWhereInput | DeclaredLicensesWhereInput[]
+    OR?: DeclaredLicensesWhereInput[]
+    NOT?: DeclaredLicensesWhereInput | DeclaredLicensesWhereInput[]
+    name?: StringFilter<"DeclaredLicenses"> | string
+    packageId?: IntFilter<"DeclaredLicenses"> | number
+    analyzerPackage?: XOR<AnalyzerPackageScalarRelationFilter, AnalyzerPackageWhereInput>
+  }, "id">
+
+  export type DeclaredLicensesOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    packageId?: SortOrder
+    _count?: DeclaredLicensesCountOrderByAggregateInput
+    _avg?: DeclaredLicensesAvgOrderByAggregateInput
+    _max?: DeclaredLicensesMaxOrderByAggregateInput
+    _min?: DeclaredLicensesMinOrderByAggregateInput
+    _sum?: DeclaredLicensesSumOrderByAggregateInput
+  }
+
+  export type DeclaredLicensesScalarWhereWithAggregatesInput = {
+    AND?: DeclaredLicensesScalarWhereWithAggregatesInput | DeclaredLicensesScalarWhereWithAggregatesInput[]
+    OR?: DeclaredLicensesScalarWhereWithAggregatesInput[]
+    NOT?: DeclaredLicensesScalarWhereWithAggregatesInput | DeclaredLicensesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"DeclaredLicenses"> | number
+    name?: StringWithAggregatesFilter<"DeclaredLicenses"> | string
+    packageId?: IntWithAggregatesFilter<"DeclaredLicenses"> | number
+  }
+
+  export type DeclaredLicensesProcessedWhereInput = {
+    AND?: DeclaredLicensesProcessedWhereInput | DeclaredLicensesProcessedWhereInput[]
+    OR?: DeclaredLicensesProcessedWhereInput[]
+    NOT?: DeclaredLicensesProcessedWhereInput | DeclaredLicensesProcessedWhereInput[]
+    id?: IntFilter<"DeclaredLicensesProcessed"> | number
+    spdxExpression?: StringFilter<"DeclaredLicensesProcessed"> | string
+    packageId?: IntFilter<"DeclaredLicensesProcessed"> | number
+    analyzerPackage?: XOR<AnalyzerPackageScalarRelationFilter, AnalyzerPackageWhereInput>
+  }
+
+  export type DeclaredLicensesProcessedOrderByWithRelationInput = {
+    id?: SortOrder
+    spdxExpression?: SortOrder
+    packageId?: SortOrder
+    analyzerPackage?: AnalyzerPackageOrderByWithRelationInput
+  }
+
+  export type DeclaredLicensesProcessedWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: DeclaredLicensesProcessedWhereInput | DeclaredLicensesProcessedWhereInput[]
+    OR?: DeclaredLicensesProcessedWhereInput[]
+    NOT?: DeclaredLicensesProcessedWhereInput | DeclaredLicensesProcessedWhereInput[]
+    spdxExpression?: StringFilter<"DeclaredLicensesProcessed"> | string
+    packageId?: IntFilter<"DeclaredLicensesProcessed"> | number
+    analyzerPackage?: XOR<AnalyzerPackageScalarRelationFilter, AnalyzerPackageWhereInput>
+  }, "id">
+
+  export type DeclaredLicensesProcessedOrderByWithAggregationInput = {
+    id?: SortOrder
+    spdxExpression?: SortOrder
+    packageId?: SortOrder
+    _count?: DeclaredLicensesProcessedCountOrderByAggregateInput
+    _avg?: DeclaredLicensesProcessedAvgOrderByAggregateInput
+    _max?: DeclaredLicensesProcessedMaxOrderByAggregateInput
+    _min?: DeclaredLicensesProcessedMinOrderByAggregateInput
+    _sum?: DeclaredLicensesProcessedSumOrderByAggregateInput
+  }
+
+  export type DeclaredLicensesProcessedScalarWhereWithAggregatesInput = {
+    AND?: DeclaredLicensesProcessedScalarWhereWithAggregatesInput | DeclaredLicensesProcessedScalarWhereWithAggregatesInput[]
+    OR?: DeclaredLicensesProcessedScalarWhereWithAggregatesInput[]
+    NOT?: DeclaredLicensesProcessedScalarWhereWithAggregatesInput | DeclaredLicensesProcessedScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"DeclaredLicensesProcessed"> | number
+    spdxExpression?: StringWithAggregatesFilter<"DeclaredLicensesProcessed"> | string
+    packageId?: IntWithAggregatesFilter<"DeclaredLicensesProcessed"> | number
   }
 
   export type BinaryArtifactWhereInput = {
@@ -12264,6 +17870,198 @@ export namespace Prisma {
     packageId?: IntWithAggregatesFilter<"VcsProcessed"> | number
   }
 
+  export type ScannerWhereInput = {
+    AND?: ScannerWhereInput | ScannerWhereInput[]
+    OR?: ScannerWhereInput[]
+    NOT?: ScannerWhereInput | ScannerWhereInput[]
+    id?: IntFilter<"Scanner"> | number
+    createdAt?: DateTimeFilter<"Scanner"> | Date | string
+    scanId?: IntFilter<"Scanner"> | number
+    scan?: XOR<ScanScalarRelationFilter, ScanWhereInput>
+    licenses?: LicensesListRelationFilter
+    copyrights?: CopyrightsListRelationFilter
+  }
+
+  export type ScannerOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    scanId?: SortOrder
+    scan?: ScanOrderByWithRelationInput
+    licenses?: LicensesOrderByRelationAggregateInput
+    copyrights?: CopyrightsOrderByRelationAggregateInput
+  }
+
+  export type ScannerWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    scanId?: number
+    AND?: ScannerWhereInput | ScannerWhereInput[]
+    OR?: ScannerWhereInput[]
+    NOT?: ScannerWhereInput | ScannerWhereInput[]
+    createdAt?: DateTimeFilter<"Scanner"> | Date | string
+    scan?: XOR<ScanScalarRelationFilter, ScanWhereInput>
+    licenses?: LicensesListRelationFilter
+    copyrights?: CopyrightsListRelationFilter
+  }, "id" | "scanId">
+
+  export type ScannerOrderByWithAggregationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    scanId?: SortOrder
+    _count?: ScannerCountOrderByAggregateInput
+    _avg?: ScannerAvgOrderByAggregateInput
+    _max?: ScannerMaxOrderByAggregateInput
+    _min?: ScannerMinOrderByAggregateInput
+    _sum?: ScannerSumOrderByAggregateInput
+  }
+
+  export type ScannerScalarWhereWithAggregatesInput = {
+    AND?: ScannerScalarWhereWithAggregatesInput | ScannerScalarWhereWithAggregatesInput[]
+    OR?: ScannerScalarWhereWithAggregatesInput[]
+    NOT?: ScannerScalarWhereWithAggregatesInput | ScannerScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Scanner"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Scanner"> | Date | string
+    scanId?: IntWithAggregatesFilter<"Scanner"> | number
+  }
+
+  export type LicensesWhereInput = {
+    AND?: LicensesWhereInput | LicensesWhereInput[]
+    OR?: LicensesWhereInput[]
+    NOT?: LicensesWhereInput | LicensesWhereInput[]
+    id?: IntFilter<"Licenses"> | number
+    createdAt?: DateTimeFilter<"Licenses"> | Date | string
+    licenseName?: StringFilter<"Licenses"> | string
+    path?: StringFilter<"Licenses"> | string
+    startLine?: IntFilter<"Licenses"> | number
+    endLine?: IntFilter<"Licenses"> | number
+    score?: FloatFilter<"Licenses"> | number
+    scannerId?: IntFilter<"Licenses"> | number
+    scanner?: XOR<ScannerScalarRelationFilter, ScannerWhereInput>
+  }
+
+  export type LicensesOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    licenseName?: SortOrder
+    path?: SortOrder
+    startLine?: SortOrder
+    endLine?: SortOrder
+    score?: SortOrder
+    scannerId?: SortOrder
+    scanner?: ScannerOrderByWithRelationInput
+  }
+
+  export type LicensesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: LicensesWhereInput | LicensesWhereInput[]
+    OR?: LicensesWhereInput[]
+    NOT?: LicensesWhereInput | LicensesWhereInput[]
+    createdAt?: DateTimeFilter<"Licenses"> | Date | string
+    licenseName?: StringFilter<"Licenses"> | string
+    path?: StringFilter<"Licenses"> | string
+    startLine?: IntFilter<"Licenses"> | number
+    endLine?: IntFilter<"Licenses"> | number
+    score?: FloatFilter<"Licenses"> | number
+    scannerId?: IntFilter<"Licenses"> | number
+    scanner?: XOR<ScannerScalarRelationFilter, ScannerWhereInput>
+  }, "id">
+
+  export type LicensesOrderByWithAggregationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    licenseName?: SortOrder
+    path?: SortOrder
+    startLine?: SortOrder
+    endLine?: SortOrder
+    score?: SortOrder
+    scannerId?: SortOrder
+    _count?: LicensesCountOrderByAggregateInput
+    _avg?: LicensesAvgOrderByAggregateInput
+    _max?: LicensesMaxOrderByAggregateInput
+    _min?: LicensesMinOrderByAggregateInput
+    _sum?: LicensesSumOrderByAggregateInput
+  }
+
+  export type LicensesScalarWhereWithAggregatesInput = {
+    AND?: LicensesScalarWhereWithAggregatesInput | LicensesScalarWhereWithAggregatesInput[]
+    OR?: LicensesScalarWhereWithAggregatesInput[]
+    NOT?: LicensesScalarWhereWithAggregatesInput | LicensesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Licenses"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Licenses"> | Date | string
+    licenseName?: StringWithAggregatesFilter<"Licenses"> | string
+    path?: StringWithAggregatesFilter<"Licenses"> | string
+    startLine?: IntWithAggregatesFilter<"Licenses"> | number
+    endLine?: IntWithAggregatesFilter<"Licenses"> | number
+    score?: FloatWithAggregatesFilter<"Licenses"> | number
+    scannerId?: IntWithAggregatesFilter<"Licenses"> | number
+  }
+
+  export type CopyrightsWhereInput = {
+    AND?: CopyrightsWhereInput | CopyrightsWhereInput[]
+    OR?: CopyrightsWhereInput[]
+    NOT?: CopyrightsWhereInput | CopyrightsWhereInput[]
+    id?: IntFilter<"Copyrights"> | number
+    createdAt?: DateTimeFilter<"Copyrights"> | Date | string
+    statement?: StringFilter<"Copyrights"> | string
+    path?: StringFilter<"Copyrights"> | string
+    startLine?: IntFilter<"Copyrights"> | number
+    endLine?: IntFilter<"Copyrights"> | number
+    scannerId?: IntFilter<"Copyrights"> | number
+    scanner?: XOR<ScannerScalarRelationFilter, ScannerWhereInput>
+  }
+
+  export type CopyrightsOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    statement?: SortOrder
+    path?: SortOrder
+    startLine?: SortOrder
+    endLine?: SortOrder
+    scannerId?: SortOrder
+    scanner?: ScannerOrderByWithRelationInput
+  }
+
+  export type CopyrightsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: CopyrightsWhereInput | CopyrightsWhereInput[]
+    OR?: CopyrightsWhereInput[]
+    NOT?: CopyrightsWhereInput | CopyrightsWhereInput[]
+    createdAt?: DateTimeFilter<"Copyrights"> | Date | string
+    statement?: StringFilter<"Copyrights"> | string
+    path?: StringFilter<"Copyrights"> | string
+    startLine?: IntFilter<"Copyrights"> | number
+    endLine?: IntFilter<"Copyrights"> | number
+    scannerId?: IntFilter<"Copyrights"> | number
+    scanner?: XOR<ScannerScalarRelationFilter, ScannerWhereInput>
+  }, "id">
+
+  export type CopyrightsOrderByWithAggregationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    statement?: SortOrder
+    path?: SortOrder
+    startLine?: SortOrder
+    endLine?: SortOrder
+    scannerId?: SortOrder
+    _count?: CopyrightsCountOrderByAggregateInput
+    _avg?: CopyrightsAvgOrderByAggregateInput
+    _max?: CopyrightsMaxOrderByAggregateInput
+    _min?: CopyrightsMinOrderByAggregateInput
+    _sum?: CopyrightsSumOrderByAggregateInput
+  }
+
+  export type CopyrightsScalarWhereWithAggregatesInput = {
+    AND?: CopyrightsScalarWhereWithAggregatesInput | CopyrightsScalarWhereWithAggregatesInput[]
+    OR?: CopyrightsScalarWhereWithAggregatesInput[]
+    NOT?: CopyrightsScalarWhereWithAggregatesInput | CopyrightsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Copyrights"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Copyrights"> | Date | string
+    statement?: StringWithAggregatesFilter<"Copyrights"> | string
+    path?: StringWithAggregatesFilter<"Copyrights"> | string
+    startLine?: IntWithAggregatesFilter<"Copyrights"> | number
+    endLine?: IntWithAggregatesFilter<"Copyrights"> | number
+    scannerId?: IntWithAggregatesFilter<"Copyrights"> | number
+  }
+
   export type UserCreateInput = {
     userId: string
     userName?: string | null
@@ -12381,6 +18179,7 @@ export namespace Prisma {
     gitRunId: string
     project: ProjectCreateNestedOneWithoutScansInput
     analyzer?: AnalyzerCreateNestedOneWithoutScanInput
+    scanner?: ScannerCreateNestedOneWithoutScanInput
   }
 
   export type ScanUncheckedCreateInput = {
@@ -12389,6 +18188,7 @@ export namespace Prisma {
     gitRunId: string
     projectId: string
     analyzer?: AnalyzerUncheckedCreateNestedOneWithoutScanInput
+    scanner?: ScannerUncheckedCreateNestedOneWithoutScanInput
   }
 
   export type ScanUpdateInput = {
@@ -12396,6 +18196,7 @@ export namespace Prisma {
     gitRunId?: StringFieldUpdateOperationsInput | string
     project?: ProjectUpdateOneRequiredWithoutScansNestedInput
     analyzer?: AnalyzerUpdateOneWithoutScanNestedInput
+    scanner?: ScannerUpdateOneWithoutScanNestedInput
   }
 
   export type ScanUncheckedUpdateInput = {
@@ -12404,6 +18205,7 @@ export namespace Prisma {
     gitRunId?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     analyzer?: AnalyzerUncheckedUpdateOneWithoutScanNestedInput
+    scanner?: ScannerUncheckedUpdateOneWithoutScanNestedInput
   }
 
   export type ScanCreateManyInput = {
@@ -12473,6 +18275,8 @@ export namespace Prisma {
     homepageUrl: string
     analyzer: AnalyzerCreateNestedOneWithoutPackagesInput
     authors?: PackageAuthorCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicenses?: DeclaredLicensesCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedCreateNestedManyWithoutAnalyzerPackageInput
     binaries?: BinaryArtifactCreateNestedManyWithoutAnalyzerPackageInput
     sources?: SourceArtifactCreateNestedManyWithoutAnalyzerPackageInput
     vcsList?: VcsCreateNestedManyWithoutAnalyzerPackageInput
@@ -12488,6 +18292,8 @@ export namespace Prisma {
     homepageUrl: string
     analyzerId: number
     authors?: PackageAuthorUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicenses?: DeclaredLicensesUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     binaries?: BinaryArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     sources?: SourceArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     vcsList?: VcsUncheckedCreateNestedManyWithoutAnalyzerPackageInput
@@ -12502,6 +18308,8 @@ export namespace Prisma {
     homepageUrl?: StringFieldUpdateOperationsInput | string
     analyzer?: AnalyzerUpdateOneRequiredWithoutPackagesNestedInput
     authors?: PackageAuthorUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicenses?: DeclaredLicensesUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUpdateManyWithoutAnalyzerPackageNestedInput
     binaries?: BinaryArtifactUpdateManyWithoutAnalyzerPackageNestedInput
     sources?: SourceArtifactUpdateManyWithoutAnalyzerPackageNestedInput
     vcsList?: VcsUpdateManyWithoutAnalyzerPackageNestedInput
@@ -12517,6 +18325,8 @@ export namespace Prisma {
     homepageUrl?: StringFieldUpdateOperationsInput | string
     analyzerId?: IntFieldUpdateOperationsInput | number
     authors?: PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicenses?: DeclaredLicensesUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     binaries?: BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     sources?: SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     vcsList?: VcsUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
@@ -12584,6 +18394,80 @@ export namespace Prisma {
   export type PackageAuthorUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    packageId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type DeclaredLicensesCreateInput = {
+    name: string
+    analyzerPackage: AnalyzerPackageCreateNestedOneWithoutDeclaredLicensesInput
+  }
+
+  export type DeclaredLicensesUncheckedCreateInput = {
+    id?: number
+    name: string
+    packageId: number
+  }
+
+  export type DeclaredLicensesUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    analyzerPackage?: AnalyzerPackageUpdateOneRequiredWithoutDeclaredLicensesNestedInput
+  }
+
+  export type DeclaredLicensesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    packageId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type DeclaredLicensesCreateManyInput = {
+    name: string
+    packageId: number
+  }
+
+  export type DeclaredLicensesUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DeclaredLicensesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    packageId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type DeclaredLicensesProcessedCreateInput = {
+    spdxExpression: string
+    analyzerPackage: AnalyzerPackageCreateNestedOneWithoutDeclaredLicensesProcessedInput
+  }
+
+  export type DeclaredLicensesProcessedUncheckedCreateInput = {
+    id?: number
+    spdxExpression: string
+    packageId: number
+  }
+
+  export type DeclaredLicensesProcessedUpdateInput = {
+    spdxExpression?: StringFieldUpdateOperationsInput | string
+    analyzerPackage?: AnalyzerPackageUpdateOneRequiredWithoutDeclaredLicensesProcessedNestedInput
+  }
+
+  export type DeclaredLicensesProcessedUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    spdxExpression?: StringFieldUpdateOperationsInput | string
+    packageId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type DeclaredLicensesProcessedCreateManyInput = {
+    spdxExpression: string
+    packageId: number
+  }
+
+  export type DeclaredLicensesProcessedUpdateManyMutationInput = {
+    spdxExpression?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DeclaredLicensesProcessedUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    spdxExpression?: StringFieldUpdateOperationsInput | string
     packageId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -12775,6 +18659,188 @@ export namespace Prisma {
     revision?: StringFieldUpdateOperationsInput | string
     path?: StringFieldUpdateOperationsInput | string
     packageId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ScannerCreateInput = {
+    createdAt?: Date | string
+    scan: ScanCreateNestedOneWithoutScannerInput
+    licenses?: LicensesCreateNestedManyWithoutScannerInput
+    copyrights?: CopyrightsCreateNestedManyWithoutScannerInput
+  }
+
+  export type ScannerUncheckedCreateInput = {
+    id?: number
+    createdAt?: Date | string
+    scanId: number
+    licenses?: LicensesUncheckedCreateNestedManyWithoutScannerInput
+    copyrights?: CopyrightsUncheckedCreateNestedManyWithoutScannerInput
+  }
+
+  export type ScannerUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scan?: ScanUpdateOneRequiredWithoutScannerNestedInput
+    licenses?: LicensesUpdateManyWithoutScannerNestedInput
+    copyrights?: CopyrightsUpdateManyWithoutScannerNestedInput
+  }
+
+  export type ScannerUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scanId?: IntFieldUpdateOperationsInput | number
+    licenses?: LicensesUncheckedUpdateManyWithoutScannerNestedInput
+    copyrights?: CopyrightsUncheckedUpdateManyWithoutScannerNestedInput
+  }
+
+  export type ScannerCreateManyInput = {
+    createdAt?: Date | string
+    scanId: number
+  }
+
+  export type ScannerUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ScannerUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scanId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LicensesCreateInput = {
+    createdAt?: Date | string
+    licenseName: string
+    path: string
+    startLine: number
+    endLine: number
+    score: number
+    scanner: ScannerCreateNestedOneWithoutLicensesInput
+  }
+
+  export type LicensesUncheckedCreateInput = {
+    id?: number
+    createdAt?: Date | string
+    licenseName: string
+    path: string
+    startLine: number
+    endLine: number
+    score: number
+    scannerId: number
+  }
+
+  export type LicensesUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    licenseName?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    startLine?: IntFieldUpdateOperationsInput | number
+    endLine?: IntFieldUpdateOperationsInput | number
+    score?: FloatFieldUpdateOperationsInput | number
+    scanner?: ScannerUpdateOneRequiredWithoutLicensesNestedInput
+  }
+
+  export type LicensesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    licenseName?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    startLine?: IntFieldUpdateOperationsInput | number
+    endLine?: IntFieldUpdateOperationsInput | number
+    score?: FloatFieldUpdateOperationsInput | number
+    scannerId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LicensesCreateManyInput = {
+    createdAt?: Date | string
+    licenseName: string
+    path: string
+    startLine: number
+    endLine: number
+    score: number
+    scannerId: number
+  }
+
+  export type LicensesUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    licenseName?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    startLine?: IntFieldUpdateOperationsInput | number
+    endLine?: IntFieldUpdateOperationsInput | number
+    score?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type LicensesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    licenseName?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    startLine?: IntFieldUpdateOperationsInput | number
+    endLine?: IntFieldUpdateOperationsInput | number
+    score?: FloatFieldUpdateOperationsInput | number
+    scannerId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CopyrightsCreateInput = {
+    createdAt?: Date | string
+    statement: string
+    path: string
+    startLine: number
+    endLine: number
+    scanner: ScannerCreateNestedOneWithoutCopyrightsInput
+  }
+
+  export type CopyrightsUncheckedCreateInput = {
+    id?: number
+    createdAt?: Date | string
+    statement: string
+    path: string
+    startLine: number
+    endLine: number
+    scannerId: number
+  }
+
+  export type CopyrightsUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    statement?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    startLine?: IntFieldUpdateOperationsInput | number
+    endLine?: IntFieldUpdateOperationsInput | number
+    scanner?: ScannerUpdateOneRequiredWithoutCopyrightsNestedInput
+  }
+
+  export type CopyrightsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    statement?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    startLine?: IntFieldUpdateOperationsInput | number
+    endLine?: IntFieldUpdateOperationsInput | number
+    scannerId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CopyrightsCreateManyInput = {
+    createdAt?: Date | string
+    statement: string
+    path: string
+    startLine: number
+    endLine: number
+    scannerId: number
+  }
+
+  export type CopyrightsUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    statement?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    startLine?: IntFieldUpdateOperationsInput | number
+    endLine?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CopyrightsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    statement?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    startLine?: IntFieldUpdateOperationsInput | number
+    endLine?: IntFieldUpdateOperationsInput | number
+    scannerId?: IntFieldUpdateOperationsInput | number
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -12990,6 +19056,11 @@ export namespace Prisma {
     isNot?: AnalyzerWhereInput | null
   }
 
+  export type ScannerNullableScalarRelationFilter = {
+    is?: ScannerWhereInput | null
+    isNot?: ScannerWhereInput | null
+  }
+
   export type ScanCountOrderByAggregateInput = {
     id?: SortOrder
     createdAt?: SortOrder
@@ -13089,6 +19160,18 @@ export namespace Prisma {
     none?: PackageAuthorWhereInput
   }
 
+  export type DeclaredLicensesListRelationFilter = {
+    every?: DeclaredLicensesWhereInput
+    some?: DeclaredLicensesWhereInput
+    none?: DeclaredLicensesWhereInput
+  }
+
+  export type DeclaredLicensesProcessedListRelationFilter = {
+    every?: DeclaredLicensesProcessedWhereInput
+    some?: DeclaredLicensesProcessedWhereInput
+    none?: DeclaredLicensesProcessedWhereInput
+  }
+
   export type BinaryArtifactListRelationFilter = {
     every?: BinaryArtifactWhereInput
     some?: BinaryArtifactWhereInput
@@ -13114,6 +19197,14 @@ export namespace Prisma {
   }
 
   export type PackageAuthorOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DeclaredLicensesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DeclaredLicensesProcessedOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -13202,6 +19293,62 @@ export namespace Prisma {
   }
 
   export type PackageAuthorSumOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type DeclaredLicensesCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type DeclaredLicensesAvgOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type DeclaredLicensesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type DeclaredLicensesMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type DeclaredLicensesSumOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type DeclaredLicensesProcessedCountOrderByAggregateInput = {
+    id?: SortOrder
+    spdxExpression?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type DeclaredLicensesProcessedAvgOrderByAggregateInput = {
+    id?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type DeclaredLicensesProcessedMaxOrderByAggregateInput = {
+    id?: SortOrder
+    spdxExpression?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type DeclaredLicensesProcessedMinOrderByAggregateInput = {
+    id?: SortOrder
+    spdxExpression?: SortOrder
+    packageId?: SortOrder
+  }
+
+  export type DeclaredLicensesProcessedSumOrderByAggregateInput = {
     id?: SortOrder
     packageId?: SortOrder
   }
@@ -13336,6 +19483,179 @@ export namespace Prisma {
     packageId?: SortOrder
   }
 
+  export type LicensesListRelationFilter = {
+    every?: LicensesWhereInput
+    some?: LicensesWhereInput
+    none?: LicensesWhereInput
+  }
+
+  export type CopyrightsListRelationFilter = {
+    every?: CopyrightsWhereInput
+    some?: CopyrightsWhereInput
+    none?: CopyrightsWhereInput
+  }
+
+  export type LicensesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CopyrightsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ScannerCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    scanId?: SortOrder
+  }
+
+  export type ScannerAvgOrderByAggregateInput = {
+    id?: SortOrder
+    scanId?: SortOrder
+  }
+
+  export type ScannerMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    scanId?: SortOrder
+  }
+
+  export type ScannerMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    scanId?: SortOrder
+  }
+
+  export type ScannerSumOrderByAggregateInput = {
+    id?: SortOrder
+    scanId?: SortOrder
+  }
+
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type ScannerScalarRelationFilter = {
+    is?: ScannerWhereInput
+    isNot?: ScannerWhereInput
+  }
+
+  export type LicensesCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    licenseName?: SortOrder
+    path?: SortOrder
+    startLine?: SortOrder
+    endLine?: SortOrder
+    score?: SortOrder
+    scannerId?: SortOrder
+  }
+
+  export type LicensesAvgOrderByAggregateInput = {
+    id?: SortOrder
+    startLine?: SortOrder
+    endLine?: SortOrder
+    score?: SortOrder
+    scannerId?: SortOrder
+  }
+
+  export type LicensesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    licenseName?: SortOrder
+    path?: SortOrder
+    startLine?: SortOrder
+    endLine?: SortOrder
+    score?: SortOrder
+    scannerId?: SortOrder
+  }
+
+  export type LicensesMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    licenseName?: SortOrder
+    path?: SortOrder
+    startLine?: SortOrder
+    endLine?: SortOrder
+    score?: SortOrder
+    scannerId?: SortOrder
+  }
+
+  export type LicensesSumOrderByAggregateInput = {
+    id?: SortOrder
+    startLine?: SortOrder
+    endLine?: SortOrder
+    score?: SortOrder
+    scannerId?: SortOrder
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type CopyrightsCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    statement?: SortOrder
+    path?: SortOrder
+    startLine?: SortOrder
+    endLine?: SortOrder
+    scannerId?: SortOrder
+  }
+
+  export type CopyrightsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    startLine?: SortOrder
+    endLine?: SortOrder
+    scannerId?: SortOrder
+  }
+
+  export type CopyrightsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    statement?: SortOrder
+    path?: SortOrder
+    startLine?: SortOrder
+    endLine?: SortOrder
+    scannerId?: SortOrder
+  }
+
+  export type CopyrightsMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    statement?: SortOrder
+    path?: SortOrder
+    startLine?: SortOrder
+    endLine?: SortOrder
+    scannerId?: SortOrder
+  }
+
+  export type CopyrightsSumOrderByAggregateInput = {
+    id?: SortOrder
+    startLine?: SortOrder
+    endLine?: SortOrder
+    scannerId?: SortOrder
+  }
+
   export type ProjectCreateNestedManyWithoutUserInput = {
     create?: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput> | ProjectCreateWithoutUserInput[] | ProjectUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ProjectCreateOrConnectWithoutUserInput | ProjectCreateOrConnectWithoutUserInput[]
@@ -13462,10 +19782,22 @@ export namespace Prisma {
     connect?: AnalyzerWhereUniqueInput
   }
 
+  export type ScannerCreateNestedOneWithoutScanInput = {
+    create?: XOR<ScannerCreateWithoutScanInput, ScannerUncheckedCreateWithoutScanInput>
+    connectOrCreate?: ScannerCreateOrConnectWithoutScanInput
+    connect?: ScannerWhereUniqueInput
+  }
+
   export type AnalyzerUncheckedCreateNestedOneWithoutScanInput = {
     create?: XOR<AnalyzerCreateWithoutScanInput, AnalyzerUncheckedCreateWithoutScanInput>
     connectOrCreate?: AnalyzerCreateOrConnectWithoutScanInput
     connect?: AnalyzerWhereUniqueInput
+  }
+
+  export type ScannerUncheckedCreateNestedOneWithoutScanInput = {
+    create?: XOR<ScannerCreateWithoutScanInput, ScannerUncheckedCreateWithoutScanInput>
+    connectOrCreate?: ScannerCreateOrConnectWithoutScanInput
+    connect?: ScannerWhereUniqueInput
   }
 
   export type ProjectUpdateOneRequiredWithoutScansNestedInput = {
@@ -13486,6 +19818,16 @@ export namespace Prisma {
     update?: XOR<XOR<AnalyzerUpdateToOneWithWhereWithoutScanInput, AnalyzerUpdateWithoutScanInput>, AnalyzerUncheckedUpdateWithoutScanInput>
   }
 
+  export type ScannerUpdateOneWithoutScanNestedInput = {
+    create?: XOR<ScannerCreateWithoutScanInput, ScannerUncheckedCreateWithoutScanInput>
+    connectOrCreate?: ScannerCreateOrConnectWithoutScanInput
+    upsert?: ScannerUpsertWithoutScanInput
+    disconnect?: ScannerWhereInput | boolean
+    delete?: ScannerWhereInput | boolean
+    connect?: ScannerWhereUniqueInput
+    update?: XOR<XOR<ScannerUpdateToOneWithWhereWithoutScanInput, ScannerUpdateWithoutScanInput>, ScannerUncheckedUpdateWithoutScanInput>
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -13502,6 +19844,16 @@ export namespace Prisma {
     delete?: AnalyzerWhereInput | boolean
     connect?: AnalyzerWhereUniqueInput
     update?: XOR<XOR<AnalyzerUpdateToOneWithWhereWithoutScanInput, AnalyzerUpdateWithoutScanInput>, AnalyzerUncheckedUpdateWithoutScanInput>
+  }
+
+  export type ScannerUncheckedUpdateOneWithoutScanNestedInput = {
+    create?: XOR<ScannerCreateWithoutScanInput, ScannerUncheckedCreateWithoutScanInput>
+    connectOrCreate?: ScannerCreateOrConnectWithoutScanInput
+    upsert?: ScannerUpsertWithoutScanInput
+    disconnect?: ScannerWhereInput | boolean
+    delete?: ScannerWhereInput | boolean
+    connect?: ScannerWhereUniqueInput
+    update?: XOR<XOR<ScannerUpdateToOneWithWhereWithoutScanInput, ScannerUpdateWithoutScanInput>, ScannerUncheckedUpdateWithoutScanInput>
   }
 
   export type ScanCreateNestedOneWithoutAnalyzerInput = {
@@ -13573,6 +19925,20 @@ export namespace Prisma {
     connect?: PackageAuthorWhereUniqueInput | PackageAuthorWhereUniqueInput[]
   }
 
+  export type DeclaredLicensesCreateNestedManyWithoutAnalyzerPackageInput = {
+    create?: XOR<DeclaredLicensesCreateWithoutAnalyzerPackageInput, DeclaredLicensesUncheckedCreateWithoutAnalyzerPackageInput> | DeclaredLicensesCreateWithoutAnalyzerPackageInput[] | DeclaredLicensesUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: DeclaredLicensesCreateOrConnectWithoutAnalyzerPackageInput | DeclaredLicensesCreateOrConnectWithoutAnalyzerPackageInput[]
+    createMany?: DeclaredLicensesCreateManyAnalyzerPackageInputEnvelope
+    connect?: DeclaredLicensesWhereUniqueInput | DeclaredLicensesWhereUniqueInput[]
+  }
+
+  export type DeclaredLicensesProcessedCreateNestedManyWithoutAnalyzerPackageInput = {
+    create?: XOR<DeclaredLicensesProcessedCreateWithoutAnalyzerPackageInput, DeclaredLicensesProcessedUncheckedCreateWithoutAnalyzerPackageInput> | DeclaredLicensesProcessedCreateWithoutAnalyzerPackageInput[] | DeclaredLicensesProcessedUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: DeclaredLicensesProcessedCreateOrConnectWithoutAnalyzerPackageInput | DeclaredLicensesProcessedCreateOrConnectWithoutAnalyzerPackageInput[]
+    createMany?: DeclaredLicensesProcessedCreateManyAnalyzerPackageInputEnvelope
+    connect?: DeclaredLicensesProcessedWhereUniqueInput | DeclaredLicensesProcessedWhereUniqueInput[]
+  }
+
   export type BinaryArtifactCreateNestedManyWithoutAnalyzerPackageInput = {
     create?: XOR<BinaryArtifactCreateWithoutAnalyzerPackageInput, BinaryArtifactUncheckedCreateWithoutAnalyzerPackageInput> | BinaryArtifactCreateWithoutAnalyzerPackageInput[] | BinaryArtifactUncheckedCreateWithoutAnalyzerPackageInput[]
     connectOrCreate?: BinaryArtifactCreateOrConnectWithoutAnalyzerPackageInput | BinaryArtifactCreateOrConnectWithoutAnalyzerPackageInput[]
@@ -13606,6 +19972,20 @@ export namespace Prisma {
     connectOrCreate?: PackageAuthorCreateOrConnectWithoutAnalyzerPackageInput | PackageAuthorCreateOrConnectWithoutAnalyzerPackageInput[]
     createMany?: PackageAuthorCreateManyAnalyzerPackageInputEnvelope
     connect?: PackageAuthorWhereUniqueInput | PackageAuthorWhereUniqueInput[]
+  }
+
+  export type DeclaredLicensesUncheckedCreateNestedManyWithoutAnalyzerPackageInput = {
+    create?: XOR<DeclaredLicensesCreateWithoutAnalyzerPackageInput, DeclaredLicensesUncheckedCreateWithoutAnalyzerPackageInput> | DeclaredLicensesCreateWithoutAnalyzerPackageInput[] | DeclaredLicensesUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: DeclaredLicensesCreateOrConnectWithoutAnalyzerPackageInput | DeclaredLicensesCreateOrConnectWithoutAnalyzerPackageInput[]
+    createMany?: DeclaredLicensesCreateManyAnalyzerPackageInputEnvelope
+    connect?: DeclaredLicensesWhereUniqueInput | DeclaredLicensesWhereUniqueInput[]
+  }
+
+  export type DeclaredLicensesProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput = {
+    create?: XOR<DeclaredLicensesProcessedCreateWithoutAnalyzerPackageInput, DeclaredLicensesProcessedUncheckedCreateWithoutAnalyzerPackageInput> | DeclaredLicensesProcessedCreateWithoutAnalyzerPackageInput[] | DeclaredLicensesProcessedUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: DeclaredLicensesProcessedCreateOrConnectWithoutAnalyzerPackageInput | DeclaredLicensesProcessedCreateOrConnectWithoutAnalyzerPackageInput[]
+    createMany?: DeclaredLicensesProcessedCreateManyAnalyzerPackageInputEnvelope
+    connect?: DeclaredLicensesProcessedWhereUniqueInput | DeclaredLicensesProcessedWhereUniqueInput[]
   }
 
   export type BinaryArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput = {
@@ -13656,6 +20036,34 @@ export namespace Prisma {
     update?: PackageAuthorUpdateWithWhereUniqueWithoutAnalyzerPackageInput | PackageAuthorUpdateWithWhereUniqueWithoutAnalyzerPackageInput[]
     updateMany?: PackageAuthorUpdateManyWithWhereWithoutAnalyzerPackageInput | PackageAuthorUpdateManyWithWhereWithoutAnalyzerPackageInput[]
     deleteMany?: PackageAuthorScalarWhereInput | PackageAuthorScalarWhereInput[]
+  }
+
+  export type DeclaredLicensesUpdateManyWithoutAnalyzerPackageNestedInput = {
+    create?: XOR<DeclaredLicensesCreateWithoutAnalyzerPackageInput, DeclaredLicensesUncheckedCreateWithoutAnalyzerPackageInput> | DeclaredLicensesCreateWithoutAnalyzerPackageInput[] | DeclaredLicensesUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: DeclaredLicensesCreateOrConnectWithoutAnalyzerPackageInput | DeclaredLicensesCreateOrConnectWithoutAnalyzerPackageInput[]
+    upsert?: DeclaredLicensesUpsertWithWhereUniqueWithoutAnalyzerPackageInput | DeclaredLicensesUpsertWithWhereUniqueWithoutAnalyzerPackageInput[]
+    createMany?: DeclaredLicensesCreateManyAnalyzerPackageInputEnvelope
+    set?: DeclaredLicensesWhereUniqueInput | DeclaredLicensesWhereUniqueInput[]
+    disconnect?: DeclaredLicensesWhereUniqueInput | DeclaredLicensesWhereUniqueInput[]
+    delete?: DeclaredLicensesWhereUniqueInput | DeclaredLicensesWhereUniqueInput[]
+    connect?: DeclaredLicensesWhereUniqueInput | DeclaredLicensesWhereUniqueInput[]
+    update?: DeclaredLicensesUpdateWithWhereUniqueWithoutAnalyzerPackageInput | DeclaredLicensesUpdateWithWhereUniqueWithoutAnalyzerPackageInput[]
+    updateMany?: DeclaredLicensesUpdateManyWithWhereWithoutAnalyzerPackageInput | DeclaredLicensesUpdateManyWithWhereWithoutAnalyzerPackageInput[]
+    deleteMany?: DeclaredLicensesScalarWhereInput | DeclaredLicensesScalarWhereInput[]
+  }
+
+  export type DeclaredLicensesProcessedUpdateManyWithoutAnalyzerPackageNestedInput = {
+    create?: XOR<DeclaredLicensesProcessedCreateWithoutAnalyzerPackageInput, DeclaredLicensesProcessedUncheckedCreateWithoutAnalyzerPackageInput> | DeclaredLicensesProcessedCreateWithoutAnalyzerPackageInput[] | DeclaredLicensesProcessedUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: DeclaredLicensesProcessedCreateOrConnectWithoutAnalyzerPackageInput | DeclaredLicensesProcessedCreateOrConnectWithoutAnalyzerPackageInput[]
+    upsert?: DeclaredLicensesProcessedUpsertWithWhereUniqueWithoutAnalyzerPackageInput | DeclaredLicensesProcessedUpsertWithWhereUniqueWithoutAnalyzerPackageInput[]
+    createMany?: DeclaredLicensesProcessedCreateManyAnalyzerPackageInputEnvelope
+    set?: DeclaredLicensesProcessedWhereUniqueInput | DeclaredLicensesProcessedWhereUniqueInput[]
+    disconnect?: DeclaredLicensesProcessedWhereUniqueInput | DeclaredLicensesProcessedWhereUniqueInput[]
+    delete?: DeclaredLicensesProcessedWhereUniqueInput | DeclaredLicensesProcessedWhereUniqueInput[]
+    connect?: DeclaredLicensesProcessedWhereUniqueInput | DeclaredLicensesProcessedWhereUniqueInput[]
+    update?: DeclaredLicensesProcessedUpdateWithWhereUniqueWithoutAnalyzerPackageInput | DeclaredLicensesProcessedUpdateWithWhereUniqueWithoutAnalyzerPackageInput[]
+    updateMany?: DeclaredLicensesProcessedUpdateManyWithWhereWithoutAnalyzerPackageInput | DeclaredLicensesProcessedUpdateManyWithWhereWithoutAnalyzerPackageInput[]
+    deleteMany?: DeclaredLicensesProcessedScalarWhereInput | DeclaredLicensesProcessedScalarWhereInput[]
   }
 
   export type BinaryArtifactUpdateManyWithoutAnalyzerPackageNestedInput = {
@@ -13728,6 +20136,34 @@ export namespace Prisma {
     deleteMany?: PackageAuthorScalarWhereInput | PackageAuthorScalarWhereInput[]
   }
 
+  export type DeclaredLicensesUncheckedUpdateManyWithoutAnalyzerPackageNestedInput = {
+    create?: XOR<DeclaredLicensesCreateWithoutAnalyzerPackageInput, DeclaredLicensesUncheckedCreateWithoutAnalyzerPackageInput> | DeclaredLicensesCreateWithoutAnalyzerPackageInput[] | DeclaredLicensesUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: DeclaredLicensesCreateOrConnectWithoutAnalyzerPackageInput | DeclaredLicensesCreateOrConnectWithoutAnalyzerPackageInput[]
+    upsert?: DeclaredLicensesUpsertWithWhereUniqueWithoutAnalyzerPackageInput | DeclaredLicensesUpsertWithWhereUniqueWithoutAnalyzerPackageInput[]
+    createMany?: DeclaredLicensesCreateManyAnalyzerPackageInputEnvelope
+    set?: DeclaredLicensesWhereUniqueInput | DeclaredLicensesWhereUniqueInput[]
+    disconnect?: DeclaredLicensesWhereUniqueInput | DeclaredLicensesWhereUniqueInput[]
+    delete?: DeclaredLicensesWhereUniqueInput | DeclaredLicensesWhereUniqueInput[]
+    connect?: DeclaredLicensesWhereUniqueInput | DeclaredLicensesWhereUniqueInput[]
+    update?: DeclaredLicensesUpdateWithWhereUniqueWithoutAnalyzerPackageInput | DeclaredLicensesUpdateWithWhereUniqueWithoutAnalyzerPackageInput[]
+    updateMany?: DeclaredLicensesUpdateManyWithWhereWithoutAnalyzerPackageInput | DeclaredLicensesUpdateManyWithWhereWithoutAnalyzerPackageInput[]
+    deleteMany?: DeclaredLicensesScalarWhereInput | DeclaredLicensesScalarWhereInput[]
+  }
+
+  export type DeclaredLicensesProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput = {
+    create?: XOR<DeclaredLicensesProcessedCreateWithoutAnalyzerPackageInput, DeclaredLicensesProcessedUncheckedCreateWithoutAnalyzerPackageInput> | DeclaredLicensesProcessedCreateWithoutAnalyzerPackageInput[] | DeclaredLicensesProcessedUncheckedCreateWithoutAnalyzerPackageInput[]
+    connectOrCreate?: DeclaredLicensesProcessedCreateOrConnectWithoutAnalyzerPackageInput | DeclaredLicensesProcessedCreateOrConnectWithoutAnalyzerPackageInput[]
+    upsert?: DeclaredLicensesProcessedUpsertWithWhereUniqueWithoutAnalyzerPackageInput | DeclaredLicensesProcessedUpsertWithWhereUniqueWithoutAnalyzerPackageInput[]
+    createMany?: DeclaredLicensesProcessedCreateManyAnalyzerPackageInputEnvelope
+    set?: DeclaredLicensesProcessedWhereUniqueInput | DeclaredLicensesProcessedWhereUniqueInput[]
+    disconnect?: DeclaredLicensesProcessedWhereUniqueInput | DeclaredLicensesProcessedWhereUniqueInput[]
+    delete?: DeclaredLicensesProcessedWhereUniqueInput | DeclaredLicensesProcessedWhereUniqueInput[]
+    connect?: DeclaredLicensesProcessedWhereUniqueInput | DeclaredLicensesProcessedWhereUniqueInput[]
+    update?: DeclaredLicensesProcessedUpdateWithWhereUniqueWithoutAnalyzerPackageInput | DeclaredLicensesProcessedUpdateWithWhereUniqueWithoutAnalyzerPackageInput[]
+    updateMany?: DeclaredLicensesProcessedUpdateManyWithWhereWithoutAnalyzerPackageInput | DeclaredLicensesProcessedUpdateManyWithWhereWithoutAnalyzerPackageInput[]
+    deleteMany?: DeclaredLicensesProcessedScalarWhereInput | DeclaredLicensesProcessedScalarWhereInput[]
+  }
+
   export type BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput = {
     create?: XOR<BinaryArtifactCreateWithoutAnalyzerPackageInput, BinaryArtifactUncheckedCreateWithoutAnalyzerPackageInput> | BinaryArtifactCreateWithoutAnalyzerPackageInput[] | BinaryArtifactUncheckedCreateWithoutAnalyzerPackageInput[]
     connectOrCreate?: BinaryArtifactCreateOrConnectWithoutAnalyzerPackageInput | BinaryArtifactCreateOrConnectWithoutAnalyzerPackageInput[]
@@ -13798,6 +20234,34 @@ export namespace Prisma {
     update?: XOR<XOR<AnalyzerPackageUpdateToOneWithWhereWithoutAuthorsInput, AnalyzerPackageUpdateWithoutAuthorsInput>, AnalyzerPackageUncheckedUpdateWithoutAuthorsInput>
   }
 
+  export type AnalyzerPackageCreateNestedOneWithoutDeclaredLicensesInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutDeclaredLicensesInput, AnalyzerPackageUncheckedCreateWithoutDeclaredLicensesInput>
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutDeclaredLicensesInput
+    connect?: AnalyzerPackageWhereUniqueInput
+  }
+
+  export type AnalyzerPackageUpdateOneRequiredWithoutDeclaredLicensesNestedInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutDeclaredLicensesInput, AnalyzerPackageUncheckedCreateWithoutDeclaredLicensesInput>
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutDeclaredLicensesInput
+    upsert?: AnalyzerPackageUpsertWithoutDeclaredLicensesInput
+    connect?: AnalyzerPackageWhereUniqueInput
+    update?: XOR<XOR<AnalyzerPackageUpdateToOneWithWhereWithoutDeclaredLicensesInput, AnalyzerPackageUpdateWithoutDeclaredLicensesInput>, AnalyzerPackageUncheckedUpdateWithoutDeclaredLicensesInput>
+  }
+
+  export type AnalyzerPackageCreateNestedOneWithoutDeclaredLicensesProcessedInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutDeclaredLicensesProcessedInput, AnalyzerPackageUncheckedCreateWithoutDeclaredLicensesProcessedInput>
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutDeclaredLicensesProcessedInput
+    connect?: AnalyzerPackageWhereUniqueInput
+  }
+
+  export type AnalyzerPackageUpdateOneRequiredWithoutDeclaredLicensesProcessedNestedInput = {
+    create?: XOR<AnalyzerPackageCreateWithoutDeclaredLicensesProcessedInput, AnalyzerPackageUncheckedCreateWithoutDeclaredLicensesProcessedInput>
+    connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutDeclaredLicensesProcessedInput
+    upsert?: AnalyzerPackageUpsertWithoutDeclaredLicensesProcessedInput
+    connect?: AnalyzerPackageWhereUniqueInput
+    update?: XOR<XOR<AnalyzerPackageUpdateToOneWithWhereWithoutDeclaredLicensesProcessedInput, AnalyzerPackageUpdateWithoutDeclaredLicensesProcessedInput>, AnalyzerPackageUncheckedUpdateWithoutDeclaredLicensesProcessedInput>
+  }
+
   export type AnalyzerPackageCreateNestedOneWithoutBinariesInput = {
     create?: XOR<AnalyzerPackageCreateWithoutBinariesInput, AnalyzerPackageUncheckedCreateWithoutBinariesInput>
     connectOrCreate?: AnalyzerPackageCreateOrConnectWithoutBinariesInput
@@ -13852,6 +20316,140 @@ export namespace Prisma {
     upsert?: AnalyzerPackageUpsertWithoutVcsProcessedInput
     connect?: AnalyzerPackageWhereUniqueInput
     update?: XOR<XOR<AnalyzerPackageUpdateToOneWithWhereWithoutVcsProcessedInput, AnalyzerPackageUpdateWithoutVcsProcessedInput>, AnalyzerPackageUncheckedUpdateWithoutVcsProcessedInput>
+  }
+
+  export type ScanCreateNestedOneWithoutScannerInput = {
+    create?: XOR<ScanCreateWithoutScannerInput, ScanUncheckedCreateWithoutScannerInput>
+    connectOrCreate?: ScanCreateOrConnectWithoutScannerInput
+    connect?: ScanWhereUniqueInput
+  }
+
+  export type LicensesCreateNestedManyWithoutScannerInput = {
+    create?: XOR<LicensesCreateWithoutScannerInput, LicensesUncheckedCreateWithoutScannerInput> | LicensesCreateWithoutScannerInput[] | LicensesUncheckedCreateWithoutScannerInput[]
+    connectOrCreate?: LicensesCreateOrConnectWithoutScannerInput | LicensesCreateOrConnectWithoutScannerInput[]
+    createMany?: LicensesCreateManyScannerInputEnvelope
+    connect?: LicensesWhereUniqueInput | LicensesWhereUniqueInput[]
+  }
+
+  export type CopyrightsCreateNestedManyWithoutScannerInput = {
+    create?: XOR<CopyrightsCreateWithoutScannerInput, CopyrightsUncheckedCreateWithoutScannerInput> | CopyrightsCreateWithoutScannerInput[] | CopyrightsUncheckedCreateWithoutScannerInput[]
+    connectOrCreate?: CopyrightsCreateOrConnectWithoutScannerInput | CopyrightsCreateOrConnectWithoutScannerInput[]
+    createMany?: CopyrightsCreateManyScannerInputEnvelope
+    connect?: CopyrightsWhereUniqueInput | CopyrightsWhereUniqueInput[]
+  }
+
+  export type LicensesUncheckedCreateNestedManyWithoutScannerInput = {
+    create?: XOR<LicensesCreateWithoutScannerInput, LicensesUncheckedCreateWithoutScannerInput> | LicensesCreateWithoutScannerInput[] | LicensesUncheckedCreateWithoutScannerInput[]
+    connectOrCreate?: LicensesCreateOrConnectWithoutScannerInput | LicensesCreateOrConnectWithoutScannerInput[]
+    createMany?: LicensesCreateManyScannerInputEnvelope
+    connect?: LicensesWhereUniqueInput | LicensesWhereUniqueInput[]
+  }
+
+  export type CopyrightsUncheckedCreateNestedManyWithoutScannerInput = {
+    create?: XOR<CopyrightsCreateWithoutScannerInput, CopyrightsUncheckedCreateWithoutScannerInput> | CopyrightsCreateWithoutScannerInput[] | CopyrightsUncheckedCreateWithoutScannerInput[]
+    connectOrCreate?: CopyrightsCreateOrConnectWithoutScannerInput | CopyrightsCreateOrConnectWithoutScannerInput[]
+    createMany?: CopyrightsCreateManyScannerInputEnvelope
+    connect?: CopyrightsWhereUniqueInput | CopyrightsWhereUniqueInput[]
+  }
+
+  export type ScanUpdateOneRequiredWithoutScannerNestedInput = {
+    create?: XOR<ScanCreateWithoutScannerInput, ScanUncheckedCreateWithoutScannerInput>
+    connectOrCreate?: ScanCreateOrConnectWithoutScannerInput
+    upsert?: ScanUpsertWithoutScannerInput
+    connect?: ScanWhereUniqueInput
+    update?: XOR<XOR<ScanUpdateToOneWithWhereWithoutScannerInput, ScanUpdateWithoutScannerInput>, ScanUncheckedUpdateWithoutScannerInput>
+  }
+
+  export type LicensesUpdateManyWithoutScannerNestedInput = {
+    create?: XOR<LicensesCreateWithoutScannerInput, LicensesUncheckedCreateWithoutScannerInput> | LicensesCreateWithoutScannerInput[] | LicensesUncheckedCreateWithoutScannerInput[]
+    connectOrCreate?: LicensesCreateOrConnectWithoutScannerInput | LicensesCreateOrConnectWithoutScannerInput[]
+    upsert?: LicensesUpsertWithWhereUniqueWithoutScannerInput | LicensesUpsertWithWhereUniqueWithoutScannerInput[]
+    createMany?: LicensesCreateManyScannerInputEnvelope
+    set?: LicensesWhereUniqueInput | LicensesWhereUniqueInput[]
+    disconnect?: LicensesWhereUniqueInput | LicensesWhereUniqueInput[]
+    delete?: LicensesWhereUniqueInput | LicensesWhereUniqueInput[]
+    connect?: LicensesWhereUniqueInput | LicensesWhereUniqueInput[]
+    update?: LicensesUpdateWithWhereUniqueWithoutScannerInput | LicensesUpdateWithWhereUniqueWithoutScannerInput[]
+    updateMany?: LicensesUpdateManyWithWhereWithoutScannerInput | LicensesUpdateManyWithWhereWithoutScannerInput[]
+    deleteMany?: LicensesScalarWhereInput | LicensesScalarWhereInput[]
+  }
+
+  export type CopyrightsUpdateManyWithoutScannerNestedInput = {
+    create?: XOR<CopyrightsCreateWithoutScannerInput, CopyrightsUncheckedCreateWithoutScannerInput> | CopyrightsCreateWithoutScannerInput[] | CopyrightsUncheckedCreateWithoutScannerInput[]
+    connectOrCreate?: CopyrightsCreateOrConnectWithoutScannerInput | CopyrightsCreateOrConnectWithoutScannerInput[]
+    upsert?: CopyrightsUpsertWithWhereUniqueWithoutScannerInput | CopyrightsUpsertWithWhereUniqueWithoutScannerInput[]
+    createMany?: CopyrightsCreateManyScannerInputEnvelope
+    set?: CopyrightsWhereUniqueInput | CopyrightsWhereUniqueInput[]
+    disconnect?: CopyrightsWhereUniqueInput | CopyrightsWhereUniqueInput[]
+    delete?: CopyrightsWhereUniqueInput | CopyrightsWhereUniqueInput[]
+    connect?: CopyrightsWhereUniqueInput | CopyrightsWhereUniqueInput[]
+    update?: CopyrightsUpdateWithWhereUniqueWithoutScannerInput | CopyrightsUpdateWithWhereUniqueWithoutScannerInput[]
+    updateMany?: CopyrightsUpdateManyWithWhereWithoutScannerInput | CopyrightsUpdateManyWithWhereWithoutScannerInput[]
+    deleteMany?: CopyrightsScalarWhereInput | CopyrightsScalarWhereInput[]
+  }
+
+  export type LicensesUncheckedUpdateManyWithoutScannerNestedInput = {
+    create?: XOR<LicensesCreateWithoutScannerInput, LicensesUncheckedCreateWithoutScannerInput> | LicensesCreateWithoutScannerInput[] | LicensesUncheckedCreateWithoutScannerInput[]
+    connectOrCreate?: LicensesCreateOrConnectWithoutScannerInput | LicensesCreateOrConnectWithoutScannerInput[]
+    upsert?: LicensesUpsertWithWhereUniqueWithoutScannerInput | LicensesUpsertWithWhereUniqueWithoutScannerInput[]
+    createMany?: LicensesCreateManyScannerInputEnvelope
+    set?: LicensesWhereUniqueInput | LicensesWhereUniqueInput[]
+    disconnect?: LicensesWhereUniqueInput | LicensesWhereUniqueInput[]
+    delete?: LicensesWhereUniqueInput | LicensesWhereUniqueInput[]
+    connect?: LicensesWhereUniqueInput | LicensesWhereUniqueInput[]
+    update?: LicensesUpdateWithWhereUniqueWithoutScannerInput | LicensesUpdateWithWhereUniqueWithoutScannerInput[]
+    updateMany?: LicensesUpdateManyWithWhereWithoutScannerInput | LicensesUpdateManyWithWhereWithoutScannerInput[]
+    deleteMany?: LicensesScalarWhereInput | LicensesScalarWhereInput[]
+  }
+
+  export type CopyrightsUncheckedUpdateManyWithoutScannerNestedInput = {
+    create?: XOR<CopyrightsCreateWithoutScannerInput, CopyrightsUncheckedCreateWithoutScannerInput> | CopyrightsCreateWithoutScannerInput[] | CopyrightsUncheckedCreateWithoutScannerInput[]
+    connectOrCreate?: CopyrightsCreateOrConnectWithoutScannerInput | CopyrightsCreateOrConnectWithoutScannerInput[]
+    upsert?: CopyrightsUpsertWithWhereUniqueWithoutScannerInput | CopyrightsUpsertWithWhereUniqueWithoutScannerInput[]
+    createMany?: CopyrightsCreateManyScannerInputEnvelope
+    set?: CopyrightsWhereUniqueInput | CopyrightsWhereUniqueInput[]
+    disconnect?: CopyrightsWhereUniqueInput | CopyrightsWhereUniqueInput[]
+    delete?: CopyrightsWhereUniqueInput | CopyrightsWhereUniqueInput[]
+    connect?: CopyrightsWhereUniqueInput | CopyrightsWhereUniqueInput[]
+    update?: CopyrightsUpdateWithWhereUniqueWithoutScannerInput | CopyrightsUpdateWithWhereUniqueWithoutScannerInput[]
+    updateMany?: CopyrightsUpdateManyWithWhereWithoutScannerInput | CopyrightsUpdateManyWithWhereWithoutScannerInput[]
+    deleteMany?: CopyrightsScalarWhereInput | CopyrightsScalarWhereInput[]
+  }
+
+  export type ScannerCreateNestedOneWithoutLicensesInput = {
+    create?: XOR<ScannerCreateWithoutLicensesInput, ScannerUncheckedCreateWithoutLicensesInput>
+    connectOrCreate?: ScannerCreateOrConnectWithoutLicensesInput
+    connect?: ScannerWhereUniqueInput
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type ScannerUpdateOneRequiredWithoutLicensesNestedInput = {
+    create?: XOR<ScannerCreateWithoutLicensesInput, ScannerUncheckedCreateWithoutLicensesInput>
+    connectOrCreate?: ScannerCreateOrConnectWithoutLicensesInput
+    upsert?: ScannerUpsertWithoutLicensesInput
+    connect?: ScannerWhereUniqueInput
+    update?: XOR<XOR<ScannerUpdateToOneWithWhereWithoutLicensesInput, ScannerUpdateWithoutLicensesInput>, ScannerUncheckedUpdateWithoutLicensesInput>
+  }
+
+  export type ScannerCreateNestedOneWithoutCopyrightsInput = {
+    create?: XOR<ScannerCreateWithoutCopyrightsInput, ScannerUncheckedCreateWithoutCopyrightsInput>
+    connectOrCreate?: ScannerCreateOrConnectWithoutCopyrightsInput
+    connect?: ScannerWhereUniqueInput
+  }
+
+  export type ScannerUpdateOneRequiredWithoutCopyrightsNestedInput = {
+    create?: XOR<ScannerCreateWithoutCopyrightsInput, ScannerUncheckedCreateWithoutCopyrightsInput>
+    connectOrCreate?: ScannerCreateOrConnectWithoutCopyrightsInput
+    upsert?: ScannerUpsertWithoutCopyrightsInput
+    connect?: ScannerWhereUniqueInput
+    update?: XOR<XOR<ScannerUpdateToOneWithWhereWithoutCopyrightsInput, ScannerUpdateWithoutCopyrightsInput>, ScannerUncheckedUpdateWithoutCopyrightsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -14015,6 +20613,22 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
   export type ProjectCreateWithoutUserInput = {
     id: string
     name: string
@@ -14089,6 +20703,7 @@ export namespace Prisma {
     createdAt?: Date | string
     gitRunId: string
     analyzer?: AnalyzerCreateNestedOneWithoutScanInput
+    scanner?: ScannerCreateNestedOneWithoutScanInput
   }
 
   export type ScanUncheckedCreateWithoutProjectInput = {
@@ -14096,6 +20711,7 @@ export namespace Prisma {
     createdAt?: Date | string
     gitRunId: string
     analyzer?: AnalyzerUncheckedCreateNestedOneWithoutScanInput
+    scanner?: ScannerUncheckedCreateNestedOneWithoutScanInput
   }
 
   export type ScanCreateOrConnectWithoutProjectInput = {
@@ -14195,6 +20811,24 @@ export namespace Prisma {
     create: XOR<AnalyzerCreateWithoutScanInput, AnalyzerUncheckedCreateWithoutScanInput>
   }
 
+  export type ScannerCreateWithoutScanInput = {
+    createdAt?: Date | string
+    licenses?: LicensesCreateNestedManyWithoutScannerInput
+    copyrights?: CopyrightsCreateNestedManyWithoutScannerInput
+  }
+
+  export type ScannerUncheckedCreateWithoutScanInput = {
+    id?: number
+    createdAt?: Date | string
+    licenses?: LicensesUncheckedCreateNestedManyWithoutScannerInput
+    copyrights?: CopyrightsUncheckedCreateNestedManyWithoutScannerInput
+  }
+
+  export type ScannerCreateOrConnectWithoutScanInput = {
+    where: ScannerWhereUniqueInput
+    create: XOR<ScannerCreateWithoutScanInput, ScannerUncheckedCreateWithoutScanInput>
+  }
+
   export type ProjectUpsertWithoutScansInput = {
     update: XOR<ProjectUpdateWithoutScansInput, ProjectUncheckedUpdateWithoutScansInput>
     create: XOR<ProjectCreateWithoutScansInput, ProjectUncheckedCreateWithoutScansInput>
@@ -14242,10 +20876,35 @@ export namespace Prisma {
     packages?: AnalyzerPackageUncheckedUpdateManyWithoutAnalyzerNestedInput
   }
 
+  export type ScannerUpsertWithoutScanInput = {
+    update: XOR<ScannerUpdateWithoutScanInput, ScannerUncheckedUpdateWithoutScanInput>
+    create: XOR<ScannerCreateWithoutScanInput, ScannerUncheckedCreateWithoutScanInput>
+    where?: ScannerWhereInput
+  }
+
+  export type ScannerUpdateToOneWithWhereWithoutScanInput = {
+    where?: ScannerWhereInput
+    data: XOR<ScannerUpdateWithoutScanInput, ScannerUncheckedUpdateWithoutScanInput>
+  }
+
+  export type ScannerUpdateWithoutScanInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    licenses?: LicensesUpdateManyWithoutScannerNestedInput
+    copyrights?: CopyrightsUpdateManyWithoutScannerNestedInput
+  }
+
+  export type ScannerUncheckedUpdateWithoutScanInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    licenses?: LicensesUncheckedUpdateManyWithoutScannerNestedInput
+    copyrights?: CopyrightsUncheckedUpdateManyWithoutScannerNestedInput
+  }
+
   export type ScanCreateWithoutAnalyzerInput = {
     createdAt?: Date | string
     gitRunId: string
     project: ProjectCreateNestedOneWithoutScansInput
+    scanner?: ScannerCreateNestedOneWithoutScanInput
   }
 
   export type ScanUncheckedCreateWithoutAnalyzerInput = {
@@ -14253,6 +20912,7 @@ export namespace Prisma {
     createdAt?: Date | string
     gitRunId: string
     projectId: string
+    scanner?: ScannerUncheckedCreateNestedOneWithoutScanInput
   }
 
   export type ScanCreateOrConnectWithoutAnalyzerInput = {
@@ -14267,6 +20927,8 @@ export namespace Prisma {
     description: string
     homepageUrl: string
     authors?: PackageAuthorCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicenses?: DeclaredLicensesCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedCreateNestedManyWithoutAnalyzerPackageInput
     binaries?: BinaryArtifactCreateNestedManyWithoutAnalyzerPackageInput
     sources?: SourceArtifactCreateNestedManyWithoutAnalyzerPackageInput
     vcsList?: VcsCreateNestedManyWithoutAnalyzerPackageInput
@@ -14281,6 +20943,8 @@ export namespace Prisma {
     description: string
     homepageUrl: string
     authors?: PackageAuthorUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicenses?: DeclaredLicensesUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     binaries?: BinaryArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     sources?: SourceArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     vcsList?: VcsUncheckedCreateNestedManyWithoutAnalyzerPackageInput
@@ -14311,6 +20975,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     gitRunId?: StringFieldUpdateOperationsInput | string
     project?: ProjectUpdateOneRequiredWithoutScansNestedInput
+    scanner?: ScannerUpdateOneWithoutScanNestedInput
   }
 
   export type ScanUncheckedUpdateWithoutAnalyzerInput = {
@@ -14318,6 +20983,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     gitRunId?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
+    scanner?: ScannerUncheckedUpdateOneWithoutScanNestedInput
   }
 
   export type AnalyzerPackageUpsertWithWhereUniqueWithoutAnalyzerInput = {
@@ -14381,6 +21047,42 @@ export namespace Prisma {
 
   export type PackageAuthorCreateManyAnalyzerPackageInputEnvelope = {
     data: PackageAuthorCreateManyAnalyzerPackageInput | PackageAuthorCreateManyAnalyzerPackageInput[]
+  }
+
+  export type DeclaredLicensesCreateWithoutAnalyzerPackageInput = {
+    name: string
+  }
+
+  export type DeclaredLicensesUncheckedCreateWithoutAnalyzerPackageInput = {
+    id?: number
+    name: string
+  }
+
+  export type DeclaredLicensesCreateOrConnectWithoutAnalyzerPackageInput = {
+    where: DeclaredLicensesWhereUniqueInput
+    create: XOR<DeclaredLicensesCreateWithoutAnalyzerPackageInput, DeclaredLicensesUncheckedCreateWithoutAnalyzerPackageInput>
+  }
+
+  export type DeclaredLicensesCreateManyAnalyzerPackageInputEnvelope = {
+    data: DeclaredLicensesCreateManyAnalyzerPackageInput | DeclaredLicensesCreateManyAnalyzerPackageInput[]
+  }
+
+  export type DeclaredLicensesProcessedCreateWithoutAnalyzerPackageInput = {
+    spdxExpression: string
+  }
+
+  export type DeclaredLicensesProcessedUncheckedCreateWithoutAnalyzerPackageInput = {
+    id?: number
+    spdxExpression: string
+  }
+
+  export type DeclaredLicensesProcessedCreateOrConnectWithoutAnalyzerPackageInput = {
+    where: DeclaredLicensesProcessedWhereUniqueInput
+    create: XOR<DeclaredLicensesProcessedCreateWithoutAnalyzerPackageInput, DeclaredLicensesProcessedUncheckedCreateWithoutAnalyzerPackageInput>
+  }
+
+  export type DeclaredLicensesProcessedCreateManyAnalyzerPackageInputEnvelope = {
+    data: DeclaredLicensesProcessedCreateManyAnalyzerPackageInput | DeclaredLicensesProcessedCreateManyAnalyzerPackageInput[]
   }
 
   export type BinaryArtifactCreateWithoutAnalyzerPackageInput = {
@@ -14514,6 +21216,56 @@ export namespace Prisma {
     packageId?: IntFilter<"PackageAuthor"> | number
   }
 
+  export type DeclaredLicensesUpsertWithWhereUniqueWithoutAnalyzerPackageInput = {
+    where: DeclaredLicensesWhereUniqueInput
+    update: XOR<DeclaredLicensesUpdateWithoutAnalyzerPackageInput, DeclaredLicensesUncheckedUpdateWithoutAnalyzerPackageInput>
+    create: XOR<DeclaredLicensesCreateWithoutAnalyzerPackageInput, DeclaredLicensesUncheckedCreateWithoutAnalyzerPackageInput>
+  }
+
+  export type DeclaredLicensesUpdateWithWhereUniqueWithoutAnalyzerPackageInput = {
+    where: DeclaredLicensesWhereUniqueInput
+    data: XOR<DeclaredLicensesUpdateWithoutAnalyzerPackageInput, DeclaredLicensesUncheckedUpdateWithoutAnalyzerPackageInput>
+  }
+
+  export type DeclaredLicensesUpdateManyWithWhereWithoutAnalyzerPackageInput = {
+    where: DeclaredLicensesScalarWhereInput
+    data: XOR<DeclaredLicensesUpdateManyMutationInput, DeclaredLicensesUncheckedUpdateManyWithoutAnalyzerPackageInput>
+  }
+
+  export type DeclaredLicensesScalarWhereInput = {
+    AND?: DeclaredLicensesScalarWhereInput | DeclaredLicensesScalarWhereInput[]
+    OR?: DeclaredLicensesScalarWhereInput[]
+    NOT?: DeclaredLicensesScalarWhereInput | DeclaredLicensesScalarWhereInput[]
+    id?: IntFilter<"DeclaredLicenses"> | number
+    name?: StringFilter<"DeclaredLicenses"> | string
+    packageId?: IntFilter<"DeclaredLicenses"> | number
+  }
+
+  export type DeclaredLicensesProcessedUpsertWithWhereUniqueWithoutAnalyzerPackageInput = {
+    where: DeclaredLicensesProcessedWhereUniqueInput
+    update: XOR<DeclaredLicensesProcessedUpdateWithoutAnalyzerPackageInput, DeclaredLicensesProcessedUncheckedUpdateWithoutAnalyzerPackageInput>
+    create: XOR<DeclaredLicensesProcessedCreateWithoutAnalyzerPackageInput, DeclaredLicensesProcessedUncheckedCreateWithoutAnalyzerPackageInput>
+  }
+
+  export type DeclaredLicensesProcessedUpdateWithWhereUniqueWithoutAnalyzerPackageInput = {
+    where: DeclaredLicensesProcessedWhereUniqueInput
+    data: XOR<DeclaredLicensesProcessedUpdateWithoutAnalyzerPackageInput, DeclaredLicensesProcessedUncheckedUpdateWithoutAnalyzerPackageInput>
+  }
+
+  export type DeclaredLicensesProcessedUpdateManyWithWhereWithoutAnalyzerPackageInput = {
+    where: DeclaredLicensesProcessedScalarWhereInput
+    data: XOR<DeclaredLicensesProcessedUpdateManyMutationInput, DeclaredLicensesProcessedUncheckedUpdateManyWithoutAnalyzerPackageInput>
+  }
+
+  export type DeclaredLicensesProcessedScalarWhereInput = {
+    AND?: DeclaredLicensesProcessedScalarWhereInput | DeclaredLicensesProcessedScalarWhereInput[]
+    OR?: DeclaredLicensesProcessedScalarWhereInput[]
+    NOT?: DeclaredLicensesProcessedScalarWhereInput | DeclaredLicensesProcessedScalarWhereInput[]
+    id?: IntFilter<"DeclaredLicensesProcessed"> | number
+    spdxExpression?: StringFilter<"DeclaredLicensesProcessed"> | string
+    packageId?: IntFilter<"DeclaredLicensesProcessed"> | number
+  }
+
   export type BinaryArtifactUpsertWithWhereUniqueWithoutAnalyzerPackageInput = {
     where: BinaryArtifactWhereUniqueInput
     update: XOR<BinaryArtifactUpdateWithoutAnalyzerPackageInput, BinaryArtifactUncheckedUpdateWithoutAnalyzerPackageInput>
@@ -14627,6 +21379,8 @@ export namespace Prisma {
     description: string
     homepageUrl: string
     analyzer: AnalyzerCreateNestedOneWithoutPackagesInput
+    declaredLicenses?: DeclaredLicensesCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedCreateNestedManyWithoutAnalyzerPackageInput
     binaries?: BinaryArtifactCreateNestedManyWithoutAnalyzerPackageInput
     sources?: SourceArtifactCreateNestedManyWithoutAnalyzerPackageInput
     vcsList?: VcsCreateNestedManyWithoutAnalyzerPackageInput
@@ -14641,6 +21395,8 @@ export namespace Prisma {
     description: string
     homepageUrl: string
     analyzerId: number
+    declaredLicenses?: DeclaredLicensesUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     binaries?: BinaryArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     sources?: SourceArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     vcsList?: VcsUncheckedCreateNestedManyWithoutAnalyzerPackageInput
@@ -14670,6 +21426,8 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     homepageUrl?: StringFieldUpdateOperationsInput | string
     analyzer?: AnalyzerUpdateOneRequiredWithoutPackagesNestedInput
+    declaredLicenses?: DeclaredLicensesUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUpdateManyWithoutAnalyzerPackageNestedInput
     binaries?: BinaryArtifactUpdateManyWithoutAnalyzerPackageNestedInput
     sources?: SourceArtifactUpdateManyWithoutAnalyzerPackageNestedInput
     vcsList?: VcsUpdateManyWithoutAnalyzerPackageNestedInput
@@ -14684,6 +21442,164 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     homepageUrl?: StringFieldUpdateOperationsInput | string
     analyzerId?: IntFieldUpdateOperationsInput | number
+    declaredLicenses?: DeclaredLicensesUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    binaries?: BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    sources?: SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsList?: VcsUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsProcessed?: VcsProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageCreateWithoutDeclaredLicensesInput = {
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzer: AnalyzerCreateNestedOneWithoutPackagesInput
+    authors?: PackageAuthorCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedCreateNestedManyWithoutAnalyzerPackageInput
+    binaries?: BinaryArtifactCreateNestedManyWithoutAnalyzerPackageInput
+    sources?: SourceArtifactCreateNestedManyWithoutAnalyzerPackageInput
+    vcsList?: VcsCreateNestedManyWithoutAnalyzerPackageInput
+    vcsProcessed?: VcsProcessedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageUncheckedCreateWithoutDeclaredLicensesInput = {
+    id?: number
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzerId: number
+    authors?: PackageAuthorUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    binaries?: BinaryArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    sources?: SourceArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    vcsList?: VcsUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    vcsProcessed?: VcsProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageCreateOrConnectWithoutDeclaredLicensesInput = {
+    where: AnalyzerPackageWhereUniqueInput
+    create: XOR<AnalyzerPackageCreateWithoutDeclaredLicensesInput, AnalyzerPackageUncheckedCreateWithoutDeclaredLicensesInput>
+  }
+
+  export type AnalyzerPackageUpsertWithoutDeclaredLicensesInput = {
+    update: XOR<AnalyzerPackageUpdateWithoutDeclaredLicensesInput, AnalyzerPackageUncheckedUpdateWithoutDeclaredLicensesInput>
+    create: XOR<AnalyzerPackageCreateWithoutDeclaredLicensesInput, AnalyzerPackageUncheckedCreateWithoutDeclaredLicensesInput>
+    where?: AnalyzerPackageWhereInput
+  }
+
+  export type AnalyzerPackageUpdateToOneWithWhereWithoutDeclaredLicensesInput = {
+    where?: AnalyzerPackageWhereInput
+    data: XOR<AnalyzerPackageUpdateWithoutDeclaredLicensesInput, AnalyzerPackageUncheckedUpdateWithoutDeclaredLicensesInput>
+  }
+
+  export type AnalyzerPackageUpdateWithoutDeclaredLicensesInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzer?: AnalyzerUpdateOneRequiredWithoutPackagesNestedInput
+    authors?: PackageAuthorUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUpdateManyWithoutAnalyzerPackageNestedInput
+    binaries?: BinaryArtifactUpdateManyWithoutAnalyzerPackageNestedInput
+    sources?: SourceArtifactUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsList?: VcsUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsProcessed?: VcsProcessedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageUncheckedUpdateWithoutDeclaredLicensesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzerId?: IntFieldUpdateOperationsInput | number
+    authors?: PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    binaries?: BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    sources?: SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsList?: VcsUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsProcessed?: VcsProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageCreateWithoutDeclaredLicensesProcessedInput = {
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzer: AnalyzerCreateNestedOneWithoutPackagesInput
+    authors?: PackageAuthorCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicenses?: DeclaredLicensesCreateNestedManyWithoutAnalyzerPackageInput
+    binaries?: BinaryArtifactCreateNestedManyWithoutAnalyzerPackageInput
+    sources?: SourceArtifactCreateNestedManyWithoutAnalyzerPackageInput
+    vcsList?: VcsCreateNestedManyWithoutAnalyzerPackageInput
+    vcsProcessed?: VcsProcessedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageUncheckedCreateWithoutDeclaredLicensesProcessedInput = {
+    id?: number
+    createdAt?: Date | string
+    packId: string
+    purl: string
+    description: string
+    homepageUrl: string
+    analyzerId: number
+    authors?: PackageAuthorUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicenses?: DeclaredLicensesUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    binaries?: BinaryArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    sources?: SourceArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    vcsList?: VcsUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    vcsProcessed?: VcsProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+  }
+
+  export type AnalyzerPackageCreateOrConnectWithoutDeclaredLicensesProcessedInput = {
+    where: AnalyzerPackageWhereUniqueInput
+    create: XOR<AnalyzerPackageCreateWithoutDeclaredLicensesProcessedInput, AnalyzerPackageUncheckedCreateWithoutDeclaredLicensesProcessedInput>
+  }
+
+  export type AnalyzerPackageUpsertWithoutDeclaredLicensesProcessedInput = {
+    update: XOR<AnalyzerPackageUpdateWithoutDeclaredLicensesProcessedInput, AnalyzerPackageUncheckedUpdateWithoutDeclaredLicensesProcessedInput>
+    create: XOR<AnalyzerPackageCreateWithoutDeclaredLicensesProcessedInput, AnalyzerPackageUncheckedCreateWithoutDeclaredLicensesProcessedInput>
+    where?: AnalyzerPackageWhereInput
+  }
+
+  export type AnalyzerPackageUpdateToOneWithWhereWithoutDeclaredLicensesProcessedInput = {
+    where?: AnalyzerPackageWhereInput
+    data: XOR<AnalyzerPackageUpdateWithoutDeclaredLicensesProcessedInput, AnalyzerPackageUncheckedUpdateWithoutDeclaredLicensesProcessedInput>
+  }
+
+  export type AnalyzerPackageUpdateWithoutDeclaredLicensesProcessedInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzer?: AnalyzerUpdateOneRequiredWithoutPackagesNestedInput
+    authors?: PackageAuthorUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicenses?: DeclaredLicensesUpdateManyWithoutAnalyzerPackageNestedInput
+    binaries?: BinaryArtifactUpdateManyWithoutAnalyzerPackageNestedInput
+    sources?: SourceArtifactUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsList?: VcsUpdateManyWithoutAnalyzerPackageNestedInput
+    vcsProcessed?: VcsProcessedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type AnalyzerPackageUncheckedUpdateWithoutDeclaredLicensesProcessedInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    packId?: StringFieldUpdateOperationsInput | string
+    purl?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    homepageUrl?: StringFieldUpdateOperationsInput | string
+    analyzerId?: IntFieldUpdateOperationsInput | number
+    authors?: PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicenses?: DeclaredLicensesUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     binaries?: BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     sources?: SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     vcsList?: VcsUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
@@ -14698,6 +21614,8 @@ export namespace Prisma {
     homepageUrl: string
     analyzer: AnalyzerCreateNestedOneWithoutPackagesInput
     authors?: PackageAuthorCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicenses?: DeclaredLicensesCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedCreateNestedManyWithoutAnalyzerPackageInput
     sources?: SourceArtifactCreateNestedManyWithoutAnalyzerPackageInput
     vcsList?: VcsCreateNestedManyWithoutAnalyzerPackageInput
     vcsProcessed?: VcsProcessedCreateNestedManyWithoutAnalyzerPackageInput
@@ -14712,6 +21630,8 @@ export namespace Prisma {
     homepageUrl: string
     analyzerId: number
     authors?: PackageAuthorUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicenses?: DeclaredLicensesUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     sources?: SourceArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     vcsList?: VcsUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     vcsProcessed?: VcsProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
@@ -14741,6 +21661,8 @@ export namespace Prisma {
     homepageUrl?: StringFieldUpdateOperationsInput | string
     analyzer?: AnalyzerUpdateOneRequiredWithoutPackagesNestedInput
     authors?: PackageAuthorUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicenses?: DeclaredLicensesUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUpdateManyWithoutAnalyzerPackageNestedInput
     sources?: SourceArtifactUpdateManyWithoutAnalyzerPackageNestedInput
     vcsList?: VcsUpdateManyWithoutAnalyzerPackageNestedInput
     vcsProcessed?: VcsProcessedUpdateManyWithoutAnalyzerPackageNestedInput
@@ -14755,6 +21677,8 @@ export namespace Prisma {
     homepageUrl?: StringFieldUpdateOperationsInput | string
     analyzerId?: IntFieldUpdateOperationsInput | number
     authors?: PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicenses?: DeclaredLicensesUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     sources?: SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     vcsList?: VcsUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     vcsProcessed?: VcsProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
@@ -14768,6 +21692,8 @@ export namespace Prisma {
     homepageUrl: string
     analyzer: AnalyzerCreateNestedOneWithoutPackagesInput
     authors?: PackageAuthorCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicenses?: DeclaredLicensesCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedCreateNestedManyWithoutAnalyzerPackageInput
     binaries?: BinaryArtifactCreateNestedManyWithoutAnalyzerPackageInput
     vcsList?: VcsCreateNestedManyWithoutAnalyzerPackageInput
     vcsProcessed?: VcsProcessedCreateNestedManyWithoutAnalyzerPackageInput
@@ -14782,6 +21708,8 @@ export namespace Prisma {
     homepageUrl: string
     analyzerId: number
     authors?: PackageAuthorUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicenses?: DeclaredLicensesUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     binaries?: BinaryArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     vcsList?: VcsUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     vcsProcessed?: VcsProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
@@ -14811,6 +21739,8 @@ export namespace Prisma {
     homepageUrl?: StringFieldUpdateOperationsInput | string
     analyzer?: AnalyzerUpdateOneRequiredWithoutPackagesNestedInput
     authors?: PackageAuthorUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicenses?: DeclaredLicensesUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUpdateManyWithoutAnalyzerPackageNestedInput
     binaries?: BinaryArtifactUpdateManyWithoutAnalyzerPackageNestedInput
     vcsList?: VcsUpdateManyWithoutAnalyzerPackageNestedInput
     vcsProcessed?: VcsProcessedUpdateManyWithoutAnalyzerPackageNestedInput
@@ -14825,6 +21755,8 @@ export namespace Prisma {
     homepageUrl?: StringFieldUpdateOperationsInput | string
     analyzerId?: IntFieldUpdateOperationsInput | number
     authors?: PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicenses?: DeclaredLicensesUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     binaries?: BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     vcsList?: VcsUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     vcsProcessed?: VcsProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
@@ -14838,6 +21770,8 @@ export namespace Prisma {
     homepageUrl: string
     analyzer: AnalyzerCreateNestedOneWithoutPackagesInput
     authors?: PackageAuthorCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicenses?: DeclaredLicensesCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedCreateNestedManyWithoutAnalyzerPackageInput
     binaries?: BinaryArtifactCreateNestedManyWithoutAnalyzerPackageInput
     sources?: SourceArtifactCreateNestedManyWithoutAnalyzerPackageInput
     vcsProcessed?: VcsProcessedCreateNestedManyWithoutAnalyzerPackageInput
@@ -14852,6 +21786,8 @@ export namespace Prisma {
     homepageUrl: string
     analyzerId: number
     authors?: PackageAuthorUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicenses?: DeclaredLicensesUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     binaries?: BinaryArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     sources?: SourceArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     vcsProcessed?: VcsProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
@@ -14881,6 +21817,8 @@ export namespace Prisma {
     homepageUrl?: StringFieldUpdateOperationsInput | string
     analyzer?: AnalyzerUpdateOneRequiredWithoutPackagesNestedInput
     authors?: PackageAuthorUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicenses?: DeclaredLicensesUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUpdateManyWithoutAnalyzerPackageNestedInput
     binaries?: BinaryArtifactUpdateManyWithoutAnalyzerPackageNestedInput
     sources?: SourceArtifactUpdateManyWithoutAnalyzerPackageNestedInput
     vcsProcessed?: VcsProcessedUpdateManyWithoutAnalyzerPackageNestedInput
@@ -14895,6 +21833,8 @@ export namespace Prisma {
     homepageUrl?: StringFieldUpdateOperationsInput | string
     analyzerId?: IntFieldUpdateOperationsInput | number
     authors?: PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicenses?: DeclaredLicensesUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     binaries?: BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     sources?: SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     vcsProcessed?: VcsProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
@@ -14908,6 +21848,8 @@ export namespace Prisma {
     homepageUrl: string
     analyzer: AnalyzerCreateNestedOneWithoutPackagesInput
     authors?: PackageAuthorCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicenses?: DeclaredLicensesCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedCreateNestedManyWithoutAnalyzerPackageInput
     binaries?: BinaryArtifactCreateNestedManyWithoutAnalyzerPackageInput
     sources?: SourceArtifactCreateNestedManyWithoutAnalyzerPackageInput
     vcsList?: VcsCreateNestedManyWithoutAnalyzerPackageInput
@@ -14922,6 +21864,8 @@ export namespace Prisma {
     homepageUrl: string
     analyzerId: number
     authors?: PackageAuthorUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicenses?: DeclaredLicensesUncheckedCreateNestedManyWithoutAnalyzerPackageInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     binaries?: BinaryArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     sources?: SourceArtifactUncheckedCreateNestedManyWithoutAnalyzerPackageInput
     vcsList?: VcsUncheckedCreateNestedManyWithoutAnalyzerPackageInput
@@ -14951,6 +21895,8 @@ export namespace Prisma {
     homepageUrl?: StringFieldUpdateOperationsInput | string
     analyzer?: AnalyzerUpdateOneRequiredWithoutPackagesNestedInput
     authors?: PackageAuthorUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicenses?: DeclaredLicensesUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUpdateManyWithoutAnalyzerPackageNestedInput
     binaries?: BinaryArtifactUpdateManyWithoutAnalyzerPackageNestedInput
     sources?: SourceArtifactUpdateManyWithoutAnalyzerPackageNestedInput
     vcsList?: VcsUpdateManyWithoutAnalyzerPackageNestedInput
@@ -14965,9 +21911,254 @@ export namespace Prisma {
     homepageUrl?: StringFieldUpdateOperationsInput | string
     analyzerId?: IntFieldUpdateOperationsInput | number
     authors?: PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicenses?: DeclaredLicensesUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     binaries?: BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     sources?: SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     vcsList?: VcsUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+  }
+
+  export type ScanCreateWithoutScannerInput = {
+    createdAt?: Date | string
+    gitRunId: string
+    project: ProjectCreateNestedOneWithoutScansInput
+    analyzer?: AnalyzerCreateNestedOneWithoutScanInput
+  }
+
+  export type ScanUncheckedCreateWithoutScannerInput = {
+    id?: number
+    createdAt?: Date | string
+    gitRunId: string
+    projectId: string
+    analyzer?: AnalyzerUncheckedCreateNestedOneWithoutScanInput
+  }
+
+  export type ScanCreateOrConnectWithoutScannerInput = {
+    where: ScanWhereUniqueInput
+    create: XOR<ScanCreateWithoutScannerInput, ScanUncheckedCreateWithoutScannerInput>
+  }
+
+  export type LicensesCreateWithoutScannerInput = {
+    createdAt?: Date | string
+    licenseName: string
+    path: string
+    startLine: number
+    endLine: number
+    score: number
+  }
+
+  export type LicensesUncheckedCreateWithoutScannerInput = {
+    id?: number
+    createdAt?: Date | string
+    licenseName: string
+    path: string
+    startLine: number
+    endLine: number
+    score: number
+  }
+
+  export type LicensesCreateOrConnectWithoutScannerInput = {
+    where: LicensesWhereUniqueInput
+    create: XOR<LicensesCreateWithoutScannerInput, LicensesUncheckedCreateWithoutScannerInput>
+  }
+
+  export type LicensesCreateManyScannerInputEnvelope = {
+    data: LicensesCreateManyScannerInput | LicensesCreateManyScannerInput[]
+  }
+
+  export type CopyrightsCreateWithoutScannerInput = {
+    createdAt?: Date | string
+    statement: string
+    path: string
+    startLine: number
+    endLine: number
+  }
+
+  export type CopyrightsUncheckedCreateWithoutScannerInput = {
+    id?: number
+    createdAt?: Date | string
+    statement: string
+    path: string
+    startLine: number
+    endLine: number
+  }
+
+  export type CopyrightsCreateOrConnectWithoutScannerInput = {
+    where: CopyrightsWhereUniqueInput
+    create: XOR<CopyrightsCreateWithoutScannerInput, CopyrightsUncheckedCreateWithoutScannerInput>
+  }
+
+  export type CopyrightsCreateManyScannerInputEnvelope = {
+    data: CopyrightsCreateManyScannerInput | CopyrightsCreateManyScannerInput[]
+  }
+
+  export type ScanUpsertWithoutScannerInput = {
+    update: XOR<ScanUpdateWithoutScannerInput, ScanUncheckedUpdateWithoutScannerInput>
+    create: XOR<ScanCreateWithoutScannerInput, ScanUncheckedCreateWithoutScannerInput>
+    where?: ScanWhereInput
+  }
+
+  export type ScanUpdateToOneWithWhereWithoutScannerInput = {
+    where?: ScanWhereInput
+    data: XOR<ScanUpdateWithoutScannerInput, ScanUncheckedUpdateWithoutScannerInput>
+  }
+
+  export type ScanUpdateWithoutScannerInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    gitRunId?: StringFieldUpdateOperationsInput | string
+    project?: ProjectUpdateOneRequiredWithoutScansNestedInput
+    analyzer?: AnalyzerUpdateOneWithoutScanNestedInput
+  }
+
+  export type ScanUncheckedUpdateWithoutScannerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    gitRunId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    analyzer?: AnalyzerUncheckedUpdateOneWithoutScanNestedInput
+  }
+
+  export type LicensesUpsertWithWhereUniqueWithoutScannerInput = {
+    where: LicensesWhereUniqueInput
+    update: XOR<LicensesUpdateWithoutScannerInput, LicensesUncheckedUpdateWithoutScannerInput>
+    create: XOR<LicensesCreateWithoutScannerInput, LicensesUncheckedCreateWithoutScannerInput>
+  }
+
+  export type LicensesUpdateWithWhereUniqueWithoutScannerInput = {
+    where: LicensesWhereUniqueInput
+    data: XOR<LicensesUpdateWithoutScannerInput, LicensesUncheckedUpdateWithoutScannerInput>
+  }
+
+  export type LicensesUpdateManyWithWhereWithoutScannerInput = {
+    where: LicensesScalarWhereInput
+    data: XOR<LicensesUpdateManyMutationInput, LicensesUncheckedUpdateManyWithoutScannerInput>
+  }
+
+  export type LicensesScalarWhereInput = {
+    AND?: LicensesScalarWhereInput | LicensesScalarWhereInput[]
+    OR?: LicensesScalarWhereInput[]
+    NOT?: LicensesScalarWhereInput | LicensesScalarWhereInput[]
+    id?: IntFilter<"Licenses"> | number
+    createdAt?: DateTimeFilter<"Licenses"> | Date | string
+    licenseName?: StringFilter<"Licenses"> | string
+    path?: StringFilter<"Licenses"> | string
+    startLine?: IntFilter<"Licenses"> | number
+    endLine?: IntFilter<"Licenses"> | number
+    score?: FloatFilter<"Licenses"> | number
+    scannerId?: IntFilter<"Licenses"> | number
+  }
+
+  export type CopyrightsUpsertWithWhereUniqueWithoutScannerInput = {
+    where: CopyrightsWhereUniqueInput
+    update: XOR<CopyrightsUpdateWithoutScannerInput, CopyrightsUncheckedUpdateWithoutScannerInput>
+    create: XOR<CopyrightsCreateWithoutScannerInput, CopyrightsUncheckedCreateWithoutScannerInput>
+  }
+
+  export type CopyrightsUpdateWithWhereUniqueWithoutScannerInput = {
+    where: CopyrightsWhereUniqueInput
+    data: XOR<CopyrightsUpdateWithoutScannerInput, CopyrightsUncheckedUpdateWithoutScannerInput>
+  }
+
+  export type CopyrightsUpdateManyWithWhereWithoutScannerInput = {
+    where: CopyrightsScalarWhereInput
+    data: XOR<CopyrightsUpdateManyMutationInput, CopyrightsUncheckedUpdateManyWithoutScannerInput>
+  }
+
+  export type CopyrightsScalarWhereInput = {
+    AND?: CopyrightsScalarWhereInput | CopyrightsScalarWhereInput[]
+    OR?: CopyrightsScalarWhereInput[]
+    NOT?: CopyrightsScalarWhereInput | CopyrightsScalarWhereInput[]
+    id?: IntFilter<"Copyrights"> | number
+    createdAt?: DateTimeFilter<"Copyrights"> | Date | string
+    statement?: StringFilter<"Copyrights"> | string
+    path?: StringFilter<"Copyrights"> | string
+    startLine?: IntFilter<"Copyrights"> | number
+    endLine?: IntFilter<"Copyrights"> | number
+    scannerId?: IntFilter<"Copyrights"> | number
+  }
+
+  export type ScannerCreateWithoutLicensesInput = {
+    createdAt?: Date | string
+    scan: ScanCreateNestedOneWithoutScannerInput
+    copyrights?: CopyrightsCreateNestedManyWithoutScannerInput
+  }
+
+  export type ScannerUncheckedCreateWithoutLicensesInput = {
+    id?: number
+    createdAt?: Date | string
+    scanId: number
+    copyrights?: CopyrightsUncheckedCreateNestedManyWithoutScannerInput
+  }
+
+  export type ScannerCreateOrConnectWithoutLicensesInput = {
+    where: ScannerWhereUniqueInput
+    create: XOR<ScannerCreateWithoutLicensesInput, ScannerUncheckedCreateWithoutLicensesInput>
+  }
+
+  export type ScannerUpsertWithoutLicensesInput = {
+    update: XOR<ScannerUpdateWithoutLicensesInput, ScannerUncheckedUpdateWithoutLicensesInput>
+    create: XOR<ScannerCreateWithoutLicensesInput, ScannerUncheckedCreateWithoutLicensesInput>
+    where?: ScannerWhereInput
+  }
+
+  export type ScannerUpdateToOneWithWhereWithoutLicensesInput = {
+    where?: ScannerWhereInput
+    data: XOR<ScannerUpdateWithoutLicensesInput, ScannerUncheckedUpdateWithoutLicensesInput>
+  }
+
+  export type ScannerUpdateWithoutLicensesInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scan?: ScanUpdateOneRequiredWithoutScannerNestedInput
+    copyrights?: CopyrightsUpdateManyWithoutScannerNestedInput
+  }
+
+  export type ScannerUncheckedUpdateWithoutLicensesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scanId?: IntFieldUpdateOperationsInput | number
+    copyrights?: CopyrightsUncheckedUpdateManyWithoutScannerNestedInput
+  }
+
+  export type ScannerCreateWithoutCopyrightsInput = {
+    createdAt?: Date | string
+    scan: ScanCreateNestedOneWithoutScannerInput
+    licenses?: LicensesCreateNestedManyWithoutScannerInput
+  }
+
+  export type ScannerUncheckedCreateWithoutCopyrightsInput = {
+    id?: number
+    createdAt?: Date | string
+    scanId: number
+    licenses?: LicensesUncheckedCreateNestedManyWithoutScannerInput
+  }
+
+  export type ScannerCreateOrConnectWithoutCopyrightsInput = {
+    where: ScannerWhereUniqueInput
+    create: XOR<ScannerCreateWithoutCopyrightsInput, ScannerUncheckedCreateWithoutCopyrightsInput>
+  }
+
+  export type ScannerUpsertWithoutCopyrightsInput = {
+    update: XOR<ScannerUpdateWithoutCopyrightsInput, ScannerUncheckedUpdateWithoutCopyrightsInput>
+    create: XOR<ScannerCreateWithoutCopyrightsInput, ScannerUncheckedCreateWithoutCopyrightsInput>
+    where?: ScannerWhereInput
+  }
+
+  export type ScannerUpdateToOneWithWhereWithoutCopyrightsInput = {
+    where?: ScannerWhereInput
+    data: XOR<ScannerUpdateWithoutCopyrightsInput, ScannerUncheckedUpdateWithoutCopyrightsInput>
+  }
+
+  export type ScannerUpdateWithoutCopyrightsInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scan?: ScanUpdateOneRequiredWithoutScannerNestedInput
+    licenses?: LicensesUpdateManyWithoutScannerNestedInput
+  }
+
+  export type ScannerUncheckedUpdateWithoutCopyrightsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scanId?: IntFieldUpdateOperationsInput | number
+    licenses?: LicensesUncheckedUpdateManyWithoutScannerNestedInput
   }
 
   export type ProjectCreateManyUserInput = {
@@ -15005,6 +22196,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     gitRunId?: StringFieldUpdateOperationsInput | string
     analyzer?: AnalyzerUpdateOneWithoutScanNestedInput
+    scanner?: ScannerUpdateOneWithoutScanNestedInput
   }
 
   export type ScanUncheckedUpdateWithoutProjectInput = {
@@ -15012,6 +22204,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     gitRunId?: StringFieldUpdateOperationsInput | string
     analyzer?: AnalyzerUncheckedUpdateOneWithoutScanNestedInput
+    scanner?: ScannerUncheckedUpdateOneWithoutScanNestedInput
   }
 
   export type ScanUncheckedUpdateManyWithoutProjectInput = {
@@ -15035,6 +22228,8 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     homepageUrl?: StringFieldUpdateOperationsInput | string
     authors?: PackageAuthorUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicenses?: DeclaredLicensesUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUpdateManyWithoutAnalyzerPackageNestedInput
     binaries?: BinaryArtifactUpdateManyWithoutAnalyzerPackageNestedInput
     sources?: SourceArtifactUpdateManyWithoutAnalyzerPackageNestedInput
     vcsList?: VcsUpdateManyWithoutAnalyzerPackageNestedInput
@@ -15049,6 +22244,8 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     homepageUrl?: StringFieldUpdateOperationsInput | string
     authors?: PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicenses?: DeclaredLicensesUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
+    declaredLicensesProcessed?: DeclaredLicensesProcessedUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     binaries?: BinaryArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     sources?: SourceArtifactUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
     vcsList?: VcsUncheckedUpdateManyWithoutAnalyzerPackageNestedInput
@@ -15066,6 +22263,14 @@ export namespace Prisma {
 
   export type PackageAuthorCreateManyAnalyzerPackageInput = {
     name: string
+  }
+
+  export type DeclaredLicensesCreateManyAnalyzerPackageInput = {
+    name: string
+  }
+
+  export type DeclaredLicensesProcessedCreateManyAnalyzerPackageInput = {
+    spdxExpression: string
   }
 
   export type BinaryArtifactCreateManyAnalyzerPackageInput = {
@@ -15102,6 +22307,34 @@ export namespace Prisma {
   export type PackageAuthorUncheckedUpdateManyWithoutAnalyzerPackageInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DeclaredLicensesUpdateWithoutAnalyzerPackageInput = {
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DeclaredLicensesUncheckedUpdateWithoutAnalyzerPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DeclaredLicensesUncheckedUpdateManyWithoutAnalyzerPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DeclaredLicensesProcessedUpdateWithoutAnalyzerPackageInput = {
+    spdxExpression?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DeclaredLicensesProcessedUncheckedUpdateWithoutAnalyzerPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    spdxExpression?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DeclaredLicensesProcessedUncheckedUpdateManyWithoutAnalyzerPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    spdxExpression?: StringFieldUpdateOperationsInput | string
   }
 
   export type BinaryArtifactUpdateWithoutAnalyzerPackageInput = {
@@ -15176,6 +22409,78 @@ export namespace Prisma {
     url?: StringFieldUpdateOperationsInput | string
     revision?: StringFieldUpdateOperationsInput | string
     path?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LicensesCreateManyScannerInput = {
+    createdAt?: Date | string
+    licenseName: string
+    path: string
+    startLine: number
+    endLine: number
+    score: number
+  }
+
+  export type CopyrightsCreateManyScannerInput = {
+    createdAt?: Date | string
+    statement: string
+    path: string
+    startLine: number
+    endLine: number
+  }
+
+  export type LicensesUpdateWithoutScannerInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    licenseName?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    startLine?: IntFieldUpdateOperationsInput | number
+    endLine?: IntFieldUpdateOperationsInput | number
+    score?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type LicensesUncheckedUpdateWithoutScannerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    licenseName?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    startLine?: IntFieldUpdateOperationsInput | number
+    endLine?: IntFieldUpdateOperationsInput | number
+    score?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type LicensesUncheckedUpdateManyWithoutScannerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    licenseName?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    startLine?: IntFieldUpdateOperationsInput | number
+    endLine?: IntFieldUpdateOperationsInput | number
+    score?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type CopyrightsUpdateWithoutScannerInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    statement?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    startLine?: IntFieldUpdateOperationsInput | number
+    endLine?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CopyrightsUncheckedUpdateWithoutScannerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    statement?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    startLine?: IntFieldUpdateOperationsInput | number
+    endLine?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CopyrightsUncheckedUpdateManyWithoutScannerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    statement?: StringFieldUpdateOperationsInput | string
+    path?: StringFieldUpdateOperationsInput | string
+    startLine?: IntFieldUpdateOperationsInput | number
+    endLine?: IntFieldUpdateOperationsInput | number
   }
 
 
