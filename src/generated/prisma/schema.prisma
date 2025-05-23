@@ -41,6 +41,7 @@ model Scan {
 
   analyzer Analyzer?
   scanner  Scanner?
+  advisor  Advisor?
 }
 
 model Analyzer {
@@ -162,11 +163,58 @@ model Licenses {
 model Copyrights {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  statement String
+  statement String   @db.NVarChar(2000)
   path      String
   startLine Int
   endLine   Int
 
   scanner   Scanner @relation(fields: [scannerId], references: [id])
   scannerId Int
+}
+
+model Advisor {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  scan   Scan @relation(fields: [scanId], references: [id])
+  scanId Int  @unique
+
+  advisorPackage AdvisorPackage[]
+}
+
+model AdvisorPackage {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  name      String
+
+  advisor   Advisor @relation(fields: [advisorId], references: [id])
+  advisorId Int
+
+  vulnerabilities Vulnerabilities[]
+}
+
+model Vulnerabilities {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  vulId       String
+  summary     String   @db.NVarChar(4000)
+  description String   @db.NVarChar(4000)
+
+  advisorPackage   AdvisorPackage @relation(fields: [advisorPackageId], references: [id])
+  advisorPackageId Int
+
+  references References[]
+}
+
+model References {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  url           String
+  scoringSystem String
+  severity      String
+  score         Float
+  vector        String
+
+  vulnerabilities   Vulnerabilities @relation(fields: [vulnerabilitiesId], references: [id])
+  vulnerabilitiesId Int
 }

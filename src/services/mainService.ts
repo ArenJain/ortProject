@@ -1,3 +1,4 @@
+import { addAdvisorPackages, createAdvisor } from "@/database/AdvisorAccess";
 import { addAnalyzerPackages, createAnalyzer } from "@/database/analyzerAccess";
 import { createProject, getProjectByName } from "@/database/projectAccess";
 import { createScan } from "@/database/scanAccess";
@@ -13,4 +14,6 @@ export async function createScanService(userId : string , reportData : any, proj
     const analyzerPkg = await addAnalyzerPackages(analyzerId,reportData.analyzer.result.packages);
     const scannerId = await createScanner(scanId);
     const licAndCopyrights = await addLicensesAndCopyrights(scannerId, reportData.scanner.scan_results[0].summary);
+    const advisorId = await createAdvisor(scanId);
+    const advisorPkg = await addAdvisorPackages(advisorId,reportData.advisor.results);
 }

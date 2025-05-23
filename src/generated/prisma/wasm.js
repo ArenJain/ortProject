@@ -234,6 +234,39 @@ exports.Prisma.CopyrightsScalarFieldEnum = {
   scannerId: 'scannerId'
 };
 
+exports.Prisma.AdvisorScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  scanId: 'scanId'
+};
+
+exports.Prisma.AdvisorPackageScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  name: 'name',
+  advisorId: 'advisorId'
+};
+
+exports.Prisma.VulnerabilitiesScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  vulId: 'vulId',
+  summary: 'summary',
+  description: 'description',
+  advisorPackageId: 'advisorPackageId'
+};
+
+exports.Prisma.ReferencesScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  url: 'url',
+  scoringSystem: 'scoringSystem',
+  severity: 'severity',
+  score: 'score',
+  vector: 'vector',
+  vulnerabilitiesId: 'vulnerabilitiesId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -260,7 +293,11 @@ exports.Prisma.ModelName = {
   VcsProcessed: 'VcsProcessed',
   Scanner: 'Scanner',
   Licenses: 'Licenses',
-  Copyrights: 'Copyrights'
+  Copyrights: 'Copyrights',
+  Advisor: 'Advisor',
+  AdvisorPackage: 'AdvisorPackage',
+  Vulnerabilities: 'Vulnerabilities',
+  References: 'References'
 };
 
 /**

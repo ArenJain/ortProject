@@ -1,0 +1,23 @@
+BEGIN TRY
+
+BEGIN TRAN;
+
+-- AlterTable
+ALTER TABLE [dbo].[Copyrights] ALTER COLUMN [statement] NVARCHAR(2000) NOT NULL;
+
+-- AlterTable
+ALTER TABLE [dbo].[Vulnerabilities] ALTER COLUMN [summary] NVARCHAR(4000) NOT NULL;
+ALTER TABLE [dbo].[Vulnerabilities] ALTER COLUMN [description] NVARCHAR(4000) NOT NULL;
+
+COMMIT TRAN;
+
+END TRY
+BEGIN CATCH
+
+IF @@TRANCOUNT > 0
+BEGIN
+    ROLLBACK TRAN;
+END;
+THROW
+
+END CATCH

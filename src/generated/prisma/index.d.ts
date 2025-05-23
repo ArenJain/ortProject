@@ -88,6 +88,26 @@ export type Licenses = $Result.DefaultSelection<Prisma.$LicensesPayload>
  * 
  */
 export type Copyrights = $Result.DefaultSelection<Prisma.$CopyrightsPayload>
+/**
+ * Model Advisor
+ * 
+ */
+export type Advisor = $Result.DefaultSelection<Prisma.$AdvisorPayload>
+/**
+ * Model AdvisorPackage
+ * 
+ */
+export type AdvisorPackage = $Result.DefaultSelection<Prisma.$AdvisorPackagePayload>
+/**
+ * Model Vulnerabilities
+ * 
+ */
+export type Vulnerabilities = $Result.DefaultSelection<Prisma.$VulnerabilitiesPayload>
+/**
+ * Model References
+ * 
+ */
+export type References = $Result.DefaultSelection<Prisma.$ReferencesPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -363,6 +383,46 @@ export class PrismaClient<
     * ```
     */
   get copyrights(): Prisma.CopyrightsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.advisor`: Exposes CRUD operations for the **Advisor** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Advisors
+    * const advisors = await prisma.advisor.findMany()
+    * ```
+    */
+  get advisor(): Prisma.AdvisorDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.advisorPackage`: Exposes CRUD operations for the **AdvisorPackage** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AdvisorPackages
+    * const advisorPackages = await prisma.advisorPackage.findMany()
+    * ```
+    */
+  get advisorPackage(): Prisma.AdvisorPackageDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.vulnerabilities`: Exposes CRUD operations for the **Vulnerabilities** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Vulnerabilities
+    * const vulnerabilities = await prisma.vulnerabilities.findMany()
+    * ```
+    */
+  get vulnerabilities(): Prisma.VulnerabilitiesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.references`: Exposes CRUD operations for the **References** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more References
+    * const references = await prisma.references.findMany()
+    * ```
+    */
+  get references(): Prisma.ReferencesDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -817,7 +877,11 @@ export namespace Prisma {
     VcsProcessed: 'VcsProcessed',
     Scanner: 'Scanner',
     Licenses: 'Licenses',
-    Copyrights: 'Copyrights'
+    Copyrights: 'Copyrights',
+    Advisor: 'Advisor',
+    AdvisorPackage: 'AdvisorPackage',
+    Vulnerabilities: 'Vulnerabilities',
+    References: 'References'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -836,7 +900,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "project" | "scan" | "analyzer" | "analyzerPackage" | "packageAuthor" | "declaredLicenses" | "declaredLicensesProcessed" | "binaryArtifact" | "sourceArtifact" | "vcs" | "vcsProcessed" | "scanner" | "licenses" | "copyrights"
+      modelProps: "user" | "project" | "scan" | "analyzer" | "analyzerPackage" | "packageAuthor" | "declaredLicenses" | "declaredLicensesProcessed" | "binaryArtifact" | "sourceArtifact" | "vcs" | "vcsProcessed" | "scanner" | "licenses" | "copyrights" | "advisor" | "advisorPackage" | "vulnerabilities" | "references"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1830,6 +1894,270 @@ export namespace Prisma {
           }
         }
       }
+      Advisor: {
+        payload: Prisma.$AdvisorPayload<ExtArgs>
+        fields: Prisma.AdvisorFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AdvisorFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AdvisorFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPayload>
+          }
+          findFirst: {
+            args: Prisma.AdvisorFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AdvisorFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPayload>
+          }
+          findMany: {
+            args: Prisma.AdvisorFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPayload>[]
+          }
+          create: {
+            args: Prisma.AdvisorCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPayload>
+          }
+          createMany: {
+            args: Prisma.AdvisorCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.AdvisorDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPayload>
+          }
+          update: {
+            args: Prisma.AdvisorUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPayload>
+          }
+          deleteMany: {
+            args: Prisma.AdvisorDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AdvisorUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.AdvisorUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPayload>
+          }
+          aggregate: {
+            args: Prisma.AdvisorAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAdvisor>
+          }
+          groupBy: {
+            args: Prisma.AdvisorGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AdvisorGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AdvisorCountArgs<ExtArgs>
+            result: $Utils.Optional<AdvisorCountAggregateOutputType> | number
+          }
+        }
+      }
+      AdvisorPackage: {
+        payload: Prisma.$AdvisorPackagePayload<ExtArgs>
+        fields: Prisma.AdvisorPackageFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AdvisorPackageFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPackagePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AdvisorPackageFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPackagePayload>
+          }
+          findFirst: {
+            args: Prisma.AdvisorPackageFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPackagePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AdvisorPackageFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPackagePayload>
+          }
+          findMany: {
+            args: Prisma.AdvisorPackageFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPackagePayload>[]
+          }
+          create: {
+            args: Prisma.AdvisorPackageCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPackagePayload>
+          }
+          createMany: {
+            args: Prisma.AdvisorPackageCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.AdvisorPackageDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPackagePayload>
+          }
+          update: {
+            args: Prisma.AdvisorPackageUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPackagePayload>
+          }
+          deleteMany: {
+            args: Prisma.AdvisorPackageDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AdvisorPackageUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.AdvisorPackageUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdvisorPackagePayload>
+          }
+          aggregate: {
+            args: Prisma.AdvisorPackageAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAdvisorPackage>
+          }
+          groupBy: {
+            args: Prisma.AdvisorPackageGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AdvisorPackageGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AdvisorPackageCountArgs<ExtArgs>
+            result: $Utils.Optional<AdvisorPackageCountAggregateOutputType> | number
+          }
+        }
+      }
+      Vulnerabilities: {
+        payload: Prisma.$VulnerabilitiesPayload<ExtArgs>
+        fields: Prisma.VulnerabilitiesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.VulnerabilitiesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VulnerabilitiesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.VulnerabilitiesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VulnerabilitiesPayload>
+          }
+          findFirst: {
+            args: Prisma.VulnerabilitiesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VulnerabilitiesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.VulnerabilitiesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VulnerabilitiesPayload>
+          }
+          findMany: {
+            args: Prisma.VulnerabilitiesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VulnerabilitiesPayload>[]
+          }
+          create: {
+            args: Prisma.VulnerabilitiesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VulnerabilitiesPayload>
+          }
+          createMany: {
+            args: Prisma.VulnerabilitiesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.VulnerabilitiesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VulnerabilitiesPayload>
+          }
+          update: {
+            args: Prisma.VulnerabilitiesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VulnerabilitiesPayload>
+          }
+          deleteMany: {
+            args: Prisma.VulnerabilitiesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.VulnerabilitiesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.VulnerabilitiesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VulnerabilitiesPayload>
+          }
+          aggregate: {
+            args: Prisma.VulnerabilitiesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateVulnerabilities>
+          }
+          groupBy: {
+            args: Prisma.VulnerabilitiesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<VulnerabilitiesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.VulnerabilitiesCountArgs<ExtArgs>
+            result: $Utils.Optional<VulnerabilitiesCountAggregateOutputType> | number
+          }
+        }
+      }
+      References: {
+        payload: Prisma.$ReferencesPayload<ExtArgs>
+        fields: Prisma.ReferencesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ReferencesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ReferencesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencesPayload>
+          }
+          findFirst: {
+            args: Prisma.ReferencesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ReferencesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencesPayload>
+          }
+          findMany: {
+            args: Prisma.ReferencesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencesPayload>[]
+          }
+          create: {
+            args: Prisma.ReferencesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencesPayload>
+          }
+          createMany: {
+            args: Prisma.ReferencesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.ReferencesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencesPayload>
+          }
+          update: {
+            args: Prisma.ReferencesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencesPayload>
+          }
+          deleteMany: {
+            args: Prisma.ReferencesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ReferencesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ReferencesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencesPayload>
+          }
+          aggregate: {
+            args: Prisma.ReferencesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateReferences>
+          }
+          groupBy: {
+            args: Prisma.ReferencesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ReferencesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ReferencesCountArgs<ExtArgs>
+            result: $Utils.Optional<ReferencesCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1929,6 +2257,10 @@ export namespace Prisma {
     scanner?: ScannerOmit
     licenses?: LicensesOmit
     copyrights?: CopyrightsOmit
+    advisor?: AdvisorOmit
+    advisorPackage?: AdvisorPackageOmit
+    vulnerabilities?: VulnerabilitiesOmit
+    references?: ReferencesOmit
   }
 
   /* Types for Logging */
@@ -2233,6 +2565,99 @@ export namespace Prisma {
    */
   export type ScannerCountOutputTypeCountCopyrightsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: CopyrightsWhereInput
+  }
+
+
+  /**
+   * Count Type AdvisorCountOutputType
+   */
+
+  export type AdvisorCountOutputType = {
+    advisorPackage: number
+  }
+
+  export type AdvisorCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    advisorPackage?: boolean | AdvisorCountOutputTypeCountAdvisorPackageArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * AdvisorCountOutputType without action
+   */
+  export type AdvisorCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdvisorCountOutputType
+     */
+    select?: AdvisorCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * AdvisorCountOutputType without action
+   */
+  export type AdvisorCountOutputTypeCountAdvisorPackageArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdvisorPackageWhereInput
+  }
+
+
+  /**
+   * Count Type AdvisorPackageCountOutputType
+   */
+
+  export type AdvisorPackageCountOutputType = {
+    vulnerabilities: number
+  }
+
+  export type AdvisorPackageCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    vulnerabilities?: boolean | AdvisorPackageCountOutputTypeCountVulnerabilitiesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * AdvisorPackageCountOutputType without action
+   */
+  export type AdvisorPackageCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdvisorPackageCountOutputType
+     */
+    select?: AdvisorPackageCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * AdvisorPackageCountOutputType without action
+   */
+  export type AdvisorPackageCountOutputTypeCountVulnerabilitiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VulnerabilitiesWhereInput
+  }
+
+
+  /**
+   * Count Type VulnerabilitiesCountOutputType
+   */
+
+  export type VulnerabilitiesCountOutputType = {
+    references: number
+  }
+
+  export type VulnerabilitiesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    references?: boolean | VulnerabilitiesCountOutputTypeCountReferencesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * VulnerabilitiesCountOutputType without action
+   */
+  export type VulnerabilitiesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VulnerabilitiesCountOutputType
+     */
+    select?: VulnerabilitiesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * VulnerabilitiesCountOutputType without action
+   */
+  export type VulnerabilitiesCountOutputTypeCountReferencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReferencesWhereInput
   }
 
 
@@ -4334,6 +4759,7 @@ export namespace Prisma {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
     analyzer?: boolean | Scan$analyzerArgs<ExtArgs>
     scanner?: boolean | Scan$scannerArgs<ExtArgs>
+    advisor?: boolean | Scan$advisorArgs<ExtArgs>
   }, ExtArgs["result"]["scan"]>
 
 
@@ -4350,6 +4776,7 @@ export namespace Prisma {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
     analyzer?: boolean | Scan$analyzerArgs<ExtArgs>
     scanner?: boolean | Scan$scannerArgs<ExtArgs>
+    advisor?: boolean | Scan$advisorArgs<ExtArgs>
   }
 
   export type $ScanPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4358,6 +4785,7 @@ export namespace Prisma {
       project: Prisma.$ProjectPayload<ExtArgs>
       analyzer: Prisma.$AnalyzerPayload<ExtArgs> | null
       scanner: Prisma.$ScannerPayload<ExtArgs> | null
+      advisor: Prisma.$AdvisorPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4707,6 +5135,7 @@ export namespace Prisma {
     project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     analyzer<T extends Scan$analyzerArgs<ExtArgs> = {}>(args?: Subset<T, Scan$analyzerArgs<ExtArgs>>): Prisma__AnalyzerClient<$Result.GetResult<Prisma.$AnalyzerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     scanner<T extends Scan$scannerArgs<ExtArgs> = {}>(args?: Subset<T, Scan$scannerArgs<ExtArgs>>): Prisma__ScannerClient<$Result.GetResult<Prisma.$ScannerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    advisor<T extends Scan$advisorArgs<ExtArgs> = {}>(args?: Subset<T, Scan$advisorArgs<ExtArgs>>): Prisma__AdvisorClient<$Result.GetResult<Prisma.$AdvisorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5117,6 +5546,25 @@ export namespace Prisma {
      */
     include?: ScannerInclude<ExtArgs> | null
     where?: ScannerWhereInput
+  }
+
+  /**
+   * Scan.advisor
+   */
+  export type Scan$advisorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Advisor
+     */
+    select?: AdvisorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Advisor
+     */
+    omit?: AdvisorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorInclude<ExtArgs> | null
+    where?: AdvisorWhereInput
   }
 
   /**
@@ -16982,6 +17430,3975 @@ export namespace Prisma {
 
 
   /**
+   * Model Advisor
+   */
+
+  export type AggregateAdvisor = {
+    _count: AdvisorCountAggregateOutputType | null
+    _avg: AdvisorAvgAggregateOutputType | null
+    _sum: AdvisorSumAggregateOutputType | null
+    _min: AdvisorMinAggregateOutputType | null
+    _max: AdvisorMaxAggregateOutputType | null
+  }
+
+  export type AdvisorAvgAggregateOutputType = {
+    id: number | null
+    scanId: number | null
+  }
+
+  export type AdvisorSumAggregateOutputType = {
+    id: number | null
+    scanId: number | null
+  }
+
+  export type AdvisorMinAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    scanId: number | null
+  }
+
+  export type AdvisorMaxAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    scanId: number | null
+  }
+
+  export type AdvisorCountAggregateOutputType = {
+    id: number
+    createdAt: number
+    scanId: number
+    _all: number
+  }
+
+
+  export type AdvisorAvgAggregateInputType = {
+    id?: true
+    scanId?: true
+  }
+
+  export type AdvisorSumAggregateInputType = {
+    id?: true
+    scanId?: true
+  }
+
+  export type AdvisorMinAggregateInputType = {
+    id?: true
+    createdAt?: true
+    scanId?: true
+  }
+
+  export type AdvisorMaxAggregateInputType = {
+    id?: true
+    createdAt?: true
+    scanId?: true
+  }
+
+  export type AdvisorCountAggregateInputType = {
+    id?: true
+    createdAt?: true
+    scanId?: true
+    _all?: true
+  }
+
+  export type AdvisorAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Advisor to aggregate.
+     */
+    where?: AdvisorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Advisors to fetch.
+     */
+    orderBy?: AdvisorOrderByWithRelationInput | AdvisorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AdvisorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Advisors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Advisors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Advisors
+    **/
+    _count?: true | AdvisorCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AdvisorAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AdvisorSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AdvisorMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AdvisorMaxAggregateInputType
+  }
+
+  export type GetAdvisorAggregateType<T extends AdvisorAggregateArgs> = {
+        [P in keyof T & keyof AggregateAdvisor]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAdvisor[P]>
+      : GetScalarType<T[P], AggregateAdvisor[P]>
+  }
+
+
+
+
+  export type AdvisorGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdvisorWhereInput
+    orderBy?: AdvisorOrderByWithAggregationInput | AdvisorOrderByWithAggregationInput[]
+    by: AdvisorScalarFieldEnum[] | AdvisorScalarFieldEnum
+    having?: AdvisorScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AdvisorCountAggregateInputType | true
+    _avg?: AdvisorAvgAggregateInputType
+    _sum?: AdvisorSumAggregateInputType
+    _min?: AdvisorMinAggregateInputType
+    _max?: AdvisorMaxAggregateInputType
+  }
+
+  export type AdvisorGroupByOutputType = {
+    id: number
+    createdAt: Date
+    scanId: number
+    _count: AdvisorCountAggregateOutputType | null
+    _avg: AdvisorAvgAggregateOutputType | null
+    _sum: AdvisorSumAggregateOutputType | null
+    _min: AdvisorMinAggregateOutputType | null
+    _max: AdvisorMaxAggregateOutputType | null
+  }
+
+  type GetAdvisorGroupByPayload<T extends AdvisorGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AdvisorGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AdvisorGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AdvisorGroupByOutputType[P]>
+            : GetScalarType<T[P], AdvisorGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AdvisorSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    scanId?: boolean
+    scan?: boolean | ScanDefaultArgs<ExtArgs>
+    advisorPackage?: boolean | Advisor$advisorPackageArgs<ExtArgs>
+    _count?: boolean | AdvisorCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["advisor"]>
+
+
+
+  export type AdvisorSelectScalar = {
+    id?: boolean
+    createdAt?: boolean
+    scanId?: boolean
+  }
+
+  export type AdvisorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "scanId", ExtArgs["result"]["advisor"]>
+  export type AdvisorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    scan?: boolean | ScanDefaultArgs<ExtArgs>
+    advisorPackage?: boolean | Advisor$advisorPackageArgs<ExtArgs>
+    _count?: boolean | AdvisorCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $AdvisorPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Advisor"
+    objects: {
+      scan: Prisma.$ScanPayload<ExtArgs>
+      advisorPackage: Prisma.$AdvisorPackagePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      createdAt: Date
+      scanId: number
+    }, ExtArgs["result"]["advisor"]>
+    composites: {}
+  }
+
+  type AdvisorGetPayload<S extends boolean | null | undefined | AdvisorDefaultArgs> = $Result.GetResult<Prisma.$AdvisorPayload, S>
+
+  type AdvisorCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AdvisorFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AdvisorCountAggregateInputType | true
+    }
+
+  export interface AdvisorDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Advisor'], meta: { name: 'Advisor' } }
+    /**
+     * Find zero or one Advisor that matches the filter.
+     * @param {AdvisorFindUniqueArgs} args - Arguments to find a Advisor
+     * @example
+     * // Get one Advisor
+     * const advisor = await prisma.advisor.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AdvisorFindUniqueArgs>(args: SelectSubset<T, AdvisorFindUniqueArgs<ExtArgs>>): Prisma__AdvisorClient<$Result.GetResult<Prisma.$AdvisorPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Advisor that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AdvisorFindUniqueOrThrowArgs} args - Arguments to find a Advisor
+     * @example
+     * // Get one Advisor
+     * const advisor = await prisma.advisor.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AdvisorFindUniqueOrThrowArgs>(args: SelectSubset<T, AdvisorFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AdvisorClient<$Result.GetResult<Prisma.$AdvisorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Advisor that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdvisorFindFirstArgs} args - Arguments to find a Advisor
+     * @example
+     * // Get one Advisor
+     * const advisor = await prisma.advisor.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AdvisorFindFirstArgs>(args?: SelectSubset<T, AdvisorFindFirstArgs<ExtArgs>>): Prisma__AdvisorClient<$Result.GetResult<Prisma.$AdvisorPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Advisor that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdvisorFindFirstOrThrowArgs} args - Arguments to find a Advisor
+     * @example
+     * // Get one Advisor
+     * const advisor = await prisma.advisor.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AdvisorFindFirstOrThrowArgs>(args?: SelectSubset<T, AdvisorFindFirstOrThrowArgs<ExtArgs>>): Prisma__AdvisorClient<$Result.GetResult<Prisma.$AdvisorPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Advisors that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdvisorFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Advisors
+     * const advisors = await prisma.advisor.findMany()
+     * 
+     * // Get first 10 Advisors
+     * const advisors = await prisma.advisor.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const advisorWithIdOnly = await prisma.advisor.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AdvisorFindManyArgs>(args?: SelectSubset<T, AdvisorFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdvisorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Advisor.
+     * @param {AdvisorCreateArgs} args - Arguments to create a Advisor.
+     * @example
+     * // Create one Advisor
+     * const Advisor = await prisma.advisor.create({
+     *   data: {
+     *     // ... data to create a Advisor
+     *   }
+     * })
+     * 
+     */
+    create<T extends AdvisorCreateArgs>(args: SelectSubset<T, AdvisorCreateArgs<ExtArgs>>): Prisma__AdvisorClient<$Result.GetResult<Prisma.$AdvisorPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Advisors.
+     * @param {AdvisorCreateManyArgs} args - Arguments to create many Advisors.
+     * @example
+     * // Create many Advisors
+     * const advisor = await prisma.advisor.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AdvisorCreateManyArgs>(args?: SelectSubset<T, AdvisorCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Advisor.
+     * @param {AdvisorDeleteArgs} args - Arguments to delete one Advisor.
+     * @example
+     * // Delete one Advisor
+     * const Advisor = await prisma.advisor.delete({
+     *   where: {
+     *     // ... filter to delete one Advisor
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AdvisorDeleteArgs>(args: SelectSubset<T, AdvisorDeleteArgs<ExtArgs>>): Prisma__AdvisorClient<$Result.GetResult<Prisma.$AdvisorPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Advisor.
+     * @param {AdvisorUpdateArgs} args - Arguments to update one Advisor.
+     * @example
+     * // Update one Advisor
+     * const advisor = await prisma.advisor.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AdvisorUpdateArgs>(args: SelectSubset<T, AdvisorUpdateArgs<ExtArgs>>): Prisma__AdvisorClient<$Result.GetResult<Prisma.$AdvisorPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Advisors.
+     * @param {AdvisorDeleteManyArgs} args - Arguments to filter Advisors to delete.
+     * @example
+     * // Delete a few Advisors
+     * const { count } = await prisma.advisor.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AdvisorDeleteManyArgs>(args?: SelectSubset<T, AdvisorDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Advisors.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdvisorUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Advisors
+     * const advisor = await prisma.advisor.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AdvisorUpdateManyArgs>(args: SelectSubset<T, AdvisorUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Advisor.
+     * @param {AdvisorUpsertArgs} args - Arguments to update or create a Advisor.
+     * @example
+     * // Update or create a Advisor
+     * const advisor = await prisma.advisor.upsert({
+     *   create: {
+     *     // ... data to create a Advisor
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Advisor we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AdvisorUpsertArgs>(args: SelectSubset<T, AdvisorUpsertArgs<ExtArgs>>): Prisma__AdvisorClient<$Result.GetResult<Prisma.$AdvisorPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Advisors.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdvisorCountArgs} args - Arguments to filter Advisors to count.
+     * @example
+     * // Count the number of Advisors
+     * const count = await prisma.advisor.count({
+     *   where: {
+     *     // ... the filter for the Advisors we want to count
+     *   }
+     * })
+    **/
+    count<T extends AdvisorCountArgs>(
+      args?: Subset<T, AdvisorCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AdvisorCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Advisor.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdvisorAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AdvisorAggregateArgs>(args: Subset<T, AdvisorAggregateArgs>): Prisma.PrismaPromise<GetAdvisorAggregateType<T>>
+
+    /**
+     * Group by Advisor.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdvisorGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AdvisorGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AdvisorGroupByArgs['orderBy'] }
+        : { orderBy?: AdvisorGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AdvisorGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAdvisorGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Advisor model
+   */
+  readonly fields: AdvisorFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Advisor.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AdvisorClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    scan<T extends ScanDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ScanDefaultArgs<ExtArgs>>): Prisma__ScanClient<$Result.GetResult<Prisma.$ScanPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    advisorPackage<T extends Advisor$advisorPackageArgs<ExtArgs> = {}>(args?: Subset<T, Advisor$advisorPackageArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdvisorPackagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Advisor model
+   */
+  interface AdvisorFieldRefs {
+    readonly id: FieldRef<"Advisor", 'Int'>
+    readonly createdAt: FieldRef<"Advisor", 'DateTime'>
+    readonly scanId: FieldRef<"Advisor", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Advisor findUnique
+   */
+  export type AdvisorFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Advisor
+     */
+    select?: AdvisorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Advisor
+     */
+    omit?: AdvisorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorInclude<ExtArgs> | null
+    /**
+     * Filter, which Advisor to fetch.
+     */
+    where: AdvisorWhereUniqueInput
+  }
+
+  /**
+   * Advisor findUniqueOrThrow
+   */
+  export type AdvisorFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Advisor
+     */
+    select?: AdvisorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Advisor
+     */
+    omit?: AdvisorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorInclude<ExtArgs> | null
+    /**
+     * Filter, which Advisor to fetch.
+     */
+    where: AdvisorWhereUniqueInput
+  }
+
+  /**
+   * Advisor findFirst
+   */
+  export type AdvisorFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Advisor
+     */
+    select?: AdvisorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Advisor
+     */
+    omit?: AdvisorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorInclude<ExtArgs> | null
+    /**
+     * Filter, which Advisor to fetch.
+     */
+    where?: AdvisorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Advisors to fetch.
+     */
+    orderBy?: AdvisorOrderByWithRelationInput | AdvisorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Advisors.
+     */
+    cursor?: AdvisorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Advisors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Advisors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Advisors.
+     */
+    distinct?: AdvisorScalarFieldEnum | AdvisorScalarFieldEnum[]
+  }
+
+  /**
+   * Advisor findFirstOrThrow
+   */
+  export type AdvisorFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Advisor
+     */
+    select?: AdvisorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Advisor
+     */
+    omit?: AdvisorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorInclude<ExtArgs> | null
+    /**
+     * Filter, which Advisor to fetch.
+     */
+    where?: AdvisorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Advisors to fetch.
+     */
+    orderBy?: AdvisorOrderByWithRelationInput | AdvisorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Advisors.
+     */
+    cursor?: AdvisorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Advisors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Advisors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Advisors.
+     */
+    distinct?: AdvisorScalarFieldEnum | AdvisorScalarFieldEnum[]
+  }
+
+  /**
+   * Advisor findMany
+   */
+  export type AdvisorFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Advisor
+     */
+    select?: AdvisorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Advisor
+     */
+    omit?: AdvisorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorInclude<ExtArgs> | null
+    /**
+     * Filter, which Advisors to fetch.
+     */
+    where?: AdvisorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Advisors to fetch.
+     */
+    orderBy?: AdvisorOrderByWithRelationInput | AdvisorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Advisors.
+     */
+    cursor?: AdvisorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Advisors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Advisors.
+     */
+    skip?: number
+    distinct?: AdvisorScalarFieldEnum | AdvisorScalarFieldEnum[]
+  }
+
+  /**
+   * Advisor create
+   */
+  export type AdvisorCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Advisor
+     */
+    select?: AdvisorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Advisor
+     */
+    omit?: AdvisorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Advisor.
+     */
+    data: XOR<AdvisorCreateInput, AdvisorUncheckedCreateInput>
+  }
+
+  /**
+   * Advisor createMany
+   */
+  export type AdvisorCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Advisors.
+     */
+    data: AdvisorCreateManyInput | AdvisorCreateManyInput[]
+  }
+
+  /**
+   * Advisor update
+   */
+  export type AdvisorUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Advisor
+     */
+    select?: AdvisorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Advisor
+     */
+    omit?: AdvisorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Advisor.
+     */
+    data: XOR<AdvisorUpdateInput, AdvisorUncheckedUpdateInput>
+    /**
+     * Choose, which Advisor to update.
+     */
+    where: AdvisorWhereUniqueInput
+  }
+
+  /**
+   * Advisor updateMany
+   */
+  export type AdvisorUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Advisors.
+     */
+    data: XOR<AdvisorUpdateManyMutationInput, AdvisorUncheckedUpdateManyInput>
+    /**
+     * Filter which Advisors to update
+     */
+    where?: AdvisorWhereInput
+    /**
+     * Limit how many Advisors to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Advisor upsert
+   */
+  export type AdvisorUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Advisor
+     */
+    select?: AdvisorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Advisor
+     */
+    omit?: AdvisorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Advisor to update in case it exists.
+     */
+    where: AdvisorWhereUniqueInput
+    /**
+     * In case the Advisor found by the `where` argument doesn't exist, create a new Advisor with this data.
+     */
+    create: XOR<AdvisorCreateInput, AdvisorUncheckedCreateInput>
+    /**
+     * In case the Advisor was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AdvisorUpdateInput, AdvisorUncheckedUpdateInput>
+  }
+
+  /**
+   * Advisor delete
+   */
+  export type AdvisorDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Advisor
+     */
+    select?: AdvisorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Advisor
+     */
+    omit?: AdvisorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorInclude<ExtArgs> | null
+    /**
+     * Filter which Advisor to delete.
+     */
+    where: AdvisorWhereUniqueInput
+  }
+
+  /**
+   * Advisor deleteMany
+   */
+  export type AdvisorDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Advisors to delete
+     */
+    where?: AdvisorWhereInput
+    /**
+     * Limit how many Advisors to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Advisor.advisorPackage
+   */
+  export type Advisor$advisorPackageArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdvisorPackage
+     */
+    select?: AdvisorPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdvisorPackage
+     */
+    omit?: AdvisorPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorPackageInclude<ExtArgs> | null
+    where?: AdvisorPackageWhereInput
+    orderBy?: AdvisorPackageOrderByWithRelationInput | AdvisorPackageOrderByWithRelationInput[]
+    cursor?: AdvisorPackageWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AdvisorPackageScalarFieldEnum | AdvisorPackageScalarFieldEnum[]
+  }
+
+  /**
+   * Advisor without action
+   */
+  export type AdvisorDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Advisor
+     */
+    select?: AdvisorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Advisor
+     */
+    omit?: AdvisorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AdvisorPackage
+   */
+
+  export type AggregateAdvisorPackage = {
+    _count: AdvisorPackageCountAggregateOutputType | null
+    _avg: AdvisorPackageAvgAggregateOutputType | null
+    _sum: AdvisorPackageSumAggregateOutputType | null
+    _min: AdvisorPackageMinAggregateOutputType | null
+    _max: AdvisorPackageMaxAggregateOutputType | null
+  }
+
+  export type AdvisorPackageAvgAggregateOutputType = {
+    id: number | null
+    advisorId: number | null
+  }
+
+  export type AdvisorPackageSumAggregateOutputType = {
+    id: number | null
+    advisorId: number | null
+  }
+
+  export type AdvisorPackageMinAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    name: string | null
+    advisorId: number | null
+  }
+
+  export type AdvisorPackageMaxAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    name: string | null
+    advisorId: number | null
+  }
+
+  export type AdvisorPackageCountAggregateOutputType = {
+    id: number
+    createdAt: number
+    name: number
+    advisorId: number
+    _all: number
+  }
+
+
+  export type AdvisorPackageAvgAggregateInputType = {
+    id?: true
+    advisorId?: true
+  }
+
+  export type AdvisorPackageSumAggregateInputType = {
+    id?: true
+    advisorId?: true
+  }
+
+  export type AdvisorPackageMinAggregateInputType = {
+    id?: true
+    createdAt?: true
+    name?: true
+    advisorId?: true
+  }
+
+  export type AdvisorPackageMaxAggregateInputType = {
+    id?: true
+    createdAt?: true
+    name?: true
+    advisorId?: true
+  }
+
+  export type AdvisorPackageCountAggregateInputType = {
+    id?: true
+    createdAt?: true
+    name?: true
+    advisorId?: true
+    _all?: true
+  }
+
+  export type AdvisorPackageAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AdvisorPackage to aggregate.
+     */
+    where?: AdvisorPackageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdvisorPackages to fetch.
+     */
+    orderBy?: AdvisorPackageOrderByWithRelationInput | AdvisorPackageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AdvisorPackageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdvisorPackages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdvisorPackages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AdvisorPackages
+    **/
+    _count?: true | AdvisorPackageCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AdvisorPackageAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AdvisorPackageSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AdvisorPackageMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AdvisorPackageMaxAggregateInputType
+  }
+
+  export type GetAdvisorPackageAggregateType<T extends AdvisorPackageAggregateArgs> = {
+        [P in keyof T & keyof AggregateAdvisorPackage]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAdvisorPackage[P]>
+      : GetScalarType<T[P], AggregateAdvisorPackage[P]>
+  }
+
+
+
+
+  export type AdvisorPackageGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdvisorPackageWhereInput
+    orderBy?: AdvisorPackageOrderByWithAggregationInput | AdvisorPackageOrderByWithAggregationInput[]
+    by: AdvisorPackageScalarFieldEnum[] | AdvisorPackageScalarFieldEnum
+    having?: AdvisorPackageScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AdvisorPackageCountAggregateInputType | true
+    _avg?: AdvisorPackageAvgAggregateInputType
+    _sum?: AdvisorPackageSumAggregateInputType
+    _min?: AdvisorPackageMinAggregateInputType
+    _max?: AdvisorPackageMaxAggregateInputType
+  }
+
+  export type AdvisorPackageGroupByOutputType = {
+    id: number
+    createdAt: Date
+    name: string
+    advisorId: number
+    _count: AdvisorPackageCountAggregateOutputType | null
+    _avg: AdvisorPackageAvgAggregateOutputType | null
+    _sum: AdvisorPackageSumAggregateOutputType | null
+    _min: AdvisorPackageMinAggregateOutputType | null
+    _max: AdvisorPackageMaxAggregateOutputType | null
+  }
+
+  type GetAdvisorPackageGroupByPayload<T extends AdvisorPackageGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AdvisorPackageGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AdvisorPackageGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AdvisorPackageGroupByOutputType[P]>
+            : GetScalarType<T[P], AdvisorPackageGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AdvisorPackageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    name?: boolean
+    advisorId?: boolean
+    advisor?: boolean | AdvisorDefaultArgs<ExtArgs>
+    vulnerabilities?: boolean | AdvisorPackage$vulnerabilitiesArgs<ExtArgs>
+    _count?: boolean | AdvisorPackageCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["advisorPackage"]>
+
+
+
+  export type AdvisorPackageSelectScalar = {
+    id?: boolean
+    createdAt?: boolean
+    name?: boolean
+    advisorId?: boolean
+  }
+
+  export type AdvisorPackageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "name" | "advisorId", ExtArgs["result"]["advisorPackage"]>
+  export type AdvisorPackageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    advisor?: boolean | AdvisorDefaultArgs<ExtArgs>
+    vulnerabilities?: boolean | AdvisorPackage$vulnerabilitiesArgs<ExtArgs>
+    _count?: boolean | AdvisorPackageCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $AdvisorPackagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AdvisorPackage"
+    objects: {
+      advisor: Prisma.$AdvisorPayload<ExtArgs>
+      vulnerabilities: Prisma.$VulnerabilitiesPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      createdAt: Date
+      name: string
+      advisorId: number
+    }, ExtArgs["result"]["advisorPackage"]>
+    composites: {}
+  }
+
+  type AdvisorPackageGetPayload<S extends boolean | null | undefined | AdvisorPackageDefaultArgs> = $Result.GetResult<Prisma.$AdvisorPackagePayload, S>
+
+  type AdvisorPackageCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AdvisorPackageFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AdvisorPackageCountAggregateInputType | true
+    }
+
+  export interface AdvisorPackageDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AdvisorPackage'], meta: { name: 'AdvisorPackage' } }
+    /**
+     * Find zero or one AdvisorPackage that matches the filter.
+     * @param {AdvisorPackageFindUniqueArgs} args - Arguments to find a AdvisorPackage
+     * @example
+     * // Get one AdvisorPackage
+     * const advisorPackage = await prisma.advisorPackage.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AdvisorPackageFindUniqueArgs>(args: SelectSubset<T, AdvisorPackageFindUniqueArgs<ExtArgs>>): Prisma__AdvisorPackageClient<$Result.GetResult<Prisma.$AdvisorPackagePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AdvisorPackage that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AdvisorPackageFindUniqueOrThrowArgs} args - Arguments to find a AdvisorPackage
+     * @example
+     * // Get one AdvisorPackage
+     * const advisorPackage = await prisma.advisorPackage.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AdvisorPackageFindUniqueOrThrowArgs>(args: SelectSubset<T, AdvisorPackageFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AdvisorPackageClient<$Result.GetResult<Prisma.$AdvisorPackagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AdvisorPackage that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdvisorPackageFindFirstArgs} args - Arguments to find a AdvisorPackage
+     * @example
+     * // Get one AdvisorPackage
+     * const advisorPackage = await prisma.advisorPackage.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AdvisorPackageFindFirstArgs>(args?: SelectSubset<T, AdvisorPackageFindFirstArgs<ExtArgs>>): Prisma__AdvisorPackageClient<$Result.GetResult<Prisma.$AdvisorPackagePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AdvisorPackage that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdvisorPackageFindFirstOrThrowArgs} args - Arguments to find a AdvisorPackage
+     * @example
+     * // Get one AdvisorPackage
+     * const advisorPackage = await prisma.advisorPackage.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AdvisorPackageFindFirstOrThrowArgs>(args?: SelectSubset<T, AdvisorPackageFindFirstOrThrowArgs<ExtArgs>>): Prisma__AdvisorPackageClient<$Result.GetResult<Prisma.$AdvisorPackagePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AdvisorPackages that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdvisorPackageFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AdvisorPackages
+     * const advisorPackages = await prisma.advisorPackage.findMany()
+     * 
+     * // Get first 10 AdvisorPackages
+     * const advisorPackages = await prisma.advisorPackage.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const advisorPackageWithIdOnly = await prisma.advisorPackage.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AdvisorPackageFindManyArgs>(args?: SelectSubset<T, AdvisorPackageFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdvisorPackagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AdvisorPackage.
+     * @param {AdvisorPackageCreateArgs} args - Arguments to create a AdvisorPackage.
+     * @example
+     * // Create one AdvisorPackage
+     * const AdvisorPackage = await prisma.advisorPackage.create({
+     *   data: {
+     *     // ... data to create a AdvisorPackage
+     *   }
+     * })
+     * 
+     */
+    create<T extends AdvisorPackageCreateArgs>(args: SelectSubset<T, AdvisorPackageCreateArgs<ExtArgs>>): Prisma__AdvisorPackageClient<$Result.GetResult<Prisma.$AdvisorPackagePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AdvisorPackages.
+     * @param {AdvisorPackageCreateManyArgs} args - Arguments to create many AdvisorPackages.
+     * @example
+     * // Create many AdvisorPackages
+     * const advisorPackage = await prisma.advisorPackage.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AdvisorPackageCreateManyArgs>(args?: SelectSubset<T, AdvisorPackageCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a AdvisorPackage.
+     * @param {AdvisorPackageDeleteArgs} args - Arguments to delete one AdvisorPackage.
+     * @example
+     * // Delete one AdvisorPackage
+     * const AdvisorPackage = await prisma.advisorPackage.delete({
+     *   where: {
+     *     // ... filter to delete one AdvisorPackage
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AdvisorPackageDeleteArgs>(args: SelectSubset<T, AdvisorPackageDeleteArgs<ExtArgs>>): Prisma__AdvisorPackageClient<$Result.GetResult<Prisma.$AdvisorPackagePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AdvisorPackage.
+     * @param {AdvisorPackageUpdateArgs} args - Arguments to update one AdvisorPackage.
+     * @example
+     * // Update one AdvisorPackage
+     * const advisorPackage = await prisma.advisorPackage.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AdvisorPackageUpdateArgs>(args: SelectSubset<T, AdvisorPackageUpdateArgs<ExtArgs>>): Prisma__AdvisorPackageClient<$Result.GetResult<Prisma.$AdvisorPackagePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AdvisorPackages.
+     * @param {AdvisorPackageDeleteManyArgs} args - Arguments to filter AdvisorPackages to delete.
+     * @example
+     * // Delete a few AdvisorPackages
+     * const { count } = await prisma.advisorPackage.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AdvisorPackageDeleteManyArgs>(args?: SelectSubset<T, AdvisorPackageDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AdvisorPackages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdvisorPackageUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AdvisorPackages
+     * const advisorPackage = await prisma.advisorPackage.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AdvisorPackageUpdateManyArgs>(args: SelectSubset<T, AdvisorPackageUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one AdvisorPackage.
+     * @param {AdvisorPackageUpsertArgs} args - Arguments to update or create a AdvisorPackage.
+     * @example
+     * // Update or create a AdvisorPackage
+     * const advisorPackage = await prisma.advisorPackage.upsert({
+     *   create: {
+     *     // ... data to create a AdvisorPackage
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AdvisorPackage we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AdvisorPackageUpsertArgs>(args: SelectSubset<T, AdvisorPackageUpsertArgs<ExtArgs>>): Prisma__AdvisorPackageClient<$Result.GetResult<Prisma.$AdvisorPackagePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AdvisorPackages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdvisorPackageCountArgs} args - Arguments to filter AdvisorPackages to count.
+     * @example
+     * // Count the number of AdvisorPackages
+     * const count = await prisma.advisorPackage.count({
+     *   where: {
+     *     // ... the filter for the AdvisorPackages we want to count
+     *   }
+     * })
+    **/
+    count<T extends AdvisorPackageCountArgs>(
+      args?: Subset<T, AdvisorPackageCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AdvisorPackageCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AdvisorPackage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdvisorPackageAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AdvisorPackageAggregateArgs>(args: Subset<T, AdvisorPackageAggregateArgs>): Prisma.PrismaPromise<GetAdvisorPackageAggregateType<T>>
+
+    /**
+     * Group by AdvisorPackage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdvisorPackageGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AdvisorPackageGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AdvisorPackageGroupByArgs['orderBy'] }
+        : { orderBy?: AdvisorPackageGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AdvisorPackageGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAdvisorPackageGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AdvisorPackage model
+   */
+  readonly fields: AdvisorPackageFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AdvisorPackage.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AdvisorPackageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    advisor<T extends AdvisorDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AdvisorDefaultArgs<ExtArgs>>): Prisma__AdvisorClient<$Result.GetResult<Prisma.$AdvisorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    vulnerabilities<T extends AdvisorPackage$vulnerabilitiesArgs<ExtArgs> = {}>(args?: Subset<T, AdvisorPackage$vulnerabilitiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VulnerabilitiesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AdvisorPackage model
+   */
+  interface AdvisorPackageFieldRefs {
+    readonly id: FieldRef<"AdvisorPackage", 'Int'>
+    readonly createdAt: FieldRef<"AdvisorPackage", 'DateTime'>
+    readonly name: FieldRef<"AdvisorPackage", 'String'>
+    readonly advisorId: FieldRef<"AdvisorPackage", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AdvisorPackage findUnique
+   */
+  export type AdvisorPackageFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdvisorPackage
+     */
+    select?: AdvisorPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdvisorPackage
+     */
+    omit?: AdvisorPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorPackageInclude<ExtArgs> | null
+    /**
+     * Filter, which AdvisorPackage to fetch.
+     */
+    where: AdvisorPackageWhereUniqueInput
+  }
+
+  /**
+   * AdvisorPackage findUniqueOrThrow
+   */
+  export type AdvisorPackageFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdvisorPackage
+     */
+    select?: AdvisorPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdvisorPackage
+     */
+    omit?: AdvisorPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorPackageInclude<ExtArgs> | null
+    /**
+     * Filter, which AdvisorPackage to fetch.
+     */
+    where: AdvisorPackageWhereUniqueInput
+  }
+
+  /**
+   * AdvisorPackage findFirst
+   */
+  export type AdvisorPackageFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdvisorPackage
+     */
+    select?: AdvisorPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdvisorPackage
+     */
+    omit?: AdvisorPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorPackageInclude<ExtArgs> | null
+    /**
+     * Filter, which AdvisorPackage to fetch.
+     */
+    where?: AdvisorPackageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdvisorPackages to fetch.
+     */
+    orderBy?: AdvisorPackageOrderByWithRelationInput | AdvisorPackageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AdvisorPackages.
+     */
+    cursor?: AdvisorPackageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdvisorPackages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdvisorPackages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AdvisorPackages.
+     */
+    distinct?: AdvisorPackageScalarFieldEnum | AdvisorPackageScalarFieldEnum[]
+  }
+
+  /**
+   * AdvisorPackage findFirstOrThrow
+   */
+  export type AdvisorPackageFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdvisorPackage
+     */
+    select?: AdvisorPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdvisorPackage
+     */
+    omit?: AdvisorPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorPackageInclude<ExtArgs> | null
+    /**
+     * Filter, which AdvisorPackage to fetch.
+     */
+    where?: AdvisorPackageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdvisorPackages to fetch.
+     */
+    orderBy?: AdvisorPackageOrderByWithRelationInput | AdvisorPackageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AdvisorPackages.
+     */
+    cursor?: AdvisorPackageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdvisorPackages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdvisorPackages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AdvisorPackages.
+     */
+    distinct?: AdvisorPackageScalarFieldEnum | AdvisorPackageScalarFieldEnum[]
+  }
+
+  /**
+   * AdvisorPackage findMany
+   */
+  export type AdvisorPackageFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdvisorPackage
+     */
+    select?: AdvisorPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdvisorPackage
+     */
+    omit?: AdvisorPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorPackageInclude<ExtArgs> | null
+    /**
+     * Filter, which AdvisorPackages to fetch.
+     */
+    where?: AdvisorPackageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdvisorPackages to fetch.
+     */
+    orderBy?: AdvisorPackageOrderByWithRelationInput | AdvisorPackageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AdvisorPackages.
+     */
+    cursor?: AdvisorPackageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdvisorPackages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdvisorPackages.
+     */
+    skip?: number
+    distinct?: AdvisorPackageScalarFieldEnum | AdvisorPackageScalarFieldEnum[]
+  }
+
+  /**
+   * AdvisorPackage create
+   */
+  export type AdvisorPackageCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdvisorPackage
+     */
+    select?: AdvisorPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdvisorPackage
+     */
+    omit?: AdvisorPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorPackageInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AdvisorPackage.
+     */
+    data: XOR<AdvisorPackageCreateInput, AdvisorPackageUncheckedCreateInput>
+  }
+
+  /**
+   * AdvisorPackage createMany
+   */
+  export type AdvisorPackageCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AdvisorPackages.
+     */
+    data: AdvisorPackageCreateManyInput | AdvisorPackageCreateManyInput[]
+  }
+
+  /**
+   * AdvisorPackage update
+   */
+  export type AdvisorPackageUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdvisorPackage
+     */
+    select?: AdvisorPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdvisorPackage
+     */
+    omit?: AdvisorPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorPackageInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AdvisorPackage.
+     */
+    data: XOR<AdvisorPackageUpdateInput, AdvisorPackageUncheckedUpdateInput>
+    /**
+     * Choose, which AdvisorPackage to update.
+     */
+    where: AdvisorPackageWhereUniqueInput
+  }
+
+  /**
+   * AdvisorPackage updateMany
+   */
+  export type AdvisorPackageUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AdvisorPackages.
+     */
+    data: XOR<AdvisorPackageUpdateManyMutationInput, AdvisorPackageUncheckedUpdateManyInput>
+    /**
+     * Filter which AdvisorPackages to update
+     */
+    where?: AdvisorPackageWhereInput
+    /**
+     * Limit how many AdvisorPackages to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AdvisorPackage upsert
+   */
+  export type AdvisorPackageUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdvisorPackage
+     */
+    select?: AdvisorPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdvisorPackage
+     */
+    omit?: AdvisorPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorPackageInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AdvisorPackage to update in case it exists.
+     */
+    where: AdvisorPackageWhereUniqueInput
+    /**
+     * In case the AdvisorPackage found by the `where` argument doesn't exist, create a new AdvisorPackage with this data.
+     */
+    create: XOR<AdvisorPackageCreateInput, AdvisorPackageUncheckedCreateInput>
+    /**
+     * In case the AdvisorPackage was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AdvisorPackageUpdateInput, AdvisorPackageUncheckedUpdateInput>
+  }
+
+  /**
+   * AdvisorPackage delete
+   */
+  export type AdvisorPackageDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdvisorPackage
+     */
+    select?: AdvisorPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdvisorPackage
+     */
+    omit?: AdvisorPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorPackageInclude<ExtArgs> | null
+    /**
+     * Filter which AdvisorPackage to delete.
+     */
+    where: AdvisorPackageWhereUniqueInput
+  }
+
+  /**
+   * AdvisorPackage deleteMany
+   */
+  export type AdvisorPackageDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AdvisorPackages to delete
+     */
+    where?: AdvisorPackageWhereInput
+    /**
+     * Limit how many AdvisorPackages to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AdvisorPackage.vulnerabilities
+   */
+  export type AdvisorPackage$vulnerabilitiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vulnerabilities
+     */
+    select?: VulnerabilitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vulnerabilities
+     */
+    omit?: VulnerabilitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VulnerabilitiesInclude<ExtArgs> | null
+    where?: VulnerabilitiesWhereInput
+    orderBy?: VulnerabilitiesOrderByWithRelationInput | VulnerabilitiesOrderByWithRelationInput[]
+    cursor?: VulnerabilitiesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: VulnerabilitiesScalarFieldEnum | VulnerabilitiesScalarFieldEnum[]
+  }
+
+  /**
+   * AdvisorPackage without action
+   */
+  export type AdvisorPackageDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdvisorPackage
+     */
+    select?: AdvisorPackageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdvisorPackage
+     */
+    omit?: AdvisorPackageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdvisorPackageInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Vulnerabilities
+   */
+
+  export type AggregateVulnerabilities = {
+    _count: VulnerabilitiesCountAggregateOutputType | null
+    _avg: VulnerabilitiesAvgAggregateOutputType | null
+    _sum: VulnerabilitiesSumAggregateOutputType | null
+    _min: VulnerabilitiesMinAggregateOutputType | null
+    _max: VulnerabilitiesMaxAggregateOutputType | null
+  }
+
+  export type VulnerabilitiesAvgAggregateOutputType = {
+    id: number | null
+    advisorPackageId: number | null
+  }
+
+  export type VulnerabilitiesSumAggregateOutputType = {
+    id: number | null
+    advisorPackageId: number | null
+  }
+
+  export type VulnerabilitiesMinAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    vulId: string | null
+    summary: string | null
+    description: string | null
+    advisorPackageId: number | null
+  }
+
+  export type VulnerabilitiesMaxAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    vulId: string | null
+    summary: string | null
+    description: string | null
+    advisorPackageId: number | null
+  }
+
+  export type VulnerabilitiesCountAggregateOutputType = {
+    id: number
+    createdAt: number
+    vulId: number
+    summary: number
+    description: number
+    advisorPackageId: number
+    _all: number
+  }
+
+
+  export type VulnerabilitiesAvgAggregateInputType = {
+    id?: true
+    advisorPackageId?: true
+  }
+
+  export type VulnerabilitiesSumAggregateInputType = {
+    id?: true
+    advisorPackageId?: true
+  }
+
+  export type VulnerabilitiesMinAggregateInputType = {
+    id?: true
+    createdAt?: true
+    vulId?: true
+    summary?: true
+    description?: true
+    advisorPackageId?: true
+  }
+
+  export type VulnerabilitiesMaxAggregateInputType = {
+    id?: true
+    createdAt?: true
+    vulId?: true
+    summary?: true
+    description?: true
+    advisorPackageId?: true
+  }
+
+  export type VulnerabilitiesCountAggregateInputType = {
+    id?: true
+    createdAt?: true
+    vulId?: true
+    summary?: true
+    description?: true
+    advisorPackageId?: true
+    _all?: true
+  }
+
+  export type VulnerabilitiesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Vulnerabilities to aggregate.
+     */
+    where?: VulnerabilitiesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Vulnerabilities to fetch.
+     */
+    orderBy?: VulnerabilitiesOrderByWithRelationInput | VulnerabilitiesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: VulnerabilitiesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Vulnerabilities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Vulnerabilities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Vulnerabilities
+    **/
+    _count?: true | VulnerabilitiesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: VulnerabilitiesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: VulnerabilitiesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: VulnerabilitiesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: VulnerabilitiesMaxAggregateInputType
+  }
+
+  export type GetVulnerabilitiesAggregateType<T extends VulnerabilitiesAggregateArgs> = {
+        [P in keyof T & keyof AggregateVulnerabilities]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateVulnerabilities[P]>
+      : GetScalarType<T[P], AggregateVulnerabilities[P]>
+  }
+
+
+
+
+  export type VulnerabilitiesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VulnerabilitiesWhereInput
+    orderBy?: VulnerabilitiesOrderByWithAggregationInput | VulnerabilitiesOrderByWithAggregationInput[]
+    by: VulnerabilitiesScalarFieldEnum[] | VulnerabilitiesScalarFieldEnum
+    having?: VulnerabilitiesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: VulnerabilitiesCountAggregateInputType | true
+    _avg?: VulnerabilitiesAvgAggregateInputType
+    _sum?: VulnerabilitiesSumAggregateInputType
+    _min?: VulnerabilitiesMinAggregateInputType
+    _max?: VulnerabilitiesMaxAggregateInputType
+  }
+
+  export type VulnerabilitiesGroupByOutputType = {
+    id: number
+    createdAt: Date
+    vulId: string
+    summary: string
+    description: string
+    advisorPackageId: number
+    _count: VulnerabilitiesCountAggregateOutputType | null
+    _avg: VulnerabilitiesAvgAggregateOutputType | null
+    _sum: VulnerabilitiesSumAggregateOutputType | null
+    _min: VulnerabilitiesMinAggregateOutputType | null
+    _max: VulnerabilitiesMaxAggregateOutputType | null
+  }
+
+  type GetVulnerabilitiesGroupByPayload<T extends VulnerabilitiesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<VulnerabilitiesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof VulnerabilitiesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], VulnerabilitiesGroupByOutputType[P]>
+            : GetScalarType<T[P], VulnerabilitiesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type VulnerabilitiesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    vulId?: boolean
+    summary?: boolean
+    description?: boolean
+    advisorPackageId?: boolean
+    advisorPackage?: boolean | AdvisorPackageDefaultArgs<ExtArgs>
+    references?: boolean | Vulnerabilities$referencesArgs<ExtArgs>
+    _count?: boolean | VulnerabilitiesCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["vulnerabilities"]>
+
+
+
+  export type VulnerabilitiesSelectScalar = {
+    id?: boolean
+    createdAt?: boolean
+    vulId?: boolean
+    summary?: boolean
+    description?: boolean
+    advisorPackageId?: boolean
+  }
+
+  export type VulnerabilitiesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "vulId" | "summary" | "description" | "advisorPackageId", ExtArgs["result"]["vulnerabilities"]>
+  export type VulnerabilitiesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    advisorPackage?: boolean | AdvisorPackageDefaultArgs<ExtArgs>
+    references?: boolean | Vulnerabilities$referencesArgs<ExtArgs>
+    _count?: boolean | VulnerabilitiesCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $VulnerabilitiesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Vulnerabilities"
+    objects: {
+      advisorPackage: Prisma.$AdvisorPackagePayload<ExtArgs>
+      references: Prisma.$ReferencesPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      createdAt: Date
+      vulId: string
+      summary: string
+      description: string
+      advisorPackageId: number
+    }, ExtArgs["result"]["vulnerabilities"]>
+    composites: {}
+  }
+
+  type VulnerabilitiesGetPayload<S extends boolean | null | undefined | VulnerabilitiesDefaultArgs> = $Result.GetResult<Prisma.$VulnerabilitiesPayload, S>
+
+  type VulnerabilitiesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<VulnerabilitiesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: VulnerabilitiesCountAggregateInputType | true
+    }
+
+  export interface VulnerabilitiesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Vulnerabilities'], meta: { name: 'Vulnerabilities' } }
+    /**
+     * Find zero or one Vulnerabilities that matches the filter.
+     * @param {VulnerabilitiesFindUniqueArgs} args - Arguments to find a Vulnerabilities
+     * @example
+     * // Get one Vulnerabilities
+     * const vulnerabilities = await prisma.vulnerabilities.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends VulnerabilitiesFindUniqueArgs>(args: SelectSubset<T, VulnerabilitiesFindUniqueArgs<ExtArgs>>): Prisma__VulnerabilitiesClient<$Result.GetResult<Prisma.$VulnerabilitiesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Vulnerabilities that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {VulnerabilitiesFindUniqueOrThrowArgs} args - Arguments to find a Vulnerabilities
+     * @example
+     * // Get one Vulnerabilities
+     * const vulnerabilities = await prisma.vulnerabilities.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends VulnerabilitiesFindUniqueOrThrowArgs>(args: SelectSubset<T, VulnerabilitiesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__VulnerabilitiesClient<$Result.GetResult<Prisma.$VulnerabilitiesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Vulnerabilities that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VulnerabilitiesFindFirstArgs} args - Arguments to find a Vulnerabilities
+     * @example
+     * // Get one Vulnerabilities
+     * const vulnerabilities = await prisma.vulnerabilities.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends VulnerabilitiesFindFirstArgs>(args?: SelectSubset<T, VulnerabilitiesFindFirstArgs<ExtArgs>>): Prisma__VulnerabilitiesClient<$Result.GetResult<Prisma.$VulnerabilitiesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Vulnerabilities that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VulnerabilitiesFindFirstOrThrowArgs} args - Arguments to find a Vulnerabilities
+     * @example
+     * // Get one Vulnerabilities
+     * const vulnerabilities = await prisma.vulnerabilities.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends VulnerabilitiesFindFirstOrThrowArgs>(args?: SelectSubset<T, VulnerabilitiesFindFirstOrThrowArgs<ExtArgs>>): Prisma__VulnerabilitiesClient<$Result.GetResult<Prisma.$VulnerabilitiesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Vulnerabilities that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VulnerabilitiesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Vulnerabilities
+     * const vulnerabilities = await prisma.vulnerabilities.findMany()
+     * 
+     * // Get first 10 Vulnerabilities
+     * const vulnerabilities = await prisma.vulnerabilities.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const vulnerabilitiesWithIdOnly = await prisma.vulnerabilities.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends VulnerabilitiesFindManyArgs>(args?: SelectSubset<T, VulnerabilitiesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VulnerabilitiesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Vulnerabilities.
+     * @param {VulnerabilitiesCreateArgs} args - Arguments to create a Vulnerabilities.
+     * @example
+     * // Create one Vulnerabilities
+     * const Vulnerabilities = await prisma.vulnerabilities.create({
+     *   data: {
+     *     // ... data to create a Vulnerabilities
+     *   }
+     * })
+     * 
+     */
+    create<T extends VulnerabilitiesCreateArgs>(args: SelectSubset<T, VulnerabilitiesCreateArgs<ExtArgs>>): Prisma__VulnerabilitiesClient<$Result.GetResult<Prisma.$VulnerabilitiesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Vulnerabilities.
+     * @param {VulnerabilitiesCreateManyArgs} args - Arguments to create many Vulnerabilities.
+     * @example
+     * // Create many Vulnerabilities
+     * const vulnerabilities = await prisma.vulnerabilities.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends VulnerabilitiesCreateManyArgs>(args?: SelectSubset<T, VulnerabilitiesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Vulnerabilities.
+     * @param {VulnerabilitiesDeleteArgs} args - Arguments to delete one Vulnerabilities.
+     * @example
+     * // Delete one Vulnerabilities
+     * const Vulnerabilities = await prisma.vulnerabilities.delete({
+     *   where: {
+     *     // ... filter to delete one Vulnerabilities
+     *   }
+     * })
+     * 
+     */
+    delete<T extends VulnerabilitiesDeleteArgs>(args: SelectSubset<T, VulnerabilitiesDeleteArgs<ExtArgs>>): Prisma__VulnerabilitiesClient<$Result.GetResult<Prisma.$VulnerabilitiesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Vulnerabilities.
+     * @param {VulnerabilitiesUpdateArgs} args - Arguments to update one Vulnerabilities.
+     * @example
+     * // Update one Vulnerabilities
+     * const vulnerabilities = await prisma.vulnerabilities.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends VulnerabilitiesUpdateArgs>(args: SelectSubset<T, VulnerabilitiesUpdateArgs<ExtArgs>>): Prisma__VulnerabilitiesClient<$Result.GetResult<Prisma.$VulnerabilitiesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Vulnerabilities.
+     * @param {VulnerabilitiesDeleteManyArgs} args - Arguments to filter Vulnerabilities to delete.
+     * @example
+     * // Delete a few Vulnerabilities
+     * const { count } = await prisma.vulnerabilities.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends VulnerabilitiesDeleteManyArgs>(args?: SelectSubset<T, VulnerabilitiesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Vulnerabilities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VulnerabilitiesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Vulnerabilities
+     * const vulnerabilities = await prisma.vulnerabilities.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends VulnerabilitiesUpdateManyArgs>(args: SelectSubset<T, VulnerabilitiesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Vulnerabilities.
+     * @param {VulnerabilitiesUpsertArgs} args - Arguments to update or create a Vulnerabilities.
+     * @example
+     * // Update or create a Vulnerabilities
+     * const vulnerabilities = await prisma.vulnerabilities.upsert({
+     *   create: {
+     *     // ... data to create a Vulnerabilities
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Vulnerabilities we want to update
+     *   }
+     * })
+     */
+    upsert<T extends VulnerabilitiesUpsertArgs>(args: SelectSubset<T, VulnerabilitiesUpsertArgs<ExtArgs>>): Prisma__VulnerabilitiesClient<$Result.GetResult<Prisma.$VulnerabilitiesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Vulnerabilities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VulnerabilitiesCountArgs} args - Arguments to filter Vulnerabilities to count.
+     * @example
+     * // Count the number of Vulnerabilities
+     * const count = await prisma.vulnerabilities.count({
+     *   where: {
+     *     // ... the filter for the Vulnerabilities we want to count
+     *   }
+     * })
+    **/
+    count<T extends VulnerabilitiesCountArgs>(
+      args?: Subset<T, VulnerabilitiesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], VulnerabilitiesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Vulnerabilities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VulnerabilitiesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends VulnerabilitiesAggregateArgs>(args: Subset<T, VulnerabilitiesAggregateArgs>): Prisma.PrismaPromise<GetVulnerabilitiesAggregateType<T>>
+
+    /**
+     * Group by Vulnerabilities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VulnerabilitiesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends VulnerabilitiesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: VulnerabilitiesGroupByArgs['orderBy'] }
+        : { orderBy?: VulnerabilitiesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, VulnerabilitiesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVulnerabilitiesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Vulnerabilities model
+   */
+  readonly fields: VulnerabilitiesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Vulnerabilities.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__VulnerabilitiesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    advisorPackage<T extends AdvisorPackageDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AdvisorPackageDefaultArgs<ExtArgs>>): Prisma__AdvisorPackageClient<$Result.GetResult<Prisma.$AdvisorPackagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    references<T extends Vulnerabilities$referencesArgs<ExtArgs> = {}>(args?: Subset<T, Vulnerabilities$referencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReferencesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Vulnerabilities model
+   */
+  interface VulnerabilitiesFieldRefs {
+    readonly id: FieldRef<"Vulnerabilities", 'Int'>
+    readonly createdAt: FieldRef<"Vulnerabilities", 'DateTime'>
+    readonly vulId: FieldRef<"Vulnerabilities", 'String'>
+    readonly summary: FieldRef<"Vulnerabilities", 'String'>
+    readonly description: FieldRef<"Vulnerabilities", 'String'>
+    readonly advisorPackageId: FieldRef<"Vulnerabilities", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Vulnerabilities findUnique
+   */
+  export type VulnerabilitiesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vulnerabilities
+     */
+    select?: VulnerabilitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vulnerabilities
+     */
+    omit?: VulnerabilitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VulnerabilitiesInclude<ExtArgs> | null
+    /**
+     * Filter, which Vulnerabilities to fetch.
+     */
+    where: VulnerabilitiesWhereUniqueInput
+  }
+
+  /**
+   * Vulnerabilities findUniqueOrThrow
+   */
+  export type VulnerabilitiesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vulnerabilities
+     */
+    select?: VulnerabilitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vulnerabilities
+     */
+    omit?: VulnerabilitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VulnerabilitiesInclude<ExtArgs> | null
+    /**
+     * Filter, which Vulnerabilities to fetch.
+     */
+    where: VulnerabilitiesWhereUniqueInput
+  }
+
+  /**
+   * Vulnerabilities findFirst
+   */
+  export type VulnerabilitiesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vulnerabilities
+     */
+    select?: VulnerabilitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vulnerabilities
+     */
+    omit?: VulnerabilitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VulnerabilitiesInclude<ExtArgs> | null
+    /**
+     * Filter, which Vulnerabilities to fetch.
+     */
+    where?: VulnerabilitiesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Vulnerabilities to fetch.
+     */
+    orderBy?: VulnerabilitiesOrderByWithRelationInput | VulnerabilitiesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Vulnerabilities.
+     */
+    cursor?: VulnerabilitiesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Vulnerabilities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Vulnerabilities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Vulnerabilities.
+     */
+    distinct?: VulnerabilitiesScalarFieldEnum | VulnerabilitiesScalarFieldEnum[]
+  }
+
+  /**
+   * Vulnerabilities findFirstOrThrow
+   */
+  export type VulnerabilitiesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vulnerabilities
+     */
+    select?: VulnerabilitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vulnerabilities
+     */
+    omit?: VulnerabilitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VulnerabilitiesInclude<ExtArgs> | null
+    /**
+     * Filter, which Vulnerabilities to fetch.
+     */
+    where?: VulnerabilitiesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Vulnerabilities to fetch.
+     */
+    orderBy?: VulnerabilitiesOrderByWithRelationInput | VulnerabilitiesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Vulnerabilities.
+     */
+    cursor?: VulnerabilitiesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Vulnerabilities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Vulnerabilities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Vulnerabilities.
+     */
+    distinct?: VulnerabilitiesScalarFieldEnum | VulnerabilitiesScalarFieldEnum[]
+  }
+
+  /**
+   * Vulnerabilities findMany
+   */
+  export type VulnerabilitiesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vulnerabilities
+     */
+    select?: VulnerabilitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vulnerabilities
+     */
+    omit?: VulnerabilitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VulnerabilitiesInclude<ExtArgs> | null
+    /**
+     * Filter, which Vulnerabilities to fetch.
+     */
+    where?: VulnerabilitiesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Vulnerabilities to fetch.
+     */
+    orderBy?: VulnerabilitiesOrderByWithRelationInput | VulnerabilitiesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Vulnerabilities.
+     */
+    cursor?: VulnerabilitiesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Vulnerabilities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Vulnerabilities.
+     */
+    skip?: number
+    distinct?: VulnerabilitiesScalarFieldEnum | VulnerabilitiesScalarFieldEnum[]
+  }
+
+  /**
+   * Vulnerabilities create
+   */
+  export type VulnerabilitiesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vulnerabilities
+     */
+    select?: VulnerabilitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vulnerabilities
+     */
+    omit?: VulnerabilitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VulnerabilitiesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Vulnerabilities.
+     */
+    data: XOR<VulnerabilitiesCreateInput, VulnerabilitiesUncheckedCreateInput>
+  }
+
+  /**
+   * Vulnerabilities createMany
+   */
+  export type VulnerabilitiesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Vulnerabilities.
+     */
+    data: VulnerabilitiesCreateManyInput | VulnerabilitiesCreateManyInput[]
+  }
+
+  /**
+   * Vulnerabilities update
+   */
+  export type VulnerabilitiesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vulnerabilities
+     */
+    select?: VulnerabilitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vulnerabilities
+     */
+    omit?: VulnerabilitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VulnerabilitiesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Vulnerabilities.
+     */
+    data: XOR<VulnerabilitiesUpdateInput, VulnerabilitiesUncheckedUpdateInput>
+    /**
+     * Choose, which Vulnerabilities to update.
+     */
+    where: VulnerabilitiesWhereUniqueInput
+  }
+
+  /**
+   * Vulnerabilities updateMany
+   */
+  export type VulnerabilitiesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Vulnerabilities.
+     */
+    data: XOR<VulnerabilitiesUpdateManyMutationInput, VulnerabilitiesUncheckedUpdateManyInput>
+    /**
+     * Filter which Vulnerabilities to update
+     */
+    where?: VulnerabilitiesWhereInput
+    /**
+     * Limit how many Vulnerabilities to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Vulnerabilities upsert
+   */
+  export type VulnerabilitiesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vulnerabilities
+     */
+    select?: VulnerabilitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vulnerabilities
+     */
+    omit?: VulnerabilitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VulnerabilitiesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Vulnerabilities to update in case it exists.
+     */
+    where: VulnerabilitiesWhereUniqueInput
+    /**
+     * In case the Vulnerabilities found by the `where` argument doesn't exist, create a new Vulnerabilities with this data.
+     */
+    create: XOR<VulnerabilitiesCreateInput, VulnerabilitiesUncheckedCreateInput>
+    /**
+     * In case the Vulnerabilities was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<VulnerabilitiesUpdateInput, VulnerabilitiesUncheckedUpdateInput>
+  }
+
+  /**
+   * Vulnerabilities delete
+   */
+  export type VulnerabilitiesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vulnerabilities
+     */
+    select?: VulnerabilitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vulnerabilities
+     */
+    omit?: VulnerabilitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VulnerabilitiesInclude<ExtArgs> | null
+    /**
+     * Filter which Vulnerabilities to delete.
+     */
+    where: VulnerabilitiesWhereUniqueInput
+  }
+
+  /**
+   * Vulnerabilities deleteMany
+   */
+  export type VulnerabilitiesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Vulnerabilities to delete
+     */
+    where?: VulnerabilitiesWhereInput
+    /**
+     * Limit how many Vulnerabilities to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Vulnerabilities.references
+   */
+  export type Vulnerabilities$referencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the References
+     */
+    select?: ReferencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the References
+     */
+    omit?: ReferencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencesInclude<ExtArgs> | null
+    where?: ReferencesWhereInput
+    orderBy?: ReferencesOrderByWithRelationInput | ReferencesOrderByWithRelationInput[]
+    cursor?: ReferencesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ReferencesScalarFieldEnum | ReferencesScalarFieldEnum[]
+  }
+
+  /**
+   * Vulnerabilities without action
+   */
+  export type VulnerabilitiesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vulnerabilities
+     */
+    select?: VulnerabilitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vulnerabilities
+     */
+    omit?: VulnerabilitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VulnerabilitiesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model References
+   */
+
+  export type AggregateReferences = {
+    _count: ReferencesCountAggregateOutputType | null
+    _avg: ReferencesAvgAggregateOutputType | null
+    _sum: ReferencesSumAggregateOutputType | null
+    _min: ReferencesMinAggregateOutputType | null
+    _max: ReferencesMaxAggregateOutputType | null
+  }
+
+  export type ReferencesAvgAggregateOutputType = {
+    id: number | null
+    score: number | null
+    vulnerabilitiesId: number | null
+  }
+
+  export type ReferencesSumAggregateOutputType = {
+    id: number | null
+    score: number | null
+    vulnerabilitiesId: number | null
+  }
+
+  export type ReferencesMinAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    url: string | null
+    scoringSystem: string | null
+    severity: string | null
+    score: number | null
+    vector: string | null
+    vulnerabilitiesId: number | null
+  }
+
+  export type ReferencesMaxAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    url: string | null
+    scoringSystem: string | null
+    severity: string | null
+    score: number | null
+    vector: string | null
+    vulnerabilitiesId: number | null
+  }
+
+  export type ReferencesCountAggregateOutputType = {
+    id: number
+    createdAt: number
+    url: number
+    scoringSystem: number
+    severity: number
+    score: number
+    vector: number
+    vulnerabilitiesId: number
+    _all: number
+  }
+
+
+  export type ReferencesAvgAggregateInputType = {
+    id?: true
+    score?: true
+    vulnerabilitiesId?: true
+  }
+
+  export type ReferencesSumAggregateInputType = {
+    id?: true
+    score?: true
+    vulnerabilitiesId?: true
+  }
+
+  export type ReferencesMinAggregateInputType = {
+    id?: true
+    createdAt?: true
+    url?: true
+    scoringSystem?: true
+    severity?: true
+    score?: true
+    vector?: true
+    vulnerabilitiesId?: true
+  }
+
+  export type ReferencesMaxAggregateInputType = {
+    id?: true
+    createdAt?: true
+    url?: true
+    scoringSystem?: true
+    severity?: true
+    score?: true
+    vector?: true
+    vulnerabilitiesId?: true
+  }
+
+  export type ReferencesCountAggregateInputType = {
+    id?: true
+    createdAt?: true
+    url?: true
+    scoringSystem?: true
+    severity?: true
+    score?: true
+    vector?: true
+    vulnerabilitiesId?: true
+    _all?: true
+  }
+
+  export type ReferencesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which References to aggregate.
+     */
+    where?: ReferencesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of References to fetch.
+     */
+    orderBy?: ReferencesOrderByWithRelationInput | ReferencesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ReferencesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` References from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` References.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned References
+    **/
+    _count?: true | ReferencesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ReferencesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ReferencesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ReferencesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ReferencesMaxAggregateInputType
+  }
+
+  export type GetReferencesAggregateType<T extends ReferencesAggregateArgs> = {
+        [P in keyof T & keyof AggregateReferences]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateReferences[P]>
+      : GetScalarType<T[P], AggregateReferences[P]>
+  }
+
+
+
+
+  export type ReferencesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReferencesWhereInput
+    orderBy?: ReferencesOrderByWithAggregationInput | ReferencesOrderByWithAggregationInput[]
+    by: ReferencesScalarFieldEnum[] | ReferencesScalarFieldEnum
+    having?: ReferencesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ReferencesCountAggregateInputType | true
+    _avg?: ReferencesAvgAggregateInputType
+    _sum?: ReferencesSumAggregateInputType
+    _min?: ReferencesMinAggregateInputType
+    _max?: ReferencesMaxAggregateInputType
+  }
+
+  export type ReferencesGroupByOutputType = {
+    id: number
+    createdAt: Date
+    url: string
+    scoringSystem: string
+    severity: string
+    score: number
+    vector: string
+    vulnerabilitiesId: number
+    _count: ReferencesCountAggregateOutputType | null
+    _avg: ReferencesAvgAggregateOutputType | null
+    _sum: ReferencesSumAggregateOutputType | null
+    _min: ReferencesMinAggregateOutputType | null
+    _max: ReferencesMaxAggregateOutputType | null
+  }
+
+  type GetReferencesGroupByPayload<T extends ReferencesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ReferencesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ReferencesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ReferencesGroupByOutputType[P]>
+            : GetScalarType<T[P], ReferencesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ReferencesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    url?: boolean
+    scoringSystem?: boolean
+    severity?: boolean
+    score?: boolean
+    vector?: boolean
+    vulnerabilitiesId?: boolean
+    vulnerabilities?: boolean | VulnerabilitiesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["references"]>
+
+
+
+  export type ReferencesSelectScalar = {
+    id?: boolean
+    createdAt?: boolean
+    url?: boolean
+    scoringSystem?: boolean
+    severity?: boolean
+    score?: boolean
+    vector?: boolean
+    vulnerabilitiesId?: boolean
+  }
+
+  export type ReferencesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "url" | "scoringSystem" | "severity" | "score" | "vector" | "vulnerabilitiesId", ExtArgs["result"]["references"]>
+  export type ReferencesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    vulnerabilities?: boolean | VulnerabilitiesDefaultArgs<ExtArgs>
+  }
+
+  export type $ReferencesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "References"
+    objects: {
+      vulnerabilities: Prisma.$VulnerabilitiesPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      createdAt: Date
+      url: string
+      scoringSystem: string
+      severity: string
+      score: number
+      vector: string
+      vulnerabilitiesId: number
+    }, ExtArgs["result"]["references"]>
+    composites: {}
+  }
+
+  type ReferencesGetPayload<S extends boolean | null | undefined | ReferencesDefaultArgs> = $Result.GetResult<Prisma.$ReferencesPayload, S>
+
+  type ReferencesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ReferencesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ReferencesCountAggregateInputType | true
+    }
+
+  export interface ReferencesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['References'], meta: { name: 'References' } }
+    /**
+     * Find zero or one References that matches the filter.
+     * @param {ReferencesFindUniqueArgs} args - Arguments to find a References
+     * @example
+     * // Get one References
+     * const references = await prisma.references.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ReferencesFindUniqueArgs>(args: SelectSubset<T, ReferencesFindUniqueArgs<ExtArgs>>): Prisma__ReferencesClient<$Result.GetResult<Prisma.$ReferencesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one References that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ReferencesFindUniqueOrThrowArgs} args - Arguments to find a References
+     * @example
+     * // Get one References
+     * const references = await prisma.references.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ReferencesFindUniqueOrThrowArgs>(args: SelectSubset<T, ReferencesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ReferencesClient<$Result.GetResult<Prisma.$ReferencesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first References that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferencesFindFirstArgs} args - Arguments to find a References
+     * @example
+     * // Get one References
+     * const references = await prisma.references.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ReferencesFindFirstArgs>(args?: SelectSubset<T, ReferencesFindFirstArgs<ExtArgs>>): Prisma__ReferencesClient<$Result.GetResult<Prisma.$ReferencesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first References that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferencesFindFirstOrThrowArgs} args - Arguments to find a References
+     * @example
+     * // Get one References
+     * const references = await prisma.references.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ReferencesFindFirstOrThrowArgs>(args?: SelectSubset<T, ReferencesFindFirstOrThrowArgs<ExtArgs>>): Prisma__ReferencesClient<$Result.GetResult<Prisma.$ReferencesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more References that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferencesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all References
+     * const references = await prisma.references.findMany()
+     * 
+     * // Get first 10 References
+     * const references = await prisma.references.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const referencesWithIdOnly = await prisma.references.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ReferencesFindManyArgs>(args?: SelectSubset<T, ReferencesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReferencesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a References.
+     * @param {ReferencesCreateArgs} args - Arguments to create a References.
+     * @example
+     * // Create one References
+     * const References = await prisma.references.create({
+     *   data: {
+     *     // ... data to create a References
+     *   }
+     * })
+     * 
+     */
+    create<T extends ReferencesCreateArgs>(args: SelectSubset<T, ReferencesCreateArgs<ExtArgs>>): Prisma__ReferencesClient<$Result.GetResult<Prisma.$ReferencesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many References.
+     * @param {ReferencesCreateManyArgs} args - Arguments to create many References.
+     * @example
+     * // Create many References
+     * const references = await prisma.references.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ReferencesCreateManyArgs>(args?: SelectSubset<T, ReferencesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a References.
+     * @param {ReferencesDeleteArgs} args - Arguments to delete one References.
+     * @example
+     * // Delete one References
+     * const References = await prisma.references.delete({
+     *   where: {
+     *     // ... filter to delete one References
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ReferencesDeleteArgs>(args: SelectSubset<T, ReferencesDeleteArgs<ExtArgs>>): Prisma__ReferencesClient<$Result.GetResult<Prisma.$ReferencesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one References.
+     * @param {ReferencesUpdateArgs} args - Arguments to update one References.
+     * @example
+     * // Update one References
+     * const references = await prisma.references.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ReferencesUpdateArgs>(args: SelectSubset<T, ReferencesUpdateArgs<ExtArgs>>): Prisma__ReferencesClient<$Result.GetResult<Prisma.$ReferencesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more References.
+     * @param {ReferencesDeleteManyArgs} args - Arguments to filter References to delete.
+     * @example
+     * // Delete a few References
+     * const { count } = await prisma.references.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ReferencesDeleteManyArgs>(args?: SelectSubset<T, ReferencesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more References.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferencesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many References
+     * const references = await prisma.references.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ReferencesUpdateManyArgs>(args: SelectSubset<T, ReferencesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one References.
+     * @param {ReferencesUpsertArgs} args - Arguments to update or create a References.
+     * @example
+     * // Update or create a References
+     * const references = await prisma.references.upsert({
+     *   create: {
+     *     // ... data to create a References
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the References we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ReferencesUpsertArgs>(args: SelectSubset<T, ReferencesUpsertArgs<ExtArgs>>): Prisma__ReferencesClient<$Result.GetResult<Prisma.$ReferencesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of References.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferencesCountArgs} args - Arguments to filter References to count.
+     * @example
+     * // Count the number of References
+     * const count = await prisma.references.count({
+     *   where: {
+     *     // ... the filter for the References we want to count
+     *   }
+     * })
+    **/
+    count<T extends ReferencesCountArgs>(
+      args?: Subset<T, ReferencesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ReferencesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a References.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferencesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ReferencesAggregateArgs>(args: Subset<T, ReferencesAggregateArgs>): Prisma.PrismaPromise<GetReferencesAggregateType<T>>
+
+    /**
+     * Group by References.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferencesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ReferencesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ReferencesGroupByArgs['orderBy'] }
+        : { orderBy?: ReferencesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ReferencesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetReferencesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the References model
+   */
+  readonly fields: ReferencesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for References.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ReferencesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    vulnerabilities<T extends VulnerabilitiesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, VulnerabilitiesDefaultArgs<ExtArgs>>): Prisma__VulnerabilitiesClient<$Result.GetResult<Prisma.$VulnerabilitiesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the References model
+   */
+  interface ReferencesFieldRefs {
+    readonly id: FieldRef<"References", 'Int'>
+    readonly createdAt: FieldRef<"References", 'DateTime'>
+    readonly url: FieldRef<"References", 'String'>
+    readonly scoringSystem: FieldRef<"References", 'String'>
+    readonly severity: FieldRef<"References", 'String'>
+    readonly score: FieldRef<"References", 'Float'>
+    readonly vector: FieldRef<"References", 'String'>
+    readonly vulnerabilitiesId: FieldRef<"References", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * References findUnique
+   */
+  export type ReferencesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the References
+     */
+    select?: ReferencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the References
+     */
+    omit?: ReferencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencesInclude<ExtArgs> | null
+    /**
+     * Filter, which References to fetch.
+     */
+    where: ReferencesWhereUniqueInput
+  }
+
+  /**
+   * References findUniqueOrThrow
+   */
+  export type ReferencesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the References
+     */
+    select?: ReferencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the References
+     */
+    omit?: ReferencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencesInclude<ExtArgs> | null
+    /**
+     * Filter, which References to fetch.
+     */
+    where: ReferencesWhereUniqueInput
+  }
+
+  /**
+   * References findFirst
+   */
+  export type ReferencesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the References
+     */
+    select?: ReferencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the References
+     */
+    omit?: ReferencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencesInclude<ExtArgs> | null
+    /**
+     * Filter, which References to fetch.
+     */
+    where?: ReferencesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of References to fetch.
+     */
+    orderBy?: ReferencesOrderByWithRelationInput | ReferencesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for References.
+     */
+    cursor?: ReferencesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` References from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` References.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of References.
+     */
+    distinct?: ReferencesScalarFieldEnum | ReferencesScalarFieldEnum[]
+  }
+
+  /**
+   * References findFirstOrThrow
+   */
+  export type ReferencesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the References
+     */
+    select?: ReferencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the References
+     */
+    omit?: ReferencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencesInclude<ExtArgs> | null
+    /**
+     * Filter, which References to fetch.
+     */
+    where?: ReferencesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of References to fetch.
+     */
+    orderBy?: ReferencesOrderByWithRelationInput | ReferencesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for References.
+     */
+    cursor?: ReferencesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` References from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` References.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of References.
+     */
+    distinct?: ReferencesScalarFieldEnum | ReferencesScalarFieldEnum[]
+  }
+
+  /**
+   * References findMany
+   */
+  export type ReferencesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the References
+     */
+    select?: ReferencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the References
+     */
+    omit?: ReferencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencesInclude<ExtArgs> | null
+    /**
+     * Filter, which References to fetch.
+     */
+    where?: ReferencesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of References to fetch.
+     */
+    orderBy?: ReferencesOrderByWithRelationInput | ReferencesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing References.
+     */
+    cursor?: ReferencesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` References from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` References.
+     */
+    skip?: number
+    distinct?: ReferencesScalarFieldEnum | ReferencesScalarFieldEnum[]
+  }
+
+  /**
+   * References create
+   */
+  export type ReferencesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the References
+     */
+    select?: ReferencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the References
+     */
+    omit?: ReferencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a References.
+     */
+    data: XOR<ReferencesCreateInput, ReferencesUncheckedCreateInput>
+  }
+
+  /**
+   * References createMany
+   */
+  export type ReferencesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many References.
+     */
+    data: ReferencesCreateManyInput | ReferencesCreateManyInput[]
+  }
+
+  /**
+   * References update
+   */
+  export type ReferencesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the References
+     */
+    select?: ReferencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the References
+     */
+    omit?: ReferencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a References.
+     */
+    data: XOR<ReferencesUpdateInput, ReferencesUncheckedUpdateInput>
+    /**
+     * Choose, which References to update.
+     */
+    where: ReferencesWhereUniqueInput
+  }
+
+  /**
+   * References updateMany
+   */
+  export type ReferencesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update References.
+     */
+    data: XOR<ReferencesUpdateManyMutationInput, ReferencesUncheckedUpdateManyInput>
+    /**
+     * Filter which References to update
+     */
+    where?: ReferencesWhereInput
+    /**
+     * Limit how many References to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * References upsert
+   */
+  export type ReferencesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the References
+     */
+    select?: ReferencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the References
+     */
+    omit?: ReferencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the References to update in case it exists.
+     */
+    where: ReferencesWhereUniqueInput
+    /**
+     * In case the References found by the `where` argument doesn't exist, create a new References with this data.
+     */
+    create: XOR<ReferencesCreateInput, ReferencesUncheckedCreateInput>
+    /**
+     * In case the References was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ReferencesUpdateInput, ReferencesUncheckedUpdateInput>
+  }
+
+  /**
+   * References delete
+   */
+  export type ReferencesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the References
+     */
+    select?: ReferencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the References
+     */
+    omit?: ReferencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencesInclude<ExtArgs> | null
+    /**
+     * Filter which References to delete.
+     */
+    where: ReferencesWhereUniqueInput
+  }
+
+  /**
+   * References deleteMany
+   */
+  export type ReferencesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which References to delete
+     */
+    where?: ReferencesWhereInput
+    /**
+     * Limit how many References to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * References without action
+   */
+  export type ReferencesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the References
+     */
+    select?: ReferencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the References
+     */
+    omit?: ReferencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencesInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -17152,6 +21569,51 @@ export namespace Prisma {
   };
 
   export type CopyrightsScalarFieldEnum = (typeof CopyrightsScalarFieldEnum)[keyof typeof CopyrightsScalarFieldEnum]
+
+
+  export const AdvisorScalarFieldEnum: {
+    id: 'id',
+    createdAt: 'createdAt',
+    scanId: 'scanId'
+  };
+
+  export type AdvisorScalarFieldEnum = (typeof AdvisorScalarFieldEnum)[keyof typeof AdvisorScalarFieldEnum]
+
+
+  export const AdvisorPackageScalarFieldEnum: {
+    id: 'id',
+    createdAt: 'createdAt',
+    name: 'name',
+    advisorId: 'advisorId'
+  };
+
+  export type AdvisorPackageScalarFieldEnum = (typeof AdvisorPackageScalarFieldEnum)[keyof typeof AdvisorPackageScalarFieldEnum]
+
+
+  export const VulnerabilitiesScalarFieldEnum: {
+    id: 'id',
+    createdAt: 'createdAt',
+    vulId: 'vulId',
+    summary: 'summary',
+    description: 'description',
+    advisorPackageId: 'advisorPackageId'
+  };
+
+  export type VulnerabilitiesScalarFieldEnum = (typeof VulnerabilitiesScalarFieldEnum)[keyof typeof VulnerabilitiesScalarFieldEnum]
+
+
+  export const ReferencesScalarFieldEnum: {
+    id: 'id',
+    createdAt: 'createdAt',
+    url: 'url',
+    scoringSystem: 'scoringSystem',
+    severity: 'severity',
+    score: 'score',
+    vector: 'vector',
+    vulnerabilitiesId: 'vulnerabilitiesId'
+  };
+
+  export type ReferencesScalarFieldEnum = (typeof ReferencesScalarFieldEnum)[keyof typeof ReferencesScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -17326,6 +21788,7 @@ export namespace Prisma {
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     analyzer?: XOR<AnalyzerNullableScalarRelationFilter, AnalyzerWhereInput> | null
     scanner?: XOR<ScannerNullableScalarRelationFilter, ScannerWhereInput> | null
+    advisor?: XOR<AdvisorNullableScalarRelationFilter, AdvisorWhereInput> | null
   }
 
   export type ScanOrderByWithRelationInput = {
@@ -17336,6 +21799,7 @@ export namespace Prisma {
     project?: ProjectOrderByWithRelationInput
     analyzer?: AnalyzerOrderByWithRelationInput
     scanner?: ScannerOrderByWithRelationInput
+    advisor?: AdvisorOrderByWithRelationInput
   }
 
   export type ScanWhereUniqueInput = Prisma.AtLeast<{
@@ -17349,6 +21813,7 @@ export namespace Prisma {
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     analyzer?: XOR<AnalyzerNullableScalarRelationFilter, AnalyzerWhereInput> | null
     scanner?: XOR<ScannerNullableScalarRelationFilter, ScannerWhereInput> | null
+    advisor?: XOR<AdvisorNullableScalarRelationFilter, AdvisorWhereInput> | null
   }, "id" | "gitRunId">
 
   export type ScanOrderByWithAggregationInput = {
@@ -18062,6 +22527,248 @@ export namespace Prisma {
     scannerId?: IntWithAggregatesFilter<"Copyrights"> | number
   }
 
+  export type AdvisorWhereInput = {
+    AND?: AdvisorWhereInput | AdvisorWhereInput[]
+    OR?: AdvisorWhereInput[]
+    NOT?: AdvisorWhereInput | AdvisorWhereInput[]
+    id?: IntFilter<"Advisor"> | number
+    createdAt?: DateTimeFilter<"Advisor"> | Date | string
+    scanId?: IntFilter<"Advisor"> | number
+    scan?: XOR<ScanScalarRelationFilter, ScanWhereInput>
+    advisorPackage?: AdvisorPackageListRelationFilter
+  }
+
+  export type AdvisorOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    scanId?: SortOrder
+    scan?: ScanOrderByWithRelationInput
+    advisorPackage?: AdvisorPackageOrderByRelationAggregateInput
+  }
+
+  export type AdvisorWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    scanId?: number
+    AND?: AdvisorWhereInput | AdvisorWhereInput[]
+    OR?: AdvisorWhereInput[]
+    NOT?: AdvisorWhereInput | AdvisorWhereInput[]
+    createdAt?: DateTimeFilter<"Advisor"> | Date | string
+    scan?: XOR<ScanScalarRelationFilter, ScanWhereInput>
+    advisorPackage?: AdvisorPackageListRelationFilter
+  }, "id" | "scanId">
+
+  export type AdvisorOrderByWithAggregationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    scanId?: SortOrder
+    _count?: AdvisorCountOrderByAggregateInput
+    _avg?: AdvisorAvgOrderByAggregateInput
+    _max?: AdvisorMaxOrderByAggregateInput
+    _min?: AdvisorMinOrderByAggregateInput
+    _sum?: AdvisorSumOrderByAggregateInput
+  }
+
+  export type AdvisorScalarWhereWithAggregatesInput = {
+    AND?: AdvisorScalarWhereWithAggregatesInput | AdvisorScalarWhereWithAggregatesInput[]
+    OR?: AdvisorScalarWhereWithAggregatesInput[]
+    NOT?: AdvisorScalarWhereWithAggregatesInput | AdvisorScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Advisor"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Advisor"> | Date | string
+    scanId?: IntWithAggregatesFilter<"Advisor"> | number
+  }
+
+  export type AdvisorPackageWhereInput = {
+    AND?: AdvisorPackageWhereInput | AdvisorPackageWhereInput[]
+    OR?: AdvisorPackageWhereInput[]
+    NOT?: AdvisorPackageWhereInput | AdvisorPackageWhereInput[]
+    id?: IntFilter<"AdvisorPackage"> | number
+    createdAt?: DateTimeFilter<"AdvisorPackage"> | Date | string
+    name?: StringFilter<"AdvisorPackage"> | string
+    advisorId?: IntFilter<"AdvisorPackage"> | number
+    advisor?: XOR<AdvisorScalarRelationFilter, AdvisorWhereInput>
+    vulnerabilities?: VulnerabilitiesListRelationFilter
+  }
+
+  export type AdvisorPackageOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    name?: SortOrder
+    advisorId?: SortOrder
+    advisor?: AdvisorOrderByWithRelationInput
+    vulnerabilities?: VulnerabilitiesOrderByRelationAggregateInput
+  }
+
+  export type AdvisorPackageWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: AdvisorPackageWhereInput | AdvisorPackageWhereInput[]
+    OR?: AdvisorPackageWhereInput[]
+    NOT?: AdvisorPackageWhereInput | AdvisorPackageWhereInput[]
+    createdAt?: DateTimeFilter<"AdvisorPackage"> | Date | string
+    name?: StringFilter<"AdvisorPackage"> | string
+    advisorId?: IntFilter<"AdvisorPackage"> | number
+    advisor?: XOR<AdvisorScalarRelationFilter, AdvisorWhereInput>
+    vulnerabilities?: VulnerabilitiesListRelationFilter
+  }, "id">
+
+  export type AdvisorPackageOrderByWithAggregationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    name?: SortOrder
+    advisorId?: SortOrder
+    _count?: AdvisorPackageCountOrderByAggregateInput
+    _avg?: AdvisorPackageAvgOrderByAggregateInput
+    _max?: AdvisorPackageMaxOrderByAggregateInput
+    _min?: AdvisorPackageMinOrderByAggregateInput
+    _sum?: AdvisorPackageSumOrderByAggregateInput
+  }
+
+  export type AdvisorPackageScalarWhereWithAggregatesInput = {
+    AND?: AdvisorPackageScalarWhereWithAggregatesInput | AdvisorPackageScalarWhereWithAggregatesInput[]
+    OR?: AdvisorPackageScalarWhereWithAggregatesInput[]
+    NOT?: AdvisorPackageScalarWhereWithAggregatesInput | AdvisorPackageScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"AdvisorPackage"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"AdvisorPackage"> | Date | string
+    name?: StringWithAggregatesFilter<"AdvisorPackage"> | string
+    advisorId?: IntWithAggregatesFilter<"AdvisorPackage"> | number
+  }
+
+  export type VulnerabilitiesWhereInput = {
+    AND?: VulnerabilitiesWhereInput | VulnerabilitiesWhereInput[]
+    OR?: VulnerabilitiesWhereInput[]
+    NOT?: VulnerabilitiesWhereInput | VulnerabilitiesWhereInput[]
+    id?: IntFilter<"Vulnerabilities"> | number
+    createdAt?: DateTimeFilter<"Vulnerabilities"> | Date | string
+    vulId?: StringFilter<"Vulnerabilities"> | string
+    summary?: StringFilter<"Vulnerabilities"> | string
+    description?: StringFilter<"Vulnerabilities"> | string
+    advisorPackageId?: IntFilter<"Vulnerabilities"> | number
+    advisorPackage?: XOR<AdvisorPackageScalarRelationFilter, AdvisorPackageWhereInput>
+    references?: ReferencesListRelationFilter
+  }
+
+  export type VulnerabilitiesOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    vulId?: SortOrder
+    summary?: SortOrder
+    description?: SortOrder
+    advisorPackageId?: SortOrder
+    advisorPackage?: AdvisorPackageOrderByWithRelationInput
+    references?: ReferencesOrderByRelationAggregateInput
+  }
+
+  export type VulnerabilitiesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: VulnerabilitiesWhereInput | VulnerabilitiesWhereInput[]
+    OR?: VulnerabilitiesWhereInput[]
+    NOT?: VulnerabilitiesWhereInput | VulnerabilitiesWhereInput[]
+    createdAt?: DateTimeFilter<"Vulnerabilities"> | Date | string
+    vulId?: StringFilter<"Vulnerabilities"> | string
+    summary?: StringFilter<"Vulnerabilities"> | string
+    description?: StringFilter<"Vulnerabilities"> | string
+    advisorPackageId?: IntFilter<"Vulnerabilities"> | number
+    advisorPackage?: XOR<AdvisorPackageScalarRelationFilter, AdvisorPackageWhereInput>
+    references?: ReferencesListRelationFilter
+  }, "id">
+
+  export type VulnerabilitiesOrderByWithAggregationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    vulId?: SortOrder
+    summary?: SortOrder
+    description?: SortOrder
+    advisorPackageId?: SortOrder
+    _count?: VulnerabilitiesCountOrderByAggregateInput
+    _avg?: VulnerabilitiesAvgOrderByAggregateInput
+    _max?: VulnerabilitiesMaxOrderByAggregateInput
+    _min?: VulnerabilitiesMinOrderByAggregateInput
+    _sum?: VulnerabilitiesSumOrderByAggregateInput
+  }
+
+  export type VulnerabilitiesScalarWhereWithAggregatesInput = {
+    AND?: VulnerabilitiesScalarWhereWithAggregatesInput | VulnerabilitiesScalarWhereWithAggregatesInput[]
+    OR?: VulnerabilitiesScalarWhereWithAggregatesInput[]
+    NOT?: VulnerabilitiesScalarWhereWithAggregatesInput | VulnerabilitiesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Vulnerabilities"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Vulnerabilities"> | Date | string
+    vulId?: StringWithAggregatesFilter<"Vulnerabilities"> | string
+    summary?: StringWithAggregatesFilter<"Vulnerabilities"> | string
+    description?: StringWithAggregatesFilter<"Vulnerabilities"> | string
+    advisorPackageId?: IntWithAggregatesFilter<"Vulnerabilities"> | number
+  }
+
+  export type ReferencesWhereInput = {
+    AND?: ReferencesWhereInput | ReferencesWhereInput[]
+    OR?: ReferencesWhereInput[]
+    NOT?: ReferencesWhereInput | ReferencesWhereInput[]
+    id?: IntFilter<"References"> | number
+    createdAt?: DateTimeFilter<"References"> | Date | string
+    url?: StringFilter<"References"> | string
+    scoringSystem?: StringFilter<"References"> | string
+    severity?: StringFilter<"References"> | string
+    score?: FloatFilter<"References"> | number
+    vector?: StringFilter<"References"> | string
+    vulnerabilitiesId?: IntFilter<"References"> | number
+    vulnerabilities?: XOR<VulnerabilitiesScalarRelationFilter, VulnerabilitiesWhereInput>
+  }
+
+  export type ReferencesOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    url?: SortOrder
+    scoringSystem?: SortOrder
+    severity?: SortOrder
+    score?: SortOrder
+    vector?: SortOrder
+    vulnerabilitiesId?: SortOrder
+    vulnerabilities?: VulnerabilitiesOrderByWithRelationInput
+  }
+
+  export type ReferencesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ReferencesWhereInput | ReferencesWhereInput[]
+    OR?: ReferencesWhereInput[]
+    NOT?: ReferencesWhereInput | ReferencesWhereInput[]
+    createdAt?: DateTimeFilter<"References"> | Date | string
+    url?: StringFilter<"References"> | string
+    scoringSystem?: StringFilter<"References"> | string
+    severity?: StringFilter<"References"> | string
+    score?: FloatFilter<"References"> | number
+    vector?: StringFilter<"References"> | string
+    vulnerabilitiesId?: IntFilter<"References"> | number
+    vulnerabilities?: XOR<VulnerabilitiesScalarRelationFilter, VulnerabilitiesWhereInput>
+  }, "id">
+
+  export type ReferencesOrderByWithAggregationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    url?: SortOrder
+    scoringSystem?: SortOrder
+    severity?: SortOrder
+    score?: SortOrder
+    vector?: SortOrder
+    vulnerabilitiesId?: SortOrder
+    _count?: ReferencesCountOrderByAggregateInput
+    _avg?: ReferencesAvgOrderByAggregateInput
+    _max?: ReferencesMaxOrderByAggregateInput
+    _min?: ReferencesMinOrderByAggregateInput
+    _sum?: ReferencesSumOrderByAggregateInput
+  }
+
+  export type ReferencesScalarWhereWithAggregatesInput = {
+    AND?: ReferencesScalarWhereWithAggregatesInput | ReferencesScalarWhereWithAggregatesInput[]
+    OR?: ReferencesScalarWhereWithAggregatesInput[]
+    NOT?: ReferencesScalarWhereWithAggregatesInput | ReferencesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"References"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"References"> | Date | string
+    url?: StringWithAggregatesFilter<"References"> | string
+    scoringSystem?: StringWithAggregatesFilter<"References"> | string
+    severity?: StringWithAggregatesFilter<"References"> | string
+    score?: FloatWithAggregatesFilter<"References"> | number
+    vector?: StringWithAggregatesFilter<"References"> | string
+    vulnerabilitiesId?: IntWithAggregatesFilter<"References"> | number
+  }
+
   export type UserCreateInput = {
     userId: string
     userName?: string | null
@@ -18180,6 +22887,7 @@ export namespace Prisma {
     project: ProjectCreateNestedOneWithoutScansInput
     analyzer?: AnalyzerCreateNestedOneWithoutScanInput
     scanner?: ScannerCreateNestedOneWithoutScanInput
+    advisor?: AdvisorCreateNestedOneWithoutScanInput
   }
 
   export type ScanUncheckedCreateInput = {
@@ -18189,6 +22897,7 @@ export namespace Prisma {
     projectId: string
     analyzer?: AnalyzerUncheckedCreateNestedOneWithoutScanInput
     scanner?: ScannerUncheckedCreateNestedOneWithoutScanInput
+    advisor?: AdvisorUncheckedCreateNestedOneWithoutScanInput
   }
 
   export type ScanUpdateInput = {
@@ -18197,6 +22906,7 @@ export namespace Prisma {
     project?: ProjectUpdateOneRequiredWithoutScansNestedInput
     analyzer?: AnalyzerUpdateOneWithoutScanNestedInput
     scanner?: ScannerUpdateOneWithoutScanNestedInput
+    advisor?: AdvisorUpdateOneWithoutScanNestedInput
   }
 
   export type ScanUncheckedUpdateInput = {
@@ -18206,6 +22916,7 @@ export namespace Prisma {
     projectId?: StringFieldUpdateOperationsInput | string
     analyzer?: AnalyzerUncheckedUpdateOneWithoutScanNestedInput
     scanner?: ScannerUncheckedUpdateOneWithoutScanNestedInput
+    advisor?: AdvisorUncheckedUpdateOneWithoutScanNestedInput
   }
 
   export type ScanCreateManyInput = {
@@ -18843,6 +23554,229 @@ export namespace Prisma {
     scannerId?: IntFieldUpdateOperationsInput | number
   }
 
+  export type AdvisorCreateInput = {
+    createdAt?: Date | string
+    scan: ScanCreateNestedOneWithoutAdvisorInput
+    advisorPackage?: AdvisorPackageCreateNestedManyWithoutAdvisorInput
+  }
+
+  export type AdvisorUncheckedCreateInput = {
+    id?: number
+    createdAt?: Date | string
+    scanId: number
+    advisorPackage?: AdvisorPackageUncheckedCreateNestedManyWithoutAdvisorInput
+  }
+
+  export type AdvisorUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scan?: ScanUpdateOneRequiredWithoutAdvisorNestedInput
+    advisorPackage?: AdvisorPackageUpdateManyWithoutAdvisorNestedInput
+  }
+
+  export type AdvisorUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scanId?: IntFieldUpdateOperationsInput | number
+    advisorPackage?: AdvisorPackageUncheckedUpdateManyWithoutAdvisorNestedInput
+  }
+
+  export type AdvisorCreateManyInput = {
+    createdAt?: Date | string
+    scanId: number
+  }
+
+  export type AdvisorUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdvisorUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scanId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AdvisorPackageCreateInput = {
+    createdAt?: Date | string
+    name: string
+    advisor: AdvisorCreateNestedOneWithoutAdvisorPackageInput
+    vulnerabilities?: VulnerabilitiesCreateNestedManyWithoutAdvisorPackageInput
+  }
+
+  export type AdvisorPackageUncheckedCreateInput = {
+    id?: number
+    createdAt?: Date | string
+    name: string
+    advisorId: number
+    vulnerabilities?: VulnerabilitiesUncheckedCreateNestedManyWithoutAdvisorPackageInput
+  }
+
+  export type AdvisorPackageUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    advisor?: AdvisorUpdateOneRequiredWithoutAdvisorPackageNestedInput
+    vulnerabilities?: VulnerabilitiesUpdateManyWithoutAdvisorPackageNestedInput
+  }
+
+  export type AdvisorPackageUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    advisorId?: IntFieldUpdateOperationsInput | number
+    vulnerabilities?: VulnerabilitiesUncheckedUpdateManyWithoutAdvisorPackageNestedInput
+  }
+
+  export type AdvisorPackageCreateManyInput = {
+    createdAt?: Date | string
+    name: string
+    advisorId: number
+  }
+
+  export type AdvisorPackageUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type AdvisorPackageUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    advisorId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type VulnerabilitiesCreateInput = {
+    createdAt?: Date | string
+    vulId: string
+    summary: string
+    description: string
+    advisorPackage: AdvisorPackageCreateNestedOneWithoutVulnerabilitiesInput
+    references?: ReferencesCreateNestedManyWithoutVulnerabilitiesInput
+  }
+
+  export type VulnerabilitiesUncheckedCreateInput = {
+    id?: number
+    createdAt?: Date | string
+    vulId: string
+    summary: string
+    description: string
+    advisorPackageId: number
+    references?: ReferencesUncheckedCreateNestedManyWithoutVulnerabilitiesInput
+  }
+
+  export type VulnerabilitiesUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    vulId?: StringFieldUpdateOperationsInput | string
+    summary?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    advisorPackage?: AdvisorPackageUpdateOneRequiredWithoutVulnerabilitiesNestedInput
+    references?: ReferencesUpdateManyWithoutVulnerabilitiesNestedInput
+  }
+
+  export type VulnerabilitiesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    vulId?: StringFieldUpdateOperationsInput | string
+    summary?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    advisorPackageId?: IntFieldUpdateOperationsInput | number
+    references?: ReferencesUncheckedUpdateManyWithoutVulnerabilitiesNestedInput
+  }
+
+  export type VulnerabilitiesCreateManyInput = {
+    createdAt?: Date | string
+    vulId: string
+    summary: string
+    description: string
+    advisorPackageId: number
+  }
+
+  export type VulnerabilitiesUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    vulId?: StringFieldUpdateOperationsInput | string
+    summary?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VulnerabilitiesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    vulId?: StringFieldUpdateOperationsInput | string
+    summary?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    advisorPackageId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ReferencesCreateInput = {
+    createdAt?: Date | string
+    url: string
+    scoringSystem: string
+    severity: string
+    score: number
+    vector: string
+    vulnerabilities: VulnerabilitiesCreateNestedOneWithoutReferencesInput
+  }
+
+  export type ReferencesUncheckedCreateInput = {
+    id?: number
+    createdAt?: Date | string
+    url: string
+    scoringSystem: string
+    severity: string
+    score: number
+    vector: string
+    vulnerabilitiesId: number
+  }
+
+  export type ReferencesUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    url?: StringFieldUpdateOperationsInput | string
+    scoringSystem?: StringFieldUpdateOperationsInput | string
+    severity?: StringFieldUpdateOperationsInput | string
+    score?: FloatFieldUpdateOperationsInput | number
+    vector?: StringFieldUpdateOperationsInput | string
+    vulnerabilities?: VulnerabilitiesUpdateOneRequiredWithoutReferencesNestedInput
+  }
+
+  export type ReferencesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    url?: StringFieldUpdateOperationsInput | string
+    scoringSystem?: StringFieldUpdateOperationsInput | string
+    severity?: StringFieldUpdateOperationsInput | string
+    score?: FloatFieldUpdateOperationsInput | number
+    vector?: StringFieldUpdateOperationsInput | string
+    vulnerabilitiesId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ReferencesCreateManyInput = {
+    createdAt?: Date | string
+    url: string
+    scoringSystem: string
+    severity: string
+    score: number
+    vector: string
+    vulnerabilitiesId: number
+  }
+
+  export type ReferencesUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    url?: StringFieldUpdateOperationsInput | string
+    scoringSystem?: StringFieldUpdateOperationsInput | string
+    severity?: StringFieldUpdateOperationsInput | string
+    score?: FloatFieldUpdateOperationsInput | number
+    vector?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ReferencesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    url?: StringFieldUpdateOperationsInput | string
+    scoringSystem?: StringFieldUpdateOperationsInput | string
+    severity?: StringFieldUpdateOperationsInput | string
+    score?: FloatFieldUpdateOperationsInput | number
+    vector?: StringFieldUpdateOperationsInput | string
+    vulnerabilitiesId?: IntFieldUpdateOperationsInput | number
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -19059,6 +23993,11 @@ export namespace Prisma {
   export type ScannerNullableScalarRelationFilter = {
     is?: ScannerWhereInput | null
     isNot?: ScannerWhereInput | null
+  }
+
+  export type AdvisorNullableScalarRelationFilter = {
+    is?: AdvisorWhereInput | null
+    isNot?: AdvisorWhereInput | null
   }
 
   export type ScanCountOrderByAggregateInput = {
@@ -19656,6 +24595,192 @@ export namespace Prisma {
     scannerId?: SortOrder
   }
 
+  export type AdvisorPackageListRelationFilter = {
+    every?: AdvisorPackageWhereInput
+    some?: AdvisorPackageWhereInput
+    none?: AdvisorPackageWhereInput
+  }
+
+  export type AdvisorPackageOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AdvisorCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    scanId?: SortOrder
+  }
+
+  export type AdvisorAvgOrderByAggregateInput = {
+    id?: SortOrder
+    scanId?: SortOrder
+  }
+
+  export type AdvisorMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    scanId?: SortOrder
+  }
+
+  export type AdvisorMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    scanId?: SortOrder
+  }
+
+  export type AdvisorSumOrderByAggregateInput = {
+    id?: SortOrder
+    scanId?: SortOrder
+  }
+
+  export type AdvisorScalarRelationFilter = {
+    is?: AdvisorWhereInput
+    isNot?: AdvisorWhereInput
+  }
+
+  export type VulnerabilitiesListRelationFilter = {
+    every?: VulnerabilitiesWhereInput
+    some?: VulnerabilitiesWhereInput
+    none?: VulnerabilitiesWhereInput
+  }
+
+  export type VulnerabilitiesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AdvisorPackageCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    name?: SortOrder
+    advisorId?: SortOrder
+  }
+
+  export type AdvisorPackageAvgOrderByAggregateInput = {
+    id?: SortOrder
+    advisorId?: SortOrder
+  }
+
+  export type AdvisorPackageMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    name?: SortOrder
+    advisorId?: SortOrder
+  }
+
+  export type AdvisorPackageMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    name?: SortOrder
+    advisorId?: SortOrder
+  }
+
+  export type AdvisorPackageSumOrderByAggregateInput = {
+    id?: SortOrder
+    advisorId?: SortOrder
+  }
+
+  export type AdvisorPackageScalarRelationFilter = {
+    is?: AdvisorPackageWhereInput
+    isNot?: AdvisorPackageWhereInput
+  }
+
+  export type ReferencesListRelationFilter = {
+    every?: ReferencesWhereInput
+    some?: ReferencesWhereInput
+    none?: ReferencesWhereInput
+  }
+
+  export type ReferencesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type VulnerabilitiesCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    vulId?: SortOrder
+    summary?: SortOrder
+    description?: SortOrder
+    advisorPackageId?: SortOrder
+  }
+
+  export type VulnerabilitiesAvgOrderByAggregateInput = {
+    id?: SortOrder
+    advisorPackageId?: SortOrder
+  }
+
+  export type VulnerabilitiesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    vulId?: SortOrder
+    summary?: SortOrder
+    description?: SortOrder
+    advisorPackageId?: SortOrder
+  }
+
+  export type VulnerabilitiesMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    vulId?: SortOrder
+    summary?: SortOrder
+    description?: SortOrder
+    advisorPackageId?: SortOrder
+  }
+
+  export type VulnerabilitiesSumOrderByAggregateInput = {
+    id?: SortOrder
+    advisorPackageId?: SortOrder
+  }
+
+  export type VulnerabilitiesScalarRelationFilter = {
+    is?: VulnerabilitiesWhereInput
+    isNot?: VulnerabilitiesWhereInput
+  }
+
+  export type ReferencesCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    url?: SortOrder
+    scoringSystem?: SortOrder
+    severity?: SortOrder
+    score?: SortOrder
+    vector?: SortOrder
+    vulnerabilitiesId?: SortOrder
+  }
+
+  export type ReferencesAvgOrderByAggregateInput = {
+    id?: SortOrder
+    score?: SortOrder
+    vulnerabilitiesId?: SortOrder
+  }
+
+  export type ReferencesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    url?: SortOrder
+    scoringSystem?: SortOrder
+    severity?: SortOrder
+    score?: SortOrder
+    vector?: SortOrder
+    vulnerabilitiesId?: SortOrder
+  }
+
+  export type ReferencesMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    url?: SortOrder
+    scoringSystem?: SortOrder
+    severity?: SortOrder
+    score?: SortOrder
+    vector?: SortOrder
+    vulnerabilitiesId?: SortOrder
+  }
+
+  export type ReferencesSumOrderByAggregateInput = {
+    id?: SortOrder
+    score?: SortOrder
+    vulnerabilitiesId?: SortOrder
+  }
+
   export type ProjectCreateNestedManyWithoutUserInput = {
     create?: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput> | ProjectCreateWithoutUserInput[] | ProjectUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ProjectCreateOrConnectWithoutUserInput | ProjectCreateOrConnectWithoutUserInput[]
@@ -19788,6 +24913,12 @@ export namespace Prisma {
     connect?: ScannerWhereUniqueInput
   }
 
+  export type AdvisorCreateNestedOneWithoutScanInput = {
+    create?: XOR<AdvisorCreateWithoutScanInput, AdvisorUncheckedCreateWithoutScanInput>
+    connectOrCreate?: AdvisorCreateOrConnectWithoutScanInput
+    connect?: AdvisorWhereUniqueInput
+  }
+
   export type AnalyzerUncheckedCreateNestedOneWithoutScanInput = {
     create?: XOR<AnalyzerCreateWithoutScanInput, AnalyzerUncheckedCreateWithoutScanInput>
     connectOrCreate?: AnalyzerCreateOrConnectWithoutScanInput
@@ -19798,6 +24929,12 @@ export namespace Prisma {
     create?: XOR<ScannerCreateWithoutScanInput, ScannerUncheckedCreateWithoutScanInput>
     connectOrCreate?: ScannerCreateOrConnectWithoutScanInput
     connect?: ScannerWhereUniqueInput
+  }
+
+  export type AdvisorUncheckedCreateNestedOneWithoutScanInput = {
+    create?: XOR<AdvisorCreateWithoutScanInput, AdvisorUncheckedCreateWithoutScanInput>
+    connectOrCreate?: AdvisorCreateOrConnectWithoutScanInput
+    connect?: AdvisorWhereUniqueInput
   }
 
   export type ProjectUpdateOneRequiredWithoutScansNestedInput = {
@@ -19828,6 +24965,16 @@ export namespace Prisma {
     update?: XOR<XOR<ScannerUpdateToOneWithWhereWithoutScanInput, ScannerUpdateWithoutScanInput>, ScannerUncheckedUpdateWithoutScanInput>
   }
 
+  export type AdvisorUpdateOneWithoutScanNestedInput = {
+    create?: XOR<AdvisorCreateWithoutScanInput, AdvisorUncheckedCreateWithoutScanInput>
+    connectOrCreate?: AdvisorCreateOrConnectWithoutScanInput
+    upsert?: AdvisorUpsertWithoutScanInput
+    disconnect?: AdvisorWhereInput | boolean
+    delete?: AdvisorWhereInput | boolean
+    connect?: AdvisorWhereUniqueInput
+    update?: XOR<XOR<AdvisorUpdateToOneWithWhereWithoutScanInput, AdvisorUpdateWithoutScanInput>, AdvisorUncheckedUpdateWithoutScanInput>
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -19854,6 +25001,16 @@ export namespace Prisma {
     delete?: ScannerWhereInput | boolean
     connect?: ScannerWhereUniqueInput
     update?: XOR<XOR<ScannerUpdateToOneWithWhereWithoutScanInput, ScannerUpdateWithoutScanInput>, ScannerUncheckedUpdateWithoutScanInput>
+  }
+
+  export type AdvisorUncheckedUpdateOneWithoutScanNestedInput = {
+    create?: XOR<AdvisorCreateWithoutScanInput, AdvisorUncheckedCreateWithoutScanInput>
+    connectOrCreate?: AdvisorCreateOrConnectWithoutScanInput
+    upsert?: AdvisorUpsertWithoutScanInput
+    disconnect?: AdvisorWhereInput | boolean
+    delete?: AdvisorWhereInput | boolean
+    connect?: AdvisorWhereUniqueInput
+    update?: XOR<XOR<AdvisorUpdateToOneWithWhereWithoutScanInput, AdvisorUpdateWithoutScanInput>, AdvisorUncheckedUpdateWithoutScanInput>
   }
 
   export type ScanCreateNestedOneWithoutAnalyzerInput = {
@@ -20452,6 +25609,188 @@ export namespace Prisma {
     update?: XOR<XOR<ScannerUpdateToOneWithWhereWithoutCopyrightsInput, ScannerUpdateWithoutCopyrightsInput>, ScannerUncheckedUpdateWithoutCopyrightsInput>
   }
 
+  export type ScanCreateNestedOneWithoutAdvisorInput = {
+    create?: XOR<ScanCreateWithoutAdvisorInput, ScanUncheckedCreateWithoutAdvisorInput>
+    connectOrCreate?: ScanCreateOrConnectWithoutAdvisorInput
+    connect?: ScanWhereUniqueInput
+  }
+
+  export type AdvisorPackageCreateNestedManyWithoutAdvisorInput = {
+    create?: XOR<AdvisorPackageCreateWithoutAdvisorInput, AdvisorPackageUncheckedCreateWithoutAdvisorInput> | AdvisorPackageCreateWithoutAdvisorInput[] | AdvisorPackageUncheckedCreateWithoutAdvisorInput[]
+    connectOrCreate?: AdvisorPackageCreateOrConnectWithoutAdvisorInput | AdvisorPackageCreateOrConnectWithoutAdvisorInput[]
+    createMany?: AdvisorPackageCreateManyAdvisorInputEnvelope
+    connect?: AdvisorPackageWhereUniqueInput | AdvisorPackageWhereUniqueInput[]
+  }
+
+  export type AdvisorPackageUncheckedCreateNestedManyWithoutAdvisorInput = {
+    create?: XOR<AdvisorPackageCreateWithoutAdvisorInput, AdvisorPackageUncheckedCreateWithoutAdvisorInput> | AdvisorPackageCreateWithoutAdvisorInput[] | AdvisorPackageUncheckedCreateWithoutAdvisorInput[]
+    connectOrCreate?: AdvisorPackageCreateOrConnectWithoutAdvisorInput | AdvisorPackageCreateOrConnectWithoutAdvisorInput[]
+    createMany?: AdvisorPackageCreateManyAdvisorInputEnvelope
+    connect?: AdvisorPackageWhereUniqueInput | AdvisorPackageWhereUniqueInput[]
+  }
+
+  export type ScanUpdateOneRequiredWithoutAdvisorNestedInput = {
+    create?: XOR<ScanCreateWithoutAdvisorInput, ScanUncheckedCreateWithoutAdvisorInput>
+    connectOrCreate?: ScanCreateOrConnectWithoutAdvisorInput
+    upsert?: ScanUpsertWithoutAdvisorInput
+    connect?: ScanWhereUniqueInput
+    update?: XOR<XOR<ScanUpdateToOneWithWhereWithoutAdvisorInput, ScanUpdateWithoutAdvisorInput>, ScanUncheckedUpdateWithoutAdvisorInput>
+  }
+
+  export type AdvisorPackageUpdateManyWithoutAdvisorNestedInput = {
+    create?: XOR<AdvisorPackageCreateWithoutAdvisorInput, AdvisorPackageUncheckedCreateWithoutAdvisorInput> | AdvisorPackageCreateWithoutAdvisorInput[] | AdvisorPackageUncheckedCreateWithoutAdvisorInput[]
+    connectOrCreate?: AdvisorPackageCreateOrConnectWithoutAdvisorInput | AdvisorPackageCreateOrConnectWithoutAdvisorInput[]
+    upsert?: AdvisorPackageUpsertWithWhereUniqueWithoutAdvisorInput | AdvisorPackageUpsertWithWhereUniqueWithoutAdvisorInput[]
+    createMany?: AdvisorPackageCreateManyAdvisorInputEnvelope
+    set?: AdvisorPackageWhereUniqueInput | AdvisorPackageWhereUniqueInput[]
+    disconnect?: AdvisorPackageWhereUniqueInput | AdvisorPackageWhereUniqueInput[]
+    delete?: AdvisorPackageWhereUniqueInput | AdvisorPackageWhereUniqueInput[]
+    connect?: AdvisorPackageWhereUniqueInput | AdvisorPackageWhereUniqueInput[]
+    update?: AdvisorPackageUpdateWithWhereUniqueWithoutAdvisorInput | AdvisorPackageUpdateWithWhereUniqueWithoutAdvisorInput[]
+    updateMany?: AdvisorPackageUpdateManyWithWhereWithoutAdvisorInput | AdvisorPackageUpdateManyWithWhereWithoutAdvisorInput[]
+    deleteMany?: AdvisorPackageScalarWhereInput | AdvisorPackageScalarWhereInput[]
+  }
+
+  export type AdvisorPackageUncheckedUpdateManyWithoutAdvisorNestedInput = {
+    create?: XOR<AdvisorPackageCreateWithoutAdvisorInput, AdvisorPackageUncheckedCreateWithoutAdvisorInput> | AdvisorPackageCreateWithoutAdvisorInput[] | AdvisorPackageUncheckedCreateWithoutAdvisorInput[]
+    connectOrCreate?: AdvisorPackageCreateOrConnectWithoutAdvisorInput | AdvisorPackageCreateOrConnectWithoutAdvisorInput[]
+    upsert?: AdvisorPackageUpsertWithWhereUniqueWithoutAdvisorInput | AdvisorPackageUpsertWithWhereUniqueWithoutAdvisorInput[]
+    createMany?: AdvisorPackageCreateManyAdvisorInputEnvelope
+    set?: AdvisorPackageWhereUniqueInput | AdvisorPackageWhereUniqueInput[]
+    disconnect?: AdvisorPackageWhereUniqueInput | AdvisorPackageWhereUniqueInput[]
+    delete?: AdvisorPackageWhereUniqueInput | AdvisorPackageWhereUniqueInput[]
+    connect?: AdvisorPackageWhereUniqueInput | AdvisorPackageWhereUniqueInput[]
+    update?: AdvisorPackageUpdateWithWhereUniqueWithoutAdvisorInput | AdvisorPackageUpdateWithWhereUniqueWithoutAdvisorInput[]
+    updateMany?: AdvisorPackageUpdateManyWithWhereWithoutAdvisorInput | AdvisorPackageUpdateManyWithWhereWithoutAdvisorInput[]
+    deleteMany?: AdvisorPackageScalarWhereInput | AdvisorPackageScalarWhereInput[]
+  }
+
+  export type AdvisorCreateNestedOneWithoutAdvisorPackageInput = {
+    create?: XOR<AdvisorCreateWithoutAdvisorPackageInput, AdvisorUncheckedCreateWithoutAdvisorPackageInput>
+    connectOrCreate?: AdvisorCreateOrConnectWithoutAdvisorPackageInput
+    connect?: AdvisorWhereUniqueInput
+  }
+
+  export type VulnerabilitiesCreateNestedManyWithoutAdvisorPackageInput = {
+    create?: XOR<VulnerabilitiesCreateWithoutAdvisorPackageInput, VulnerabilitiesUncheckedCreateWithoutAdvisorPackageInput> | VulnerabilitiesCreateWithoutAdvisorPackageInput[] | VulnerabilitiesUncheckedCreateWithoutAdvisorPackageInput[]
+    connectOrCreate?: VulnerabilitiesCreateOrConnectWithoutAdvisorPackageInput | VulnerabilitiesCreateOrConnectWithoutAdvisorPackageInput[]
+    createMany?: VulnerabilitiesCreateManyAdvisorPackageInputEnvelope
+    connect?: VulnerabilitiesWhereUniqueInput | VulnerabilitiesWhereUniqueInput[]
+  }
+
+  export type VulnerabilitiesUncheckedCreateNestedManyWithoutAdvisorPackageInput = {
+    create?: XOR<VulnerabilitiesCreateWithoutAdvisorPackageInput, VulnerabilitiesUncheckedCreateWithoutAdvisorPackageInput> | VulnerabilitiesCreateWithoutAdvisorPackageInput[] | VulnerabilitiesUncheckedCreateWithoutAdvisorPackageInput[]
+    connectOrCreate?: VulnerabilitiesCreateOrConnectWithoutAdvisorPackageInput | VulnerabilitiesCreateOrConnectWithoutAdvisorPackageInput[]
+    createMany?: VulnerabilitiesCreateManyAdvisorPackageInputEnvelope
+    connect?: VulnerabilitiesWhereUniqueInput | VulnerabilitiesWhereUniqueInput[]
+  }
+
+  export type AdvisorUpdateOneRequiredWithoutAdvisorPackageNestedInput = {
+    create?: XOR<AdvisorCreateWithoutAdvisorPackageInput, AdvisorUncheckedCreateWithoutAdvisorPackageInput>
+    connectOrCreate?: AdvisorCreateOrConnectWithoutAdvisorPackageInput
+    upsert?: AdvisorUpsertWithoutAdvisorPackageInput
+    connect?: AdvisorWhereUniqueInput
+    update?: XOR<XOR<AdvisorUpdateToOneWithWhereWithoutAdvisorPackageInput, AdvisorUpdateWithoutAdvisorPackageInput>, AdvisorUncheckedUpdateWithoutAdvisorPackageInput>
+  }
+
+  export type VulnerabilitiesUpdateManyWithoutAdvisorPackageNestedInput = {
+    create?: XOR<VulnerabilitiesCreateWithoutAdvisorPackageInput, VulnerabilitiesUncheckedCreateWithoutAdvisorPackageInput> | VulnerabilitiesCreateWithoutAdvisorPackageInput[] | VulnerabilitiesUncheckedCreateWithoutAdvisorPackageInput[]
+    connectOrCreate?: VulnerabilitiesCreateOrConnectWithoutAdvisorPackageInput | VulnerabilitiesCreateOrConnectWithoutAdvisorPackageInput[]
+    upsert?: VulnerabilitiesUpsertWithWhereUniqueWithoutAdvisorPackageInput | VulnerabilitiesUpsertWithWhereUniqueWithoutAdvisorPackageInput[]
+    createMany?: VulnerabilitiesCreateManyAdvisorPackageInputEnvelope
+    set?: VulnerabilitiesWhereUniqueInput | VulnerabilitiesWhereUniqueInput[]
+    disconnect?: VulnerabilitiesWhereUniqueInput | VulnerabilitiesWhereUniqueInput[]
+    delete?: VulnerabilitiesWhereUniqueInput | VulnerabilitiesWhereUniqueInput[]
+    connect?: VulnerabilitiesWhereUniqueInput | VulnerabilitiesWhereUniqueInput[]
+    update?: VulnerabilitiesUpdateWithWhereUniqueWithoutAdvisorPackageInput | VulnerabilitiesUpdateWithWhereUniqueWithoutAdvisorPackageInput[]
+    updateMany?: VulnerabilitiesUpdateManyWithWhereWithoutAdvisorPackageInput | VulnerabilitiesUpdateManyWithWhereWithoutAdvisorPackageInput[]
+    deleteMany?: VulnerabilitiesScalarWhereInput | VulnerabilitiesScalarWhereInput[]
+  }
+
+  export type VulnerabilitiesUncheckedUpdateManyWithoutAdvisorPackageNestedInput = {
+    create?: XOR<VulnerabilitiesCreateWithoutAdvisorPackageInput, VulnerabilitiesUncheckedCreateWithoutAdvisorPackageInput> | VulnerabilitiesCreateWithoutAdvisorPackageInput[] | VulnerabilitiesUncheckedCreateWithoutAdvisorPackageInput[]
+    connectOrCreate?: VulnerabilitiesCreateOrConnectWithoutAdvisorPackageInput | VulnerabilitiesCreateOrConnectWithoutAdvisorPackageInput[]
+    upsert?: VulnerabilitiesUpsertWithWhereUniqueWithoutAdvisorPackageInput | VulnerabilitiesUpsertWithWhereUniqueWithoutAdvisorPackageInput[]
+    createMany?: VulnerabilitiesCreateManyAdvisorPackageInputEnvelope
+    set?: VulnerabilitiesWhereUniqueInput | VulnerabilitiesWhereUniqueInput[]
+    disconnect?: VulnerabilitiesWhereUniqueInput | VulnerabilitiesWhereUniqueInput[]
+    delete?: VulnerabilitiesWhereUniqueInput | VulnerabilitiesWhereUniqueInput[]
+    connect?: VulnerabilitiesWhereUniqueInput | VulnerabilitiesWhereUniqueInput[]
+    update?: VulnerabilitiesUpdateWithWhereUniqueWithoutAdvisorPackageInput | VulnerabilitiesUpdateWithWhereUniqueWithoutAdvisorPackageInput[]
+    updateMany?: VulnerabilitiesUpdateManyWithWhereWithoutAdvisorPackageInput | VulnerabilitiesUpdateManyWithWhereWithoutAdvisorPackageInput[]
+    deleteMany?: VulnerabilitiesScalarWhereInput | VulnerabilitiesScalarWhereInput[]
+  }
+
+  export type AdvisorPackageCreateNestedOneWithoutVulnerabilitiesInput = {
+    create?: XOR<AdvisorPackageCreateWithoutVulnerabilitiesInput, AdvisorPackageUncheckedCreateWithoutVulnerabilitiesInput>
+    connectOrCreate?: AdvisorPackageCreateOrConnectWithoutVulnerabilitiesInput
+    connect?: AdvisorPackageWhereUniqueInput
+  }
+
+  export type ReferencesCreateNestedManyWithoutVulnerabilitiesInput = {
+    create?: XOR<ReferencesCreateWithoutVulnerabilitiesInput, ReferencesUncheckedCreateWithoutVulnerabilitiesInput> | ReferencesCreateWithoutVulnerabilitiesInput[] | ReferencesUncheckedCreateWithoutVulnerabilitiesInput[]
+    connectOrCreate?: ReferencesCreateOrConnectWithoutVulnerabilitiesInput | ReferencesCreateOrConnectWithoutVulnerabilitiesInput[]
+    createMany?: ReferencesCreateManyVulnerabilitiesInputEnvelope
+    connect?: ReferencesWhereUniqueInput | ReferencesWhereUniqueInput[]
+  }
+
+  export type ReferencesUncheckedCreateNestedManyWithoutVulnerabilitiesInput = {
+    create?: XOR<ReferencesCreateWithoutVulnerabilitiesInput, ReferencesUncheckedCreateWithoutVulnerabilitiesInput> | ReferencesCreateWithoutVulnerabilitiesInput[] | ReferencesUncheckedCreateWithoutVulnerabilitiesInput[]
+    connectOrCreate?: ReferencesCreateOrConnectWithoutVulnerabilitiesInput | ReferencesCreateOrConnectWithoutVulnerabilitiesInput[]
+    createMany?: ReferencesCreateManyVulnerabilitiesInputEnvelope
+    connect?: ReferencesWhereUniqueInput | ReferencesWhereUniqueInput[]
+  }
+
+  export type AdvisorPackageUpdateOneRequiredWithoutVulnerabilitiesNestedInput = {
+    create?: XOR<AdvisorPackageCreateWithoutVulnerabilitiesInput, AdvisorPackageUncheckedCreateWithoutVulnerabilitiesInput>
+    connectOrCreate?: AdvisorPackageCreateOrConnectWithoutVulnerabilitiesInput
+    upsert?: AdvisorPackageUpsertWithoutVulnerabilitiesInput
+    connect?: AdvisorPackageWhereUniqueInput
+    update?: XOR<XOR<AdvisorPackageUpdateToOneWithWhereWithoutVulnerabilitiesInput, AdvisorPackageUpdateWithoutVulnerabilitiesInput>, AdvisorPackageUncheckedUpdateWithoutVulnerabilitiesInput>
+  }
+
+  export type ReferencesUpdateManyWithoutVulnerabilitiesNestedInput = {
+    create?: XOR<ReferencesCreateWithoutVulnerabilitiesInput, ReferencesUncheckedCreateWithoutVulnerabilitiesInput> | ReferencesCreateWithoutVulnerabilitiesInput[] | ReferencesUncheckedCreateWithoutVulnerabilitiesInput[]
+    connectOrCreate?: ReferencesCreateOrConnectWithoutVulnerabilitiesInput | ReferencesCreateOrConnectWithoutVulnerabilitiesInput[]
+    upsert?: ReferencesUpsertWithWhereUniqueWithoutVulnerabilitiesInput | ReferencesUpsertWithWhereUniqueWithoutVulnerabilitiesInput[]
+    createMany?: ReferencesCreateManyVulnerabilitiesInputEnvelope
+    set?: ReferencesWhereUniqueInput | ReferencesWhereUniqueInput[]
+    disconnect?: ReferencesWhereUniqueInput | ReferencesWhereUniqueInput[]
+    delete?: ReferencesWhereUniqueInput | ReferencesWhereUniqueInput[]
+    connect?: ReferencesWhereUniqueInput | ReferencesWhereUniqueInput[]
+    update?: ReferencesUpdateWithWhereUniqueWithoutVulnerabilitiesInput | ReferencesUpdateWithWhereUniqueWithoutVulnerabilitiesInput[]
+    updateMany?: ReferencesUpdateManyWithWhereWithoutVulnerabilitiesInput | ReferencesUpdateManyWithWhereWithoutVulnerabilitiesInput[]
+    deleteMany?: ReferencesScalarWhereInput | ReferencesScalarWhereInput[]
+  }
+
+  export type ReferencesUncheckedUpdateManyWithoutVulnerabilitiesNestedInput = {
+    create?: XOR<ReferencesCreateWithoutVulnerabilitiesInput, ReferencesUncheckedCreateWithoutVulnerabilitiesInput> | ReferencesCreateWithoutVulnerabilitiesInput[] | ReferencesUncheckedCreateWithoutVulnerabilitiesInput[]
+    connectOrCreate?: ReferencesCreateOrConnectWithoutVulnerabilitiesInput | ReferencesCreateOrConnectWithoutVulnerabilitiesInput[]
+    upsert?: ReferencesUpsertWithWhereUniqueWithoutVulnerabilitiesInput | ReferencesUpsertWithWhereUniqueWithoutVulnerabilitiesInput[]
+    createMany?: ReferencesCreateManyVulnerabilitiesInputEnvelope
+    set?: ReferencesWhereUniqueInput | ReferencesWhereUniqueInput[]
+    disconnect?: ReferencesWhereUniqueInput | ReferencesWhereUniqueInput[]
+    delete?: ReferencesWhereUniqueInput | ReferencesWhereUniqueInput[]
+    connect?: ReferencesWhereUniqueInput | ReferencesWhereUniqueInput[]
+    update?: ReferencesUpdateWithWhereUniqueWithoutVulnerabilitiesInput | ReferencesUpdateWithWhereUniqueWithoutVulnerabilitiesInput[]
+    updateMany?: ReferencesUpdateManyWithWhereWithoutVulnerabilitiesInput | ReferencesUpdateManyWithWhereWithoutVulnerabilitiesInput[]
+    deleteMany?: ReferencesScalarWhereInput | ReferencesScalarWhereInput[]
+  }
+
+  export type VulnerabilitiesCreateNestedOneWithoutReferencesInput = {
+    create?: XOR<VulnerabilitiesCreateWithoutReferencesInput, VulnerabilitiesUncheckedCreateWithoutReferencesInput>
+    connectOrCreate?: VulnerabilitiesCreateOrConnectWithoutReferencesInput
+    connect?: VulnerabilitiesWhereUniqueInput
+  }
+
+  export type VulnerabilitiesUpdateOneRequiredWithoutReferencesNestedInput = {
+    create?: XOR<VulnerabilitiesCreateWithoutReferencesInput, VulnerabilitiesUncheckedCreateWithoutReferencesInput>
+    connectOrCreate?: VulnerabilitiesCreateOrConnectWithoutReferencesInput
+    upsert?: VulnerabilitiesUpsertWithoutReferencesInput
+    connect?: VulnerabilitiesWhereUniqueInput
+    update?: XOR<XOR<VulnerabilitiesUpdateToOneWithWhereWithoutReferencesInput, VulnerabilitiesUpdateWithoutReferencesInput>, VulnerabilitiesUncheckedUpdateWithoutReferencesInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -20704,6 +26043,7 @@ export namespace Prisma {
     gitRunId: string
     analyzer?: AnalyzerCreateNestedOneWithoutScanInput
     scanner?: ScannerCreateNestedOneWithoutScanInput
+    advisor?: AdvisorCreateNestedOneWithoutScanInput
   }
 
   export type ScanUncheckedCreateWithoutProjectInput = {
@@ -20712,6 +26052,7 @@ export namespace Prisma {
     gitRunId: string
     analyzer?: AnalyzerUncheckedCreateNestedOneWithoutScanInput
     scanner?: ScannerUncheckedCreateNestedOneWithoutScanInput
+    advisor?: AdvisorUncheckedCreateNestedOneWithoutScanInput
   }
 
   export type ScanCreateOrConnectWithoutProjectInput = {
@@ -20829,6 +26170,22 @@ export namespace Prisma {
     create: XOR<ScannerCreateWithoutScanInput, ScannerUncheckedCreateWithoutScanInput>
   }
 
+  export type AdvisorCreateWithoutScanInput = {
+    createdAt?: Date | string
+    advisorPackage?: AdvisorPackageCreateNestedManyWithoutAdvisorInput
+  }
+
+  export type AdvisorUncheckedCreateWithoutScanInput = {
+    id?: number
+    createdAt?: Date | string
+    advisorPackage?: AdvisorPackageUncheckedCreateNestedManyWithoutAdvisorInput
+  }
+
+  export type AdvisorCreateOrConnectWithoutScanInput = {
+    where: AdvisorWhereUniqueInput
+    create: XOR<AdvisorCreateWithoutScanInput, AdvisorUncheckedCreateWithoutScanInput>
+  }
+
   export type ProjectUpsertWithoutScansInput = {
     update: XOR<ProjectUpdateWithoutScansInput, ProjectUncheckedUpdateWithoutScansInput>
     create: XOR<ProjectCreateWithoutScansInput, ProjectUncheckedCreateWithoutScansInput>
@@ -20900,11 +26257,34 @@ export namespace Prisma {
     copyrights?: CopyrightsUncheckedUpdateManyWithoutScannerNestedInput
   }
 
+  export type AdvisorUpsertWithoutScanInput = {
+    update: XOR<AdvisorUpdateWithoutScanInput, AdvisorUncheckedUpdateWithoutScanInput>
+    create: XOR<AdvisorCreateWithoutScanInput, AdvisorUncheckedCreateWithoutScanInput>
+    where?: AdvisorWhereInput
+  }
+
+  export type AdvisorUpdateToOneWithWhereWithoutScanInput = {
+    where?: AdvisorWhereInput
+    data: XOR<AdvisorUpdateWithoutScanInput, AdvisorUncheckedUpdateWithoutScanInput>
+  }
+
+  export type AdvisorUpdateWithoutScanInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    advisorPackage?: AdvisorPackageUpdateManyWithoutAdvisorNestedInput
+  }
+
+  export type AdvisorUncheckedUpdateWithoutScanInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    advisorPackage?: AdvisorPackageUncheckedUpdateManyWithoutAdvisorNestedInput
+  }
+
   export type ScanCreateWithoutAnalyzerInput = {
     createdAt?: Date | string
     gitRunId: string
     project: ProjectCreateNestedOneWithoutScansInput
     scanner?: ScannerCreateNestedOneWithoutScanInput
+    advisor?: AdvisorCreateNestedOneWithoutScanInput
   }
 
   export type ScanUncheckedCreateWithoutAnalyzerInput = {
@@ -20913,6 +26293,7 @@ export namespace Prisma {
     gitRunId: string
     projectId: string
     scanner?: ScannerUncheckedCreateNestedOneWithoutScanInput
+    advisor?: AdvisorUncheckedCreateNestedOneWithoutScanInput
   }
 
   export type ScanCreateOrConnectWithoutAnalyzerInput = {
@@ -20976,6 +26357,7 @@ export namespace Prisma {
     gitRunId?: StringFieldUpdateOperationsInput | string
     project?: ProjectUpdateOneRequiredWithoutScansNestedInput
     scanner?: ScannerUpdateOneWithoutScanNestedInput
+    advisor?: AdvisorUpdateOneWithoutScanNestedInput
   }
 
   export type ScanUncheckedUpdateWithoutAnalyzerInput = {
@@ -20984,6 +26366,7 @@ export namespace Prisma {
     gitRunId?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     scanner?: ScannerUncheckedUpdateOneWithoutScanNestedInput
+    advisor?: AdvisorUncheckedUpdateOneWithoutScanNestedInput
   }
 
   export type AnalyzerPackageUpsertWithWhereUniqueWithoutAnalyzerInput = {
@@ -21923,6 +27306,7 @@ export namespace Prisma {
     gitRunId: string
     project: ProjectCreateNestedOneWithoutScansInput
     analyzer?: AnalyzerCreateNestedOneWithoutScanInput
+    advisor?: AdvisorCreateNestedOneWithoutScanInput
   }
 
   export type ScanUncheckedCreateWithoutScannerInput = {
@@ -21931,6 +27315,7 @@ export namespace Prisma {
     gitRunId: string
     projectId: string
     analyzer?: AnalyzerUncheckedCreateNestedOneWithoutScanInput
+    advisor?: AdvisorUncheckedCreateNestedOneWithoutScanInput
   }
 
   export type ScanCreateOrConnectWithoutScannerInput = {
@@ -22008,6 +27393,7 @@ export namespace Prisma {
     gitRunId?: StringFieldUpdateOperationsInput | string
     project?: ProjectUpdateOneRequiredWithoutScansNestedInput
     analyzer?: AnalyzerUpdateOneWithoutScanNestedInput
+    advisor?: AdvisorUpdateOneWithoutScanNestedInput
   }
 
   export type ScanUncheckedUpdateWithoutScannerInput = {
@@ -22016,6 +27402,7 @@ export namespace Prisma {
     gitRunId?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     analyzer?: AnalyzerUncheckedUpdateOneWithoutScanNestedInput
+    advisor?: AdvisorUncheckedUpdateOneWithoutScanNestedInput
   }
 
   export type LicensesUpsertWithWhereUniqueWithoutScannerInput = {
@@ -22161,6 +27548,346 @@ export namespace Prisma {
     licenses?: LicensesUncheckedUpdateManyWithoutScannerNestedInput
   }
 
+  export type ScanCreateWithoutAdvisorInput = {
+    createdAt?: Date | string
+    gitRunId: string
+    project: ProjectCreateNestedOneWithoutScansInput
+    analyzer?: AnalyzerCreateNestedOneWithoutScanInput
+    scanner?: ScannerCreateNestedOneWithoutScanInput
+  }
+
+  export type ScanUncheckedCreateWithoutAdvisorInput = {
+    id?: number
+    createdAt?: Date | string
+    gitRunId: string
+    projectId: string
+    analyzer?: AnalyzerUncheckedCreateNestedOneWithoutScanInput
+    scanner?: ScannerUncheckedCreateNestedOneWithoutScanInput
+  }
+
+  export type ScanCreateOrConnectWithoutAdvisorInput = {
+    where: ScanWhereUniqueInput
+    create: XOR<ScanCreateWithoutAdvisorInput, ScanUncheckedCreateWithoutAdvisorInput>
+  }
+
+  export type AdvisorPackageCreateWithoutAdvisorInput = {
+    createdAt?: Date | string
+    name: string
+    vulnerabilities?: VulnerabilitiesCreateNestedManyWithoutAdvisorPackageInput
+  }
+
+  export type AdvisorPackageUncheckedCreateWithoutAdvisorInput = {
+    id?: number
+    createdAt?: Date | string
+    name: string
+    vulnerabilities?: VulnerabilitiesUncheckedCreateNestedManyWithoutAdvisorPackageInput
+  }
+
+  export type AdvisorPackageCreateOrConnectWithoutAdvisorInput = {
+    where: AdvisorPackageWhereUniqueInput
+    create: XOR<AdvisorPackageCreateWithoutAdvisorInput, AdvisorPackageUncheckedCreateWithoutAdvisorInput>
+  }
+
+  export type AdvisorPackageCreateManyAdvisorInputEnvelope = {
+    data: AdvisorPackageCreateManyAdvisorInput | AdvisorPackageCreateManyAdvisorInput[]
+  }
+
+  export type ScanUpsertWithoutAdvisorInput = {
+    update: XOR<ScanUpdateWithoutAdvisorInput, ScanUncheckedUpdateWithoutAdvisorInput>
+    create: XOR<ScanCreateWithoutAdvisorInput, ScanUncheckedCreateWithoutAdvisorInput>
+    where?: ScanWhereInput
+  }
+
+  export type ScanUpdateToOneWithWhereWithoutAdvisorInput = {
+    where?: ScanWhereInput
+    data: XOR<ScanUpdateWithoutAdvisorInput, ScanUncheckedUpdateWithoutAdvisorInput>
+  }
+
+  export type ScanUpdateWithoutAdvisorInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    gitRunId?: StringFieldUpdateOperationsInput | string
+    project?: ProjectUpdateOneRequiredWithoutScansNestedInput
+    analyzer?: AnalyzerUpdateOneWithoutScanNestedInput
+    scanner?: ScannerUpdateOneWithoutScanNestedInput
+  }
+
+  export type ScanUncheckedUpdateWithoutAdvisorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    gitRunId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    analyzer?: AnalyzerUncheckedUpdateOneWithoutScanNestedInput
+    scanner?: ScannerUncheckedUpdateOneWithoutScanNestedInput
+  }
+
+  export type AdvisorPackageUpsertWithWhereUniqueWithoutAdvisorInput = {
+    where: AdvisorPackageWhereUniqueInput
+    update: XOR<AdvisorPackageUpdateWithoutAdvisorInput, AdvisorPackageUncheckedUpdateWithoutAdvisorInput>
+    create: XOR<AdvisorPackageCreateWithoutAdvisorInput, AdvisorPackageUncheckedCreateWithoutAdvisorInput>
+  }
+
+  export type AdvisorPackageUpdateWithWhereUniqueWithoutAdvisorInput = {
+    where: AdvisorPackageWhereUniqueInput
+    data: XOR<AdvisorPackageUpdateWithoutAdvisorInput, AdvisorPackageUncheckedUpdateWithoutAdvisorInput>
+  }
+
+  export type AdvisorPackageUpdateManyWithWhereWithoutAdvisorInput = {
+    where: AdvisorPackageScalarWhereInput
+    data: XOR<AdvisorPackageUpdateManyMutationInput, AdvisorPackageUncheckedUpdateManyWithoutAdvisorInput>
+  }
+
+  export type AdvisorPackageScalarWhereInput = {
+    AND?: AdvisorPackageScalarWhereInput | AdvisorPackageScalarWhereInput[]
+    OR?: AdvisorPackageScalarWhereInput[]
+    NOT?: AdvisorPackageScalarWhereInput | AdvisorPackageScalarWhereInput[]
+    id?: IntFilter<"AdvisorPackage"> | number
+    createdAt?: DateTimeFilter<"AdvisorPackage"> | Date | string
+    name?: StringFilter<"AdvisorPackage"> | string
+    advisorId?: IntFilter<"AdvisorPackage"> | number
+  }
+
+  export type AdvisorCreateWithoutAdvisorPackageInput = {
+    createdAt?: Date | string
+    scan: ScanCreateNestedOneWithoutAdvisorInput
+  }
+
+  export type AdvisorUncheckedCreateWithoutAdvisorPackageInput = {
+    id?: number
+    createdAt?: Date | string
+    scanId: number
+  }
+
+  export type AdvisorCreateOrConnectWithoutAdvisorPackageInput = {
+    where: AdvisorWhereUniqueInput
+    create: XOR<AdvisorCreateWithoutAdvisorPackageInput, AdvisorUncheckedCreateWithoutAdvisorPackageInput>
+  }
+
+  export type VulnerabilitiesCreateWithoutAdvisorPackageInput = {
+    createdAt?: Date | string
+    vulId: string
+    summary: string
+    description: string
+    references?: ReferencesCreateNestedManyWithoutVulnerabilitiesInput
+  }
+
+  export type VulnerabilitiesUncheckedCreateWithoutAdvisorPackageInput = {
+    id?: number
+    createdAt?: Date | string
+    vulId: string
+    summary: string
+    description: string
+    references?: ReferencesUncheckedCreateNestedManyWithoutVulnerabilitiesInput
+  }
+
+  export type VulnerabilitiesCreateOrConnectWithoutAdvisorPackageInput = {
+    where: VulnerabilitiesWhereUniqueInput
+    create: XOR<VulnerabilitiesCreateWithoutAdvisorPackageInput, VulnerabilitiesUncheckedCreateWithoutAdvisorPackageInput>
+  }
+
+  export type VulnerabilitiesCreateManyAdvisorPackageInputEnvelope = {
+    data: VulnerabilitiesCreateManyAdvisorPackageInput | VulnerabilitiesCreateManyAdvisorPackageInput[]
+  }
+
+  export type AdvisorUpsertWithoutAdvisorPackageInput = {
+    update: XOR<AdvisorUpdateWithoutAdvisorPackageInput, AdvisorUncheckedUpdateWithoutAdvisorPackageInput>
+    create: XOR<AdvisorCreateWithoutAdvisorPackageInput, AdvisorUncheckedCreateWithoutAdvisorPackageInput>
+    where?: AdvisorWhereInput
+  }
+
+  export type AdvisorUpdateToOneWithWhereWithoutAdvisorPackageInput = {
+    where?: AdvisorWhereInput
+    data: XOR<AdvisorUpdateWithoutAdvisorPackageInput, AdvisorUncheckedUpdateWithoutAdvisorPackageInput>
+  }
+
+  export type AdvisorUpdateWithoutAdvisorPackageInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scan?: ScanUpdateOneRequiredWithoutAdvisorNestedInput
+  }
+
+  export type AdvisorUncheckedUpdateWithoutAdvisorPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    scanId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type VulnerabilitiesUpsertWithWhereUniqueWithoutAdvisorPackageInput = {
+    where: VulnerabilitiesWhereUniqueInput
+    update: XOR<VulnerabilitiesUpdateWithoutAdvisorPackageInput, VulnerabilitiesUncheckedUpdateWithoutAdvisorPackageInput>
+    create: XOR<VulnerabilitiesCreateWithoutAdvisorPackageInput, VulnerabilitiesUncheckedCreateWithoutAdvisorPackageInput>
+  }
+
+  export type VulnerabilitiesUpdateWithWhereUniqueWithoutAdvisorPackageInput = {
+    where: VulnerabilitiesWhereUniqueInput
+    data: XOR<VulnerabilitiesUpdateWithoutAdvisorPackageInput, VulnerabilitiesUncheckedUpdateWithoutAdvisorPackageInput>
+  }
+
+  export type VulnerabilitiesUpdateManyWithWhereWithoutAdvisorPackageInput = {
+    where: VulnerabilitiesScalarWhereInput
+    data: XOR<VulnerabilitiesUpdateManyMutationInput, VulnerabilitiesUncheckedUpdateManyWithoutAdvisorPackageInput>
+  }
+
+  export type VulnerabilitiesScalarWhereInput = {
+    AND?: VulnerabilitiesScalarWhereInput | VulnerabilitiesScalarWhereInput[]
+    OR?: VulnerabilitiesScalarWhereInput[]
+    NOT?: VulnerabilitiesScalarWhereInput | VulnerabilitiesScalarWhereInput[]
+    id?: IntFilter<"Vulnerabilities"> | number
+    createdAt?: DateTimeFilter<"Vulnerabilities"> | Date | string
+    vulId?: StringFilter<"Vulnerabilities"> | string
+    summary?: StringFilter<"Vulnerabilities"> | string
+    description?: StringFilter<"Vulnerabilities"> | string
+    advisorPackageId?: IntFilter<"Vulnerabilities"> | number
+  }
+
+  export type AdvisorPackageCreateWithoutVulnerabilitiesInput = {
+    createdAt?: Date | string
+    name: string
+    advisor: AdvisorCreateNestedOneWithoutAdvisorPackageInput
+  }
+
+  export type AdvisorPackageUncheckedCreateWithoutVulnerabilitiesInput = {
+    id?: number
+    createdAt?: Date | string
+    name: string
+    advisorId: number
+  }
+
+  export type AdvisorPackageCreateOrConnectWithoutVulnerabilitiesInput = {
+    where: AdvisorPackageWhereUniqueInput
+    create: XOR<AdvisorPackageCreateWithoutVulnerabilitiesInput, AdvisorPackageUncheckedCreateWithoutVulnerabilitiesInput>
+  }
+
+  export type ReferencesCreateWithoutVulnerabilitiesInput = {
+    createdAt?: Date | string
+    url: string
+    scoringSystem: string
+    severity: string
+    score: number
+    vector: string
+  }
+
+  export type ReferencesUncheckedCreateWithoutVulnerabilitiesInput = {
+    id?: number
+    createdAt?: Date | string
+    url: string
+    scoringSystem: string
+    severity: string
+    score: number
+    vector: string
+  }
+
+  export type ReferencesCreateOrConnectWithoutVulnerabilitiesInput = {
+    where: ReferencesWhereUniqueInput
+    create: XOR<ReferencesCreateWithoutVulnerabilitiesInput, ReferencesUncheckedCreateWithoutVulnerabilitiesInput>
+  }
+
+  export type ReferencesCreateManyVulnerabilitiesInputEnvelope = {
+    data: ReferencesCreateManyVulnerabilitiesInput | ReferencesCreateManyVulnerabilitiesInput[]
+  }
+
+  export type AdvisorPackageUpsertWithoutVulnerabilitiesInput = {
+    update: XOR<AdvisorPackageUpdateWithoutVulnerabilitiesInput, AdvisorPackageUncheckedUpdateWithoutVulnerabilitiesInput>
+    create: XOR<AdvisorPackageCreateWithoutVulnerabilitiesInput, AdvisorPackageUncheckedCreateWithoutVulnerabilitiesInput>
+    where?: AdvisorPackageWhereInput
+  }
+
+  export type AdvisorPackageUpdateToOneWithWhereWithoutVulnerabilitiesInput = {
+    where?: AdvisorPackageWhereInput
+    data: XOR<AdvisorPackageUpdateWithoutVulnerabilitiesInput, AdvisorPackageUncheckedUpdateWithoutVulnerabilitiesInput>
+  }
+
+  export type AdvisorPackageUpdateWithoutVulnerabilitiesInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    advisor?: AdvisorUpdateOneRequiredWithoutAdvisorPackageNestedInput
+  }
+
+  export type AdvisorPackageUncheckedUpdateWithoutVulnerabilitiesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    advisorId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ReferencesUpsertWithWhereUniqueWithoutVulnerabilitiesInput = {
+    where: ReferencesWhereUniqueInput
+    update: XOR<ReferencesUpdateWithoutVulnerabilitiesInput, ReferencesUncheckedUpdateWithoutVulnerabilitiesInput>
+    create: XOR<ReferencesCreateWithoutVulnerabilitiesInput, ReferencesUncheckedCreateWithoutVulnerabilitiesInput>
+  }
+
+  export type ReferencesUpdateWithWhereUniqueWithoutVulnerabilitiesInput = {
+    where: ReferencesWhereUniqueInput
+    data: XOR<ReferencesUpdateWithoutVulnerabilitiesInput, ReferencesUncheckedUpdateWithoutVulnerabilitiesInput>
+  }
+
+  export type ReferencesUpdateManyWithWhereWithoutVulnerabilitiesInput = {
+    where: ReferencesScalarWhereInput
+    data: XOR<ReferencesUpdateManyMutationInput, ReferencesUncheckedUpdateManyWithoutVulnerabilitiesInput>
+  }
+
+  export type ReferencesScalarWhereInput = {
+    AND?: ReferencesScalarWhereInput | ReferencesScalarWhereInput[]
+    OR?: ReferencesScalarWhereInput[]
+    NOT?: ReferencesScalarWhereInput | ReferencesScalarWhereInput[]
+    id?: IntFilter<"References"> | number
+    createdAt?: DateTimeFilter<"References"> | Date | string
+    url?: StringFilter<"References"> | string
+    scoringSystem?: StringFilter<"References"> | string
+    severity?: StringFilter<"References"> | string
+    score?: FloatFilter<"References"> | number
+    vector?: StringFilter<"References"> | string
+    vulnerabilitiesId?: IntFilter<"References"> | number
+  }
+
+  export type VulnerabilitiesCreateWithoutReferencesInput = {
+    createdAt?: Date | string
+    vulId: string
+    summary: string
+    description: string
+    advisorPackage: AdvisorPackageCreateNestedOneWithoutVulnerabilitiesInput
+  }
+
+  export type VulnerabilitiesUncheckedCreateWithoutReferencesInput = {
+    id?: number
+    createdAt?: Date | string
+    vulId: string
+    summary: string
+    description: string
+    advisorPackageId: number
+  }
+
+  export type VulnerabilitiesCreateOrConnectWithoutReferencesInput = {
+    where: VulnerabilitiesWhereUniqueInput
+    create: XOR<VulnerabilitiesCreateWithoutReferencesInput, VulnerabilitiesUncheckedCreateWithoutReferencesInput>
+  }
+
+  export type VulnerabilitiesUpsertWithoutReferencesInput = {
+    update: XOR<VulnerabilitiesUpdateWithoutReferencesInput, VulnerabilitiesUncheckedUpdateWithoutReferencesInput>
+    create: XOR<VulnerabilitiesCreateWithoutReferencesInput, VulnerabilitiesUncheckedCreateWithoutReferencesInput>
+    where?: VulnerabilitiesWhereInput
+  }
+
+  export type VulnerabilitiesUpdateToOneWithWhereWithoutReferencesInput = {
+    where?: VulnerabilitiesWhereInput
+    data: XOR<VulnerabilitiesUpdateWithoutReferencesInput, VulnerabilitiesUncheckedUpdateWithoutReferencesInput>
+  }
+
+  export type VulnerabilitiesUpdateWithoutReferencesInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    vulId?: StringFieldUpdateOperationsInput | string
+    summary?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    advisorPackage?: AdvisorPackageUpdateOneRequiredWithoutVulnerabilitiesNestedInput
+  }
+
+  export type VulnerabilitiesUncheckedUpdateWithoutReferencesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    vulId?: StringFieldUpdateOperationsInput | string
+    summary?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    advisorPackageId?: IntFieldUpdateOperationsInput | number
+  }
+
   export type ProjectCreateManyUserInput = {
     id: string
     name: string
@@ -22197,6 +27924,7 @@ export namespace Prisma {
     gitRunId?: StringFieldUpdateOperationsInput | string
     analyzer?: AnalyzerUpdateOneWithoutScanNestedInput
     scanner?: ScannerUpdateOneWithoutScanNestedInput
+    advisor?: AdvisorUpdateOneWithoutScanNestedInput
   }
 
   export type ScanUncheckedUpdateWithoutProjectInput = {
@@ -22205,6 +27933,7 @@ export namespace Prisma {
     gitRunId?: StringFieldUpdateOperationsInput | string
     analyzer?: AnalyzerUncheckedUpdateOneWithoutScanNestedInput
     scanner?: ScannerUncheckedUpdateOneWithoutScanNestedInput
+    advisor?: AdvisorUncheckedUpdateOneWithoutScanNestedInput
   }
 
   export type ScanUncheckedUpdateManyWithoutProjectInput = {
@@ -22481,6 +28210,100 @@ export namespace Prisma {
     path?: StringFieldUpdateOperationsInput | string
     startLine?: IntFieldUpdateOperationsInput | number
     endLine?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AdvisorPackageCreateManyAdvisorInput = {
+    createdAt?: Date | string
+    name: string
+  }
+
+  export type AdvisorPackageUpdateWithoutAdvisorInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    vulnerabilities?: VulnerabilitiesUpdateManyWithoutAdvisorPackageNestedInput
+  }
+
+  export type AdvisorPackageUncheckedUpdateWithoutAdvisorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    vulnerabilities?: VulnerabilitiesUncheckedUpdateManyWithoutAdvisorPackageNestedInput
+  }
+
+  export type AdvisorPackageUncheckedUpdateManyWithoutAdvisorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VulnerabilitiesCreateManyAdvisorPackageInput = {
+    createdAt?: Date | string
+    vulId: string
+    summary: string
+    description: string
+  }
+
+  export type VulnerabilitiesUpdateWithoutAdvisorPackageInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    vulId?: StringFieldUpdateOperationsInput | string
+    summary?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    references?: ReferencesUpdateManyWithoutVulnerabilitiesNestedInput
+  }
+
+  export type VulnerabilitiesUncheckedUpdateWithoutAdvisorPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    vulId?: StringFieldUpdateOperationsInput | string
+    summary?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    references?: ReferencesUncheckedUpdateManyWithoutVulnerabilitiesNestedInput
+  }
+
+  export type VulnerabilitiesUncheckedUpdateManyWithoutAdvisorPackageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    vulId?: StringFieldUpdateOperationsInput | string
+    summary?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ReferencesCreateManyVulnerabilitiesInput = {
+    createdAt?: Date | string
+    url: string
+    scoringSystem: string
+    severity: string
+    score: number
+    vector: string
+  }
+
+  export type ReferencesUpdateWithoutVulnerabilitiesInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    url?: StringFieldUpdateOperationsInput | string
+    scoringSystem?: StringFieldUpdateOperationsInput | string
+    severity?: StringFieldUpdateOperationsInput | string
+    score?: FloatFieldUpdateOperationsInput | number
+    vector?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ReferencesUncheckedUpdateWithoutVulnerabilitiesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    url?: StringFieldUpdateOperationsInput | string
+    scoringSystem?: StringFieldUpdateOperationsInput | string
+    severity?: StringFieldUpdateOperationsInput | string
+    score?: FloatFieldUpdateOperationsInput | number
+    vector?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ReferencesUncheckedUpdateManyWithoutVulnerabilitiesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    url?: StringFieldUpdateOperationsInput | string
+    scoringSystem?: StringFieldUpdateOperationsInput | string
+    severity?: StringFieldUpdateOperationsInput | string
+    score?: FloatFieldUpdateOperationsInput | number
+    vector?: StringFieldUpdateOperationsInput | string
   }
 
 
