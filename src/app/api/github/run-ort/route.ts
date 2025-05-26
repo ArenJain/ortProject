@@ -204,14 +204,14 @@ jobs:
 
       // Suppose you know the file name you want:
       const targetFile = 'evaluation-result.json'; // Replace with actual file name
-
+      let scanId = -1;
       if (zip.files[targetFile]) {
         const fileData = await zip.files[targetFile].async('string'); // read as text
         const jsonData = JSON.parse(fileData); // parse JSON
         // console.log(jsonData);
-        const user = await getUserByEmail(session.user.email);
+        const user = await getUserByEmail(session?.user?.email);
         if (user){
-          await createScanService(user.userId,jsonData,projectName,runId.toString())
+           scanId = await createScanService(user.userId,jsonData,projectName,runId.toString())
         }
         
       } else {
@@ -233,12 +233,7 @@ jobs:
       // }
 
 
-    return new NextResponse(downloadUrl, {
-      headers: {
-        'Content-Type': 'application/zip',
-        'Content-Disposition': 'attachment; filename="ort-results.zip"',
-      },
-    });
+    return NextResponse.json({downloadUrl, scanId});
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: 'Something went wrong' }, { status: 500 });

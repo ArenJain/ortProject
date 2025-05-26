@@ -1,53 +1,83 @@
-'use client';
+"use client";
 
-import { signIn, signOut, useSession } from 'next-auth/react';
-import axios from 'axios';
-import { useState } from 'react';
-import { Loader2, Github } from 'lucide-react';
+import { signIn, signOut, useSession } from "next-auth/react";
+import axios from "axios";
+import { useState } from "react";
+import { Loader2, Github } from "lucide-react";
 
-type Status = 'idle' | 'submitting' | 'success' | 'error';
+type Status = "idle" | "submitting" | "success" | "error";
 
 export default function Home() {
   const { data: session } = useSession();
-  const [repoUrl, setRepoUrl] = useState('');
-  const [projectName, setProjectName] = useState('');
-  const [status, setStatus] = useState<Status>('idle');
-  const [message, setMessage] = useState('');
+  const [repoUrl, setRepoUrl] = useState("");
+  const [projectName, setProjectName] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
+  const [message, setMessage] = useState("");
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  const [scanId, setScanId] = useState<number>(0);
 
   const handleSubmit = async () => {
     setDownloadUrl(null);
     if (!repoUrl.trim() || !projectName.trim()) {
-      setMessage('⚠️ Please enter both repository URL and project name.');
+      setMessage("⚠️ Please enter both repository URL and project name.");
       return;
     }
 
-    setStatus('submitting');
-    setMessage('🚀 Creating and triggering workflow...');
+    setStatus("submitting");
+    setMessage("🚀 Creating and triggering workflow...");
     const projName = projectName.trim().split(" ").join("-");
     console.log(projName);
 
     try {
-      const response = await axios.post('/api/github/run-ort', {
+      const response = await axios.post("/api/github/run-ort", {
         repoUrl,
-         projectName : projName,
+        projectName: projName,
       });
-
-      if (response.data) {
-        setDownloadUrl(response.data);
-        setMessage('✅ Workflow complete! Ready to download results.');
-        setStatus('success');
+      console.log(response);
+      if (response.data && response.data.scanId != -1) {
+        setDownloadUrl(response.data.downloadUrl);
+        setScanId(response.data.scanId);
+        setMessage("✅ Workflow complete! Ready to download results.");
+        setStatus("success");
       } else {
-        throw new Error('Invalid response from server');
+        throw new Error("Invalid response from server");
       }
     } catch (err: any) {
       console.error(err);
-      setMessage('❌ Something went wrong. Please try again.');
-      setStatus('error');
+      setMessage("❌ Something went wrong. Please try again.");
+      setStatus("error");
     }
   };
 
-  const isLoading = status === 'submitting';
+  const handleExport = async () => {
+    try {
+      const response = await axios.post(
+        "/api/report/export-csv",
+        { scanId },
+        {
+          responseType: "blob",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const blob = new Blob([response.data], { type: "text/csv" });
+      const url = window.URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "data.csv";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("❌ Failed to download CSV:", error);
+    }
+  };
+
+  const isLoading = status === "submitting";
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
@@ -98,13 +128,17 @@ export default function Home() {
                 disabled={isLoading}
                 className={`w-full transition text-white font-medium py-2 px-4 rounded flex items-center justify-center gap-2 ${
                   isLoading
-                    ? 'bg-blue-400 cursor-not-allowed'
-                    : 'bg-blue-600 hover:bg-blue-700'
+                    ? "bg-blue-400 cursor-not-allowed"
+                    : "bg-blue-600 hover:bg-blue-700"
                 }`}
               >
-                {isLoading ? <Loader2 className="animate-spin w-4 h-4" /> : '🔍 Scan Repo'}
+                {isLoading ? (
+                  <Loader2 className="animate-spin w-4 h-4" />
+                ) : (
+                  "🔍 Scan Repo"
+                )}
               </button>
-
+              
               {message && <p className="text-sm text-gray-700">{message}</p>}
 
               {downloadUrl && (
@@ -116,11 +150,19 @@ export default function Home() {
                   ⬇️ Download ORT Artifacts
                 </a>
               )}
+              {downloadUrl && (
+                <button
+                  onClick={handleExport}
+                  className="block text-center mt-4 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded w-full"
+                >
+                  Download Report CSV
+                </button>
+              )}
             </div>
           </>
         ) : (
           <button
-            onClick={() => signIn('github')}
+            onClick={() => signIn("github")}
             className="w-full bg-black text-white py-2 px-4 rounded hover:bg-gray-900 flex items-center justify-center gap-2"
           >
             <Github className="w-4 h-4" /> Sign in with GitHub

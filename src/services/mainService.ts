@@ -1,6 +1,7 @@
 import { addAdvisorPackages, createAdvisor } from "@/database/AdvisorAccess";
 import { addAnalyzerPackages, createAnalyzer } from "@/database/analyzerAccess";
 import { createProject, getProjectByName } from "@/database/projectAccess";
+import { getFullInventory } from "@/database/reportAccess";
 import { createScan } from "@/database/scanAccess";
 import { addLicensesAndCopyrights, createScanner } from "@/database/scannerAccess";
 
@@ -16,4 +17,6 @@ export async function createScanService(userId : string , reportData : any, proj
     const licAndCopyrights = await addLicensesAndCopyrights(scannerId, reportData.scanner.scan_results[0].summary);
     const advisorId = await createAdvisor(scanId);
     const advisorPkg = await addAdvisorPackages(advisorId,reportData.advisor.results);
+    // const data = await getFullInventory(analyzerId);
+    return scanId;
 }
