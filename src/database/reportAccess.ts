@@ -48,3 +48,59 @@ export async function getFullInventory(analyzerId:number) {
     // console.log(JSON.stringify(data));
     return data;
 }
+
+export async function getCopyrights(scannerId: number){
+    const result = await prisma.copyrights.findMany({
+        where:{
+            scannerId : scannerId,
+        },
+        select:{
+            path: true,
+            statement:true,
+        }
+    });
+    return result;
+}
+
+export async function getLicenses(scannerId: number){
+    const result = await prisma.licenses.findMany({
+        where:{
+            scannerId : scannerId,
+        },
+        select:{
+            path: true,
+            licenseName:true,
+        }
+    });
+    return result;
+}
+
+export async function getVulnerability(advisorId:number) {
+    const result =    await prisma.advisorPackage.findMany({
+        where:{
+            advisorId: advisorId,
+            vulnerabilities: {some : {}},
+        },
+        select :{
+            name:true,
+            vulnerabilities:{
+                select:{
+                    vulId:true,
+                    description:true,
+                    references:{
+                        take: 1,
+                        where:{
+                            scoringSystem : "CVSS_V3",
+                        },
+                        select:{
+                            score:true,
+                            severity:true,
+                        }
+                    }
+                }
+            }
+
+        }
+    });
+    return result;
+}

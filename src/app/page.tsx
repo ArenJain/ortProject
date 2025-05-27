@@ -52,7 +52,7 @@ export default function Home() {
   const handleExport = async () => {
     try {
       const response = await axios.post(
-        "/api/report/export-csv",
+        "/api/report/export-xlsx",
         { scanId },
         {
           responseType: "blob",
@@ -67,7 +67,7 @@ export default function Home() {
 
       const link = document.createElement("a");
       link.href = url;
-      link.download = "data.csv";
+      link.download = "data.xlsx";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

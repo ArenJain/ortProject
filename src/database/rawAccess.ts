@@ -1,16 +1,16 @@
 import prisma from "@/lib/db/prisma";
 
-export async function getRawInventory(advisorId: number, analyzerId: number) {
+export async function getRawInventory(analyzerId: number, advisorId: number) {
   const result = await prisma.$queryRaw`
   SELECT 
-    ap.packId AS [Component Name],
+    ap.packId AS [packId],
     ap.purl AS Purl,
     ap.homepageUrl AS [Homepage Url],
     dlp.[spdxExpression] AS License,
     ba.url AS [Binary Artifact Url],
     sa.url AS [Source Artifact Url],
     CASE 
-      WHEN adv.id IS NOT NULL THEN 1
+      WHEN vul.id IS NOT NULL THEN 1
       ELSE 0
     END AS [Security Vulnerability]
   FROM 
@@ -23,8 +23,11 @@ export async function getRawInventory(advisorId: number, analyzerId: number) {
     BinaryArtifact ba ON ap.id = ba.packageId
   LEFT JOIN 
     SourceArtifact sa ON ap.id = sa.packageId
+  LEFT JOIN
+    Vulnerabilities vul ON adv.id = vul.advisorPackageId
   WHERE 
     ap.analyzerId = ${analyzerId};
 `;
+    // console.log(result);
   return result;
 }
