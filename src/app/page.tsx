@@ -162,7 +162,7 @@ export default function Home() {
           </>
         ) : (
           <button
-            onClick={() => signIn("github")}
+            onClick={() => signIn("github",{ callbackUrl: "/" })}
             className="w-full bg-black text-white py-2 px-4 rounded hover:bg-gray-900 flex items-center justify-center gap-2"
           >
             <Github className="w-4 h-4" /> Sign in with GitHub

@@ -9,216 +9,185 @@ datasource db {
 }
 
 model User {
-  userId      String    @id @db.UniqueIdentifier
-  userName    String?   @db.NVarChar(100)
-  email       String?   @unique @db.NVarChar(100)
-  password    String?   @db.NVarChar(100)
-  createdAt   DateTime? @db.DateTime
-
-  projects    Project[]
+  userId    String    @id @db.UniqueIdentifier
+  userName  String?   @db.NVarChar(100)
+  email     String?   @unique @db.NVarChar(100)
+  password  String?   @db.NVarChar(100)
+  createdAt DateTime? @db.DateTime
+  projects  Project[]
 }
 
 model Project {
-  id          String   @id
-  name        String
-  createdAt   DateTime @default(now())
+  id        String   @id
+  name      String
+  createdAt DateTime @default(now())
+  userId    String   @db.UniqueIdentifier
+  user      User     @relation(fields: [userId], references: [userId])
+  scans     Scan[]
 
-  user        User     @relation(fields: [userId], references: [userId])
-  userId      String   @db.UniqueIdentifier
-
-  scans       Scan[]
-
-  @@unique(name: "userId_name",[userId, name])
+  @@unique([userId, name], name: "userId_name")
 }
 
 model Scan {
-  id          Int      @id @default(autoincrement())
-  createdAt   DateTime @default(now())
-  gitRunId    String   @unique
-
-  project     Project  @relation(fields: [projectId], references: [id])
-  projectId   String
-
-  analyzer    Analyzer?
-  scanner     Scanner?
-  advisor     Advisor?
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  gitRunId  String    @unique
+  projectId String
+  advisor   Advisor?
+  analyzer  Analyzer?
+  project   Project   @relation(fields: [projectId], references: [id])
+  scanner   Scanner?
 }
 
 model Analyzer {
-  id              Int               @id @default(autoincrement())
-  createdAt       DateTime          @default(now())
-
-  scan            Scan              @relation(fields: [scanId], references: [id])
-  scanId          Int               @unique
-
-  packages        AnalyzerPackage[]
+  id        Int               @id @default(autoincrement())
+  createdAt DateTime          @default(now())
+  scanId    Int               @unique
+  scan      Scan              @relation(fields: [scanId], references: [id])
+  packages  AnalyzerPackage[]
 }
 
 model AnalyzerPackage {
-  id              Int                      @id @default(autoincrement())
-  createdAt       DateTime                 @default(now())
-  packId          String
-  purl            String
-  description     String
-  homepageUrl     String
-
-  analyzer        Analyzer                 @relation(fields: [analyzerId], references: [id])
-  analyzerId      Int
-
-  authors         PackageAuthor[]
-  declaredLicenses DeclaredLicenses[]
+  id                        Int                         @id @default(autoincrement())
+  createdAt                 DateTime                    @default(now())
+  packId                    String
+  purl                      String
+  description               String
+  homepageUrl               String
+  analyzerId                Int
+  analyzer                  Analyzer                    @relation(fields: [analyzerId], references: [id])
+  binaries                  BinaryArtifact[]
+  declaredLicenses          DeclaredLicenses[]
   declaredLicensesProcessed DeclaredLicensesProcessed[]
-  binaries        BinaryArtifact[]
-  sources         SourceArtifact[]
-  vcsList         Vcs[]
-  vcsProcessed    VcsProcessed[]
+  authors                   PackageAuthor[]
+  sources                   SourceArtifact[]
+  vcsList                   Vcs[]
+  vcsProcessed              VcsProcessed[]
 }
 
 model PackageAuthor {
-  id                Int              @id @default(autoincrement())
-  name              String
-
-  analyzerPackage   AnalyzerPackage  @relation(fields: [packageId], references: [id])
-  packageId         Int
+  id              Int             @id @default(autoincrement())
+  name            String
+  packageId       Int
+  analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
 }
 
 model DeclaredLicenses {
-  id                Int              @id @default(autoincrement())
-  name              String
-
-  analyzerPackage   AnalyzerPackage  @relation(fields: [packageId], references: [id])
-  packageId         Int
+  id              Int             @id @default(autoincrement())
+  name            String
+  packageId       Int
+  analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
 }
 
 model DeclaredLicensesProcessed {
-  id                Int              @id @default(autoincrement())
-  spdxExpression    String
-
-  analyzerPackage   AnalyzerPackage  @relation(fields: [packageId], references: [id])
-  packageId         Int
+  id              Int             @id @default(autoincrement())
+  spdxExpression  String
+  packageId       Int
+  analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
 }
 
 model BinaryArtifact {
-  id                Int              @id @default(autoincrement())
-  url               String
-
-  analyzerPackage   AnalyzerPackage  @relation(fields: [packageId], references: [id])
-  packageId         Int
+  id              Int             @id @default(autoincrement())
+  url             String
+  packageId       Int
+  analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
 }
 
 model SourceArtifact {
-  id                Int              @id @default(autoincrement())
-  url               String
-
-  analyzerPackage   AnalyzerPackage  @relation(fields: [packageId], references: [id])
-  packageId         Int
+  id              Int             @id @default(autoincrement())
+  url             String
+  packageId       Int
+  analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
 }
 
 model Vcs {
-  id                Int              @id @default(autoincrement())
-  type              String
-  url               String
-  revision          String
-  path              String
-
-  analyzerPackage   AnalyzerPackage  @relation(fields: [packageId], references: [id])
-  packageId         Int
+  id              Int             @id @default(autoincrement())
+  type            String
+  url             String
+  revision        String
+  path            String
+  packageId       Int
+  analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
 }
 
 model VcsProcessed {
-  id                Int              @id @default(autoincrement())
-  type              String
-  url               String
-  revision          String
-  path              String
-
-  analyzerPackage   AnalyzerPackage  @relation(fields: [packageId], references: [id])
-  packageId         Int
+  id              Int             @id @default(autoincrement())
+  type            String
+  url             String
+  revision        String
+  path            String
+  packageId       Int
+  analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
 }
 
 model Scanner {
-  id              Int               @id @default(autoincrement())
-  createdAt       DateTime          @default(now())
-
-  scan            Scan              @relation(fields: [scanId], references: [id])
-  scanId          Int               @unique
-
-  licenses        Licenses[]
-  copyrights      Copyrights[]
-
+  id         Int          @id @default(autoincrement())
+  createdAt  DateTime     @default(now())
+  scanId     Int          @unique
+  copyrights Copyrights[]
+  licenses   Licenses[]
+  scan       Scan         @relation(fields: [scanId], references: [id])
 }
 
 model Licenses {
-  id              Int               @id @default(autoincrement())
-  createdAt       DateTime          @default(now())
-  licenseName     String
-  path            String
-  startLine       Int
-  endLine         Int
-  score           Float
-
-  scanner Scanner @relation(fields: [scannerId], references: [id])
-  scannerId       Int
-
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  licenseName String
+  path        String
+  startLine   Int
+  endLine     Int
+  score       Float
+  scannerId   Int
+  scanner     Scanner  @relation(fields: [scannerId], references: [id])
 }
 
 model Copyrights {
-  id              Int               @id @default(autoincrement())
-  createdAt       DateTime          @default(now())
-  statement       String             @db.NVarChar(2000)
-  path            String
-  startLine       Int
-  endLine         Int
-
-  scanner Scanner @relation(fields: [scannerId], references: [id])
-  scannerId       Int
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  statement String   @db.NVarChar(2000)
+  path      String
+  startLine Int
+  endLine   Int
+  scannerId Int
+  scanner   Scanner  @relation(fields: [scannerId], references: [id])
 }
 
 model Advisor {
-  id              Int               @id @default(autoincrement())
-  createdAt       DateTime          @default(now())
-
-  scan            Scan              @relation(fields: [scanId], references: [id])
-  scanId          Int               @unique
-
-  advisorPackage  AdvisorPackage[]
+  id             Int              @id @default(autoincrement())
+  createdAt      DateTime         @default(now())
+  scanId         Int              @unique
+  scan           Scan             @relation(fields: [scanId], references: [id])
+  advisorPackage AdvisorPackage[]
 }
 
 model AdvisorPackage {
   id              Int               @id @default(autoincrement())
   createdAt       DateTime          @default(now())
   name            String
-
-  advisor            Advisor        @relation(fields: [advisorId], references: [id])
-  advisorId          Int            
-
-  vulnerabilities    Vulnerabilities[]
+  advisorId       Int
+  advisor         Advisor           @relation(fields: [advisorId], references: [id])
+  vulnerabilities Vulnerabilities[]
 }
 
-model Vulnerabilities{
-  id              Int               @id @default(autoincrement())
-  createdAt       DateTime          @default(now())
-  vulId           String
-  summary         String            @db.NVarChar(4000)
-  description     String            @db.NVarChar(4000)
-
-  advisorPackage            AdvisorPackage        @relation(fields: [advisorPackageId], references: [id])
-  advisorPackageId          Int            
-
+model Vulnerabilities {
+  id               Int            @id @default(autoincrement())
+  createdAt        DateTime       @default(now())
+  vulId            String
+  summary          String         @db.NVarChar(4000)
+  description      String         @db.NVarChar(4000)
+  advisorPackageId Int
   references       References[]
-
+  advisorPackage   AdvisorPackage @relation(fields: [advisorPackageId], references: [id])
 }
 
-model References{
-  id              Int               @id @default(autoincrement())
-  createdAt       DateTime          @default(now())
-  url             String
-  scoringSystem   String
-  severity        String
-  score           Float
-  vector          String
-
-  vulnerabilities            Vulnerabilities        @relation(fields: [vulnerabilitiesId], references: [id])
-  vulnerabilitiesId          Int             
+model References {
+  id                Int             @id @default(autoincrement())
+  createdAt         DateTime        @default(now())
+  url               String
+  scoringSystem     String
+  severity          String
+  score             Float
+  vector            String
+  vulnerabilitiesId Int
+  vulnerabilities   Vulnerabilities @relation(fields: [vulnerabilitiesId], references: [id])
 }
-
