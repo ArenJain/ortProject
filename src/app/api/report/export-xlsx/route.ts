@@ -9,6 +9,7 @@ import {
 } from "@/database/reportAccess";
 import { getRawInventory } from "@/database/rawAccess";
 import ExcelJS from "exceljs";
+import { version } from "os";
 
 type ExportXlsxRequestBody = {
   scanId: number;
@@ -34,7 +35,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    console.log(scanDetails);
+    // console.log(scanDetails);
 
     const rawData = await getRawInventory(
       scanDetails.analyzer.id,
@@ -152,22 +153,39 @@ export async function POST(req: NextRequest) {
     }
 
     //Sheet - 4 Security Vulnerability
-    // const vulnerabilitySheet = workbook.addWorksheet("Security Vulnerability");
-    // if (Array.isArray(vulnerabilitiesData) && vulnerabilitiesData.length) {
-    //   // Define column structure
-    //   vulnerabilitySheet.columns = [
-    //     { header: "File Path", key: "path", width: 50 },
-    //     { header: "Copyrights", key: "copyrights", width: 30 },
-    //   ];
+    // console.log(vulnerabilitiesData);
+    const vulnerabilitySheet = workbook.addWorksheet("Security Vulnerability");
 
-    //   // Add each row as an object
-    //   copyrightsData.forEach((item) => {
-    //     CopyrightsSheet.addRow({
-    //       path: item.path,
-    //       copyrights: item.statement,
-    //     });
-    //   });
-    // }
+    if (Array.isArray(vulnerabilitiesData) && vulnerabilitiesData.length) {
+      // Define column structure
+      vulnerabilitySheet.columns = [
+        { header: "CVE ID", key: "id", width: 50 },
+        { header: "Component Name", key: "name", width: 50 },
+        { header: "Version", key: "version", width: 50 },
+        { header: "CVSS 3.0 Score", key: "score", width: 50 },
+        { header: "Description", key: "description", width: 50 },
+        { header: "Severity", key: "severity", width: 50 },
+      ];
+
+      // Add each row as an object
+      vulnerabilitiesData.forEach((item) => {
+        const pkgId = item.name || "";
+        const parts = String(pkgId).split(":");
+        const pkgName = parts[2] || "";
+        const pkgVersion = parts[3] || "";
+        // if (item.vulnerabilities.length > 1)
+        item.vulnerabilities.forEach((vul) => {
+          vulnerabilitySheet.addRow({
+            id: vul.vulId,
+            name: pkgName,
+            version: pkgVersion,
+            score: vul.references[0].score,
+            description: vul.description,
+            severity: vul.references[0].severity,
+          });
+        });
+      });
+    }
 
 
 

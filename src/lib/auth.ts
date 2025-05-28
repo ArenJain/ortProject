@@ -5,7 +5,7 @@ import { createUser } from '@/database/userAccess';
 
 
 export const authOptions: NextAuthOptions = {
-  debug: true,
+  // debug: true,
   providers: [
     GitHubProvider({
       clientId: process.env.GITHUB_CLIENT_ID!,
@@ -40,7 +40,7 @@ export const authOptions: NextAuthOptions = {
 
     async session({ session, token }) {
       session.accessToken = token.accessToken as string;
-      console.log(session);
+      // console.log(session);
       return session;
     },
   },
