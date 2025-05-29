@@ -12,7 +12,8 @@ export async function createScanner(scanId: number) {
 
 export async function addLicensesAndCopyrights (scannerId : number, packages : any){
     // console.log(packages);
-    const licenses = await prisma.licenses.createMany({
+    if (packages.licenses && packages.licenses.length > 0){
+      const licenses = await prisma.licenses.createMany({
         data : packages.licenses.map((l:any) => ({
             createdAt: new Date(),
             licenseName : l.license,
@@ -24,7 +25,9 @@ export async function addLicensesAndCopyrights (scannerId : number, packages : a
 
         }))
     });
-    const copyrights = await prisma.copyrights.createMany({
+    }
+    if(packages.copyrights && packages.copyrights.length>0){
+      const copyrights = await prisma.copyrights.createMany({
         data : packages.copyrights.map((l:any) => ({
             createdAt: new Date(),
             statement : l.statement,
@@ -35,6 +38,8 @@ export async function addLicensesAndCopyrights (scannerId : number, packages : a
 
         }))
     });
+    }
+    
 
-    return {licenses , copyrights}
+    return {}
 }

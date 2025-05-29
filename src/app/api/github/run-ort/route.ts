@@ -6,7 +6,7 @@ import { authOptions } from "@/lib/auth";
 import JSZip from 'jszip';
 import fs from 'fs';
 import path from 'path';
-import { getUserByEmail } from '@/database/userAccess';
+import { getUserByEmail, getUserByUsername } from '@/database/userAccess';
 import { createScanService } from '@/services/mainService';
 
 
@@ -209,7 +209,8 @@ jobs:
         const fileData = await zip.files[targetFile].async('string'); // read as text
         const jsonData = JSON.parse(fileData); // parse JSON
         // console.log(jsonData);
-        const user = await getUserByEmail(session?.user?.email);
+        const user = await getUserByUsername(session?.user?.name);
+        console.log(jsonData);
         if (user){
            scanId = await createScanService(user.userId,jsonData,projectName,runId.toString())
         }

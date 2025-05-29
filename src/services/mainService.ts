@@ -14,7 +14,7 @@ export async function createScanService(userId : string , reportData : any, proj
     const analyzerId = await createAnalyzer(scanId);
     const analyzerPkg = await addAnalyzerPackages(analyzerId,reportData.analyzer.result.packages);
     const scannerId = await createScanner(scanId);
-    const licAndCopyrights = await addLicensesAndCopyrights(scannerId, reportData.scanner.scan_results[0].summary);
+     await addLicensesAndCopyrights(scannerId, reportData.scanner.scan_results[0].summary);
     const advisorId = await createAdvisor(scanId);
     const advisorPkg = await addAdvisorPackages(advisorId,reportData.advisor.results);
     // const data = await getFullInventory(analyzerId);

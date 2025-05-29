@@ -26,3 +26,15 @@ export async function getUserByEmail(email: string) {
 
   return user;
 }
+
+export async function getUserByUsername(name:string){
+  if (!name) throw new Error("UserName is required");
+
+  const user = await prisma.user.findFirst({
+    where: {
+      userName: name,
+    },
+  });
+  console.log(user);
+  return user;
+}

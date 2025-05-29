@@ -5,7 +5,7 @@ import { createUser } from '@/database/userAccess';
 
 
 export const authOptions: NextAuthOptions = {
-  // debug: true,
+  debug: true,
   providers: [
     GitHubProvider({
       clientId: process.env.GITHUB_CLIENT_ID!,
@@ -19,28 +19,34 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async signIn({ user }) {
+      console.log(user);
       console.log("Loaded DB URL:", process.env.DATABASE_URL);
-      const existingUser = await prisma.user.findUnique({
-        where: { email: user.email! },
+      const existingUser = await prisma.user.findFirst({
+        where: { userName : user.name },
       });
 
+      const randomString = (len = 16) => [...Array(len)].map(() => 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.charAt(Math.floor(Math.random() * 62))).join('');
+
+
       if (!existingUser) {
-        await createUser({userName: user.name ?? '', email : user.email})
+        await createUser({userName: user.name ?? '', email : user.email?? randomString(10) })
       }
 
       return true;
     },
 
-    async jwt({ token, account }) {
+    async jwt({ token, account, user }) {
       if (account) {
         token.accessToken = account.access_token;
       }
+      console.log(token);
+      console.log(user);
       return token;
     },
 
     async session({ session, token }) {
       session.accessToken = token.accessToken as string;
-      // console.log(session);
+      console.log(session);
       return session;
     },
   },
