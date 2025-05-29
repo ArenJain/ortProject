@@ -86,7 +86,7 @@ export default function Home() {
           <>
             <div className="flex justify-between items-center">
               <h1 className="text-2xl font-bold text-gray-800">
-                👋 Welcome, {session.user?.email}
+                👋 Welcome, {session.user?.name}
               </h1>
               <button
                 onClick={() => signOut({ callbackUrl: "/" })}

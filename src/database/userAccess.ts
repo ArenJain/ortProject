@@ -15,22 +15,11 @@ export async function createUser(userdata : any) {
   return user.userId
 }
 
-export async function getUserByEmail(email: string) {
-  if (!email) throw new Error("Email is required");
-
-  const user = await prisma.user.findUnique({
-    where: {
-      email,
-    },
-  });
-
-  return user;
-}
 
 export async function getUserByUsername(name:string){
   if (!name) throw new Error("UserName is required");
 
-  const user = await prisma.user.findFirst({
+  const user = await prisma.user.findUnique({
     where: {
       userName: name,
     },

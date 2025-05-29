@@ -10,8 +10,8 @@ datasource db {
 
 model User {
   userId    String    @id @db.UniqueIdentifier
-  userName  String?   @db.NVarChar(100)
-  email     String?   @unique @db.NVarChar(100)
+  userName  String   @unique @db.NVarChar(100)
+  email     String?   @db.NVarChar(100)
   password  String?   @db.NVarChar(100)
   createdAt DateTime? @db.DateTime
   projects  Project[]

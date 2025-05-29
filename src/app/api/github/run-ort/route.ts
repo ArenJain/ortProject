@@ -51,7 +51,7 @@ jobs:
   try {
     // Step 1: Create a new repository and push the workflow file
     const fixedRepoName = 'ort-analysis-repo'; // your fixed repo name
-    const owner = session.user?.name || 'your-github-username';
+    const owner = session.gitUsername || 'your-github-username';
     const repo = fixedRepoName;
 
     const workflowFilePath = '.github/workflows/ort.yml';
@@ -209,8 +209,7 @@ jobs:
         const fileData = await zip.files[targetFile].async('string'); // read as text
         const jsonData = JSON.parse(fileData); // parse JSON
         // console.log(jsonData);
-        const user = await getUserByUsername(session?.user?.name);
-        console.log(jsonData);
+        const user = await getUserByUsername(session?.gitUsername);
         if (user){
            scanId = await createScanService(user.userId,jsonData,projectName,runId.toString())
         }

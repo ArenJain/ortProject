@@ -18,34 +18,38 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user }) {
-      console.log(user);
-      console.log("Loaded DB URL:", process.env.DATABASE_URL);
-      const existingUser = await prisma.user.findFirst({
-        where: { userName : user.name },
+    async signIn({ user, account, profile , email, credentials }) {
+      // console.log("User Details : ",user);
+      // console.log("account Details : ",account);
+      // console.log("profile Details : ",profile);
+      // console.log("email Details : ",email);
+      // console.log("credentials Details : ",credentials);
+
+      // console.log("Loaded DB URL:", process.env.DATABASE_URL);
+      const existingUser = await prisma.user.findUnique({
+        where: { userName : profile?.login ?? "" },
       });
 
-      const randomString = (len = 16) => [...Array(len)].map(() => 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.charAt(Math.floor(Math.random() * 62))).join('');
-
-
       if (!existingUser) {
-        await createUser({userName: user.name ?? '', email : user.email?? randomString(10) })
+        await createUser({userName: profile?.login , email : profile.email?? "" })
       }
 
       return true;
     },
 
-    async jwt({ token, account, user }) {
+    async jwt({ token, account, profile }) {
       if (account) {
         token.accessToken = account.access_token;
+        console.log("profile from jwt",profile)
+        token.userName = profile?.login ?? "" ;
       }
       console.log(token);
-      console.log(user);
       return token;
     },
 
     async session({ session, token }) {
       session.accessToken = token.accessToken as string;
+      session.gitUsername = token.userName as string;
       console.log(session);
       return session;
     },
