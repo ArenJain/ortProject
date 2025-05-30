@@ -17,6 +17,9 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
+  pages: {
+    signIn: "/signin", // 👈 This tells NextAuth to use your custom page
+  },
   callbacks: {
     async signIn({ user, account, profile , email, credentials }) {
       // console.log("User Details : ",user);
