@@ -5,12 +5,12 @@ import { getFullInventory } from "@/database/reportAccess";
 import { createScan } from "@/database/scanAccess";
 import { addLicensesAndCopyrights, createScanner } from "@/database/scannerAccess";
 
-export async function createScanService(userId : string , reportData : any, projectName : string , runId : string) {
+export async function createScanService(userId : string , reportData : any, projectName : string , runId : string, artifactUrl: string) {
     let projectId = await getProjectByName(projectName,userId);
     if (!projectId){
         projectId = await createProject(userId,{name:projectName});
     }
-    const scanId = await createScan(projectId,runId);
+    const scanId = await createScan(projectId,runId, artifactUrl);
     const analyzerId = await createAnalyzer(scanId);
     const analyzerPkg = await addAnalyzerPackages(analyzerId,reportData.analyzer.result.packages);
     const scannerId = await createScanner(scanId);

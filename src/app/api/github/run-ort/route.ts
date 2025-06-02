@@ -6,7 +6,7 @@ import { authOptions } from "@/lib/auth";
 import JSZip from 'jszip';
 import fs from 'fs';
 import path from 'path';
-import { getUserByEmail, getUserByUsername } from '@/database/userAccess';
+import { getUserByUsername } from '@/database/userAccess';
 import { createScanService } from '@/services/mainService';
 
 
@@ -211,7 +211,7 @@ jobs:
         // console.log(jsonData);
         const user = await getUserByUsername(session?.gitUsername);
         if (user){
-           scanId = await createScanService(user.userId,jsonData,projectName,runId.toString())
+           scanId = await createScanService(user.userId,jsonData,projectName,runId.toString(),downloadUrl)
         }
         
       } else {

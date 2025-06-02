@@ -33,6 +33,7 @@ model Scan {
   createdAt DateTime  @default(now())
   gitRunId  String    @unique
   projectId String
+  artifactUrl String?   @db.NVarChar(500)
   advisor   Advisor?
   analyzer  Analyzer?
   project   Project   @relation(fields: [projectId], references: [id])
