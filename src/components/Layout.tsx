@@ -29,7 +29,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Link href="/projects" className="flex items-center gap-3 hover:text-gray-300">
             <FolderOpen size={18} /> Projects
           </Link>
-          <Link href="/reports" className="flex items-center gap-3 hover:text-gray-300">
+          <Link href="/reports" className="flex items-center gap-3 text-gray-500 cursor-not-allowed opacity-60" >
             <BarChart2 size={18} /> Reports
           </Link>
         </nav>

@@ -70,7 +70,7 @@ export default function ScanForm({ sessionName, onSignOut }: ScanFormProps) {
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = "data.xlsx";
+      link.download = `${projectName}__${Date.now()}.xlsx`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -85,85 +85,97 @@ export default function ScanForm({ sessionName, onSignOut }: ScanFormProps) {
   const isSubmitting = tstatus === "submitting";
 
   return (
-  <div className="flex flex-col h-full w-full p-8 bg-white rounded-xl shadow-sm overflow-y-auto">
-    <div className="flex justify-between items-center mb-6">
-      <h1 className="text-2xl font-semibold text-gray-800">
-        👋 Create Project Scan 
-      </h1>
-      
-    </div>
-
-    <div className="flex flex-col gap-5 w-full max-w-2xl ">
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
-          GitHub Repo URL
-        </label>
-        <input
-          type="text"
-          className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="e.g., https://github.com/user/repo"
-          value={repoUrl}
-          onChange={(e) => setRepoUrl(e.target.value)}
-        />
+    <div className="flex flex-col h-full w-full p-8 bg-white rounded-xl shadow-sm overflow-y-auto">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-semibold text-gray-800">
+          👋 Create Project Scan
+        </h1>
       </div>
 
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
-          Project Name
-        </label>
-        <input
-          type="text"
-          className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="e.g., my-awesome-project"
-          value={projectName}
-          onChange={(e) => setProjectName(e.target.value)}
-        />
-      </div>
+      <div className="flex flex-col gap-5 w-full max-w-2xl ">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            GitHub Repo URL
+          </label>
+          <input
+            type="text"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="e.g., https://github.com/user/repo"
+            value={repoUrl}
+            onChange={(e) => setRepoUrl(e.target.value)}
+          />
+        </div>
 
-      <button
-        onClick={handleSubmit}
-        disabled={isSubmitting}
-        className={`w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg font-medium text-white transition ${
-          isSubmitting
-            ? "bg-blue-400 cursor-not-allowed"
-            : "bg-blue-600 hover:bg-blue-700"
-        }`}
-      >
-        {isSubmitting ? (
-          <Loader2 className="w-4 h-4 animate-spin" />
-        ) : (
-          "🔍 Scan Repo"
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Project Name
+          </label>
+          <input
+            type="text"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="e.g., my-awesome-project"
+            value={projectName}
+            onChange={(e) => setProjectName(e.target.value)}
+          />
+        </div>
+
+        <button
+          onClick={handleSubmit}
+          disabled={isSubmitting}
+          className={`w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg font-medium text-white transition ${
+            isSubmitting
+              ? "bg-blue-400 cursor-not-allowed"
+              : "bg-blue-600 hover:bg-blue-700"
+          }`}
+        >
+          {isSubmitting ? (
+            <Loader2 className="w-4 h-4 animate-spin" />
+          ) : (
+            "🔍 Scan Repo"
+          )}
+        </button>
+
+        {/* Warning about navigation */}
+        {isSubmitting && (
+          <p className="text-sm text-yellow-600 mt-2">
+            ⚠️ Please do not refresh or navigate away while the scan is in
+            progress.
+          </p>
         )}
-      </button>
 
-      {message && <p className="text-sm text-gray-600">{message}</p>}
+        {/* Message output */}
+        {message && (
+          <p className="text-sm text-gray-700 flex items-center gap-2 mt-2">
+            {isSubmitting && <Loader2 className="w-4 h-4 animate-spin" />}
+            {message}
+          </p>
+        )}
 
-      {downloadUrl && (
-        <>
-          <a
-            href={downloadUrl}
-            download="ort-results.zip"
-            className="block text-center mt-2 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg"
-          >
-            ⬇️ Download ORT Artifacts
-          </a>
+        {downloadUrl && (
+          <>
+            <a
+              href={downloadUrl}
+              download={`ort-results_${projectName}.zip`}
+              className="block text-center mt-2 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg"
+            >
+              ⬇️ ORT Artifacts
+            </a>
 
-          <button
-            onClick={handleExport}
-            className="w-full flex items-center justify-center gap-2 mt-2 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg"
-          >
-            {isExporting ? (
-              <Loader2 className="w-4 h-4 animate-spin" />
-            ) : (
-              <>
-                <FileDown className="w-4 h-4" /> Download Report CSV
-              </>
-            )}
-          </button>
-        </>
-      )}
+            <button
+              onClick={handleExport}
+              className="w-full flex items-center justify-center gap-2 mt-2 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg"
+            >
+              {isExporting ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <>
+                  <FileDown className="w-4 h-4" /> Project Report
+                </>
+              )}
+            </button>
+          </>
+        )}
+      </div>
     </div>
-  </div>
-);
-
+  );
 }
