@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ORT Scanner",
+  title: "SCC Tool",
   description: "Open Source Review Tool",
+  
 };
 
 export default function RootLayout({
