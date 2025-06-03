@@ -10,16 +10,16 @@ datasource db {
 
 model User {
   userId    String    @id @db.UniqueIdentifier
-  userName  String   @unique @db.NVarChar(100)
-  email     String?   @db.NVarChar(100)
-  password  String?   @db.NVarChar(100)
+  userName  String    @unique @db.NVarChar(200)
+  email     String?   @db.NVarChar(200)
+  password  String?   @db.NVarChar(200)
   createdAt DateTime? @db.DateTime
   projects  Project[]
 }
 
 model Project {
   id        String   @id
-  name      String
+  name      String?   @db.NVarChar(1000)
   createdAt DateTime @default(now())
   userId    String   @db.UniqueIdentifier
   user      User     @relation(fields: [userId], references: [userId])
@@ -29,15 +29,15 @@ model Project {
 }
 
 model Scan {
-  id        Int       @id @default(autoincrement())
-  createdAt DateTime  @default(now())
-  gitRunId  String    @unique
-  projectId String
-  artifactUrl String?   @db.NVarChar(500)
-  advisor   Advisor?
-  analyzer  Analyzer?
-  project   Project   @relation(fields: [projectId], references: [id])
-  scanner   Scanner?
+  id          Int       @id @default(autoincrement())
+  createdAt   DateTime  @default(now())
+  gitRunId    String?    @unique
+  projectId   String
+  artifactUrl String?   @db.NVarChar(1000)
+  advisor     Advisor?
+  analyzer    Analyzer?
+  project     Project   @relation(fields: [projectId], references: [id])
+  scanner     Scanner?
 }
 
 model Analyzer {
@@ -51,10 +51,10 @@ model Analyzer {
 model AnalyzerPackage {
   id                        Int                         @id @default(autoincrement())
   createdAt                 DateTime                    @default(now())
-  packId                    String
-  purl                      String
-  description               String
-  homepageUrl               String
+  packId                    String?
+  purl                      String?                      @db.NVarChar(4000)
+  description               String?                      @db.NVarChar(Max)
+  homepageUrl               String?                      @db.NVarChar(4000)
   analyzerId                Int
   analyzer                  Analyzer                    @relation(fields: [analyzerId], references: [id])
   binaries                  BinaryArtifact[]
@@ -68,55 +68,55 @@ model AnalyzerPackage {
 
 model PackageAuthor {
   id              Int             @id @default(autoincrement())
-  name            String
+  name            String?          @db.NVarChar(4000)
   packageId       Int
   analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
 }
 
 model DeclaredLicenses {
   id              Int             @id @default(autoincrement())
-  name            String
+  name            String?          @db.NVarChar(4000)
   packageId       Int
   analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
 }
 
 model DeclaredLicensesProcessed {
   id              Int             @id @default(autoincrement())
-  spdxExpression  String
+  spdxExpression  String?          @db.NVarChar(4000)
   packageId       Int
   analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
 }
 
 model BinaryArtifact {
   id              Int             @id @default(autoincrement())
-  url             String
+  url             String?          @db.NVarChar(4000)
   packageId       Int
   analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
 }
 
 model SourceArtifact {
   id              Int             @id @default(autoincrement())
-  url             String
+  url             String?          @db.NVarChar(4000)
   packageId       Int
   analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
 }
 
 model Vcs {
   id              Int             @id @default(autoincrement())
-  type            String
-  url             String
-  revision        String
-  path            String
+  type            String?          @db.NVarChar(4000)
+  url             String?          @db.NVarChar(4000)
+  revision        String?          @db.NVarChar(4000)
+  path            String?          @db.NVarChar(4000)
   packageId       Int
   analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
 }
 
 model VcsProcessed {
   id              Int             @id @default(autoincrement())
-  type            String
-  url             String
-  revision        String
-  path            String
+  type            String?          @db.NVarChar(4000)
+  url             String?          @db.NVarChar(4000)
+  revision        String?          @db.NVarChar(4000)
+  path            String?          @db.NVarChar(4000)
   packageId       Int
   analyzerPackage AnalyzerPackage @relation(fields: [packageId], references: [id])
 }
@@ -133,11 +133,11 @@ model Scanner {
 model Licenses {
   id          Int      @id @default(autoincrement())
   createdAt   DateTime @default(now())
-  licenseName String
-  path        String
-  startLine   Int
-  endLine     Int
-  score       Float
+  licenseName String?    @db.NVarChar(4000)  
+  path        String?    @db.NVarChar(4000)
+  startLine   Int?
+  endLine     Int?
+  score       Float?
   scannerId   Int
   scanner     Scanner  @relation(fields: [scannerId], references: [id])
 }
@@ -145,10 +145,10 @@ model Licenses {
 model Copyrights {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  statement String   @db.NVarChar(2000)
-  path      String
-  startLine Int
-  endLine   Int
+  statement String?   @db.NVarChar(Max)
+  path      String?   @db.NVarChar(4000)
+  startLine Int?
+  endLine   Int?
   scannerId Int
   scanner   Scanner  @relation(fields: [scannerId], references: [id])
 }
@@ -164,7 +164,7 @@ model Advisor {
 model AdvisorPackage {
   id              Int               @id @default(autoincrement())
   createdAt       DateTime          @default(now())
-  name            String
+  name            String?            @db.NVarChar(4000)
   advisorId       Int
   advisor         Advisor           @relation(fields: [advisorId], references: [id])
   vulnerabilities Vulnerabilities[]
@@ -174,8 +174,8 @@ model Vulnerabilities {
   id               Int            @id @default(autoincrement())
   createdAt        DateTime       @default(now())
   vulId            String
-  summary          String         @db.NVarChar(4000)
-  description      String         @db.NVarChar(4000)
+  summary          String?         @db.NVarChar(Max)
+  description      String?         @db.NVarChar(Max)
   advisorPackageId Int
   references       References[]
   advisorPackage   AdvisorPackage @relation(fields: [advisorPackageId], references: [id])
@@ -184,11 +184,11 @@ model Vulnerabilities {
 model References {
   id                Int             @id @default(autoincrement())
   createdAt         DateTime        @default(now())
-  url               String
-  scoringSystem     String
-  severity          String
-  score             Float
-  vector            String
+  url               String?          @db.NVarChar(Max)
+  scoringSystem     String?          @db.NVarChar(4000)
+  severity          String?        
+  score             Float?
+  vector            String?          @db.NVarChar(4000)
   vulnerabilitiesId Int
   vulnerabilities   Vulnerabilities @relation(fields: [vulnerabilitiesId], references: [id])
 }

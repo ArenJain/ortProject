@@ -144,7 +144,7 @@ jobs:
 
     // Step 3: Poll for workflow completion
     let runId = null;
-    for (let i = 0; i < 300; i++) {
+    for (let i = 0; i < 3000; i++) {
       const runs = await octokit.actions.listWorkflowRuns({ owner, repo, workflow_id: 'ort.yml' ,event: 'workflow_dispatch',});
       const latest = runs.data.workflow_runs.find(run =>
       new Date(run.created_at) > new Date(triggerTime));

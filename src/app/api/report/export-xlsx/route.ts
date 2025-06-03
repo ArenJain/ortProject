@@ -116,17 +116,15 @@ export async function POST(req: NextRequest) {
     const licensesSheet = workbook.addWorksheet("Files with License");
 
     if (Array.isArray(licensesData) && licensesData.length) {
-      // Define column structure
       licensesSheet.columns = [
         { header: "File Path", key: "path", width: 50 },
         { header: "Licenses", key: "licenses", width: 30 },
       ];
 
-      // Add each row as an object
       licensesData.forEach((item) => {
         licensesSheet.addRow({
-          path: item.path,
-          licenses: item.licenseName,
+          path: item?.path ?? "Unknown",
+          licenses: item?.licenseName ?? "Unknown",
         });
       });
     }
@@ -146,8 +144,8 @@ export async function POST(req: NextRequest) {
       // Add each row as an object
       copyrightsData.forEach((item) => {
         CopyrightsSheet.addRow({
-          path: item.path,
-          copyrights: item.statement,
+          path: item?.path ?? "Unknown",
+          copyrights: item?.statement ?? "Unknown",
         });
       });
     }
@@ -179,9 +177,9 @@ export async function POST(req: NextRequest) {
             id: vul.vulId,
             name: pkgName,
             version: pkgVersion,
-            score: vul.references[0].score,
+            score: vul.references?.[0]?.score ?? "Unknown",
             description: vul.description,
-            severity: vul.references[0].severity,
+            severity: vul.references?.[0]?.severity ?? "Unknown",
           });
         });
       });
