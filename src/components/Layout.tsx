@@ -25,7 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center gap-3 mb-8">
             <img src="/logo.png" alt="Logo" className="w-8 h-8" />
             <div className="flex flex-col leading-tight">
-              <h2 className="text-2xl font-bold">SCC Tool</h2>
+              <h2 className="text-2xl font-bold">SCC Tool <span className="text-sm font-light">V 0.5 </span></h2>
               <p className="text-xs text-gray-500">Powered by ORT</p>
             </div>
           </div>
