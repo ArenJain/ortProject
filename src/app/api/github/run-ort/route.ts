@@ -175,7 +175,7 @@ jobs:
 
     let downloadUrl = "";
 
-    const artifactsDir = path.join(process.cwd(), 'public', 'artifacts');
+    const artifactsDir = path.join(process.cwd(),  'artifacts');
     if (!fs.existsSync(artifactsDir)) {
       fs.mkdirSync(artifactsDir, { recursive: true });
     }
@@ -185,12 +185,12 @@ jobs:
       });
 
       const buffer = Buffer.from(response.data as ArrayBuffer);
-      const filename = `artifact-${artifact.id}.zip`;
+      const filename = `ort-results_${projectName}_${artifact.id}.zip`;
       const filePath = path.join(artifactsDir, filename);
       fs.writeFileSync(filePath, buffer);
 
       // Add relative download URL
-      downloadUrl =`/artifacts/${filename}`;
+      downloadUrl =`/api/artifacts/${filename}`;
     
       console.log(downloadUrl)
 
