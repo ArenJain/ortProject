@@ -22,23 +22,32 @@ export default function ScanForm2() {
   const [step, setStep] = useState(1);
   const [repoUrl, setRepoUrl] = useState("");
   const [projectName, setProjectName] = useState("");
-  const [policies, setPolicies] = useState<Record<string, string[]>>(defaultPolicies);
+  const [policies, setPolicies] =
+    useState<Record<string, string[]>>(defaultPolicies);
   const [tstatus, setTstatus] = useState<Status>("idle");
   const [isExporting, setIsExporting] = useState(false);
   const [message, setMessage] = useState("");
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const [scanId, setScanId] = useState<number>(0);
+  const [enabled, setEnabled] = useState(false);
 
   const isSubmitting = tstatus === "submitting";
 
-  const handleLicenseChange = (severity: string, index: number, value: string) => {
+  const handleLicenseChange = (
+    severity: string,
+    index: number,
+    value: string
+  ) => {
     const updated = [...(policies[severity] || [])];
     updated[index] = value;
     setPolicies({ ...policies, [severity]: updated });
   };
 
   const addLicense = (severity: string) => {
-    setPolicies({ ...policies, [severity]: [...(policies[severity] || []), ""] });
+    setPolicies({
+      ...policies,
+      [severity]: [...(policies[severity] || []), ""],
+    });
   };
 
   const deleteLicense = (severity: string, index: number) => {
@@ -94,7 +103,9 @@ export default function ScanForm2() {
         }
       );
 
-      const blob = new Blob([response.data], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+      const blob = new Blob([response.data], {
+        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      });
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
@@ -114,7 +125,9 @@ export default function ScanForm2() {
     <div className="flex flex-col h-full w-full p-8 bg-white rounded-xl shadow-sm overflow-y-auto">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-semibold text-gray-800">
-          {step === 1 ? "🔍 Create Project Scan" : "🛡️ Customize License Policies"}
+          {step === 1
+            ? "🔍 Create Project Scan"
+            : "🛡️ Customize License Policies"}
         </h1>
       </div>
 
@@ -145,6 +158,24 @@ export default function ScanForm2() {
               onChange={(e) => setProjectName(e.target.value)}
             />
           </div>
+          <div className="flex items-center space-x-4">
+            <span className="text-sm font-medium text-gray-700">
+              Include Transitive Dependency
+            </span>
+
+            <button
+              onClick={() => setEnabled(!enabled)}
+              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300 ${
+                enabled ? "bg-green-600" : "bg-gray-300"
+              }`}
+            >
+              <span
+                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-300 ${
+                  enabled ? "translate-x-6" : "translate-x-1"
+                }`}
+              />
+            </button>
+          </div>
 
           <button
             onClick={() => setStep(2)}
@@ -161,24 +192,29 @@ export default function ScanForm2() {
             <div key={severity}>
               <h2 className="font-semibold text-md mb-2">{severity}</h2>
               <div className="flex-col">
-              <div className="flex flex-wrap gap-2">
-                {licenses.map((license, index) => (
-                  <div key={index} className="flex items-center gap-1 border rounded px-2 py-1 bg-gray-100">
-                    <input
-                      type="text"
-                      className="border-none bg-transparent text-sm w-28"
-                      value={license}
-                      onChange={(e) => handleLicenseChange(severity, index, e.target.value)}
-                    />
-                    <button
-                      type="button"
-                      onClick={() => deleteLicense(severity, index)}
-                      className="text-red-500 hover:text-red-700"
+                <div className="flex flex-wrap gap-2">
+                  {licenses.map((license, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-1 border rounded px-2 py-1 bg-gray-100"
                     >
-                      <X className="w-3 h-3" />
-                    </button>
-                  </div>
-                ))}
+                      <input
+                        type="text"
+                        className="border-none bg-transparent text-sm w-28"
+                        value={license}
+                        onChange={(e) =>
+                          handleLicenseChange(severity, index, e.target.value)
+                        }
+                      />
+                      <button
+                        type="button"
+                        onClick={() => deleteLicense(severity, index)}
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        <X className="w-3 h-3" />
+                      </button>
+                    </div>
+                  ))}
                 </div>
                 <button
                   type="button"
@@ -206,7 +242,11 @@ export default function ScanForm2() {
                 isSubmitting ? "bg-blue-400" : "bg-blue-600 hover:bg-blue-700"
               }`}
             >
-              {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : "Start Scan"}
+              {isSubmitting ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                "Start Scan"
+              )}
             </button>
           </div>
         </div>
